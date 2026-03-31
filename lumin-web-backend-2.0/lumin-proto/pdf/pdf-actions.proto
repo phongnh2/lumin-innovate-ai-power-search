@@ -1,0 +1,73 @@
+syntax = "proto3";
+package pdf.actions;
+
+// GRPC service definition
+service PDFActions {
+  rpc DownloadPDFs(DownloadPDFsInput) returns (stream DownloadPDFsPayload) {};
+}
+
+enum RotateAngle {
+  DEG_0 = 0;
+  DEG_90 = 1;
+  DEG_180 = 2;
+  DEG_270 = 3;
+}
+
+enum ManipulationTypeEnum {
+	ROTATE_PAGE = 0;
+	REMOVE_PAGE = 1;
+	MOVE_PAGE = 2;
+	INSERT_BLANK_PAGE = 3;
+	CROP_PAGE = 4;
+}
+
+message Annotation {
+  string xfdf = 1;
+}
+
+message ManipulationOption {
+  // RotatePageOption
+  optional RotateAngle angle = 1;
+  repeated int32 rotatePages = 2;
+  // CropPageOption
+  repeated int32 pageCrops = 3;
+  optional int32 top = 4;
+  optional int32 left = 5;
+  optional int32 right = 6;
+  optional int32 bottom = 7;
+  // RemovePageOption
+  repeated int32 pagesRemove = 8;
+  // MovePageOption
+  optional int32 pagesToMove = 9;
+  optional int32 insertBeforePage = 10;
+  // InsertBlankPageOption
+  repeated int32 insertPages = 11;
+}
+
+message Manipulation {
+  string type = 1;
+  ManipulationOption option = 2;
+}
+
+message SingleDocumentInput {
+  string id = 1;
+  string name = 2;
+  repeated Manipulation manipulations = 3;
+  string signedUrl = 4;
+  repeated Annotation annotations = 5;
+}
+
+message DownloadPDFsInput {
+  repeated SingleDocumentInput documents = 1;
+}
+
+message DownloadProgress {
+  string name = 1;
+  optional int32 percent = 2;
+  optional string destination = 3;
+}
+
+message DownloadPDFsPayload {
+  string step = 1;
+  DownloadProgress data = 2;
+}

@@ -1,0 +1,18 @@
+@mixin scrollbar-reskin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) transparent;
+  &::-webkit-scrollbar {
+    width: var(--kiwi-spacing-1-25);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: var(--kiwi-border-radius-lg);
+    border: var(--kiwi-spacing-0-25) solid transparent;
+    background-clip: padding-box;
+  }
+}

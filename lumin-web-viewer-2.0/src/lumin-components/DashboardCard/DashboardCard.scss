@@ -1,0 +1,128 @@
+@import '../../constants/lumin-styles.scss';
+
+.Dashboard__Card {
+  padding: 0 ;
+  background-color: var(--color-primary-80);
+  box-shadow: var(--shadow-xs);
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  &--comment {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-neutral-30); 
+    @include tablet-up {
+      min-height: 366px;
+    }
+  }
+}
+
+.Dashboard__CardTop {
+  height: 48px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary-70);
+  @include mobile {
+    padding: 12px 16px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+  &--comment {
+    border-bottom: 1px solid var(--color-neutral-30);
+    @include mobile {
+      padding: 12px 16px;
+      height: 40px;
+      box-sizing: border-box;
+    }
+  }
+}
+.Dashboard__CardTop-Icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: $aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $dark-sky-blue;
+  @include mobile {
+    width: 32px;
+    height: 32px;
+    & > i:before {
+      font-size: 16px;
+    }
+  }
+
+}
+.Dashboard__CardTop-Title {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  @include small-desktop {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  @include mobile {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0;
+    margin: 0;
+  }
+  &--comment {
+    color: var(--color-neutral-100);
+  }
+}
+
+.Dashboard__CardTop-Title--larger-title {
+  @include mobile {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.Dashboard__CardTop-Link {
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  @include mobile {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.Dashboard__CardTop-icon {
+  &::before {
+    display: inline-block;
+    margin: 0 8px 0 12px;
+  }
+}
+.Dashboard__CardTop--rightText {
+  margin-bottom: 4px;
+}
+.Dashboard__CardBody {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include mobile() {
+    padding: 12px 16px 16px;
+  }
+}
+
+.Dashboard__Vertical {
+  display: grid;
+  grid-template-columns: auto minmax(min-content, 40%);
+  column-gap: 34px;
+  @include tablet-up {
+    column-gap: 64px;
+  }
+  @include small-desktop {
+    column-gap: 98px;
+  }
+}

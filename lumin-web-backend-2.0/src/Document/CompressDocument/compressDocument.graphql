@@ -1,0 +1,20 @@
+input CompressOptionsInput {
+  compressLevel: String!
+  isDownSample: Boolean!
+  dpiImage: Int!
+  isEmbedFont: Boolean!
+  isSubsetFont: Boolean!
+  removeAnnotation: Boolean!
+  removeDocInfo: Boolean!
+  documentPassword: String
+}
+
+input GetCompressDocumentPresignedUrlInput {
+  sessionId: String!
+  documentId: ID! @MongoId(key: "documentId")
+  compressOptions: CompressOptionsInput
+}
+
+type Query {
+  getCompressDocumentPresignedUrl(input: GetCompressDocumentPresignedUrlInput!): ISignedUrl
+}

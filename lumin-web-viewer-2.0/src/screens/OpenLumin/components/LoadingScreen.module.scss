@@ -1,0 +1,12 @@
+.title {
+  @include kiwi-typography-title-md;
+}
+
+.message {
+  @include kiwi-typography-body-md;
+}
+
+.logo {
+  max-width: 120px;
+  width: 100%;
+}

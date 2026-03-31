@@ -1,0 +1,47 @@
+input ProcessDocumentForChatbotInput {
+  documentId: ID! @MongoId(key: "documentId")
+  requestNewPutObjectUrl: Boolean
+}
+
+type ProcessDocumentForChatbotPayload {
+  needToUpload: Boolean
+  putObjectUrl: String
+}
+
+input GetPresignedUrlForAttachedFilesInput {
+  documentId: ID! @MongoId(key: "documentId")
+  attachedFileId: String
+}
+
+type GetPresignedUrlForAttachedFilesPayload {
+  presignedUrl: String
+}
+
+input SaveAttachedFilesMetadataInput {
+  chatSessionId: String!
+  s3RemoteId: String!
+  etag: String!
+  totalPages: Int!
+}
+
+
+input CheckAttachedFilesMetadataInput {
+  chatSessionId: String!
+  etag: String!
+}
+
+type CheckAttachedFilesMetadataPayload {
+  etag: String!
+  isExist: Boolean!
+}
+
+type Query {
+  processDocumentForChatbot(input: ProcessDocumentForChatbotInput!): ProcessDocumentForChatbotPayload
+  getPresignedUrlForAttachedFiles(input: GetPresignedUrlForAttachedFilesInput!): GetPresignedUrlForAttachedFilesPayload
+  checkAttachedFilesMetadata(input: CheckAttachedFilesMetadataInput!): CheckAttachedFilesMetadataPayload!
+}
+
+type Mutation {
+  saveAttachedFilesMetadata(input: SaveAttachedFilesMetadataInput!): BasicResponseData
+}
+

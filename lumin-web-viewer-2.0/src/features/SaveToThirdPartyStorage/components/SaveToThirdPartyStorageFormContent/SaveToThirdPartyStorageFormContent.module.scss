@@ -1,0 +1,15 @@
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.documentName {
+  font-weight: 700;
+}
+
+.fieldLabel {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-bottom: var(--kiwi-spacing-0-5);
+}

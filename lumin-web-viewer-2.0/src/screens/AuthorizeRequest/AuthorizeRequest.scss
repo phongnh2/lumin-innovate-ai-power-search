@@ -1,0 +1,51 @@
+@import "../../constants/lumin-styles";
+
+.AuthorizeRequest__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: calc(100vh - 65px);
+  padding-top: 65px;
+}
+
+.AuthorizeRequest__container {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.AuthorizeRequest__img {
+  max-width: 100%;
+  @include mobile () {
+    max-width: 220px;
+  }
+}
+.AuthorizeRequest__title {
+  margin-top: 56px;
+  margin-bottom: 16px;
+  font-family: $font-stack-montserrat;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: $primary;
+  @include mobile () {
+    font-size: 18px;
+    margin-top: 32px;
+  }
+}
+.AuthorizeRequest__subTitle {
+  font-family: $font-stack-primary;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.39px;
+  color: $secondary;
+  margin-top: 0;
+  margin-bottom: 32px;
+  @include mobile () {
+    font-size: 14px;
+  }
+}
+.AuthorizeRequest__btn {
+  max-width: 182px;
+}

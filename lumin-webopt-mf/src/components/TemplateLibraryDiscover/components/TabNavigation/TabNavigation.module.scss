@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  justify-content: center;
+  position: relative;
+}
+
+.tab {
+  position: relative;
+  padding-bottom: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: var(--kiwi-colors-core-secondary);
+  text-align: center;
+
+  @include kiwi-typography-headline-xl;
+
+  &:hover {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+
+  &Active {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+}
+
+.indicator {
+  top: calc(100% - 10px);
+  left: 0;
+  position: absolute;
+  height: 2px;
+  background-color: var(--kiwi-colors-surface-on-surface);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

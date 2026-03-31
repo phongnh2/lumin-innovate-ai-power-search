@@ -1,0 +1,70 @@
+
+@import '../../constants/lumin-styles';
+
+.SegmentButtons {
+  display: flex;
+  height: 40px;
+  border: 1px solid $cloudyblue;
+  border-radius: 4px;
+  margin: 24px auto;
+  @include mobile {
+    width: 100%;
+    margin: 16px auto;
+  }
+}
+
+.SegmentButtons__item {
+  display: flex;
+  border: 1px solid $cloudyblue;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  font-family: $font-stack-primary;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: $secondary;
+  transition: all 0.25s;
+  text-align: center;
+  outline: 0;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include mobile {
+    padding: 12px;
+  }
+}
+
+.SegmentButtons__item--active {
+  background: $tabActiveColor;
+  border-color: $cloudyblue;
+  color: $primary;
+  box-shadow: inset 0 1px 5px 0 rgba(128, 147, 167, 0.2), inset 0 3px 1px 0 rgba(128, 147, 167, 0.12), inset 0 2px 2px 0 rgba(128, 147, 167, 0.14);
+}
+
+.SegmentButtons__item--disabled {
+  opacity: 0.5;
+  cursor: none;
+  pointer-events: none;
+}
+
+.SegmentButtons__text {
+  background: none;
+  border: none;
+  
+}
+
+.SegmentButtons__text--pc {
+  display: block;
+  @include mobile {
+    display: none;
+  }
+}
+.SegmentButtons__text--mb {
+  display: none;
+  @include mobile {
+    display: block;
+  }
+}

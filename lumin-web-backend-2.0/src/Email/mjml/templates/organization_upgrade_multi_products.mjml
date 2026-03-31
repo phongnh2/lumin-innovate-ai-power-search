@@ -1,0 +1,55 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Welcome to Lumin PDF {{pdfPlan}} and Lumin Sign {{signPlan}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Your subscription for&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;is now active.</mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>With the premium subscription, you'll have access to our extensive range of features including:</mj-text>
+          <mj-text>
+            <mj-raw>
+              <ul class="list">
+                {{#if (eq pdfPlan 'Starter')}}
+                  <li>signatures and commenting features</li>
+                  <li>Unlimited Workspace invites</li>
+                {{else}}
+                  {{#if (eq pdfPlan 'Pro')}}
+                    <li>Edit raw PDF text</li>
+                    <li>The ability to split or merge documents to meet your needs</li>
+                  {{else}}
+                    {{#if (eq pdfPlan 'Business')}}
+                      <li>The redaction tool</li>
+                      <li>A dedicated success manager</li>
+                    {{else}}
+                      <li>A dedicated success manager</li>
+                      <li>Unlimited documents</li>
+                    {{/if}}
+                  {{/if}}
+                {{/if}}
+                {{#if (eq signPlan 'Pro')}}
+                  <li>Send 100 docs/month with each seat</li>
+                  <li>Certificate of completion</li>
+                {{/if}}
+              </ul>
+            </mj-raw>
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-button href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard" align="left">{{orgWord}}'s Dashboard</mj-button>
+          <mj-spacer height="24px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

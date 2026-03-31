@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package common;
+
+message User {
+  string _id = 1;
+  string email = 2;
+  string name = 3;
+  string avatarRemoteId = 4;
+  int64 storageSize = 5;
+  int64 usedStorage = 6;
+  string lastLogin = 7;
+  string createdAt = 8;
+  bool isNotify = 9;
+  string loginType = 10;
+  int32 timezoneOffset = 11;
+  bool isVerified = 12;
+  string deletedAt = 13;
+  bool isAdmin = 14;
+  string origin = 15;
+  string identityId = 16;
+  string loginService = 17;
+  UserMetadata metadata = 18;
+  optional string lastAccessedOrgUrl = 19;
+  bool isTermsOfUseVersionChanged = 20;
+  UserSetting setting = 21;
+  bool isPopularDomain = 22;
+}
+
+
+message Error {
+  string message = 1;
+  string code = 2;
+  Metadata metadata = 3;
+}
+
+message Metadata {
+  string loginService = 1;
+  string remainingTime = 2;
+}
+
+message RequestAuthHeader {
+  string authorizationV2 = 1;
+}
+
+message UserMetadata {
+  bool isAgreementTourGuideVisible = 1;
+  bool hasConfirmedAgreementUserConsent = 2;
+  string acceptedTermsOfUseVersion = 3;
+}
+
+message UserSetting {
+  bool marketingEmail = 1;
+  bool subscriptionEmail = 2;
+  bool otherEmail = 3;
+  bool featureUpdateEmail = 4;
+  bool dataCollection = 5;
+  DocumentEmail documentEmail = 6;
+  OrganizationEmail organizationEmail = 7;
+  string defaultWorkspace = 8;
+}
+
+message DocumentEmail {
+  bool shareDocument = 1;
+  bool commentDocument = 2;
+  bool replyCommentDocument = 3;
+  bool mentionCommentDocument = 4;
+  bool requestAccessDocument = 5;
+}
+
+message OrganizationEmail {
+  bool inviteToOrganization = 1;
+  bool inviteToOrganizationTeam = 2;
+}

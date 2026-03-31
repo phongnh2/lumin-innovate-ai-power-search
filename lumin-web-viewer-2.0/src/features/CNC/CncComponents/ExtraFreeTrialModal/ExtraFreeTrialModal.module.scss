@@ -1,0 +1,83 @@
+
+.itemWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: var(--color-neutral-0);
+  border-radius: var(--border-radius-primary);
+  height: 60px;
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+
+.listItem {
+  width: 100%;
+  margin-top: 8px;
+  padding-bottom: 4px;
+}
+
+.itemEmail {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+}
+
+.itemInfo {
+  margin-left: 12px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  max-height: 396px;
+  overflow-y: scroll;
+  margin-top: var(--kiwi-spacing-2);
+}
+
+.checkbox {
+  padding: 0;
+  flex-shrink: 0;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.headerWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 16px;
+}
+
+.header {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.headerItem {
+  display: flex;
+  gap: 4px
+}
+
+.selectedText {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  text-align: right;
+}
+
+.itemName {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  word-break: break-word;
+  margin-bottom: 4px;
+}

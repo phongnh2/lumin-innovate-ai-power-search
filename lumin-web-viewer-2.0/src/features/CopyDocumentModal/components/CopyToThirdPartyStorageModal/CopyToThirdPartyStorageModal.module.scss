@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-3);
+}
+
+.header {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-2);
+}

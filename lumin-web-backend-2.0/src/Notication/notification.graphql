@@ -1,0 +1,100 @@
+enum NotificationTab {
+  GENERAL,
+  INVITES,
+  REQUESTS,
+}
+
+enum NotificationProduct {
+  LUMIN_PDF,
+  LUMIN_SIGN,
+}
+
+type Notification {
+  _id: String
+  actor: Actor
+  notificationType: String
+  target: Target
+  is_read: Boolean
+  actionType: Int
+  createdAt: Date
+  entity: Entity
+  tab: NotificationTab
+  product: NotificationProduct
+  metadata: Object
+}
+
+type NotificationPayload {
+  notifications: [Notification]
+  cursor: String
+  hasNextPage: Boolean
+}
+
+type Actor {
+  id: String
+  name: String
+  type: String
+  avatarRemoteId: String
+  actorData: Object
+}
+
+type Entity {
+  id: String
+  name: String
+  type: String
+  avatarRemoteId: String
+  entityData: Object
+}
+
+type Target {
+  targetId: String
+  type: String
+  targetName: String
+  targetData: Object
+}
+
+type NewNotificationTabData {
+  hasNewNoti: Boolean
+  unreadCount: Int
+}
+
+type NewNotificationsData {
+  general: NewNotificationTabData
+  invites: NewNotificationTabData
+  requests: NewNotificationTabData
+}
+
+input ReadNotificationsInput {
+  notificationIds: [ID]
+}
+input NewNotificationInput {
+  userId: ID @MongoId
+}
+input DeleteNotificationInput {
+  userId: ID @MongoId
+}
+
+input GetNotificationsInput {
+  tab: NotificationTab!
+  cursor: String
+}
+
+type DeleteNotificationPayload {
+  notificationId: String,
+  tab: NotificationTab
+}
+
+type Query {
+  notifications(input: GetNotificationsInput, cursor: String): NotificationPayload
+  getNotificationById(notificationId: ID! @MongoId(key: "notificationId")): Notification
+}
+
+type Subscription {
+  newNotification(input: NewNotificationInput!): Notification
+  deleteNotification(input: DeleteNotificationInput!): DeleteNotificationPayload
+}
+
+
+type Mutation {
+  readNotifications(input: ReadNotificationsInput!): BasicResponse
+  readAllNotifications: BasicResponse
+}

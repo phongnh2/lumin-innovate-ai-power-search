@@ -1,0 +1,16 @@
+.labelWrapper {
+  padding: var(--kiwi-spacing-0-25) 0;
+  margin-bottom: var(--kiwi-spacing-0-5);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.error {
+  color: var(--kiwi-colors-semantic-error);
+  margin-top: var(--kiwi-spacing-0-5);
+}
+
+.input {
+  &:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}

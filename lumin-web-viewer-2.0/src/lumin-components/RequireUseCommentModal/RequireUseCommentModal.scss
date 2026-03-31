@@ -1,0 +1,85 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import "../../constants/modal";
+
+.RequireUseCommentModal {
+  @extend %modal;
+
+  .container {
+    @extend %modal-shared-container-style;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--border-radius-primary);
+    padding: 24px;
+    width: 400px;
+    position: relative;
+
+    @include themify {
+      box-shadow: themed("modalShadow");
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    .container-icon {
+      @include themify {
+        color: themed("textColorLighter");
+      }
+
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 8px;
+
+      @include themify {
+        color: themed("textColor");
+      }
+    }
+
+    .message {
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 16px;
+
+      @include themify {
+        color: themed("textColorLighter");
+      }
+    }
+
+    .button-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .button-wrapper--one-column {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

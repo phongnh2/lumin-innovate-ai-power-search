@@ -1,0 +1,84 @@
+@import "../../constants/lumin-styles";
+
+.EditPanelRotate {
+  width: 100%;
+  font-family: $font-stack-primary;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.34px;
+  font-weight: 600;
+  strong {
+    font-weight: 600;
+  }
+
+  &__desc {
+    margin: 16px 0;
+    line-height: 12px;
+    font-weight: 375;
+    font-size: 10px;
+    @include themify() {
+      color: themed('textManipulation');
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    @include themify() {
+      color: themed('textManipulation');
+    }
+  }
+
+  &__sub-title {
+    margin-bottom: 4px;
+    line-height: 16px;
+    font-weight: 375;
+    font-size: 12px;
+    @include themify() {
+      color: themed('textSearchValue');
+    }
+    span {
+      @include themify() {
+        color: themed('textColorLighter');
+      }
+    }
+    &--lighter {
+      @include themify() {
+        color: themed('panelNoItemText');
+      }
+    }
+  }
+
+  &__content {
+    padding: 16px;
+    @include themify() {
+      background-color: themed('pageToolInputWrapperBg');
+    }
+    transition: background-color .3s ease;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    input {
+      min-width: 210px;
+    }
+    .LuminInput__error-message {
+      width: 284px;
+    }
+  }
+
+  &__input-form {  
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,68 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.thumbnailWrapper {
+  width: 100%;
+  height: 0;
+  padding-bottom: 141%;
+  position: relative;
+  border-radius: 8px;
+}
+
+.thumbnailSkeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.categoriesSkeleton {
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+  margin: 4px 0 0;
+}
+
+.chipSkeleton {
+  width: 60px;
+  height: 20px;
+  border-radius: var(--kiwi-border-radius-full);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.titleSkeleton {
+  width: 80%;
+  height: 16px;
+  border-radius: var(--kiwi-border-radius-xs);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  margin: 4px 0 0;
+}
+
+.descriptionSkeleton {
+  width: 60%;
+  height: 14px;
+  border-radius: var(--kiwi-border-radius-xs);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  margin: 4px 0 0;
+}

@@ -1,0 +1,34 @@
+.container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 240px;
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-surface-container-high);
+  border-right: none;
+  border-radius: var(--kiwi-border-radius-md) 0 0 var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+  transition: width var(--default-web-transition-duration) ease-in-out;
+
+  &[data-collapsed='true'] {
+    width: 36px;
+    overflow: hidden;
+  }
+}
+
+.content {
+  &[data-collapsed='true'] {
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+.text {
+  opacity: 1;
+  visibility: visible;
+
+  &[data-collapsed='true'] {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

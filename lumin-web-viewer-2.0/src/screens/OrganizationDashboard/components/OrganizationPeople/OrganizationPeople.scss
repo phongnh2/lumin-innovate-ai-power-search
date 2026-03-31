@@ -1,0 +1,66 @@
+@import "../../../../constants/lumin-styles";
+
+.OrganizationMembers__tabList {
+  display: flex;
+  justify-content: space-between;
+  @include mobile() {
+    flex-wrap: wrap;
+  }
+}
+
+.OrganizationMembers__subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.OrgMemberSegmentTab__wrapper {
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.OrgMemberSegmentTab__searchWrapper { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 48px;
+}
+
+.OrgMemberSegmentTab__btn {
+  padding: 0 12px;
+  height: 40px;
+  text-transform: none;
+  min-width: 152px;
+  @include small-desktop() {
+    min-width: 140px;
+  }
+  @include mobile() {
+    min-width: unset;
+  }
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: $secondary;
+    &.text {
+      padding-left: 5px;
+    }
+  }
+}
+
+.OrgMemberSegmentTab__btn--blue {
+  background: $royalblue ;
+  border: 2px solid $royalblue ;
+  span.text {
+    color: $white;
+  }
+  &:hover {
+    background: $royalblue;
+  }
+}

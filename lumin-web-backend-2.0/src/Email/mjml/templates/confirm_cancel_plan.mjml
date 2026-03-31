@@ -1,0 +1,39 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your subscription will end on {{dateEnd}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            This is a friendly reminder  that your Professional subscription will end on&nbsp;<b class="text-highlight">{{dateEnd}}.</b>
+          </mj-text>
+          <mj-text>
+            Until then, you can keep enjoying Lumin Premium features.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            After that, your Lumin plan will be downgraded to the Free plan. Reactivate your subscription any time before&nbsp;<b class="text-highlight">{{dateEnd}}&nbsp;</b>to retain Premium features.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/setting/billing">Reactivate Subscription</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Without further action, you may experience the following limitations:
+          </mj-text>
+          <mj-text>
+            <ul class="list">
+              <li style="margin-bottom: 4px">Documents are only stored for one year</li>
+              <li style="margin-bottom: 4px">Doc stack is limited to 3 documents per month</li>
+              <li style="margin-bottom: 4px">E-signature and commenting features are disabled</li>
+            </ul>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

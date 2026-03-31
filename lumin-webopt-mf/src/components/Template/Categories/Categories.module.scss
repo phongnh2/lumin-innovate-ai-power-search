@@ -1,0 +1,23 @@
+.containerBadge {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin-top: 16px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.firstChip {
+  flex-shrink: 0;
+}
+
+.secondChip {
+  min-width: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+
+  > span {
+    display: block;
+    max-width: 100%;
+  }
+}

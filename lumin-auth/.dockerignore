@@ -1,0 +1,13 @@
+kratos/Dockerfile
+kratos/kratos.yml
+.git
+.results
+scripts
+*Dockerfile*
+node_modules
+.env*
+bitbucket-pipelines.yml
+# ./kratos
+.next
+.vscode
+.husky

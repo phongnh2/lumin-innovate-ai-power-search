@@ -1,0 +1,41 @@
+{{#> layout }}
+<mj-raw>
+  \{{if .Identity.traits.fromInvitation}}
+</mj-raw>
+<mj-text>
+  <h3>Your email address has been confirmed</h3>
+</mj-text>
+<mj-spacer height="12px" />
+<mj-text>
+  Your email address has been verified successfully. Start collaborating with your team and get stuff done in <span style="color: #F2385A">Lumin</span>.
+</mj-text>
+<mj-raw>
+  \{{else}}
+</mj-raw>
+
+<mj-text>
+  <h3>Confirm Your Email Address</h3>
+</mj-text>
+
+<mj-spacer height="12px" />
+<mj-text>
+  Click the button below to confirm your email address.
+  If you didn't create an account with Lumin, you can safely delete this email.
+</mj-text>
+
+<mj-spacer height="32px" />
+<mj-button align="left" href="{{ verificationUrl }}">
+  Confirm Email
+</mj-button>
+
+<mj-spacer height="32px" />
+<mj-text mj-class="text-neutral-70">If that doesn't work, you can access the following link:</mj-text>
+<mj-text mj-class="text-secondary-50 font-medium underline">
+  <a href="{{ verificationUrl }}">
+    {{ verificationUrl }}
+  </a>
+</mj-text>
+<mj-raw>
+  \{{end}}
+</mj-raw>
+{{/layout}}

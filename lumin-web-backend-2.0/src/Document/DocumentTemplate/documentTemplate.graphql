@@ -1,0 +1,45 @@
+input UpdateDocumentTemplateListInput {
+  clientId: ID! @MongoId
+}
+
+input DeleteDocumentTemplateInput {
+  documentId: ID! @MongoId
+  clientId: ID! @MongoId
+}
+
+type UpdateDocumentTemplateListPayload {
+  teamId: ID
+  organizationId: ID
+  clientId: ID!
+  document: DocumentTemplate!
+  type: String!
+  statusCode: Int!
+}
+
+type DeleteDocumentTemplatePayload {
+  statusCode: Int!
+  teamId: ID
+  organizationId: ID
+  clientId: ID!
+  documentTemplateId: ID!
+  type: String!
+}
+
+type Mutation {
+  deleteDocumentTemplate(input: DeleteDocumentTemplateInput!): BasicResponse
+  createDocumentFromDocumentTemplate(input: CreateDocumentFromDocumentTemplateInput!): Document
+}
+
+input CreateDocumentFromDocumentTemplateInput {
+  documentId: ID! @MongoId
+  destinationId: ID! @MongoId
+}
+
+type Subscription {
+  updateDocumentTemplateList(input: UpdateDocumentTemplateListInput!): UpdateDocumentTemplateListPayload
+  deleteDocumentTemplate(clientId: ID! @MongoId(key: "clientId")): DeleteDocumentTemplatePayload
+}
+
+type Query {
+  documentTemplate(documentId: ID!): DocumentTemplate!
+}

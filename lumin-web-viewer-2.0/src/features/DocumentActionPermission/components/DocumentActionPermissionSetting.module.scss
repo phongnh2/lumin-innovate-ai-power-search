@@ -1,0 +1,11 @@
+.input {
+  @include kiwi-typography-body-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--kiwi-spacing-0-25);
+}

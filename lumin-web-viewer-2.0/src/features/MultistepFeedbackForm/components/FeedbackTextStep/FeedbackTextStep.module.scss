@@ -1,0 +1,13 @@
+.textareaContainer {
+  margin-bottom: var(--kiwi-spacing-3);
+  flex-shrink: 0;
+}
+
+.textareaWrapper {
+  background: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.footerButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}

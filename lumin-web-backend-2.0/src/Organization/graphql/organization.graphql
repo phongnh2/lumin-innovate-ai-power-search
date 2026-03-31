@@ -1,0 +1,904 @@
+enum OrganizationRole {
+  ALL
+  ORGANIZATION_ADMIN
+  BILLING_MODERATOR
+  MEMBER
+  TEAM_ADMIN
+}
+
+enum OrganizationRoleInvite {
+  BILLING_MODERATOR
+  MEMBER
+}
+
+enum WorkspaceTemplate {
+  ORGANIZATION
+  PERSONAL
+}
+enum TeamTemplateWorkspace {
+  ORGANIZATION_TEAM
+  PERSONAL
+}
+enum TypeRequestOrganization {
+  ORGANIZATION
+  INVITE_ORGANIZATION
+}
+
+enum MemberTypeOrganization {
+  MEMBER
+  GUEST
+  PENDING
+  REQUEST
+}
+
+enum DocumentType {
+  ORGANIZATION
+  ORGANIZATION_TEAM
+}
+
+enum OrganizationDomainType {
+  POPULAR_DOMAIN
+  BLACKLIST_DOMAIN
+  EXISTED_DOMAIN
+  ASSCOCIATE_DOMAIN
+}
+
+enum DomainVisibilitySetting {
+  INVITE_ONLY
+  VISIBLE_AUTO_APPROVE
+  VISIBLE_NEED_APPROVE
+}
+
+enum JoinOrganizationStatus {
+  CAN_JOIN
+  CAN_REQUEST
+  PENDING_INVITE
+  REQUESTED
+}
+
+enum RejectType {
+  NORMAL
+  FOREVER
+}
+
+enum OrganizationTemplateTabs {
+  ORGANIZATION
+  ORGANIZATION_ALL
+  ORGANIZATION_PERSONAL
+}
+
+enum CreateOrganizationSubscriptionPlans {
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+}
+
+enum UpgradeOrganizationSubscriptionPlans {
+  BUSINESS
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+}
+
+enum OrganizationPurpose {
+  PERSONAL
+  WORK
+  EDUCATION
+}
+
+enum InviteUsersSetting {
+  ANYONE_CAN_INVITE
+  ADMIN_BILLING_CAN_INVITE
+}
+
+enum AvatarSuggestionSource {
+  external_logo
+}
+
+input PaginationOption {
+  nameSort: SortStrategy
+  emailSort: SortStrategy
+  joinSort: SortStrategy
+  lastActivitySort: SortStrategy
+  roleSort: OrganizationRole
+}
+
+input GetRequesterInput {
+  orgId: ID! @MongoId
+  limit: Int!
+  offset: Int!
+  option: PaginationRequesterOption
+  searchKey: String
+}
+
+input PaginationRequesterOption {
+  nameSort: SortStrategy
+  requestDateSort: SortStrategy
+}
+
+input GetMemberInput {
+  orgId: ID! @MongoId
+  limit: Int!
+  offset: Int!
+  option: PaginationOption
+  searchKey: String @IsEmail @Length(min: 1, max: 100)
+}
+
+
+input OrganizationOtherSettingsInput {
+  guestInvite: String
+}
+
+input InviteToOrganizationInput {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  role: OrganizationRoleInvite
+}
+
+input PendingUserOrganizationInput {
+  orgId: ID! @MongoId
+  limit: Int!
+  offset: Int!
+  option: PaginationPendingTabOption
+  searchKey: String
+}
+
+input PaginationPendingTabOption {
+  emailSort: SortStrategy
+}
+
+input OrganizationProfileInput {
+  name: String! @NotIncludes(patterns: ["html", "url"]) @Length(min: 1, max: 100)
+}
+
+input MemberRole {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  role: OrganizationRole!
+}
+
+input SetOrganizationMembersRoleInput {
+  orgId: ID! @MongoId
+  members: [MemberRole!]!
+}
+
+input AddMemberOrgTeamInput {
+  luminUsers: [MembershipInput]
+}
+
+input TransferTeamAdminInput {
+  teamId: ID!
+  targetUserId: ID!
+}
+
+input TransferTeamsOwnershipInput {
+  teams: [TransferTeamAdminInput!]
+  orgId: ID!
+  adminId: ID!
+}
+
+input CreateOrganizationFolderInput {
+  name: String! @MaxLength(max: 255)
+  color: String! @IsHexColor
+  orgId: ID!
+  parentId: ID
+  isNotify: Boolean
+}
+
+input CreateOrganizationTeamFolderInput {
+  name: String! @MaxLength(max: 255)
+  color: String! @IsHexColor
+  teamId: ID!
+  parentId: ID
+}
+
+input AddAssociateDomainInput {
+  orgId: ID! @MongoId
+  associateDomain: String!
+}
+
+input EditAssociateDomainInput {
+  orgId: ID! @MongoId
+  newAssociateDomain: String!
+  oldAssociateDomain: String!
+}
+
+input RemoveAssociateDomainInput {
+  orgId: ID! @MongoId
+  associateDomain: String!
+}
+
+input CreateOrganizationSubscriptionInput {
+  tokenId: String
+  plan: CreateOrganizationSubscriptionPlans!
+  period: PaymentPeriod!
+  currency: Currency!
+  couponCode: String
+  quantity: Int!
+  stripeAccountId: String
+  isBlockedPrepaidCardOnTrial: Boolean
+}
+
+input CreateUnifySubscriptionItem {
+  productName: UnifySubscriptionProduct!
+  planName: UnifySubscriptionPlan!
+  quantity: Int!
+}
+
+input CreateUnifySubscriptionInput {
+  paymentMethod: String
+  couponCode: String
+  stripeAccountId: String
+  period: PaymentPeriod!
+  currency: Currency!
+  subscriptionItems: [CreateUnifySubscriptionItem]!
+  isBlockedPrepaidCardOnTrial: Boolean
+}
+
+input UpgradeOrganizationSubscriptionInput {
+  plan: UpgradeOrganizationSubscriptionPlans!
+  period: PaymentPeriod!
+  quantity: Int!
+  sourceId: ID
+  couponCode: String
+  isBlockedPrepaidCardOnTrial: Boolean
+}
+
+input PreviewUpcomingDocStackInvoiceInput {
+  orgId: ID! @MongoId
+  plan: DocStackPlan!
+  period: PaymentPeriod!
+  currency: Currency!
+  startTrial: Boolean
+  couponCode: String
+  stripeAccountId: String
+}
+
+input PreviewUpcomingSubscriptionInvoiceInput {
+  orgId: ID! @MongoId
+  period: PaymentPeriod!
+  currency: Currency!
+  couponCode: String
+  stripeAccountId: String
+  startTrial: Boolean
+  subscriptionItems: [CreateUnifySubscriptionItem!]!
+}
+
+input UploadDocumentToOrgInput {
+  orgId: ID! @MongoId(key: "orgId")
+  encodedUploadData: String!
+  documentName: String! @MaxLength(max: 255)
+  isNotify: Boolean
+  folderId: ID @MongoId(key: "folderId", isOptional: true)
+}
+
+input UploadDocumentToTeamInput {
+  teamId: ID! @MongoId(key: "teamId")
+  encodedUploadData: String!
+  documentName: String! @MaxLength(max: 255)
+  folderId: ID @MongoId(key: "folderId", isOptional: true)
+}
+
+enum UpdateSignWsPaymentActions {
+  ASSIGN_SEAT
+  UNASSIGN_SEAT
+  REACTIVATE_SUBSCRIPTION
+  RENEW_SUCCESS_SUBSCRIPTION
+  CANCELED_SUBSCRIPTION
+  REJECT_SIGN_SEAT_REQUEST
+}
+
+type CurrentPlansAmount {
+  productName: UnifySubscriptionProduct
+  amount: Int
+}
+
+type DiscountProducts {
+  productName: UnifySubscriptionProduct
+  planApplied: [String]
+}
+
+type PreviewDocStackInvoicePayload {
+  amountDue: Int
+  remaining: Int
+  total: Int
+  currentPlansAmount: [CurrentPlansAmount]
+  discount: Int
+  discountCode: String
+  discountDuration: String
+  nextBillingPrice: Int
+  previousBillingCycle: String
+  nextBillingCycle: String
+  quantity: Int
+  currency: Currency
+  creditBalance: Int
+  discountDescription: String
+  discountProducts: [DiscountProducts]
+  isUpgradeDocStackAnnual: Boolean
+}
+
+type PreviewUpcomingSubscriptionInvoicePayload {
+  amountDue: Int
+  remaining: Int
+  total: Int
+  currentPlansAmount: [CurrentPlansAmount]
+  discount: Int
+  discountCode: String
+  discountDuration: String
+  nextBillingPrice: Int
+  previousBillingCycle: String
+  nextBillingCycle: String
+  currency: Currency
+  creditBalance: Int
+  discountDescription: String
+  discountProducts: [DiscountProducts]
+  isUpgradePlanAnnual: Boolean
+  testClockFrozenTime: String
+}
+
+type ChangeOrganizationAvatarPayload {
+  avatarRemoteId: String
+}
+
+type DocStack {
+  totalUsed: Int
+  totalStack: Int
+}
+type SignDocStackStorage {
+  isOverDocStack: Boolean
+  totalUsed: Int
+  totalStack: Int
+  templateLimit: Int
+}
+
+type Organization {
+  _id: String
+  name: String
+  createdAt: Date
+  avatarRemoteId: String
+  owner: User
+  payment: Payment @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  billingEmail: String @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  url: String
+  domain: String
+  associateDomains: [String]
+  settings: OrganizationSettings
+  userRole(userId: ID): String
+  # deprecated
+  creationType: String
+  totalMember: Int
+  convertFromTeam: Boolean
+  teams: [Team]
+  totalTeam: Int
+  members(options: QueryOptionsInput): [User]
+  deletedAt: Date
+  hasPendingInvoice: Boolean
+  # deprecated
+  isUpgradingToEnterprise: Boolean
+  # deprecated
+  resetPassword: ResetPasswordRequired
+  folders: [Folder]
+  reachUploadDocLimit: Boolean
+  isMainOrgOfUser: Boolean
+  totalActiveMember: Int
+  # deprecated
+  isDefault: Boolean
+  docStackStorage: DocStack
+  purpose: OrganizationPurpose
+  isLastActiveOrg: Boolean
+  userPermissions: UserPermissions
+  isRestrictedBillingActions: Boolean
+  sso: OrganizationSso
+  totalSignSeats: Int
+  availableSignSeats: Int
+  premiumSignSeats: Int
+  hashedIpAddresses: [String]
+  signDocStackStorage: SignDocStackStorage
+  premiumSeats: [String]
+  isSignProSeat: Boolean
+  metadata: OrganizationMetadata
+}
+
+type OrganizationMetadata {
+  avatarSuggestion: OrganizationAvatarSuggestion
+  firstUserJoinedManually: Boolean
+  firstMemberInviteCollaborator: Boolean
+  hasProcessedIndexingDocuments: Boolean
+  promotions: [String]
+}
+
+type OrganizationAvatarSuggestion {
+  source: AvatarSuggestionSource
+  suggestionAvatarRemoteId: String
+  suggestedAt: Date
+}
+
+type UpdateSignSeatSubscriptionPayload {
+  action: UpdateSignWsPaymentActions
+}
+
+type ResetPasswordRequired {
+  isRequired: Boolean
+  actorEmail: String
+}
+
+type GetOrganizationPayload {
+  orgData: Organization
+  documentsAvailable: Boolean
+  actionCountDocStack: ActionCountDocStack
+  message: String
+  statusCode: Int
+  aiChatbotDailyLimit: Int
+}
+
+type ActionCountDocStack {
+  print: Boolean,
+  download: Boolean,
+  share: Boolean,
+  sync: Boolean,
+}
+
+type GetOrgTeamsPayload {
+  teams: [Team]
+}
+
+type GetRepresentativeMembersPayload {
+  representativeMembers: [User]
+  message: String
+  statusCode: Int
+}
+
+type OrganizationWithRole {
+  organization: Organization
+  role: String
+}
+
+type OrganizationSettings {
+  other: OrganizationOtherSettings
+  googleSignIn: Boolean
+  passwordStrength: String @deprecated(reason: "Password strength feature is planned to be removed")
+  templateWorkspace: String
+  domainVisibility: String
+  autoUpgrade: Boolean
+  # Deprecated
+  autoApprove: Boolean
+  inviteUsersSetting: InviteUsersSetting
+  samlSsoConfigurationId: String
+  scimSsoClientId: String
+}
+
+type UserPermissions {
+  canUseMultipleMerge: Boolean
+}
+
+type OrganizationOtherSettings {
+  guestInvite: String
+  hideMember: Boolean
+}
+
+type PageInfo {
+  hasNextPage: Boolean
+  offset: Int
+  limit: Int
+}
+
+type OrganizationMember {
+  role: String
+  lastActivity: Date
+  joinDate: Date
+  user: User!
+}
+
+type OrganizationMemberEdge {
+  node: OrganizationMember
+  cursor: String
+}
+type OrganizationRequesterEdge {
+  node: OrganizationRequester
+  cursor: String
+}
+
+type OrganizationRequester {
+  role: String
+  requestDate: Date
+  user: User
+}
+
+type OrganizationRequesterConnection {
+  totalRecord: Int
+  totalItem: Int
+  edges: [OrganizationRequesterEdge]
+  pageInfo: PageInfo
+}
+
+type OrganizationMemberConnection {
+  totalRecord: Int
+  totalItem: Int
+  edges: [OrganizationMemberEdge]
+  pageInfo: PageInfo
+}
+
+type GetListRequestJoinOrganizationPayload {
+  requesterList: [ListRequestJoinOrganization]
+}
+
+type ListRequestJoinOrganization {
+  avatar: String,
+  name: String
+  email: String
+  role: String
+  requestDate: Date
+}
+
+type OrganizationTotalCount {
+  member: Int
+  guest: Int
+  pending: Int
+  request: Int
+}
+
+type GetUserRoleInOrgPayload {
+  orgId: String
+  userId: String
+  role: String
+}
+
+
+input CreateOrganizationDocumentFormInput {
+  formId: ID! @MongoId
+  orgId: ID! @MongoId
+}
+
+type CreateOrganizationDocumentFormPayload {
+  documentId: String
+}
+
+type OrganizationPendingConnection {
+  totalRecord: Int
+  totalItem: Int
+  edges: [OrganizationPendingEdge]
+  pageInfo: PageInfo
+}
+
+type OrganizationPendingEdge {
+  node: OrganizationPending
+  cursor: String
+}
+
+type OrganizationPending {
+  _id: String
+  role: String
+  requestDate: Date
+  email: String
+  name: String
+}
+
+type OrganizationInfo {
+  members: [User]
+  totalMember: Int
+}
+
+type OrganizationProfilePayload {
+  data: Organization!
+  message: String!
+  statusCode: Int!
+}
+
+type UpdateOrganizationPayload {
+  organization: Organization
+  orgId: String
+  type: String
+}
+
+type UpdateOrganizationInviteLinkPayload {
+  inviteLink: OrganizationInviteLink
+  orgId: String
+  actorId: String
+}
+
+type RemoveOrgMemberPayload {
+  organization: Organization
+  actor: User
+}
+
+type UpdateOrgMemberRolePayload {
+  userId: String
+  orgId: String
+  type: String
+  actorName: String
+  role: String
+}
+type SubscriptionDeleteOrganizationPayload {
+  organization: Organization
+}
+
+type MemberPermission {
+  userId: String
+  name: String
+  avatarRemoteId: String
+  email: String
+  permission: DocumentRole
+  role: OrganizationRole
+}
+
+type GetOrganizationPricePayload {
+    pricePerUnit: Float
+    interval: String
+}
+
+type InviteMemberToOrganizationPayload {
+  message: String!
+  statusCode: Int!
+  organization: Organization!
+  invitations: [OrganizationMemberInvitation]
+  sameDomainEmails: [String]
+  notSameDomainEmails: [String]
+}
+
+type OrganizationMemberInvitation {
+  memberEmail: String
+  invitationId: String
+}
+
+input CreateOrganizationInput {
+  name: String! @NotIncludes(patterns: ["html", "url"]) @Length(min: 1, max: 100)
+  members: [InviteToOrganizationInput]
+  settings: OrganizationSettingInput
+  purpose: OrganizationPurpose
+}
+
+input OrganizationSettingInput {
+  domainVisibility: DomainVisibilitySetting
+}
+
+type ExportDomainPayload {
+  url: String!
+}
+
+type CreateOrganizationPayload {
+  message: String
+  statusCode: Int
+  organizations: [Organization]
+  organization: Organization @deprecated(reason: "This field is deprecated. Only support mobile.")
+  invitations: [OrganizationMemberInvitation]
+}
+
+type CreateOrganizationTeamPayload {
+  message: String
+  statusCode: Int
+  organizationTeam: Team
+}
+
+type DeleteOrganizationPayload {
+  message: String
+  statusCode: Int
+  organization: Organization
+}
+
+type ReactiveOrganizationPayload {
+  message: String
+  statusCode: Int
+  organization: Organization
+}
+
+type OrganizationCanJoinPayload {
+  _id: String
+  name: String
+  avatarRemoteId: String
+  joinStatus: JoinOrganizationStatus
+}
+
+type SubscriptionConvertOrganizationPayload {
+  orgId: String
+  type: String
+  url: String
+}
+
+type TransferTeamsOwnershipPayload {
+  teamsFailed: [String]!
+}
+
+type ForceResetPasswordPayload {
+  signOut: Boolean!
+}
+
+input GetOrganizationFoldersInput {
+  orgId: ID! @MongoId
+  sortOptions: FolderSortOptions
+  parentId: ID @MongoId
+  isStarredTab: Boolean
+  searchKey: String
+}
+
+input UpdateOrgTemplateWorkspaceInput {
+  orgId: ID! @MongoId
+  workspaceTemplate: WorkspaceTemplate
+}
+
+input GetOrganizationTeamFoldersInput {
+  teamId: ID! @MongoId
+  sortOptions: FolderSortOptions
+  parentId: ID @MongoId
+  isStarredTab: Boolean
+  searchKey: String
+}
+
+input GetRepresentativeMembersInput {
+  orgId: ID! @MongoId
+  teamId: ID @MongoId
+}
+
+type CheckMainOrgCreationAbilityPayload {
+  canCreate: Boolean
+  domainType: OrganizationDomainType
+}
+
+type OrganizationBasicResponse {
+  orgData: Organization
+  message: String
+  statusCode: Int
+}
+
+type RequestAccessEntity {
+  role: String
+  invitee: String
+}
+
+type RequestAccessPayload {
+  _id: String
+  actor: String
+  entity: RequestAccessEntity
+  target: String
+  createdAt: Date
+  type: String
+}
+
+type RequestJoinOrganizationPayload {
+  orgData: Organization
+  message: String
+  statusCode: Int
+  requestData: RequestAccessPayload
+  newOrg: Organization
+}
+
+type JoinOrganizationPayload {
+  organization: Organization
+}
+
+input RejectInvitationInput {
+  orgId: ID @MongoId
+  rejectType: RejectType
+  invitationId: ID! @MongoId
+  notificationId: ID! @MongoId
+}
+
+type AcceptInvitationPayload {
+  organization: Organization
+}
+
+input UploadPersonalDocumentInput {
+  orgId: ID! @MongoId
+  folderId: ID @MongoId(isOptional: true)
+  documentId: ID @MongoId(isOptional: true)
+}
+
+input UploadPersonalDocumentInputV2 {
+  orgId: ID! @MongoId
+  folderId: ID @MongoId(isOptional: true)
+  documentId: ID @MongoId(isOptional: true)
+  encodedUploadData: String!
+  fileName: String @MaxLength(max: 255)
+}
+
+input UploadThirdPartyDocumentsInput {
+  orgId: ID! @MongoId
+  folderId: ID @MongoId(isOptional: true)
+  documents: [DocumentInput!]!
+}
+
+type SubscriptionCancelTrialPayload {
+  organization: Organization
+}
+
+type OrganizationRequestingPayload {
+  _id: String
+  name: String
+  avatarRemoteId: String
+  isRequested: Boolean
+}
+
+type SubscriptionChangedDocStackPayload {
+  orgId: String!
+  docStackStorage: DocStack!
+  payment: Payment
+}
+
+type RetrieveOrganizationSetupIntentResponse {
+  clientSecret: String!
+  accountId: String!
+}
+
+input GetOrganizationResourcesInput {
+  orgId: ID! @MongoId(key: "orgId")
+  searchKey: String
+  cursor: String
+  # TODO validate range
+  limit: Int
+}
+
+type GetOrganizationResourcesPayload {
+  documents: [Document]
+  folders: [Folder]
+  cursor: String
+  total: Int
+}
+
+input GetOrganizationFolderTreeInput {
+  orgId: ID! @MongoId(key: "orgId")
+  teamIds: [ID!] @MongoId
+}
+
+input RequestSignSeatInput {
+  orgId: ID! @MongoId
+  requestMessage: String @Length(min: 0, max: 255) @NotIncludes(patterns: ["html", "url"])
+}
+
+type GetOrganizationFolderTreePayload {
+  children: [FolderChildrenTree]
+}
+
+input GetOrganizationTeamFolderTreeInput {
+  teamId: ID! @MongoId(key: "teamId")
+}
+
+type TeamFolderTree {
+  _id: String
+  name: String
+  children: [FolderChildrenTree]
+}
+
+type GetOrganizationTeamsFolderTreePayload {
+  teams: [TeamFolderTree]
+}
+
+type GetPersonalFolderTreePayload {
+  children: [FolderChildrenTree]
+}
+
+input RetrieveOrganizationSetupIntentV2Input {
+  orgId: ID! @MongoId(key: "orgId")
+  reCaptchaTokenV3: String!
+  type: RetrieveOrganizationSetupIntentType
+  reCaptchaAction: String!
+}
+
+type OrganizationSso {
+  createdBy: String!
+  ssoOrganizationId: String!
+  samlSsoConnectionId: String!
+  scimSsoClientId: String
+}
+
+# Queries and mutations for organization without org validation strategy
+type Query {
+  orgsOfUser: [OrganizationWithRole]
+  checkMainOrgCreationAbility: CheckMainOrgCreationAbilityPayload
+  getMainOrganizationCanJoin: OrganizationCanJoinPayload
+  # Deprecated
+  getMainOrganizationCanRequest: OrganizationRequestingPayload
+  getTeamsOfTeamAdmin(orgId: ID! @MongoId(key: "orgId"), userId: ID! @MongoId(key: "userId")): [Team]
+  getMembersOfTeam(teamId: ID !@MongoId(key: "teamId")): [Membership]
+}
+
+type Mutation {
+  createOrganization(organization: CreateOrganizationInput!, file: Upload, disableEmail: Boolean): CreateOrganizationPayload
+  requestJoinOrganization: RequestJoinOrganizationPayload
+  joinOrganization(orgId: ID! @MongoId(key: "orgId")): JoinOrganizationPayload
+  transferListTeamOwnership(input: TransferTeamsOwnershipInput!): TransferTeamsOwnershipPayload
+  rejectJoinedOrgInvitation(input: RejectInvitationInput!): BasicResponse
+  acceptInvitationOrganization(orgId: ID! @MongoId(key: "orgId")): AcceptInvitationPayload
+  sendRequestJoinOrg(orgId: ID! @MongoId(key: "orgId")): RequestJoinOrganizationPayload
+  requestSignSeat(input: RequestSignSeatInput!): BasicResponse
+}
+
+type Subscription {
+  updateConvertedOrganization(orgIds: [String]!): Organization
+}

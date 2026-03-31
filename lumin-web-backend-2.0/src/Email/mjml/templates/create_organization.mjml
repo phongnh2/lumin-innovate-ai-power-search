@@ -1,0 +1,45 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+    <mj-style inline="inline">
+      .welcome-pager {
+        background-color: #fff;
+        border-radius: 4px;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Welcome to Your New {{orgWord}} in Lumin </mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Welcome&nbsp;<b class="text-highlight">{{creatorName}}&nbsp;</b>to an easier way to manage&nbsp;<b class="text-highlight">{{orgName}}&nbsp;{{orgWord}}'s documents and members in the cloud.</b></mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>We’re happy to have you on board. With Lumin {{orgWord}}s, you can:</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            <ul>
+              <li style="margin-bottom: 4px">Upload and manage {{orgWord}}'s documents</li>
+              <li style="margin-bottom: 4px">Invite and manage members </li>
+              <li style="margin-bottom: 4px">Create {{teamWord}}s inside your {{orgWord}}</li>
+            </ul>
+          </mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Plus much more!</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Head to your {{orgWord}}'s dashboard below to get started:</mj-text>
+          <mj-spacer height="26px" />
+          <mj-button align="left">
+            <mj-raw>
+              <a href="{{documentDeeplink}}" style="display:inline-block;background:#F2385A;color:#ffffff;font-family:Roboto, sans-serif;font-size:17px;font-weight:500;line-height:22px;margin:0;text-decoration:none;text-transform:none;border-radius:8px;" target="_blank" deeplink="true" >
+                Visit {{orgWord}}
+              </a>
+            </mj-raw>
+          </mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

@@ -1,0 +1,9 @@
+@import 'reskin/scrollbar.scss';
+
+.dropdown {
+  padding: var(--popover-padding);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  width: var(--popover-width);
+  border: none;
+  @include scrollbar-reskin;
+}

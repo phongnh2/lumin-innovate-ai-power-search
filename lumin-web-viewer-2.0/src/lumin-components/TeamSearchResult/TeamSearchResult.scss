@@ -1,0 +1,42 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.TeamSearchResult {
+  display: flex;
+  width: 100%;
+  span {
+    margin: auto 16px;
+    font-family: $font-stack-primary;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary;
+  }
+  &__button {
+    position: absolute;
+    right: 16px;
+    background-color: #3c80ef;
+    border-radius: 4px;
+    float: right;
+    width: 92px;
+    z-index: 100;
+    span{
+      color: $white;
+      font-family: $font-stack-primary;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-transform: capitalize
+    }
+  }
+  &__icon {
+    color: $secondary;
+    margin: auto 8px;
+  }
+}

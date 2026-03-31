@@ -1,0 +1,22 @@
+# Staging domain rules
+tenants:
+  ou.edu.vn:
+    policy: strictBank
+    organization:
+      domainOrgId: "64d1f8788ad06ee7834773e5"
+  
+  lumin-vn.com:
+    policy: strictBank
+    organization:
+      domainOrgId: "6704ba740fcf3b8b7cb4bead"
+  
+  lumin-ph.com:
+    policy: driveOnly
+
+  lumin-nz.com:
+    policy: driveOnly
+
+  lumin-sg.com:
+    policy: governmentExport
+    organization:
+      domainOrgId: "6704ba740fcf3b8b7cb4bead"

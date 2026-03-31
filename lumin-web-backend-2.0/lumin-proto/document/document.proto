@@ -1,0 +1,161 @@
+syntax = "proto3";
+
+package document;
+
+service DocumentService {
+  rpc FindDocumentById (FindDocumentByIdRequest) returns (DocumentResponse) {};
+  rpc GetFormFieldsByDocumentId (GetFormFieldsByDocumentIdRequest) returns (FormFieldInfo) {};
+  rpc GetOutlinesByDocumentId (GetOutlinesByDocumentIdRequest) returns (OutlineInfo) {};
+  rpc VerifyDocumentPermission(VerifyDocumentPermissionRequest) returns (VerifyDocumentPermissionResponse) {};
+  rpc GetManipulateStepsByDocumentId(GetManipulateStepsByDocumentIdRequest) returns (ManipulateStepResponse) {};
+  rpc GetFormFieldsForIntegration(GetFormFieldsForIntegrationRequest) returns (GetFormFieldsForIntegrationResponse) {};
+  rpc GetOutlinesForIntegration(GetOutlinesForIntegrationRequest) returns (GetOutlinesForIntegrationResponse) {};
+  rpc GetManipulateStepsForIntegration(GetManipulateStepsForIntegrationRequest) returns (GetManipulateStepsForIntegrationResponse) {};
+  rpc GetImageSignedUrlsByIdForIntegration(GetImageSignedUrlsByIdForIntegrationRequest) returns (GetImageSignedUrlsByIdForIntegrationResponse) {};
+}
+
+message GetImageSignedUrlsByIdForIntegrationRequest {
+  string documentId = 1;
+}
+
+message GetImageSignedUrlsByIdForIntegrationResponse {
+  map<string, string> imageSignedUrls = 1;
+}
+
+message GetManipulateStepsForIntegrationRequest {
+  string documentId = 1;
+}
+
+message GetManipulateStepsForIntegrationResponse {
+  string data = 1;
+}
+
+message GetFormFieldsForIntegrationRequest {
+  string documentId = 1;
+}
+
+message FormFieldsForIntegration {
+  string name = 1;
+  string type = 2;
+  string value = 3;
+  bool isDeleted = 4;
+  bool isInternal = 5;
+  string xfdf = 6;
+}
+
+message GetFormFieldsForIntegrationResponse {
+  repeated FormFieldsForIntegration data = 1;
+}
+
+message GetOutlinesForIntegrationRequest {
+  string documentId = 1;
+}
+
+message GetOutlinesForIntegrationResponse {
+  repeated OutlinesForIntegration data = 1;
+}
+
+message OutlinesForIntegration {
+  string name = 1;
+  string parentId = 2;
+  string pathId = 3;
+  string parentPath = 4;
+}
+
+message GetManipulateStepsByDocumentIdRequest {
+  string documentId = 1;
+}
+
+message ManipulateStepResponse {
+  string data = 1;
+}
+
+message ManipulateStep {
+  string type = 1;
+}
+
+message FindDocumentByIdRequest {
+  string documentId = 1;
+}
+
+message GetFormFieldsByDocumentIdRequest {
+  string documentId = 1;
+  int32 skip = 2;
+  int32 limit = 3;
+}
+
+message GetOutlinesByDocumentIdRequest {
+  string documentId = 1;
+  int32 skip = 2;
+  int32 limit = 3;
+}
+
+message FormFieldInfo {
+  repeated FormField data = 1;
+  bool hasMore = 2;
+}
+
+message FormField {
+  string type = 1;
+  string name = 2;
+  string widgetId = 3;
+  int32 pageNumber = 4;
+  string value = 5;
+  string xfdf = 6;
+  bool isDeleted = 7;
+  bool isInternal = 8;
+  string createdAt = 9;
+  string updatedAt = 10;
+}
+
+message OutlineInfo {
+  repeated Outline data = 1;
+  bool hasMore = 2;
+}
+
+message Outline {
+  string name = 1;
+  string parentId = 2;
+  string pathId = 3;
+  string parentPath = 4;
+  int32 level = 5;
+  string lexicalRanking = 6;
+  int32 pageNumber = 7;
+  int32 verticalOffset = 8;
+  int32 horizontalOffset = 9;
+  bool hasChildren = 10;
+}
+
+message DocumentResponse {
+  string _id = 1;
+  string name = 2;
+  string size = 3;
+  string mimeType = 4;
+  string service = 5;
+  string manipulationStep = 6;
+  string createdAt = 7;
+  string signedUrl = 8;
+  string remoteId = 9;
+  map<string, string> imageSignedUrls = 10;
+  ExternalStorageAttributes externalStorageAttributes = 11;
+}
+
+message ExternalStorageAttributes {
+  string driveId = 1;
+}
+
+message PermissionList {
+  int32 IndividualRoles = 1;
+  int32 OrganizationRoles = 2;
+  int32 OrganizationTeamRoles = 3;
+}
+
+message VerifyDocumentPermissionRequest {
+  string documentId = 1;
+  PermissionList permissions = 2;
+  string userId = 3;
+}
+
+message VerifyDocumentPermissionResponse {
+  bool isAllowed = 1;
+}

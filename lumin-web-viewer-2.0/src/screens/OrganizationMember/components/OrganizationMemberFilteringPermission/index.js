@@ -1,0 +1,3 @@
+import OrganizationMemberFilteringPermission from './OrganizationMemberFilteringPermission';
+
+export default OrganizationMemberFilteringPermission;

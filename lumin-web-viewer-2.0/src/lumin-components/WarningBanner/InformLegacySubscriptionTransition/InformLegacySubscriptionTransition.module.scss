@@ -1,0 +1,12 @@
+.termsLink {
+    color: var(--kiwi-colors-semantic-information);
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  
+    &:visited {
+      text-decoration: none;
+    }
+  }
+  

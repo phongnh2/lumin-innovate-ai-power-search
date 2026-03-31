@@ -1,0 +1,27 @@
+@import '../../../constants/styles';
+@import '../../../constants/lumin-styles.scss';
+
+.ViewerButtonMaterial.ToggleButtonWithArrow {
+  width: 40px;
+  min-width: 40px;
+  margin: 0 6px;
+}
+
+.ToggleButtonWithArrow {
+  border-radius: 4px;
+  &.ViewerButtonLumin.active {
+    @include themify() {
+      box-shadow: themed('boxShadowPanel');
+      background: themed('borderToolButtonArrowDropdown');
+      color: themed('iconColorActive');
+    }
+  }
+  .ViewerButtonLumin__arrow {
+    margin-left: 6px;
+    i {
+      @include themify() {
+        color: themed('iconColor');
+      }
+    }
+  }
+}

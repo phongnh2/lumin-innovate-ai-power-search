@@ -1,0 +1,19 @@
+@import '../../OrganizationList.module.scss';
+
+.container {
+  @include organization-list-grid-template;
+  white-space: nowrap;
+  padding: var(--kiwi-spacing-1-25) var(--kiwi-spacing-1);
+}
+
+.memberInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-4);
+}

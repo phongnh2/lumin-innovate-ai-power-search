@@ -1,0 +1,77 @@
+---
+alwaysApply: true
+description: Project structure and architecture guidelines
+---
+
+# Project Structure & Architecture
+
+This is a Deno-based CMS scripts project for managing Strapi and Prismic content. The project follows a modular architecture with clear separation of concerns.
+
+## Core Architecture
+
+### Entry Points
+
+- [run.ts](mdc:run.ts) - Main entry point that routes to different modules
+- [strapi/main.ts](mdc:strapi/main.ts) - Strapi module entry point with function registry
+- [prismic/main.ts](mdc:prismic/main.ts) - Prismic module entry point
+
+### Module Structure
+
+Each module (strapi, prismic) follows this pattern:
+
+- `main.ts` - Function registry and CLI interface
+- `services/` - Business logic services
+- `config/` - Configuration and constants
+- `utils/` - Utility functions
+- `data/` - Data files (CSV, JSON, PDFs, thumbnails)
+
+### Service Layer Pattern
+
+Services extend base classes and follow dependency injection:
+
+- [StrapiService](mdc:strapi/services/strapi/strapi.service.ts) - Base service for Strapi operations
+- [FormService](mdc:strapi/services/form/form.service.ts) - Form management operations
+- [CategoryService](mdc:strapi/services/category/category.service.ts) - Category operations
+- [UploadService](mdc:strapi/services/upload/upload.service.ts) - File upload operations
+
+### Configuration Management
+
+- [settings.ts](mdc:strapi/config/settings.ts) - Main configuration with LT_CARD constant
+- [enum.ts](mdc:strapi/config/enum.ts) - Type definitions and enums
+- Environment variables loaded via `@std/dotenv`
+
+### Data Organization
+
+- `data/csv/` - CSV import files with LT-* naming convention
+- `data/json/` - JSON exports and configuration
+- `data/pdf/` - PDF files organized by LT card
+- `data/thumbnails/` - Generated thumbnail images
+- `data/mapping-template/` - ID mapping files
+- `logs/` - Error logs and processing reports
+
+## Import Path Conventions
+
+- Use `@strapi/` prefix for strapi module imports
+- Use `@prismic/` prefix for prismic module imports
+- Use `@std/` for Deno standard library imports
+- Use `@shared/` for shared utilities (if any)
+
+## Function Registry Pattern
+
+Functions are registered in `main.ts` with configuration:
+
+```typescript
+export const functions = {
+  functionName: () => service.method(),
+};
+
+export const functionConfigs = {
+  functionName: { heavy?: boolean; media?: boolean }
+};
+```
+
+## Environment Handling
+
+- Use `isProductionEnv()` helper to determine environment
+- Environment-specific file paths in constants
+- Production vs staging data separation

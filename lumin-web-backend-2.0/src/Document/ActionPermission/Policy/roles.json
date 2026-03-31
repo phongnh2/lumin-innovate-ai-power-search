@@ -1,0 +1,69 @@
+{
+  "document": {
+    "owner": {
+      "permissions": {
+        "export": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "print": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "copy": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "saveAsTemplate": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "merge": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "sendForSignatures": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "requestSignatures": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "saveACertifiedVersion": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20"
+      },
+      "version": 1765181550
+    },
+    "anyone": {
+      "permissions": {
+        "export": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "print": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "copy": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "saveAsTemplate": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "merge": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "sendForSignatures": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "requestSignatures": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "saveACertifiedVersion": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20"
+      },
+      "version": 1765181550
+    },
+    "sharer": {
+      "permissions": {
+        "export": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "print": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "copy": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "saveAsTemplate": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "merge": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "sendForSignatures": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "requestSignatures": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "saveACertifiedVersion": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20"
+      },
+      "version": 1765181550
+    },
+    "editor": {
+      "permissions": {
+        "export": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "print": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "copy": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "saveAsTemplate": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "merge": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "sendForSignatures": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "requestSignatures": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "saveACertifiedVersion": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20"
+      },
+      "version": 1765181550
+    },
+    "viewer": {
+      "permissions": {
+        "export": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "print": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "copy": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "saveAsTemplate": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "merge": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "sendForSignatures": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "requestSignatures": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "saveACertifiedVersion": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20"
+      },
+      "version": 1765181550
+    }
+  }
+}

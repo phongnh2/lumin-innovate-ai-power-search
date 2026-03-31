@@ -1,0 +1,93 @@
+.headerContainer {
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-3);
+  display: grid;
+  grid-template-columns: 1fr 28px;
+  position: relative;
+  gap: 120px;
+}
+
+.headerTitle {
+  @include kiwi-typography-headline-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.headerCloseButton {
+  position: absolute;
+  right: calc(var(--kiwi-spacing-3) - var(--kiwi-spacing-0-75));
+  top: calc(var(--kiwi-spacing-1-5) - var(--kiwi-spacing-0-5));
+}
+
+.contentContainer {
+  background-color: var(--kiwi-colors-surface-surface-container);
+  // max-height of modal - header height - bottom container height
+  height: calc(90vh - 72px - 48px);
+}
+
+.loadingContainer {
+  width: 100%;
+  height: calc(90vh - 72px - 48px - var(--kiwi-spacing-1-75) * 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.errorText {
+  @include kiwi-typography-body-lg;
+}
+
+.scrollArea {
+  padding: var(--kiwi-spacing-1-75) var(--kiwi-spacing-3);
+  background-color: var(--kiwi-colors-surface-surface-container);
+  min-width: 100%;
+  // max-height of modal - header height - bottom container height
+  height: calc(90vh - 72px - 48px);
+  position: relative;
+  overflow: auto;
+}
+
+.previewContent {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.bottomContainer {
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottomLeftContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+}
+
+.bottomRightContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  height: 40px;
+}
+
+.bottomRightButton {
+  border: 1px solid var(--kiwi-colors-surface-outline-low);
+}
+
+.scrollbar {
+  width: auto;
+  &[data-orientation='vertical'] {
+    width: var(--kiwi-spacing-1-25);
+  }
+  &[data-orientation='horizontal'] {
+    height: var(--kiwi-spacing-1-25);
+  }
+}

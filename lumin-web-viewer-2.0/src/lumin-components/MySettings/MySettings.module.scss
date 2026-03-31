@@ -1,0 +1,21 @@
+@import 'reskin/screens.scss';
+
+.container {
+  height: 100%;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  overflow-x: hidden;
+
+  @include md-screen {
+    height: auto;
+    border-radius: var(--kiwi-border-radius-lg);
+  }
+}
+
+.tabContainer {
+  margin-top: var(--kiwi-spacing-3);
+  padding: 0 var(--kiwi-spacing-2) var(--kiwi-spacing-5);
+
+  @include md-screen {
+    padding: 0 var(--kiwi-spacing-3) var(--kiwi-spacing-3);
+  }
+}

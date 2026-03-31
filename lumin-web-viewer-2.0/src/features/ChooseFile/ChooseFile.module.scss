@@ -1,0 +1,30 @@
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+  padding-bottom: var(--kiwi-spacing-1);
+}
+
+.mainContent {
+  height: 360px;
+  margin: 0 calc(var(--kiwi-spacing-3) * -1);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--kiwi-spacing-2);
+  position: relative;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.uploadButton {
+  margin-left: calc(var(--kiwi-spacing-1) * -1);
+  margin-bottom: calc(var(--kiwi-spacing-1) * -1);
+}

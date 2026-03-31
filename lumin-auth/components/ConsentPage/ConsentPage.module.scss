@@ -1,0 +1,45 @@
+.container {
+  background: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1-5);
+};
+
+.label {
+  color: var(--kiwi-colors-surface-on-surface-low);
+};
+
+.input {
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  :focus {
+    box-shadow: 0 0 0 3px var(--kiwi-colors-surface-surface-container-highest);
+  }
+};
+
+.workspaceAvatar {
+  border-radius: var(--kiwi-border-radius-rounded);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.optionLabel {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-custom-brand-signature-on-signature-container);
+}
+
+.divider {
+  margin: 24px 0;
+}
+
+.dropdown {
+  padding: var(--kiwi-spacing-1);
+}

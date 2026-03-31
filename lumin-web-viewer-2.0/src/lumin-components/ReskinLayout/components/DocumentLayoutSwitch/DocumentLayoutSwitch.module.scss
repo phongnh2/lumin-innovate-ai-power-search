@@ -1,0 +1,57 @@
+@import 'reskin/screens.scss';
+
+$active-color: var(--kiwi-colors-surface-surface-container-highest);
+
+.container {
+  align-self: start;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-75);
+  height: 40px;
+
+  > .divider {
+    &:first-child,
+    &:last-child {
+      display: none;
+    }
+  }
+
+  &.chatbotOpened {
+    gap: var(--kiwi-spacing-0-5);
+
+    @include lg-screen {
+      gap: var(--kiwi-spacing-1-75);
+    }
+  }
+}
+
+.switcherWrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  border-radius: var(--kiwi-border-radius-md);
+  border: var(--kiwi-spacing-0-125) solid $active-color;
+}
+
+.iconBtn {
+  border-radius: unset;
+  min-width: var(--kiwi-spacing-5);
+
+  &:active {
+    transform: none;
+  }
+}
+
+.iconBtnActive {
+  background-color: $active-color;
+
+  &:hover {
+    background-color: $active-color;
+  }
+}
+
+.divider {
+  align-self: center;
+  height: var(--kiwi-spacing-2-5);
+}

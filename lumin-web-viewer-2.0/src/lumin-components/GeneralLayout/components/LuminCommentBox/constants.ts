@@ -1,0 +1,10 @@
+export enum REPLIES_LIMITATION {
+  HEAD = 1,
+  TAIL = 2,
+}
+
+export enum NOTE_STYLED {
+  MIN_HEIGHT = 78,
+  CONTENTS_MAX_HEIGHT = 296,
+  CONTENTS_TOOL_BAR = 34,
+}

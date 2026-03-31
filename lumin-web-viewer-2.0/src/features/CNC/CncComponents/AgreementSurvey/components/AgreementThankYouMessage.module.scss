@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+  text-align: center;
+  width: 296px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}

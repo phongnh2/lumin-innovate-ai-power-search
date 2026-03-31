@@ -1,0 +1,102 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable property-no-vendor-prefix */
+@import "../../../constants/lumin-styles";
+
+.lumin-date-picker {
+  .pika-single {
+    border: none;
+    font-family: var(--font-primary);
+
+    @include themify {
+      background-color: themed("bgColor");
+    }
+  }
+
+  .pika-label {
+    @include themify {
+      background-color: themed("bgColor");
+      color: themed("textColor");
+    }
+  }
+
+  .pika-prev,
+  .pika-next {
+    background-image: none;
+    opacity: 0.5;
+
+    @include themify {
+      background-color: themed("secondaryColor");
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.is-disabled {
+      cursor: default;
+      opacity: 0.2;
+    }
+  }
+
+  .pika-prev,
+  .is-rtl .pika-next {
+    float: left;
+    mask-image: url("../../../../assets/lumin-svgs/ic_left_arrow.svg");
+    -webkit-mask-image: url("../../../../assets/lumin-svgs/ic_left_arrow.svg");
+  }
+
+  .pika-next,
+  .is-rtl .pika-prev {
+    float: right;
+    mask-image: url("../../../../assets/lumin-svgs/ic_right_arrow.svg");
+    -webkit-mask-image: url("../../../../assets/lumin-svgs/ic_right_arrow.svg");
+  }
+
+  .pika-table {
+    th {
+      @include themify {
+        color: themed("secondaryColor");
+      }
+    }
+
+    abbr {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .pika-button {
+    text-align: center;
+
+    @include themify {
+      background-color: themed("bgColor");
+      color: themed("textColor");
+    }
+
+    &:hover {
+      @include themify {
+        background-color: themed("buttonSwitchBgColorHover");
+        color: themed("textColor");
+      }
+    }
+  }
+
+  .is-selected {
+    .pika-button {
+      color: var(--color-secondary-50);
+      box-shadow: none;
+      background-color: var(--color-secondary-10);
+
+      &:hover {
+        color: var(--color-secondary-50);
+        background-color: var(--color-secondary-10);
+      }
+    }
+  }
+
+  .is-today {
+    .pika-button {
+      color: var(--color-secondary-50);
+    }
+  }
+}

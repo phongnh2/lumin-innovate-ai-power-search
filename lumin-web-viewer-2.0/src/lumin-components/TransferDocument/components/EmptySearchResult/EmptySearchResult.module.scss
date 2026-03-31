@@ -1,0 +1,17 @@
+.container {
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+}
+
+.image {
+  margin-bottom: var(--kiwi-spacing-3);
+  margin-top: var(--kiwi-spacing-5);
+  max-width: 136px;
+}
+
+.contentWrapper {
+  text-align: center;
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-75);
+}

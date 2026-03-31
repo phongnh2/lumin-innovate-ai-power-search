@@ -1,0 +1,115 @@
+@import "../../constants/lumin-styles";
+.OpenDropbox {
+  $self: &;
+  text-align: center;
+  width: 100%;
+  &__ad {
+    padding: 40px 0 20px;
+    width: 90%;
+    max-width: 468px;
+    margin: auto;
+  }
+  &__container {
+    width: 100%;
+    max-width: 1140px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: auto;
+    @include mobile {
+      width: 90%;
+    }
+    &.premium {
+      padding-top: 120px;
+    }
+    #{$self}__ad {
+      flex: 0;
+      padding: 0;
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  &__content-container {
+    flex: 1;
+  }
+  &__content {
+    margin: auto;
+    padding: 36px 110px 56px;
+    width: 90%;
+    max-width: 776px;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px 0 rgba(195, 210, 225, 0.65);
+    transition: all 0.25s;
+    box-sizing: border-box;
+    @include tablet {
+      padding: 36px 70px;
+    }
+    @include mobile {
+      padding: 36px;
+    }
+    background-color: $white;
+    #{$self}__title {
+      font-size: 16px;
+      font-weight: 400;
+      color: $secondary;
+      font-family: $font-stack-montserrat;
+      line-height: normal;
+    }
+    #{$self}__img {
+      margin-top: 100px;
+      > div {
+        height: 125px;
+        @include mobile {
+          height: 70px;
+        }
+      }
+      @include mobile {
+        margin-top: 30px;
+      }
+    }
+    #{$self}__loading {
+      margin-top: 70px;
+    }
+    #{$self}__message {
+      margin-top: 70px;
+      font-size: 16px;
+      font-weight: 400;
+      color: $secondary;
+      letter-spacing: 0.3px;
+      @include mobile {
+        margin-top: 30px;
+      }
+      &--error {
+        line-height: 1.31;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 70px;
+        color: $accent;
+      }
+    }
+    #{$self}__btn {
+      box-shadow: 0 2px 16px 0 rgba(60, 128, 239, 0.3);
+      margin: auto;
+      width: 90%;
+      max-width: 296px;
+      margin-top: 20px;
+      letter-spacing: 0.2px;
+      min-height: 45px;
+      border-radius: 2px;
+    }
+  }
+  &__policy {
+    width: 80%;
+    max-width: 500px;
+    padding: 20px 0 40px;
+    margin: auto;
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: 400;
+    color: $secondary;
+    white-space: pre-line;
+    display: block;
+    font-family: $font-stack-montserrat;
+  }
+}

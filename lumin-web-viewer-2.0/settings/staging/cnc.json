@@ -1,0 +1,15 @@
+{
+  "LUMIN_BASEURL": "https://cnc.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://cnc.luminpdf.com/api/web/graphql",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://cnc.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://cnc.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://cnc.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://cnc.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://cnc.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://cnc-socket.luminpdf.com",
+  "LUMIN_ENV": "cnc",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "903627406732",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "903627406732-bjrrmdmrirs8md7fqoja5qbf1d3dn8h6.apps.googleusercontent.com",
+  "LUMIN_MICROSOFT_AUTHORIZATION_URL": "https://login.microsoftonline.com/common",
+  "LUMIN_MICROSOFT_CLIENT_ID": "00694e93-9618-4f29-9da9-1772c9d2e616"
+}

@@ -1,0 +1,51 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-raw>
+      {{setVar "documentUrl" (concat baseUrl "/viewer/" documentId)}}
+    </mj-raw>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{name}}, here’s what you missed…</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            <b class="highlight">{{commenterName}}&nbsp;</b>added a comment to&nbsp;<b class="highlight">{{documentName}}</b>
+          </mj-text>
+          <mj-spacer height="32px" />
+        </mj-column>
+      </mj-section>
+      <mj-app-comment-list />
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-spacer height="32px" />
+          <mj-raw>
+            <table style="border-collapse:separate;line-height:100%">
+              <tbody>
+                <tr>
+                  <td style="border:none;border-radius:8px;height:48px;text-align:center;background:#f2385a">
+                    <a href="{{documentDeeplink}}" style="display:inline-block;background:#f2385a;color:#ffffff;font-family:Roboto,sans-serif;font-size:17px;font-weight:500;line-height:22px;margin:0;text-decoration:none;text-transform:none;padding:12px 16px;border-radius:8px" target="_blank" deeplink="true" >
+                      View Comment
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mj-raw>
+          <mj-spacer height="32px" />
+          <mj-text mj-class="text-secondary">
+            If that doesn't work, you can access the following link:
+          </mj-text>
+          <mj-text mj-class="link">
+            <mj-button href="{{documentUrl}}">
+              {{documentUrl}}
+            </mj-button>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

@@ -1,0 +1,28 @@
+OAuth2ConsentRequest:
+  type: object
+  required:
+    - challenge
+    - submit
+  properties:
+    challenge:
+      type: string
+    submit:
+      type: string
+    grant_scope:
+      type: array
+      items:
+        type: string
+      description: Array of scopes to grant access to
+OAuth2LogoutRequest:
+  type: object
+  required:
+    - challenge
+    - submit
+  properties:
+    challenge:
+      type: string
+    submit:
+      type: string
+    logout_token:
+      type: string
+      description: Token used for logout process. Use 'already logout' if user is already logged out

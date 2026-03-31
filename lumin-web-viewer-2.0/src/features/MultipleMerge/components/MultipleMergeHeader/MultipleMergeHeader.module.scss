@@ -1,0 +1,14 @@
+.backButton {
+  position: absolute;
+  top: -6px;
+  left: -10px;
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.titleWithBackButton {
+  margin-left: 40px;
+}

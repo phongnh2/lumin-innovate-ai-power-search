@@ -1,0 +1,41 @@
+.root {
+  box-shadow: var(--kiwi-shadow-2);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+
+  &[data-icon-button]:active {
+    background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  }
+}
+
+.container {
+  position: absolute;
+  z-index: 9;
+  // --kiwi-spacing-1-5 is padding of TransferDocumentBody
+  top: var(--kiwi-spacing-1-5);
+  left: 252px;
+  width: 24px;
+  height: calc(100% - var(--kiwi-spacing-1-5) * 2);
+}
+
+.wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 32px;
+  left: 252px;
+  opacity: 1;
+  transition: all var(--default-web-transition-duration) ease-in-out;
+
+  &[data-collapsed='true'] {
+    left: 47px;
+  }
+
+  &[data-display='false'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

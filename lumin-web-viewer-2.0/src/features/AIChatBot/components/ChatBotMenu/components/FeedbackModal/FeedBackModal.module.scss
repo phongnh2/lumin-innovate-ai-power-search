@@ -1,0 +1,20 @@
+.description {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-md;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  align-self: stretch;
+}
+
+.textarea {
+  height: 160px;
+}
+
+.textareaRoot {
+  width: 100%;
+}

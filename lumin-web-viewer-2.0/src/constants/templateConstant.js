@@ -1,0 +1,63 @@
+import { DOCUMENT_TYPE } from 'constants/documentConstants';
+
+export const TEMPLATE_POPPER_BUTTON = {
+  ViewInfo: 'view-info',
+  EditInfo: 'edit-info',
+  Publish: 'publish',
+  Delete: 'delete',
+};
+export const TEMPLATE_TABS = {
+  ALL: 'all',
+  PERSONAL: 'personal',
+  TEAM: 'team',
+  ORGANIZATION: 'organization',
+};
+export const PAGINATION_PAGE_SIZE = [12, 24, 36];
+
+export const TEMPLATE_RATIO = 220 / 156;
+
+export const TEMPLATE_UPDATE_ACTIONS = {
+  ADD: 'add',
+  REMOVE: 'remove',
+  EDIT: 'edit',
+  UPDATE: 'update',
+};
+
+export const MAX_LENGTH_TEMPLATE_NAME = 255;
+
+export const MAX_LENGTH_TEMPLATE_DESCRIPTION = 1000;
+
+export const MAX_TEMPLATE_COUNT = 1000;
+
+export const TEMPLATE_TYPE = {
+  PERSONAL: 'PERSONAL',
+  TEAM: 'ORGANIZATION_TEAM',
+  ORGANIZATION: 'ORGANIZATION',
+};
+
+export const MAX_SIZE_UPLOAD_TEMPLATE = 200;
+
+export const mappingDocumentTypeToTemplateTab = {
+  [DOCUMENT_TYPE.PERSONAL]: TEMPLATE_TABS.PERSONAL,
+  [DOCUMENT_TYPE.ORGANIZATION_TEAM]: TEMPLATE_TABS.TEAM,
+  [DOCUMENT_TYPE.ORGANIZATION]: TEMPLATE_TABS.ORGANIZATION,
+};
+
+export const TEMPLATE_FIELD = {
+  THUMBNAIL: 'thumbnail',
+  NAME: 'name',
+  DESCRIPTION: 'description',
+  DESTINATION: 'destination',
+};
+
+export const ORGANIZATION_TEMPLATE_TABS = {
+  ORGANIZATION: 'ORGANIZATION',
+  ORGANIZATION_ALL: 'ORGANIZATION_ALL',
+  ORGANIZATION_PERSONAL: 'ORGANIZATION_PERSONAL',
+};
+
+export const MAPPING_TEMPLATE_TAB_TO_ORG_TEMPLATE_TABS = {
+  [TEMPLATE_TABS.ALL]: ORGANIZATION_TEMPLATE_TABS.ORGANIZATION_ALL,
+  [TEMPLATE_TABS.PERSONAL]: ORGANIZATION_TEMPLATE_TABS.ORGANIZATION_PERSONAL,
+  [TEMPLATE_TABS.ORGANIZATION]: ORGANIZATION_TEMPLATE_TABS.ORGANIZATION,
+};

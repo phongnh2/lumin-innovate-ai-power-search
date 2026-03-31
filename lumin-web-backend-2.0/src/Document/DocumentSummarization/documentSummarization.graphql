@@ -1,0 +1,46 @@
+enum DocumentSummarizationVote {
+  UPVOTED
+  DOWNVOTED
+}
+
+enum DocumentSummarizationStatus {
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum SummarizationAvailability {
+  EXISTING
+  NONE
+}
+
+type DocumentSummarization {
+  status: DocumentSummarizationStatus
+  content: String
+  vote: DocumentSummarizationVote
+  availability: SummarizationAvailability
+  documentVersion: Int
+}
+
+input RegenerateSummarizationInput {
+  text: String! @Length(min: 1, max: 48000)
+}
+
+input GetDocSummarizationOptions {
+  regenerate: RegenerateSummarizationInput!
+}
+
+input UpdateDocSummarizationInput {
+  vote: DocumentSummarizationVote
+}
+
+type Query {
+  getDocumentSummarization(
+    documentId: ID! @MongoId(key: "documentId"),
+    options: GetDocSummarizationOptions
+  ): DocumentSummarization
+}
+
+type Mutation {
+  updateDocumentSummarization(documentId: ID! @MongoId(key: "documentId"), input: UpdateDocSummarizationInput!): DocumentSummarization
+}

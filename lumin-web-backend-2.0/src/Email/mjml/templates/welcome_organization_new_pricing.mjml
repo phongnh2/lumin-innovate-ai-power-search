@@ -1,0 +1,72 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Welcome to Lumin {{plan}}</mj-text>
+          <mj-spacer height="12px" />
+            <mj-raw>
+              {{#if (eq plan 'Starter') }}
+            </mj-raw>
+              <mj-text>Your {{plan}} subscription for&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;is now active. With Lumin {{plan}}, you'll be able to complete {{docStack}} {{pluralize "document" "documents" docStack}} per month, and  you'll have access to our extensive range of features including:</mj-text>
+              <mj-spacer height="4px" />
+              <mj-text>
+              <ul class="list">
+                <li style="margin-bottom: 4px">eSign and commenting features</li>
+                <li style="margin-bottom: 4px">Unlimited {{orgWord}} invites</li>
+                <li style="margin-bottom: 4px">Plus much more</li>
+              </ul>
+              </mj-text>
+            <mj-raw>
+              {{/if}}
+            </mj-raw>
+            <mj-raw>
+              {{#if (eq plan 'Pro') }}
+            </mj-raw>
+              <mj-text>Your brand new {{plan}} subscription is now active. With Lumin Pro,&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;will be able to complete {{docStack}} {{pluralize "document" "documents" docStack}}, and enjoy access to an extensive range of features including:</mj-text>
+              <mj-spacer height="4px" />
+              <mj-text>
+              <ul class="list">
+                <li style="margin-bottom: 4px">Edit raw PDF text</li>
+                <li style="margin-bottom: 4px">The ability to split or merge documents to meet your needs</li>
+                <li style="margin-bottom: 4px">Plus much more</li>
+              </ul>
+              </mj-text>
+            <mj-raw>
+              {{/if}}
+            </mj-raw>
+            <mj-raw>
+              {{#if (eq plan 'Business') }}
+            </mj-raw>
+              <mj-text><b class="highlight">{{orgName}}'s {{orgWord}}&nbsp;</b> has been upgraded to a Business subscription. You now have {{docStack}} {{pluralize "document" "documents" docStack}} available monthly. You also have access to our extensive range of features including:</mj-text>
+              <mj-spacer height="4px" />
+              <mj-text>
+              <ul class="list">
+                <li style="margin-bottom: 4px">The redaction tool</li>
+                <li style="margin-bottom: 4px">View your company usage insights via an admin dashboard</li>
+                <li style="margin-bottom: 4px">A dedicated success manager</li>
+                <li style="margin-bottom: 4px">Edit raw PDF text</li>
+                <li style="margin-bottom: 4px">Plus much more</li>
+              </ul>
+              </mj-text>
+            <mj-raw>
+              {{/if}}
+            </mj-raw>
+          <mj-spacer height="32px" />
+          <mj-button href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard" align="left">{{orgWord}}'s Dashboard</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

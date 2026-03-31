@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  margin-bottom: var(--kiwi-spacing-0-5);
+}
+
+.filesContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.chipWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fileChip {
+  white-space: nowrap;
+  padding-right: 28px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  display: flex;
+}

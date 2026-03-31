@@ -1,0 +1,16 @@
+const ERASER_FEATURE = 'eraser';
+const SIGNATURE_FEATURE = 'signature';
+const COMMENT_FEATURE = 'comment';
+const MERGE_DOCS_FEATURE = 'merge-docs';
+
+// array to check introduce new feature
+const ARRAY_FEATURE = [
+  ERASER_FEATURE,
+  SIGNATURE_FEATURE,
+  COMMENT_FEATURE,
+  MERGE_DOCS_FEATURE,
+];
+
+export {
+  ERASER_FEATURE, COMMENT_FEATURE, MERGE_DOCS_FEATURE, ARRAY_FEATURE, SIGNATURE_FEATURE,
+};

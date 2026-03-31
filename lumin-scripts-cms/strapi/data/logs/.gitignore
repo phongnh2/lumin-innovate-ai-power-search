@@ -1,0 +1,4 @@
+# Ignore all log files to prevent temporary files from being committed
+*
+!.gitkeep
+!.gitignore

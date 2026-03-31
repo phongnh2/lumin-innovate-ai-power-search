@@ -1,0 +1,3 @@
+[submodule "lumin-proto"]
+	path = lumin-proto
+	url = git@bitbucket.org:nitrolabs/lumin-proto.git

@@ -1,0 +1,107 @@
+@import 'reskin/screens.scss';
+@import '../../styles/variables';
+
+.container {
+  grid-template-columns: $document-grid-cols;
+
+  @include xl-down-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      grid-template-columns: $document-grid-cols-xl-down-chatbot;
+      .lastUpdatedCol {
+        display: none;
+      }
+      .ownerColWrapper {
+        display: none;
+      }
+      .locationInfoWrapper {
+        display: none;
+      }
+      .starWrapper {
+        display: none;
+      }
+    }
+  }
+
+  @include xl-to-xxxl-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      grid-template-columns: $document-grid-cols-xl-to-xxxl-chatbot;
+      .lastUpdatedCol,
+      .starWrapper {
+        display: none;
+      }
+      &:hover {
+        grid-template-columns: $document-grid-cols-xl-to-xxxl-chatbot-hover;
+        & .locationInfoWrapper {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include xl-screen {
+    grid-template-columns: $document-grid-cols-xl;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  .info {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .status {
+    display: grid;
+    grid-template-columns: 36px;
+    column-gap: var(--kiwi-spacing-0-5);
+
+    & > * {
+      width: max-content;
+    }
+
+    @include xl-screen {
+      grid-template-columns: 48px;
+    }
+
+    &.overTimeLimit {
+      grid-template-columns: 76px 36px;
+
+      @include xl-screen {
+        grid-template-columns: 88px 48px;
+      }
+    }
+  }
+}
+
+.locationInfo {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  display: block;
+  max-width: 100%;
+
+  &::after {
+    background-color: var(--kiwi-colors-surface-on-surface-variant);
+  }
+
+  &:hover,
+  &:active {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+
+  .label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.lastUpdatedCol {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding-left: var(--kiwi-spacing-1);
+}

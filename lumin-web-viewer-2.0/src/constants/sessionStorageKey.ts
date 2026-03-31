@@ -1,0 +1,16 @@
+export const SESSION_STORAGE_KEY = {
+  DOCUMENT_LIST_FALLBACK_URL: 'document_list_fallback_url',
+  AWS_PREV_URL_KEY: 'aws-amplify-analytics-prevUrl',
+  OPEN_FORM_SEARCH_PARAM: 'open-form-search-param',
+  TOTAL_GOOGLE_POPUP: 'total-google-popup',
+  DISABLE_AUTHORIZATION_GOOGLE_POPUP: 'disableAuthorizationGooglePopup',
+  SHOULD_NOT_SHOW_DELETE_CONTENT_BOX_WARNING_MODAL: 'should-not-show-delete-content-box-warning-modal',
+  SHOULD_NOT_SHOW_DELETE_OUTLINE_BOX_WARNING_MODAL: 'should-not-show-delete-outline-box-warning-modal',
+  SUMMARIZED_ERROR_CODE: 'summarized_error_code',
+  PDF_PASSWORD: 'pdf_password',
+  HAS_TRACKED_DOCUMENT_SYNC: 'has_tracked_document_sync',
+  PINPOINT_PREV_URL_KEY: 'pinpoint-prevUrl',
+  SWITCH_LAYOUT_IN_APP: 'switch_layout_in_app',
+  HOTJAR_RECORDING_ENABLED: 'hotjar_recording_enabled',
+  PREVIOUS_PATH: 'previous_path',
+};

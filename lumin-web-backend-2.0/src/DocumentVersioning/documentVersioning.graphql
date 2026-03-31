@@ -1,0 +1,47 @@
+interface DocumentVersionBase {
+  documentId: ID
+  versionId: String
+  _id: ID
+}
+
+type DocumentVersionModifiedOwner {
+  _id: ID
+  name: String
+  avatar: String
+}
+
+type DocumentVersionPayload implements DocumentVersionBase {
+  documentId: ID
+  versionId: String
+  annotationSignedUrl: String
+  _id: ID
+  modifiedBy: DocumentVersionModifiedOwner
+  createdAt: Date
+}
+
+type GetVersionListPayload {
+  data: [DocumentVersionPayload]
+}
+
+type GetVersionPresignedUrlPayload {
+  fileContentPresignedUrl: String
+  annotationPresignedUrl: String
+}
+
+input GetDocumentVersionListInput {
+  documentId: ID! @MongoId
+}
+
+input GetBackupAnnotationPresignedUrlInput {
+  documentId: ID! @MongoId
+}
+
+input GetVersionPresignedUrlInput {
+  _id: ID! @MongoId
+}
+
+type Query {
+  getDocumentVersionList(input: GetDocumentVersionListInput!): GetVersionListPayload
+  getBackupAnnotationPresignedUrl(input: GetBackupAnnotationPresignedUrlInput!): ISignedUrl
+  getVersionPresignedUrl(input: GetVersionPresignedUrlInput!): GetVersionPresignedUrlPayload
+}

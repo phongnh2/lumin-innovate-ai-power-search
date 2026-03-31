@@ -1,0 +1,49 @@
+type WidgetNotification {
+    _id: String!
+    userId: String!
+    type: String!
+    createdAt: String
+    isPreviewed: Boolean!
+    isRead: Boolean!
+    updateAt: String!,
+    isNewWidget: Boolean!
+}
+
+enum WidgetType {
+  DOWNLOAD_PWA,
+  DOWNLOAD_MOBILE_APP,
+  REDACTION,
+  UPGRADE_PROFESSIONAL,
+  EDIT_PDF,
+  RESTORE_ORIGINAL
+  TEMPLATES
+}
+
+type WidgetNotificationPayload {
+  widgetList: [WidgetNotification]
+}
+
+input WidgetIdsInput {
+  widgetIds: [ID]! @MongoId
+}
+
+input DismissWidgetNotificationsInput {
+  notificationId: ID! @MongoId
+}
+
+input EditWidgetNotificationInput {
+  userId: ID! @MongoId
+}
+
+
+type Query {
+  widgetNotifications: WidgetNotificationPayload
+}
+
+type Mutation {
+  dismissWidgetNotification(input: DismissWidgetNotificationsInput!): BasicResponse
+  previewWidgetNotification(input: WidgetIdsInput!): BasicResponse
+  previewAllWidgetNotifications: BasicResponse
+  dismissAllWidgetNotifications: BasicResponse
+  createWidgetNotification(widgetType: WidgetType!): BasicResponseData
+}

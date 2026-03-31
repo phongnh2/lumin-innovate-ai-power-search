@@ -1,0 +1,25 @@
+@import 'reskin/scrollbar.scss';
+
+.dropdown {
+  @include scrollbar-reskin;
+  overflow-y: auto;
+  max-height: 240px;
+  padding: var(--kiwi-spacing-1);
+}
+
+.option {
+  padding: var(--kiwi-spacing-1) 0 var(--kiwi-spacing-1) var(--kiwi-spacing-1);
+}
+
+.optionWrapper {
+  cursor: pointer;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  grid-template-columns: 24px 1fr auto;
+}
+
+.optionSelected {
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) 0;
+}

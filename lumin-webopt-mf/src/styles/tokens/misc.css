@@ -1,0 +1,20 @@
+/* Kiwi border-radius and shadow tokens — synced from @lumin-ui design tokens */
+
+:root {
+  /* ── Border radius ── */
+  --kiwi-border-radius-none: 0px;
+  --kiwi-border-radius-xs: 2px;
+  --kiwi-border-radius-sm: 4px;
+  --kiwi-border-radius-md: 8px;
+  --kiwi-border-radius-lg: 16px;
+  --kiwi-border-radius-xl: 24px;
+  --kiwi-border-radius-rounded: 800px;
+  --kiwi-border-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --kiwi-shadow-1: inset 0px 0px 2px 0px #ffffffa3, 0px 9px 2px 0px #00000000, 0px 5px 2px 0px #00000003, 0px 3px 2px 0px #0000000d, 0px 1px 1px 0px #00000014, 0px 0px 1px 0px #00000029;
+  --kiwi-shadow-2: inset 0px 0px 2px 0px #ffffffa3, 0px 17px 5px 0px #00000000, 0px 11px 4px 0px #00000003, 0px 6px 4px 0px #0000000a, 0px 3px 3px 0px #00000012, 0px 0px 2px 0px #00000029;
+  --kiwi-shadow-3: inset 0px 0px 2px 0px #ffffffa3, 0px 34px 10px 0px #00000000, 0px 21px 9px 0px #00000005, 0px 12px 8px 0px #00000012, 0px 5px 6px 0px #0000001c, 0px 0px 2px 0px #00000029;
+  --kiwi-shadow-4: inset 0px 0px 2px 0px #ffffffa3, 0px 67px 19px 0px #00000000, 0px 43px 17px 0px #00000003, 0px 24px 14px 0px #0000000a, 0px 11px 11px 0px #0000000f, 0px 0px 2px 0px #00000029;
+  --kiwi-shadow-5: inset 0px 0px 2px 0px #ffffffa3, 0px 134px 38px 0px #00000000, 0px 86px 34px 0px #00000003, 0px 48px 29px 0px #0000000a, 0px 21px 21px 0px #0000000f, 0px 0px 4px 0px #00000029;
+}

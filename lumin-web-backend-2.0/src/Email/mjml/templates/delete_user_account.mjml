@@ -1,0 +1,31 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your account has been deleted</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Hi&nbsp;<b class="highlight">{{name}}</b>,
+          </mj-text>
+          <mj-spacer height="4px" />
+          <mj-text>
+            Your Lumin account has been deleted.
+          </mj-text>
+          <mj-text>
+            If you have any questions,&nbsp;
+          </mj-text>
+          <mj-text mj-class="link">
+            <mj-button href="{{staticUrl}}/contact-support">
+              <b>Contact Support.</b>
+            </mj-button>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

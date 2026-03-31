@@ -1,0 +1,75 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-outline-variant);
+  padding: var(--kiwi-spacing-2);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--kiwi-colors-surface-on-surface);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    transition: var(--default-web-transition);
+  }
+
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &:active:after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+
+
+  @include md-screen {
+    align-items: center;
+    justify-content: space-between;
+    gap: unset;
+    flex-direction: row;
+    padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+  }
+}
+
+.orgInfoWrapper {
+  display: flex;
+  align-items: center;
+  p {
+    width: fit-content;
+  }
+
+  @include md-screen {
+    padding-right: var(--kiwi-spacing-3);
+    p {
+      width: auto;
+    }
+  }
+}
+
+.orgInfo {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-5);
+  padding-left: var(--kiwi-spacing-1-5);
+  width: 100%;
+  z-index: 1;
+}
+
+.actionButton {
+  z-index: 1;
+  min-width: 160px;
+}
+
+.normalWidth {
+  min-width: 130px;
+}

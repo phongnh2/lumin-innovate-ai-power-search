@@ -1,0 +1,60 @@
+.container {
+  padding: var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-custom-brand-tools-unlock-surface);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-0-5);
+
+    .promotionCodeImg {
+      width: var(--kiwi-spacing-4);
+      height: var(--kiwi-spacing-4);
+    }
+  }
+}
+
+.collapseContent {
+  margin-top: var(--kiwi-spacing-1-5);
+
+  .promotionInputHeader {
+    padding: var(--kiwi-spacing-0-25) 0;
+  }
+
+  .promotionInputField {
+    display: flex;
+    gap: var(--kiwi-spacing-2);
+    margin-top: var(--kiwi-spacing-0-5);
+
+    .input {
+      flex-grow: 1;
+    }
+  }
+}
+
+.ticketWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+
+  .ticket {
+    display: flex;
+    padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+    align-items: center;
+    gap: var(--kiwi-spacing-0-5);
+    border-radius: var(--kiwi-border-radius-sm);
+    border: 1px dashed var(--kiwi-colors-custom-brand-tools-unlock);
+    background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  }
+}
+
+.wrapper {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}

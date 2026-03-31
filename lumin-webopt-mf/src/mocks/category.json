@@ -1,0 +1,62 @@
+[
+  {
+    "id": "agreements",
+    "title": "Agreements",
+    "description": "Partnership agreements, employee equipment agreements, NDAs, and more.",
+    "backgroundColor": "var(--kiwi-colors-support-violet-background-highest)"
+  },
+  {
+    "id": "tax",
+    "title": "Tax",
+    "description": "Self-assessment forms, tax declarations, tax deduction letters, and tax forms.",
+    "backgroundColor": "var(--kiwi-colors-support-green-background-highest)"
+  },
+  {
+    "id": "contracts",
+    "title": "Contracts",
+    "description": "Employment contracts, building contracts, sale and purchase agreements.",
+    "backgroundColor": "var(--kiwi-colors-support-purple-background-highest)"
+  },
+  {
+    "id": "legal",
+    "title": "Legal",
+    "description": "Power of attorney forms, eviction letters, last will and testament templates.",
+    "backgroundColor": "var(--kiwi-colors-support-pink-background-highest)"
+  },
+  {
+    "id": "contractors",
+    "title": "Contractors",
+    "description": "Consulting contract templates, non-disclosure agreements, and tax declarations.",
+    "backgroundColor": "var(--kiwi-colors-support-yellow-background-highest)"
+  },
+  {
+    "id": "finance",
+    "title": "Finance",
+    "description": "Profit and loss statements, expense tracking templates, budget templates.",
+    "backgroundColor": "var(--kiwi-colors-support-green-background-highest)"
+  },
+  {
+    "id": "government-forms",
+    "title": "Government Forms",
+    "description": "Registration forms, tax forms, government checksheets, disclosures.",
+    "backgroundColor": "var(--kiwi-colors-support-violet-background-highest)"
+  },
+  {
+    "id": "authorizations",
+    "title": "Authorizations",
+    "description": "Medical authorization forms, payment authorization forms, permission slips.",
+    "backgroundColor": "var(--kiwi-colors-support-purple-background-highest)"
+  },
+  {
+    "id": "affidavits",
+    "title": "Affidavits",
+    "description": "Legal affidavit templates, financial declaration forms, personal statements.",
+    "backgroundColor": "var(--kiwi-colors-support-pink-background-highest)"
+  },
+  {
+    "id": "bill-of-sale",
+    "title": "Bill of Sale",
+    "description": "Vehicle bill of sale forms, property transfer documents, asset sales.",
+    "backgroundColor": "var(--kiwi-colors-support-yellow-background-highest)"
+  }
+]

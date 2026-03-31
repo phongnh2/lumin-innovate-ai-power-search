@@ -1,0 +1,52 @@
+.dialogContent {
+  position: absolute;
+  right: var(--kiwi-spacing-4);
+  bottom: var(--kiwi-spacing-2);
+  padding: var(--kiwi-spacing-2);
+  visibility: hidden;
+  z-index: var(--zindex-kiwi-modal-low);
+}
+
+.showContent {
+  visibility: visible;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+  width: 296px;
+}
+
+.modalHeader {
+  padding-bottom: var(--kiwi-spacing-0-5);
+  h2 {
+    line-height: 0;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2-5);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+  & > * {
+    width: fit-content;
+  }
+}

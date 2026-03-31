@@ -1,0 +1,25 @@
+.promoteTemplatesIllustration {
+  width: 270px;
+}
+
+.container {
+  max-width: 270px;
+}
+
+.title {
+  @include kiwi-typography-body-lg-semibold;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-0-5);
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-bottom: var(--kiwi-spacing-1-75);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-1-5);
+}

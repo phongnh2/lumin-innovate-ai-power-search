@@ -1,0 +1,51 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{sharerName}} shared a document with you in Lumin</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Lumin is a platform that allows you to sign and edit documents in the cloud.&nbsp;
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            To access this document, you need to
+            <a class="link" href="{{signUpUrl}}">Sign Up</a>.
+            If you already have an account using this email address, please click the button below to open the document.
+          </mj-text>
+          <mj-raw>
+            {{#if (neq message '') }}
+          </mj-raw>
+            <mj-spacer height="32px" />
+            <mj-column
+              background-color="#F9FAFA"
+              padding="16px"
+              border-radius="8px"
+              width="100%"
+            >
+              <mj-app-text size="normal">{{{message}}}</mj-app-text>
+            </mj-column>
+          <mj-raw>
+            {{/if}}
+          </mj-raw>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{signUpUrl}}">Open Document</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text mj-class="text-secondary">
+            If that doesn't work, you can access the following link:
+          </mj-text>
+          <mj-text mj-class="link">
+            <mj-button href="{{signUpUrl}}">
+              {{signUpUrl}}
+            </mj-button>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

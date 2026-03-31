@@ -1,0 +1,54 @@
+@import '../../constants/lumin-styles.scss';
+
+.DocumentOwnerBadge__container {
+  padding: 12px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  @include mobile() {
+    padding: 8px;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid $aliceblue;
+    left: 48%;
+    bottom: 0px;
+    transform: rotate(-90deg) translate(-50%, 0);
+  }
+}
+.DocumentOwnerBadge__body {
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+.DocumentOwnerBadge__text {
+  font-weight: 400;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+.DocumentOwnerBadge__title {
+  color: $primary;
+  font-size: 16px;
+}
+.DocumentOwnerBadge__subtitle {
+  font-size: 12px;
+  color: $secondary;
+}
+.DocumentOwnerBadge__container--active {
+  box-shadow: $org-member-tab-actived-shadow;
+  background-color: $tabActiveColor;
+  .DocumentOwnerBadge__body {
+    font-weight: 600;
+  }
+}

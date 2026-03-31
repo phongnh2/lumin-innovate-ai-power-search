@@ -1,0 +1,13 @@
+@import "../../constants/lumin-styles";
+
+.ListSeparator {
+  font-size: 12px;
+  line-height: 16px;
+  margin: 12px 0;
+  user-select: none;
+  text-align: left;
+  font-weight: 600;
+  @include themify() {
+    color: themed('panelPageNumber');
+  }
+}

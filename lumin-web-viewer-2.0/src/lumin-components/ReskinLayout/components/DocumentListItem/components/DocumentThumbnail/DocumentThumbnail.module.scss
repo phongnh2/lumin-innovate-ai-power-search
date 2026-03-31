@@ -1,0 +1,84 @@
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnailDefault {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--kiwi-colors-core-primary-container);
+}
+
+.documentStatus {
+  position: absolute;
+  z-index: 2;
+  top: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  display: block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--kiwi-colors-custom-brand-lumin-lumin-container);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  &::after {
+    content: '';
+    top: 3px;
+    left: 3px;
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--kiwi-colors-custom-brand-lumin-lumin);
+    z-index: 1;
+  }
+}
+
+.img {
+  object-fit: cover;
+}
+
+.thumbnailContainer {
+  // Design did not map tokens => I mapped tokens myself.
+  width: var(--kiwi-spacing-3);
+  height: var(--kiwi-spacing-3);
+  margin-right: var(--kiwi-spacing-1);
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.thumbnailWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--kiwi-border-radius-sm);
+  // Design did not map tokens => I mapped tokens myself.
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-outline-variant);
+  position: relative;
+  box-sizing: border-box;
+  background-color: var(--kiwi-colors-core-on-primary);
+}

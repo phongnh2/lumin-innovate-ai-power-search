@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.wrapper {
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-custom-role-web-surface-blue-hover);
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+}
+
+.content {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}

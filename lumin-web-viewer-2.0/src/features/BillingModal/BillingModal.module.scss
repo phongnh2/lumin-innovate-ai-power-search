@@ -1,0 +1,28 @@
+.dialogContent {
+  flex-basis: 1040px;
+  min-height: 260px;
+}
+
+.dialogInner {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.dialogBody {
+  display: grid;
+  // 600px 440px
+  grid-template-columns: 15fr 11fr;
+  color: var(--kiwi-colors-surface-on-surface);
+  & > div {
+    max-width: 600px;
+  }
+}
+
+.infoSection {
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  padding: var(--kiwi-spacing-3);
+}
+
+.summarySection {
+  padding: var(--kiwi-spacing-3);
+}

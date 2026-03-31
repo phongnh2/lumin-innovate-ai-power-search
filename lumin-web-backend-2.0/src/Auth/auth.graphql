@@ -1,0 +1,339 @@
+# PASSWORD LEVELS:
+# weak => match 1 or 2 conditions
+# medium (default) => match 3 conditions
+# strong => match all conditions
+
+enum InviteType {
+  ORGANIZATION
+}
+
+enum AuthenType {
+  CIRCLE_FREE
+  CIRCLE_BUSINESS
+  INDIVIDUAL_PROFESSIONAL
+  TEMPLATES_OPEN
+  NORMAL
+}
+
+enum LoginService {
+  GOOGLE
+  DROPBOX
+  APPLE
+  EMAIL_PASSWORD
+  MICROSOFT
+  XERO
+  SAML_SSO
+}
+
+input RedirectData {
+  authType: AuthenType
+  plan: PaymentPlanSubscription
+  period: PaymentPeriod
+  promotionCode: String
+  isTrial: Boolean
+}
+
+input SignUpInput {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  password: String! @PasswordStrength @Length(min: 8, max: 255)
+  name: String! @Length(min: 1, max: 32)
+  landingPageToken: String
+  sharingToken: String
+  invitationType: InviteType
+  redirectData: RedirectData
+  loginService: LoginService
+  origin: String
+  browserLanguageCode: String
+  openTemplateData: OpenTemplateData
+}
+
+input OpenTemplateData {
+  templateId: Int!
+  source: String
+}
+
+input SignUpInvitationInput {
+  password: String! @Length(min: 8, max: 255) @PasswordStrength
+  name: String! @Length(min: 1, max: 32)
+  invitationToken: String
+  invitationType: InviteType
+  loginService: LoginService
+  browserLanguageCode: String
+}
+
+type SignUpPayload {
+  message: String!
+  statusCode: Int!
+  userId: String
+}
+
+input SignInByGoogleInput {
+  idToken: String!
+  timezoneOffset: Int!
+  platform: String
+  context: AuthenType
+  invitationToken: String
+  browserLanguageCode: String
+
+}
+
+input SignInByGoogleInputV2 {
+  code: String # will be deprecated after release implicit flow 1-2 weeks, use acceessToken instead
+  accessToken: String
+  timezoneOffset: Int!
+  platform: String
+  context: AuthenType
+  browserLanguageCode: String
+}
+
+type SignInPayload {
+  token: String!
+  refreshToken: String!
+  user: User
+  origin: String
+}
+
+type AdminSignInPayload {
+  token: String!
+  user: Admin!,
+}
+
+input AdminCreatePasswordInput {
+  token: String!
+  name: String! @Length(min: 1, max: 32)
+  password: String! @Length(min: 8, max: 255)
+}
+
+type SignInThirdPartyPayload {
+  token: String!
+  refreshToken: String!
+  user: User,
+  isSignedUp: Boolean!,
+  isMergedAccount: Boolean @deprecated
+}
+
+type SignInThirdPartyPayloadV2 {
+  token: String!
+  refreshToken: String!
+  user: User
+  isSignedUp: Boolean!
+  oauth2Token: String # will be deprecated after release implicit flow 1-2 weeks
+  idToken: String # will be deprecated after release implicit flow 1-2 weeks
+  scope: String!
+  isMergedAccount: Boolean @deprecated
+}
+
+input SignInByDropboxInput {
+  code: String!
+  timezoneOffset: Int!
+  context: AuthenType
+  invitationToken: String
+  browserLanguageCode: String
+}
+
+input SignInByAppleInput {
+  idToken: String!
+  nonce: String!
+  name: String
+  timezoneOffset: Int!
+}
+
+input SignOutInput {
+  token: String!
+  refreshToken: String!
+  type: String
+}
+
+type SignOutPayload {
+  message: String!
+  statusCode: Int!
+}
+
+input VerifyEmailInput {
+  token: String!
+}
+
+type VerifyEmailPayload {
+  email: String
+  message: String!
+  statusCode: Int!
+}
+
+input ResendVerifyEmailInput {
+  email: String!
+}
+
+type ResendVerifyEmailPayload {
+  message: String!
+  statusCode: Int!
+}
+
+input ForgotPasswordInput {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  responseKey: String
+  origin: String
+}
+
+type ForgotPasswordPayload {
+  name: String!
+  token: String!
+}
+
+input ResetPasswordInput {
+  token: String!
+  password: String! @Length(min: 8, max: 255)
+  stayLoggedIn: Boolean!
+}
+
+type ResetPasswordPayload {
+  message: String!
+  statusCode: Int!
+}
+
+input SignInInput {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  password: String! @Length(min: 8, max: 255)
+  timezoneOffset: Int!
+}
+
+input VerifyTokenInput {
+  timezoneOffset: Int
+  invitationToken: String
+}
+
+input CheckResetPasswordInput {
+  token: String!
+  refreshToken: String
+}
+
+type VerifyTokenPayload {
+  token: String
+  user: User!
+}
+
+type AdminVerifyTokenPayload {
+  token: String
+  user: Admin!
+}
+
+type VerifyPasswordPayload {
+  verified: Boolean!
+}
+
+type CheckLoginExternalPayload {
+  external: Boolean!
+}
+
+type InviteOrgVerificationPayload {
+  isLuminUser: Boolean!
+  email: String!
+  orgUrl: String
+  orgName: String
+  isValidToken: Boolean!
+  notFinishedAuthenFlow: Boolean
+}
+
+type GetLandingPageTokenPayload {
+  landingPageToken: String!
+}
+
+type UpdateUserTypePayload {
+  type: String!
+  statusCode: Int!
+  message: String!
+}
+
+type VerifySharingDocPayload {
+  email: String!
+  documentId: String!
+  documentName: String!
+  linkType: String!
+  isSignedUp: Boolean!
+}
+
+type ExchangeGoogleTokenPayload {
+  idToken: String!
+  accessToken: String!
+  scope: String!
+}
+
+type GoogleToken {
+  token: String!
+  scope: String!
+}
+
+type SigninWithLuminPayload {
+  user: User!
+  token: String!
+  refreshToken: String!
+  idToken: String!
+}
+
+type VerifyInvitationMetadataPayload {
+  orgId: String
+  documentId: String
+  orgUrl: String
+  orgName: String
+  invitationId: String
+}
+
+type VerifyInvitationTokenPayload {
+  type: String!
+  email: String!
+  status: String!
+  newAuthProcessing: Boolean
+  metadata: VerifyInvitationMetadataPayload
+}
+
+type CredentialsFromOpenGooglePayload {
+  userId: String
+  email: String
+  token: String
+  refreshToken: String
+  googleAccessToken: String
+}
+
+type Query {
+  signIn(
+    email: String! @Length(key: "email", min: 1, max: 100) @IsEmail(key: "email"),
+    password: String! @Length(key: "password", min: 6, max: 255),
+    timezoneOffset: Int!,
+    browserLanguageCode: String,
+  ):SignInPayload
+  inviteOrgVerification(token: String!): InviteOrgVerificationPayload
+  verifyToken(input: VerifyTokenInput): VerifyTokenPayload
+  checkResetPasswordUrl(input: CheckResetPasswordInput): BasicResponse
+  verifyPassword(password: String!): VerifyPasswordPayload
+  checkLoginExternal: CheckLoginExternalPayload
+  getLandingPageToken(landingPageType: String!): GetLandingPageTokenPayload,
+  verifySharingDocumentToken(sharingToken: String!): VerifySharingDocPayload,
+  adminSignIn(input: SignInInput!): AdminSignInPayload
+  adminVerifyToken: AdminVerifyTokenPayload
+  exchangeGoogleToken(code: String!): ExchangeGoogleTokenPayload
+  getGoogleAccessToken: GoogleToken
+  getMe(timezoneOffset: Int, invitationToken: String, skipOnboardingFlow: Boolean, isEnabledNewLayout: Boolean): VerifyTokenPayload
+  signinWithLumin(code: String!, redirectUri: String, timezoneOffset: Int, codeVerifier: String): SigninWithLuminPayload
+  verifyNewUserInvitationToken(token: String!): VerifyInvitationTokenPayload
+  healthCheck: BasicResponse
+  validateIPWhitelist(email: String): BasicResponse
+  getCredentialsFromOpenGoogle(credentialId: String!): CredentialsFromOpenGooglePayload
+}
+
+type Mutation {
+  signUp(input: SignUpInput!): SignUpPayload
+  signUpWithInvite(input: SignUpInvitationInput!): SignUpPayload
+  signInByGoogle(input: SignInByGoogleInput!): SignInThirdPartyPayload
+  signInByDropbox(input: SignInByDropboxInput!): SignInThirdPartyPayload
+  signInByApple(input: SignInByAppleInput!): SignInThirdPartyPayload
+  signOut(input: SignOutInput!): BasicResponse
+  verifyEmail(input: VerifyEmailInput!): VerifyEmailPayload
+  resendVerifyEmail(input: ResendVerifyEmailInput!): BasicResponse
+  resetPassword(input: ResetPasswordInput!): BasicResponse
+  forceLogout(stayLoggedIn: Boolean!): BasicResponse
+  updateUserType(landingPageToken: String): UpdateUserTypePayload
+  adminForgotPassword(input: ForgotPasswordInput!): BasicResponse
+  adminResetPassword(input: ResetPasswordInput!): BasicResponse
+  adminSignOut: BasicResponse
+  adminCreatePassword(input: AdminCreatePasswordInput!): AdminPayload
+  signInByGoogleV2(input: SignInByGoogleInputV2!): SignInThirdPartyPayloadV2
+}

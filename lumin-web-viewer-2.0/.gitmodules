@@ -1,0 +1,6 @@
+[submodule "lib"]
+	path = lib
+	url = git@bitbucket.org:nitrolabs/lumin-web-core.git
+[submodule "font-icomoon"]
+	path = font-icomoon
+	url = git@bitbucket.org:nitrolabs/font-icomoon.git

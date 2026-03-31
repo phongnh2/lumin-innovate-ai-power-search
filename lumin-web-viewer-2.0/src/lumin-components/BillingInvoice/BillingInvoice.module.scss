@@ -1,0 +1,29 @@
+@import 'reskin/screens.scss';
+
+.footer {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+  @include md-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  margin-bottom: var(--kiwi-spacing-1-5);
+}
+
+.note {
+  font-weight: 700;
+}
+
+.seeFullBilling {
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--default-web-transition);
+
+  &:hover {
+    color: var(--kiwi-colors-semantic-on-information-container);
+  }
+}

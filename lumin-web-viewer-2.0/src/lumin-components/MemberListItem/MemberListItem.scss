@@ -1,0 +1,89 @@
+@import "../../constants/lumin-styles";
+
+.MemberListItem {
+  align-items: center;
+  display: flex;
+  height: 48px;
+  padding: 0 8px;
+
+  &.hover {
+    &:hover {
+      cursor: pointer;
+      background: var(--color-neutral-10);
+
+      @include themify {
+        background: themed("popperItemHover");
+      }
+    }
+  }
+
+  &.active {
+    background: var(--color-neutral-20);
+
+    &:hover {
+      background: var(--color-neutral-20);
+    }
+
+    @include themify {
+      background: themed("popperItemHover");
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .input-add-member {
+    position: absolute;
+    top: -1000px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__text {
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-neutral-100);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    @include themify {
+      color: themed("textColor");
+    }
+
+    &--secondary {
+      color: var(--color-neutral-60);
+      font-weight: 400;
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 12px;
+      line-height: 16px;
+
+      @include themify {
+        color: themed("textColorSecondary");
+      }
+    }
+  }
+}
+
+.MemberListItem--no-gutter {
+  padding: 0;
+}

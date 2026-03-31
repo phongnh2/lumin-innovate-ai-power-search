@@ -1,0 +1,41 @@
+@import "../../constants/styles.scss";
+@import "../../constants/lumin-styles.scss";
+
+.CircularProgressbar {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  @include themify {
+    stroke: themed(circularProgressStroke);
+  }
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  @include themify {
+    stroke: themed(circularProgressStrokeTrail);
+  }
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  @include themify {
+    fill: themed(circularProgressText);
+  }
+  dominant-baseline: middle;
+  text-anchor: middle;
+  font-family: Axiforma;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+  @include themify {
+    fill: themed(circularProgressStrokeTrail);
+  }
+}

@@ -1,0 +1,66 @@
+.scrollAreaRoot {
+  height: 100%;
+  padding: 0 var(--kiwi-spacing-3) var(--kiwi-spacing-3);
+}
+
+.locationItem {
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--kiwi-border-radius-md);
+    transition: var(--default-web-transition);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    background-color: var(--kiwi-colors-surface-on-surface);
+  }
+
+  &:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+  
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+
+    .name {
+      @include kiwi-typography-body-md;
+      color: var(--kiwi-colors-surface-on-surface);
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      word-break: break-all;
+    }
+  }
+}
+
+.spaceListWrapper {
+  .title {
+    @include kiwi-typography-headline-xs;
+    color: var(--kiwi-colors-surface-on-surface-variant);
+  }
+
+  .spaceList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kiwi-spacing-0-5);
+  }
+}

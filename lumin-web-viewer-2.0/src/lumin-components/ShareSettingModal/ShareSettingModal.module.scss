@@ -1,0 +1,46 @@
+.modalTitleContainer {
+  display: flex;
+  height: 28px;
+}
+.subTitle {
+  margin-top: var(--kiwi-spacing-0-5);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+.inputWrapper {
+  margin-top: var(--kiwi-spacing-1);
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  display: grid;
+  grid-template-columns: auto max-content;
+}
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: var(--kiwi-spacing-2);
+}
+.inputLink {
+  padding: 0 var(--kiwi-spacing-0-75);;
+}
+.button {
+  width: 120px;
+}
+
+.shareSettingButton {
+  margin-left: calc(-1 * var(--kiwi-spacing-1-5));
+}
+
+.shareSettingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--kiwi-spacing-0-5);
+}
+
+.shareLinkText {
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.descriptionText {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}

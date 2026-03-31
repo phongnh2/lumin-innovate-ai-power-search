@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+}
+
+.title {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  align-self: stretch;
+}
+
+.label,
+.value {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  min-width: 75px;
+}
+
+.inputNumber {
+  width: 80px;
+}

@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  opacity: 1;
+  transition: opacity var(--editor-transition);
+
+  &.hide {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,522 @@
+
+enum PaymentType {
+  INDIVIDUAL
+  TEAM
+  ORGANIZATION
+}
+
+enum CustomerCreationMethod {
+  PAYMENT_METHOD
+  SOURCE_TOKEN
+}
+
+enum FreeTrialIssuer {
+  PAYMENT_METHOD
+  SOURCE
+}
+
+enum PaymentPlanSubscription {
+  PROFESSIONAL
+  PERSONAL
+  BUSINESS
+  ENTERPRISE
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+}
+
+enum UnifySubscriptionProduct {
+  PDF
+  SIGN
+}
+
+enum UnifySubscriptionPlan {
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+  ORG_SIGN_PRO
+}
+
+enum DocStackPlan {
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+}
+
+enum PaymentTypeSubscription {
+  INDIVIDUAL
+  ORGANIZATION
+}
+
+enum PaymentPeriod {
+  MONTHLY
+  ANNUAL
+}
+
+enum Currency {
+  USD
+  NZD
+  CAD
+  EUR
+}
+
+enum CancelStrategy {
+  IMMEDIATELY
+  END_PERIOD
+}
+
+enum BillingWarningType {
+  SUBSCRIPTION_REMAINING_DATE
+  CANCELED_SUBSCRIPTION
+  RENEW_ATTEMPT
+  UNPAID_SUBSCRIPTION
+  TIME_SENSITIVE_COUPON
+}
+
+enum CloseBillingBannerType {
+  SUBSCRIPTION_REMAINING_DATE
+  CANCELED_SUBSCRIPTION
+}
+
+enum PriceVersion {
+  V1
+  V2
+  V3
+}
+
+enum CardWallet {
+  APPLE_PAY
+  GOOGLE_PAY
+}
+
+type Invoice {
+  id: String
+  created: Date
+  total: Int
+  downloadLink: String
+}
+
+type SubscriptionResponse {
+  quantity: Int
+  amount: Float
+  nextInvoice: Int
+  billingInterval: String
+  currency: String
+  creditBalance: Int
+  payment: ChargeData
+}
+
+type PaymentResponse {
+  statusCode: Int
+  message: String
+  data: Payment
+  organization: Organization
+}
+
+type SubscriptionItem {
+  id: String
+  planRemoteId: String @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  period: String
+  currency: String
+  paymentType: String!
+  paymentStatus: String
+  quantity: Int!
+  productName: String!
+}
+
+type ChargeData {
+  subscriptionRemoteId: String
+  customerRemoteId: String
+  planRemoteId: String
+  type: String
+  period: PaymentPeriod
+  status: String
+  quantity: Int
+  currency: String
+  productId: String
+  priceVersion: PriceVersion
+  stripeAccountId: String
+  subscriptionItems: [SubscriptionItem]
+}
+
+type ChargeResponse {
+  statusCode: Int
+  message: String
+  data: ChargeData
+  organization: Organization
+}
+
+type CustomerCreation {
+  method: CustomerCreationMethod!
+  value: String!
+}
+
+input GetNextPaymentInfoInput {
+  plan: PaymentPlanSubscription!
+  period: PaymentPeriod!
+  currency: Currency!
+  clientId: ID @MongoId(isOptional: true)
+  stripeAccountId: String
+}
+
+input GetNextSubscriptionInfoSubItem {
+  productName: UnifySubscriptionProduct!
+  planName: UnifySubscriptionPlan!
+}
+
+input GetNextSubscriptionInfoInput {
+  period: PaymentPeriod!
+  currency: Currency!
+  clientId: ID @MongoId(isOptional: true)
+  stripeAccountId: String
+  subscriptionItems: [GetNextSubscriptionInfoSubItem!]!
+}
+
+input SubscriptionInput {
+  tokenId: String
+  plan: PaymentPlanSubscription!
+  period: PaymentPeriod!
+  quantity: Int!
+  currency: Currency!
+  couponCode: String
+}
+
+input GetCouponValueInput {
+  plan: PaymentPlanSubscription!
+  period: PaymentPeriod!
+  couponCode: String!
+  currency: Currency!
+  orgId: ID @MongoId(isOptional: true)
+  stripeAccountId: String
+}
+
+input GetSubscriptionCouponItems {
+  planName: UnifySubscriptionPlan!
+}
+
+input GetSubscriptionCouponInput {
+  period: PaymentPeriod!
+  couponCode: String!
+  currency: Currency!
+  orgId: ID @MongoId(isOptional: true)
+  stripeAccountId: String
+  subscriptionItems: [GetSubscriptionCouponItems!]!
+}
+
+input SubscriptionTrialInput {
+  issuedId: ID
+  issuer: CustomerCreationMethod
+  period: PaymentPeriod!
+  currency: Currency!
+  plan: CreateOrganizationSubscriptionPlans!
+  orgId: ID!
+  stripeAccountId: String
+  isBlockedPrepaidCardOnTrial: Boolean
+}
+
+input CreateFreeTrialUnifySubscriptionInput {
+  paymentMethod: String
+  period: PaymentPeriod!
+  currency: Currency!
+  orgId: ID!
+  stripeAccountId: String
+  isBlockedPrepaidCardOnTrial: Boolean
+  subscriptionItems: [CreateUnifySubscriptionItem!]!
+}
+
+input UpgradeSubscriptionInput {
+  plan: PaymentPlanSubscription!
+  period: PaymentPeriod!
+  currency: Currency!
+  quantity: Int
+  sourceId: ID
+  couponCode: String
+}
+
+input UpgradeUnifySubscriptionInput {
+  paymentMethod: String
+  period: PaymentPeriod!
+  currency: Currency!
+  isBlockedPrepaidCardOnTrial: Boolean
+  couponCode: String
+  subscriptionItems: [CreateUnifySubscriptionItem!]!
+}
+
+input CancelSubscriptionInput {
+  clientId: ID! @MongoId
+  type: PaymentType!
+}
+
+input CancelUnifySubscriptionInputItem {
+  productName: UnifySubscriptionProduct!
+}
+
+input CancelUnifySubscriptionInput {
+  clientId: ID! @MongoId
+  type: PaymentType
+  subscriptionItems: [CancelUnifySubscriptionInputItem!]
+}
+
+input GetCardInput {
+  clientId: ID! @MongoId
+  plan: PaymentPlanSubscription!
+  type: PaymentType!
+}
+
+input GetRemainingInput {
+  clientId: ID! @MongoId
+  plan: PaymentPlanSubscription!
+  type: PaymentType!
+  period: PaymentPeriod!
+  currency: Currency!
+  quantity: Int!
+  couponCode: String
+}
+
+input CommonPaymentInput {
+  clientId: ID! @MongoId
+  type: PaymentType!
+  plan: PaymentPlanSubscription
+}
+
+input InvoicesInput {
+  clientId: ID! @MongoId
+  type: PaymentType!
+}
+
+input GetBillingEmailInput {
+  clientId: ID! @MongoId
+  type: PaymentType!
+}
+
+type CouponValueResponse {
+  type: String!
+  value: Int!
+}
+
+type RenewAttemptMetaPayload {
+  organization: Organization
+}
+
+type RenewAttempt {
+  attemptCount: Int,
+  nextPaymentAttempt: String,
+  clientId: String,
+  paymentType: String,
+  declineCode: String,
+  cardLast4: String,
+}
+
+type RenewBillingWarningPayload {
+  attempt: RenewAttempt
+  metadata: RenewAttemptMetaPayload
+}
+
+type  SubCancelBillingWarningMetaPayload {
+  organization: Organization
+}
+
+type SubCancelBillingWarningPayload {
+  remainingDay: Int
+  expireDate: String
+  lastSubscriptionEndedAt: Int
+  metadata: SubCancelBillingWarningMetaPayload
+}
+
+type TimeSensitiveCouponPayload {
+  promotionCode: String!
+  createdAt: Date!
+}
+
+type BillingWarningPayload {
+  renewPayload: RenewBillingWarningPayload
+  subCancelPayload: SubCancelBillingWarningPayload
+  timeSensitiveCouponPayload: TimeSensitiveCouponPayload
+  warnings: [BillingWarningType]!
+}
+
+type GetNextPaymentInfoPayload {
+  nextPlanRemoteId: String
+  nextProductId: String
+}
+
+type GetNextSubscriptionInfoPayload {
+  nextPlanRemoteId: String
+  nextProductId: String
+}
+
+type RemainingPlan {
+  currency: String
+  remaining: Int
+  total: Int
+  nextBillingCycle: String
+  nextBillingPrice: Int
+  amountDue: Int
+  quantity: Int
+  creditBalance: Int
+  discount: Int
+}
+
+input GetBillingCycleOfPlanInput {
+  plan: PaymentPlanSubscription!
+  period: PaymentPeriod!
+  currency: Currency!
+  quantity: Int!
+  couponCode: String
+  stripeAccountId: String
+}
+
+input GetSubscriptionBillingCycleInput {
+  period: PaymentPeriod!
+  currency: Currency!
+  couponCode: String
+  stripeAccountId: String
+  subscriptionItems: [CreateUnifySubscriptionItem!]!
+}
+
+type TrialInfo {
+  highestTrial: CreateOrganizationSubscriptionPlans
+  endTrial: Date
+  canStartTrial: Boolean
+  canUseStarterTrial: Boolean
+  canUseProTrial: Boolean
+  canUseBusinessTrial: Boolean
+}
+
+enum OldPlans {
+  BUSINESS
+  PROFESSIONAL
+  PERSONAL
+  FREE_TRIAL_30
+}
+
+input CardInfo {
+  number: String!
+  expireMonth: Int!
+  expireYear: Int!
+  cvc: String!
+}
+
+type CustomerInfoResponse {
+  email: String
+  currency: Currency!
+}
+
+type RetrieveSetupIntentResponse {
+  clientSecret: String!
+  accountId: String!
+}
+
+type PaymentMethodCard {
+  expMonth: Int!,
+  expYear: Int!,
+  last4: String!,
+  wallet: CardWallet
+}
+
+type PaymentMethodCashapp {
+  email: String!,
+}
+
+type PaymentMethodLink {
+  email: String!,
+}
+
+enum PaymentMethodType {
+  CARD
+  LINK
+  CASHAPP
+}
+
+type PaymentMethodResponse {
+  type: PaymentMethodType
+  card: PaymentMethodCard
+  link: PaymentMethodLink
+  cashapp: PaymentMethodCashapp
+}
+
+type UpdatePaymentMethodResponse {
+  statusCode: Int
+  message: String
+  paymentMethod: PaymentMethodResponse
+  billingEmail: String
+}
+
+input UpdatePaymentMethodInput {
+  paymentMethodId: ID!
+  clientId: ID! @MongoId
+  plan: PaymentPlanSubscription
+  type: PaymentType!
+  email:  String! @IsEmail @Length(min: 1, max: 255),
+}
+
+type GetUnifySubscriptionSubscriptionItem {
+  id: String
+  planRemoteId: String
+  period: String
+  currency: String
+  paymentType: String!
+  paymentStatus: String
+  quantity: Int!
+  productName: String!
+  amount: Int!
+}
+
+type GetUnifySubscriptionPayment {
+  period: String
+  status: String
+  currency: String
+  remainingPlan: RemainingPlan
+  subscriptionItems: [GetUnifySubscriptionSubscriptionItem!]!
+}
+
+type GetUnifySubscriptionPayloadSubInfo {
+  payment: GetUnifySubscriptionPayment!
+  creditBalance: Int
+  nextInvoice: Int
+  amount: Int
+  currency: String
+}
+
+type GetUnifySubscriptionPayload {
+  subscription: GetUnifySubscriptionPayloadSubInfo!
+  upcomingInvoice: SubscriptionResponse
+}
+
+input RetrieveSetupIntentV3Input {
+  reCaptchaTokenV3: String!
+  reCaptchaAction: String!
+}
+
+type Query {
+  upcomingInvoice(input: CommonPaymentInput!): SubscriptionResponse
+  invoices(input: InvoicesInput!): [Invoice]
+  subscription(input: CommonPaymentInput): SubscriptionResponse
+  getUnifySubscription(input: CommonPaymentInput): GetUnifySubscriptionPayload
+  customerInfo(input: CommonPaymentInput!): CustomerInfoResponse
+  couponValue(input: GetCouponValueInput!): CouponValueResponse
+  getBillingEmail(input: GetBillingEmailInput!): String
+  getSubscriptionCoupon(input: GetSubscriptionCouponInput!): CouponValueResponse
+  getRemainingPlan(input: GetRemainingInput): RemainingPlan
+  getBillingCycleOfPlan(input: GetBillingCycleOfPlanInput!): PreviewDocStackInvoicePayload
+  getSubscriptionBillingCycle(input: GetSubscriptionBillingCycleInput!): PreviewUpcomingSubscriptionInvoicePayload
+  getBillingWarning(clientId: ID! @MongoId(key: "clientId")): BillingWarningPayload
+  getNextPaymentInfo(input: GetNextPaymentInfoInput!): GetNextPaymentInfoPayload
+  getNextSubscriptionInfo(input: GetNextSubscriptionInfoInput!): [GetNextSubscriptionInfoPayload!]!
+  getPaymentMethod(clientId: ID! @MongoId(key: "clientId")): PaymentMethodResponse
+}
+
+type Mutation {
+  cancelSubscription(input: CancelSubscriptionInput!): PaymentResponse
+  cancelUnifySubscription(input: CancelUnifySubscriptionInput!): PaymentResponse
+  updatePaymentMethod(input: UpdatePaymentMethodInput!): UpdatePaymentMethodResponse
+  reactiveSubscription: PaymentResponse
+  retryFailedSubscription(clientId: ID! @MongoId(key: "clientId")): BasicResponse
+  closeBillingBanner(clientId: ID! @MongoId(key: "clientId"), bannerType: CloseBillingBannerType!): BasicResponse
+  retrieveSetupIntentV2(reCaptchaTokenV3: String) : RetrieveSetupIntentResponse
+  retrieveTrialSetupIntent(reCaptchaTokenV3: String!) : String
+  deactivateSetupIntent(stripeAccountId: String): BasicResponse
+  deactivateTrialSetupIntent: BasicResponse
+  removePersonalPaymentMethod: BasicResponse
+  retrieveSetupIntentV3(input: RetrieveSetupIntentV3Input!) : RetrieveSetupIntentResponse
+}

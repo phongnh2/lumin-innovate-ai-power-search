@@ -1,0 +1,79 @@
+.container {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  max-width: 642px;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  margin-bottom: var(--kiwi-spacing-5);
+}
+
+.focus {
+  outline: 1px solid var(--kiwi-colors-support-purple-foreground-medium);
+}
+
+.separator {
+  display: flex;
+  width: 1px;
+  height: 16px;
+  background-color: #e4e8eb; // --kiwi-colors-surface-outline-variant is not working
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-body-lg;
+}
+
+.smartFindingButton {
+  cursor: pointer;
+  min-width: 114px;
+  display: flex;
+  height: 24px;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-75);
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-25);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-support-purple-background-highest);
+  color: var(--kiwi-colors-support-purple-foreground-medium);
+  text-align: center;
+  @include kiwi-typography-label-sm;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--kiwi-colors-surface-surface-container-low);
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+}

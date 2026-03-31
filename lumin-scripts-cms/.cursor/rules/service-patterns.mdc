@@ -1,0 +1,224 @@
+---
+globs: **/services/**/*.ts
+description: Service layer patterns and best practices
+---
+
+# Service Layer Patterns
+
+## Base Service Architecture
+
+### StrapiService Base Class
+
+All services should extend [StrapiService](mdc:strapi/services/strapi/strapi.service.ts):
+
+```typescript
+export class StrapiService {
+  private strapiEndpoint: string | null = null;
+  private apiToken: string | null = null;
+
+  constructor() {
+    this.strapiEndpoint = Deno.env.get("STRAPI_ENDPOINT") || null;
+    this.apiToken = Deno.env.get("STRAPI_API_TOKEN") || null;
+  }
+
+  public get getStrapiEndpoint(): string {
+    return this.strapiEndpoint || "";
+  }
+
+  public get getStrapiApiToken(): string {
+    return this.apiToken || "";
+  }
+}
+```
+
+## Service Implementation Patterns
+
+### Constructor Pattern
+
+```typescript
+class FormService extends StrapiService {
+  private currentForms: IForm[] = [];
+  private currentFormSlugs: string[] = [];
+  private currentTime = new Date().toISOString();
+
+  constructor() {
+    super();
+    this.loadCurrentForms();
+  }
+
+  private async loadCurrentForms(): Promise<void> {
+    // Initialize service state
+  }
+}
+```
+
+### Method Organization
+
+- **Public methods**: Business logic exposed to main.ts
+- **Private methods**: Internal implementation details
+- **Validation methods**: Data validation and sanitization
+- **Utility methods**: Helper functions specific to the service
+
+### Async Method Patterns
+
+```typescript
+public async processData(): Promise<void> {
+  try {
+    console.log("🚀 ~ Starting operation ⏳");
+    
+    // Setup
+    const data = await this.loadData();
+    const chunkSize = 10;
+    let processed = 0;
+    
+    // Processing loop
+    for (let i = 0; i < data.length; i += chunkSize) {
+      const chunk = data.slice(i, i + chunkSize);
+      const promises = chunk.map(item => this.processItem(item));
+      
+      await Promise.all(promises);
+      processed += chunk.length;
+      
+      console.log(`📈 ~ Progress: ${processed}/${data.length} items processed`);
+    }
+    
+    console.log("✅ ~ Operation completed");
+  } catch (error) {
+    console.error("❌ ~ Operation failed:", error);
+    throw error;
+  }
+}
+```
+
+## Data Processing Patterns
+
+### Chunked Processing
+
+- Use small chunk sizes (1-10) for API operations
+- Use larger chunks (100+) for file operations
+- Process chunks in parallel with `Promise.all()`
+- Add progress logging for long operations
+
+### Batch Operations
+
+```typescript
+const promises = chunk.map(async (item) => {
+  try {
+    const result = await this.processItem(item);
+    return { success: true, result };
+  } catch (error) {
+    return { success: false, error };
+  }
+});
+
+const results = await Promise.allSettled(promises);
+```
+
+### State Management
+
+- Load initial state in constructor
+- Cache frequently accessed data
+- Update state after successful operations
+- Use private properties for internal state
+
+## Validation Patterns
+
+### Input Validation
+
+```typescript
+public validateInput(data: FormData): { errors: string[]; isValid: boolean } {
+  const errors: string[] = [];
+  
+  if (!data.title) {
+    errors.push("Title is required");
+  }
+  
+  if (data.title && data.title.length > MAX_LENGTH) {
+    errors.push(`Title too long: ${data.title.length}`);
+  }
+  
+  return {
+    errors,
+    isValid: errors.length === 0
+  };
+}
+```
+
+### Data Transformation
+
+```typescript
+public async transformData(rawData: ICsvRawData): Promise<FormData> {
+  const { result, errors } = await this.getFormData({ data: rawData });
+  
+  if (errors.length > 0) {
+    throw new Error(`Data transformation failed: ${errors.join(", ")}`);
+  }
+  
+  return result;
+}
+```
+
+## Error Handling in Services
+
+### Error Logging
+
+```typescript
+try {
+  await this.performOperation();
+} catch (error) {
+  const errorMessage = error instanceof Error ? error.message : String(error);
+  console.error(`❌ Operation failed:`, errorMessage);
+
+  // Log to file
+  await this.logError(errorMessage, context);
+
+  throw error;
+}
+```
+
+### Graceful Degradation
+
+```typescript
+const results = await Promise.allSettled(operations);
+results.forEach((result, index) => {
+  if (result.status === "rejected") {
+    console.error(`❌ Operation ${index} failed:`, result.reason);
+    // Continue processing other operations
+  }
+});
+```
+
+## Service Dependencies
+
+### Dependency Injection
+
+```typescript
+class FormService extends StrapiService {
+  constructor(
+    private categoryService: CategoryService,
+    private uploadService: UploadService,
+  ) {
+    super();
+  }
+}
+```
+
+### Service Communication
+
+- Use other services through constructor injection
+- Avoid circular dependencies
+- Keep services loosely coupled
+- Use interfaces for service contracts
+
+## Export Pattern
+
+```typescript
+export const formService = new FormService();
+```
+
+## Configuration Integration
+
+- Use [CONFIGURATION](mdc:strapi/config/settings.ts) constants
+- Access environment variables through base service
+- Use [enum.ts](mdc:strapi/config/enum.ts) for type safety
+- Support different environments (dev/staging/prod)

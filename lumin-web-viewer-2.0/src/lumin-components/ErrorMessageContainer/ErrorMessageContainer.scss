@@ -1,0 +1,19 @@
+@import "../../constants/lumin-styles";
+
+.ErrorMessageContainer__wrapper {
+  padding: 8px 16px;
+  border-radius: var(--border-radius-primary);
+  margin-bottom: 8px;
+  background-color: var(--color-secondary-10);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ErrorMessageContainer__message {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: 0.34px;
+  color: var(--color-secondary-50);
+}

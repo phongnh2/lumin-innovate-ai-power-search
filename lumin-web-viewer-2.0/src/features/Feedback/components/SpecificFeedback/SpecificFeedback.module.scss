@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $kiwi-spacing-2;
+}
+
+.heading {
+  text-align: center;
+}
+
+.doneButton {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.textareaError {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.textareaWrapper {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}

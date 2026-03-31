@@ -1,0 +1,15 @@
+@import 'reskin/scrollbar.scss';
+
+.scrollbarWrapper {
+  margin-right: calc(-1 * var(--kiwi-spacing-3));
+  // fix checkbox hover effect
+  margin-left: calc(-1 * var(--kiwi-spacing-0-25));
+}
+
+.scrollbarContainer {
+  // `--kiwi-spacing-1-25` is scrollbar width
+  padding-right: calc(var(--kiwi-spacing-3) - var(--kiwi-spacing-1-25));
+  max-height: 320px;
+  overflow: hidden scroll;
+  @include scrollbar-reskin;
+}

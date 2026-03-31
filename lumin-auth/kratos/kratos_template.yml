@@ -1,0 +1,320 @@
+version: v25.4.0
+
+dsn: ${DNS}
+
+session:
+  cookie:
+    domain: ${LUMIN_DOMAIN}
+  lifespan: ${LUMIN_SESSION_LIFESPAN}
+  whoami:
+    required_aal: highest_available
+    tokenizer:
+      templates:
+        lumin_authentication_jwt:
+          claims_mapper_url: ${LUMIN_MAPPER_AUTHENTICATION_URL}
+          jwks_url: file:///etc/config/kratos/authentication.jwt.jsonnet
+          ttl: ${LUMIN_SESSION_LIFESPAN}
+        lumin_authorization_jwt:
+          claims_mapper_url: ${LUMIN_MAPPER_AUTHORIZATION_URL}
+          jwks_url: file:///etc/config/kratos/authorization.jwt.jsonnet
+          ttl: ${LUMIN_SESSION_LIFESPAN}
+
+serve:
+  public:
+    base_url: ${NEXT_PUBLIC_KRATOS_URL}
+    cors:
+      enabled: true
+      allowed_origins:
+        - ${LUMIN_AUTH_URL}
+        - ${NEXT_PUBLIC_STATIC_URL}
+        - ${LUMIN_WEB_APP_URL}
+        - ${LUMIN_SIGN_APP_URL}
+        - ${LUMIN_PAYMENT_MF_APP_URL}
+  admin:
+    base_url: ${LUMIN_KRATOS_ADMIN_URL}
+
+selfservice:
+  default_browser_return_url: ${LUMIN_AUTH_URL}
+  allowed_return_urls:
+    - ${LUMIN_AUTH_URL}
+    - ${NEXT_PUBLIC_STATIC_URL}
+    - ${LUMIN_WEB_APP_URL}
+    - ${LUMIN_HYDRA_PUBLIC_URL}
+    - ${LUMIN_SIGN_APP_URL}
+    - ${LUMIN_WEB_BACKEND_URL}
+    - ${LUMIN_PAYMENT_MF_APP_URL}
+  
+  methods:
+    link:
+      enabled: true
+    password:
+      enabled: true
+
+    oidc:
+      enabled: true
+      config:
+        providers:
+          - id: google
+            provider: google
+            client_id: ${LUMIN_OIDC_GOOGLE_CLIENT_ID}
+            client_secret: ${LUMIN_OIDC_GOOGLE_CLIENT_SECRET}
+            mapper_url: file:///etc/config/kratos/oidc.google.jsonnet
+            scope:
+              - email
+              - profile
+            requested_claims:
+              id_token:
+                email:
+                  essential: true
+                email_verified:
+                  essential: true
+                given_name:
+                  essential: true
+                family_name: null
+                hd: null
+                sub: null
+          - id: dropbox
+            provider: generic
+            issuer_url: https://www.dropbox.com
+            client_id: ${LUMIN_OIDC_DROPBOX_CLIENT_ID}
+            client_secret: ${LUMIN_OIDC_DROPBOX_CLIENT_SECRET}
+            mapper_url: file:///etc/config/kratos/oidc.dropbox.jsonnet
+            scope:
+              - email
+              - openid
+              - profile
+            requested_claims:
+              id_token:
+                email:
+                  essential: true
+                email_verified:
+                  essential: true
+                given_name:
+                  essential: true
+                family_name: null
+                hd: null
+                sub: null
+          - apple_private_key: |
+              -----BEGIN PRIVATE KEY-----
+              MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgzj0UW19JxWtKUGif
+              pDLdLF2ZCNNRrD4yYkFT8LQTy06gCgYIKoZIzj0DAQehRANCAAS7/aUHUZgXANkN
+              svi/peJNkser8SGJ+RseKzwIwjHLURVwN1M03CQqFP2kbkMBCMQIpS82sFE6snZK
+              KJJFFX9K
+              -----END PRIVATE KEY-----
+            apple_private_key_id: 7XHC2R2ZDX
+            apple_team_id: N5C7P35A56
+            client_id: com.luminpdf.staging-auth
+            id: apple
+            label: Apple
+            mapper_url: file:///etc/config/kratos/oidc.apple.jsonnet 
+            provider: apple
+            scope:
+            - email
+          - client_id: ${LUMIN_OIDC_MICROSOFT_CLIENT_ID}
+            client_secret: ${LUMIN_OIDC_MICROSOFT_CLIENT_SECRET}
+            id: microsoft
+            label: Microsoft
+            mapper_url: file:///etc/config/kratos/oidc.microsoft.jsonnet
+            microsoft_tenant: common
+            provider: microsoft
+            scope:
+            - email
+            - profile
+            - openid
+            subject_source: userinfo
+          - id: xero
+            provider: generic
+            issuer_url: https://identity.xero.com
+            client_id: ${LUMIN_OIDC_XERO_CLIENT_ID}
+            client_secret: ${LUMIN_OIDC_XERO_CLIENT_SECRET}
+            mapper_url: file:///etc/config/kratos/oidc.xero.jsonnet
+            label: Xero
+            scope:
+              - openid
+              - email
+              - profile
+  flows:
+    error:
+      ui_url: ${LUMIN_AUTH_URL}/error
+
+    settings:
+      ui_url: ${LUMIN_AUTH_URL}/profile-settings
+      privileged_session_max_age: ${LUMIN_SESSION_LIFESPAN}
+      after:
+        hooks:
+          - hook: web_hook
+            config:
+              method: POST
+              url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-sync-up-settings-data
+              body: file:///etc/config/kratos/webhooks/sync_up_settings_data_callback_body.jsonnet
+              auth:
+                type: api_key
+                config:
+                  name: Authorization
+                  value: ${LUMIN_KRATOS_API_KEY}
+                  in: header
+              response:
+                parse: false
+        profile:
+          hooks:
+            - hook: web_hook
+              config:
+                method: POST
+                url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-validate-settings-data
+                body: file:///etc/config/kratos/webhooks/validate_settings_data_callback_body.jsonnet
+                auth:
+                  type: api_key
+                  config:
+                    name: Authorization
+                    value: ${LUMIN_KRATOS_API_KEY}
+                    in: header
+                response:
+                  parse: true
+            - hook: web_hook
+              config:
+                method: POST
+                url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-sync-up-settings-data
+                body: file:///etc/config/kratos/webhooks/sync_up_settings_data_callback_body.jsonnet
+                auth:
+                  type: api_key
+                  config:
+                    name: Authorization
+                    value: ${LUMIN_KRATOS_API_KEY}
+                    in: header
+                response:
+                  parse: false
+
+    recovery:
+      enabled: true
+      ui_url: ${LUMIN_AUTH_URL}/forgot-password
+      use: link
+      notify_unknown_recipients: true
+
+    verification:
+      enabled: true
+      ui_url: ${LUMIN_AUTH_URL}/sign-up/verification
+      lifespan: 3600m
+      use: link
+      notify_unknown_recipients: true
+      after:
+        hooks:
+          - hook: web_hook
+            config:
+              method: POST
+              url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-verification-flow
+              body: file:///etc/config/kratos/webhooks/verification_flow_callback_body.jsonnet
+              auth:
+                type: api_key
+                config:
+                  name: Authorization
+                  value: ${LUMIN_KRATOS_API_KEY}
+                  in: header
+
+    logout:
+      after:
+        default_browser_return_url: ${LUMIN_AUTH_URL}/sign-up
+
+    login:
+      ui_url: ${LUMIN_AUTH_URL}/sign-in
+      lifespan: 10m
+      after:
+        oidc:
+          hooks:
+          - hook: web_hook
+            config: &after_login_flow_hook_config
+              method: POST
+              url: http://host.docker.internal:3300/api/callbacks/kratos-after-login-flow
+              body: file:///etc/config/kratos/webhooks/after_login_flow_callback_body.jsonnet
+              auth:
+                type: api_key
+                config:
+                  name: Authorization
+                  value: ea5824cd-66ed-4222-9550-20a29bf25219
+                  in: header
+        password:
+          hooks:
+            - hook: require_verified_address
+            - hook: web_hook
+              config: *after_login_flow_hook_config
+
+    registration:
+      ui_url: ${LUMIN_AUTH_URL}/sign-up
+      lifespan: 10m
+      after:
+        oidc:
+          hooks:
+          - hook: session
+          - config:
+              auth:
+                config:
+                  in: header
+                  name: Authorization
+                  value: ${LUMIN_KRATOS_API_KEY}
+                type: api_key
+              body: file:///etc/config/kratos/webhooks/oidc_registration_flow_callback_body.jsonnet
+              method: POST
+              response:
+                parse: true
+              url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-registration-flow-v2
+            hook: web_hook
+          - hook: web_hook
+            config:
+              method: POST
+              url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-after-registration-flow
+              body: file:///etc/config/kratos/webhooks/oidc_registration_flow_callback_body.jsonnet
+              auth:
+                config:
+                  in: header
+                  name: Authorization
+                  value: ${LUMIN_KRATOS_API_KEY}
+                type: api_key
+              response:
+                ignore: true
+                parse: false
+        password:
+          hooks:
+            - hook: web_hook
+              config:
+                method: POST
+                url: ${LUMIN_AUTH_URL_BACKEND}/callbacks/kratos-registration-flow-v2
+                body: file:///etc/config/kratos/webhooks/password_registration_flow_callback_body.jsonnet
+                auth:
+                  type: api_key
+                  config:
+                    name: Authorization
+                    value: ${LUMIN_KRATOS_API_KEY}
+                    in: header
+
+log:
+  level: debug
+  format: text
+  leak_sensitive_values: true
+
+secrets:
+  cookie:
+    - ${LUMIN_COOKIE_SECRET}
+  cipher:
+    - ${LUMIN_CIPHER_SECRET}
+
+ciphers:
+  algorithm: xchacha20-poly1305
+
+hashers:
+  algorithm: bcrypt
+  bcrypt:
+    cost: 10
+
+identity:
+  default_schema_id: user_v0
+  schemas:
+    - id: user_v0
+      url: file:///etc/config/kratos/identities/user_v0.json
+
+courier:
+  smtp:
+    from_address: noreply@luminpdf.com
+    connection_uri: ${LUMIN_SMTP_URL}
+    from_name: Lumin PDF
+    headers:
+      X-Mailgun-Tag: Ory emails
+  template_override_path: /etc/config/kratos/courier-templates

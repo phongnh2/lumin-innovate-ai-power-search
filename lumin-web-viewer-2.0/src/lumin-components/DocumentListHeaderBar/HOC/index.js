@@ -1,0 +1,1 @@
+export { withDocumentHeaderAction } from './withDocumentHeaderAction';

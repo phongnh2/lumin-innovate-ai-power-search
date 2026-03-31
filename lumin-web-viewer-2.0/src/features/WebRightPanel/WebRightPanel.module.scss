@@ -1,0 +1,60 @@
+@import 'reskin/screens.scss';
+
+.rightPanelWrapper {
+  flex: 0 0 auto;
+  width: 0;
+  height: 100%;
+  transition: var(--editor-transition);
+  transition-property: transform, width, opacity;
+  position: relative;
+  min-width: 0px;
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  overflow: hidden;
+  flex-shrink: 0;
+  &[data-show-panel='true'] {
+    margin-left: var(--kiwi-spacing-2);
+    width: var(--web-right-panel-width);
+  }
+  &[data-is-document-route-match='true'] {
+    @include xl-down-screen-webchatbot {
+      margin-left: var(--kiwi-spacing-0-125);
+      border-left: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-outline-variant);
+    }
+  }
+  &[data-is-home-page='true'] {
+    @include xl-down-screen-webchatbot {
+      margin-left: 0;
+    }
+  }
+}
+
+.rightPanelContent {
+  transition: var(--editor-transition);
+  transition-property: transform, width, opacity;
+  backface-visibility: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  position: absolute;
+  top: 0px;
+  outline: 0px;
+  transform: translateX(var(--web-right-panel-width));
+  width: var(--web-right-panel-width);
+  right: 0px;
+  height: 100%;
+  &[data-show='true'] {
+    transform: none;
+  }
+}
+
+.contentContainer {
+  height: 100%;
+}
+
+.panelWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

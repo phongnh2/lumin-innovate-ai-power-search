@@ -1,0 +1,120 @@
+image: cimg/node:22.15.0
+
+clone:
+  depth: full
+
+definitions:
+  services:
+    docker:
+      memory: 3072
+  caches:
+    sonar: ~/.sonar/cache
+    nextcache: .next/cache
+  steps:
+    - step: &scan-secret
+        name: Scan secrets
+        script:
+          - pipe: atlassian/git-secrets-scan:0.5.1
+    - step: &scan-sonarcloud
+        name: Scan SonarCloud
+        size: 2x
+        caches:
+          - sonar
+        script:
+          - pipe: sonarsource/sonarcloud-scan:1.2.2
+            variables:
+              EXTRA_ARGS: -Dsonar.projectDescription=\"Project with sonarcloud-scan pipe\" -Dsonar.eslint.reportPaths=\"report.json\"
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.4
+    - step: &run-test
+        name: Run tests
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/run-test.sh
+          - ./scripts/run-test.sh
+    - step: &report-test-coverage
+        name: Report test coverage
+        size: 4x
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/report-test-coverage.sh
+          - ./scripts/report-test-coverage.sh
+          - pipe: atlassian/bitbucket-upload-file:0.7.4
+            variables:
+              BITBUCKET_ACCESS_TOKEN: $BITBUCKET_ACCESS_TOKEN
+              FILENAME: 'badges/*.svg'
+    - step: &build-and-push
+        name: Build and push image
+        services:
+          - docker
+        caches:
+          - docker
+          - nextcache
+        script:
+          - eval "$(./scripts/generate-tag.sh)"
+          - ./scripts/build.sh
+          - pipe: atlassian/aws-ecr-push-image:2.5.0
+            variables:
+              IMAGE_NAME: $PROJECT_NAME
+              TAGS: "$TAG"
+    - step: &build-and-push-image-arm
+        name: Build and push image arm
+        size: 2x
+        image: atlassian/default-image:4
+        runtime:
+          cloud:
+            arch: arm
+        services:
+          - docker
+        caches:
+          - docker
+          - nextcache
+        script:
+          - eval "$(./scripts/generate-tag.sh)"
+          - ./scripts/build.sh
+          - pipe: atlassian/aws-ecr-push-image:2.5.0
+            variables:
+              IMAGE_NAME: $PROJECT_NAME
+              TAGS: "$TAG"
+    - step: &update-k8s-manifest
+        name: Update k8s manifest
+        image: line/kubectl-kustomize:latest
+        size: 2x
+        script:
+          - apk add bash git openssh
+          - eval "$(./scripts/generate-tag.sh)"
+          - ./scripts/update-k8s-manifest.sh
+
+pipelines:
+  pull-requests:
+    "**":
+      - parallel: 
+        - step: *scan-secret
+        - step: *run-test
+
+  branches:
+    develop:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: develop
+      - step: *update-k8s-manifest
+    master:
+      - parallel:
+        - step:
+            <<: *build-and-push-image-arm
+            deployment: staging
+        - step: *report-test-coverage
+      - step: *update-k8s-manifest
+    sandbox:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: sandbox
+      - step: *update-k8s-manifest
+    production:
+      - stage:
+          name: Production
+          deployment: production
+          steps: 
+            - step: *build-and-push-image-arm
+            - step: *update-k8s-manifest

@@ -1,0 +1,15 @@
+{
+  "LUMIN_BASEURL": "https://pnb.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://pnb.luminpdf.com/api/web/graphql",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://pnb.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://pnb.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://pnb.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://pnb.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://pnb.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://pnb-socket.luminpdf.com",
+  "LUMIN_ENV": "pnb",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "903627406732",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "903627406732-afvaa1qa8tajhibsmoiledrr2n1gd0rs.apps.googleusercontent.com",
+  "LUMIN_STRIPE_NZ_ACCOUNT_ID": "acct_1E2cGhJM6pJQSuvz",
+  "LUMIN_STRIPE_US_ACCOUNT_ID": "acct_1OlovnEi1kknSIST"
+}

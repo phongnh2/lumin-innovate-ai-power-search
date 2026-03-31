@@ -1,0 +1,14 @@
+@import 'reskin/scrollbar.scss';
+
+.searchResultsPopper {
+  overflow: hidden;
+  max-height: 340px;
+  height: 100%;
+  padding-top: var(--kiwi-spacing-1);
+  box-shadow: var(--kiwi-shadow-2);
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.infiniteScrollWrapper {
+  @include scrollbar-reskin;
+}

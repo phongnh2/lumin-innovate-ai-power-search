@@ -1,0 +1,51 @@
+.container {
+  &:not(:last-child) {
+    margin-bottom: var(--kiwi-spacing-3);
+  }
+  color: var(--kiwi-colors-surface-on-surface);
+  .heading {
+    @include kiwi-typography-headline-md;
+    padding: 0 var(--kiwi-spacing-3);
+    margin-bottom: var(--kiwi-spacing-1);
+  }
+  .content {
+    padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+    border-radius: var(--kiwi-border-radius-md);
+    border: 1px solid var(--kiwi-colors-surface-surface-container-highest);
+    background-color: var(--kiwi-colors-surface-surface);
+
+    .skeletonWrapper {
+      display: flex;
+      gap: var(--kiwi-spacing-2);
+      flex-direction: column;
+    }
+
+    .contentWrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .titleWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--kiwi-spacing-0-75);
+        gap: var(--kiwi-spacing-1);
+
+        .title {
+          @include kiwi-typography-title-md;
+        }
+      }
+
+      .description {
+        @include kiwi-typography-body-md;
+        color: var(--kiwi-colors-surface-on-surface-variant);
+      }
+    }
+
+    .contentContainer {
+      display: flex;
+      flex-direction: column;
+      gap: var(--kiwi-spacing-2);
+    }
+  }
+}

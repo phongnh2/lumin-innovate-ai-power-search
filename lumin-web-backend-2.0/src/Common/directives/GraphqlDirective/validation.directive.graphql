@@ -1,0 +1,16 @@
+scalar StringOrInt
+
+directive @IsEmail(key: String = "") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @MaxLength(key: String = "", max: Int, isOptional: Boolean = false, strategy: String = "default") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @Length(key: String = "", min: Int, max: Int, isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @MongoId(key: String = "", isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @PasswordStrength(key: String = "", level: String = "medium", min: Int = 8) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @NotIncludes(key: String = "", patterns: [String], isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @Range(key: String = "", min: Int, max: Int) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @IsHexColor(key: String = "", isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @Regex(key: String = "", pattern: String, isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @Array(key: String = "", min: Int = undefined, max: Int = undefined, unique: Boolean = false, isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @DocumentMimeType(key: String = "") on INPUT_FIELD_DEFINITION
+directive @OneOf(key: String = "", values: [StringOrInt] isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+directive @UUID(key: String = "", isOptional: Boolean = false) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+directive @RequireRole(roles: [String!]!) on FIELD_DEFINITION

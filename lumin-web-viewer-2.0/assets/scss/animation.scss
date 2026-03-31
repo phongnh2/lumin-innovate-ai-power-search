@@ -1,0 +1,99 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.4s ease-in-out both;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-in-out both;
+}
+
+@keyframes thumb-skeleton {
+  from {
+    background-position: 100%;
+  }
+
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+    transform: scale3D(1, 1, 1);
+  }
+  100% {
+    transform: scale3D(1.1, 1.1, 1);
+  }
+}
+
+.loading-animation {
+  backface-visibility: visible;
+  animation: loading-animation 0.77s ease-in-out both alternate infinite;
+}
+
+$base: 4px;
+
+@keyframes move-chevron {
+  25% {
+   opacity: 1;
+  }
+  33.3% {
+   opacity: 1;
+   transform: translateY($base * 3.8);
+  }
+  66.6% {
+   opacity: 1;
+   transform: translateY($base * 5.2);
+  }
+  100% {
+   opacity: 0;
+   transform: translateY($base * 8) scale(0.5);
+  }
+}
+
+@keyframes fadeoutBg {
+  from { background-color: var(--color-primary-20); }
+  to { background-color: white; }
+}
+
+@keyframes fadeoutItemShare {
+  from { background-color: var(--color-neutral-20); }
+  to { background-color: var(--color-neutral-10); }
+}
+
+@keyframes fadeoutItemShare-dark {
+  from { background-color: var(--color-primary-90); }
+  to { background-color: var(--color-neutral-90); }
+}

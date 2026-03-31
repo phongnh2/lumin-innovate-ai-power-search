@@ -1,0 +1,74 @@
+enum UserAnnotationType {
+  RUBBER_STAMP
+}
+
+type RubberStampProperty {
+  bold: Boolean
+  italic: Boolean
+  strikeout: Boolean
+  underline: Boolean
+  title: String
+  subtitle: String
+  font: String
+  color: String
+  textColor: String
+  timeFormat: String
+  dateFormat: String
+  author: String
+}
+
+type UserAnnotation {
+  _id: ID!
+  weight: Int!
+  ownerId: ID!
+  type: UserAnnotationType
+  property: RubberStampProperty
+  createdAt: Date
+  updatedAt: Date
+}
+
+input GetUserAnnotationInput {
+  skip: Int! @Range(min: 0, max: 100)
+  limit: Int! @Range(min: 1, max: 100)
+  type: UserAnnotationType!
+}
+
+type GetUserAnnotationResponse {
+  total: Int
+  data: [UserAnnotation]
+}
+
+input AnnotationPropertyInput {
+  bold: Boolean
+  italic: Boolean
+  strikeout: Boolean
+  underline: Boolean
+  title: String! @Length(max: 255)
+  subtitle: String @Length(max: 1000)
+  font: String @Length(max: 100)
+  color: String @IsHexColor
+  textColor: String @IsHexColor
+  timeFormat: String @OneOf(values: ["H:mm:ss", "h:mm:ss A"])
+  dateFormat: String @OneOf(values: ["DD/M/YYYY", "YYYY/M/DD", "DD MMM YYYY", "MMMM DD, YYYY", "MMM DD YYYY"])
+  author: String @Length(max: 255)
+}
+
+input CreateUserAnnotationInput {
+  type: UserAnnotationType!
+  property: AnnotationPropertyInput!
+}
+
+input UpdateUserAnnotationPositionInput {
+  sourceId: ID! @MongoId
+  destinationId: ID! @MongoId
+}
+
+type Query {
+  getUserAnnotations(input: GetUserAnnotationInput!): GetUserAnnotationResponse
+}
+
+type Mutation {
+  createUserAnnotation(input: CreateUserAnnotationInput!): BasicResponse
+  removeUserAnnotation(id: ID! @MongoId(key: "id")): BasicResponse
+  updateUserAnnotationPosition(input: UpdateUserAnnotationPositionInput!): BasicResponse
+}

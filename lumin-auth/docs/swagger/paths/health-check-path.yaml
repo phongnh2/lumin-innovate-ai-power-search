@@ -1,0 +1,21 @@
+/healthz:
+  get:
+    summary: Health check endpoint
+    description: Returns the application version to verify the API is running
+    tags:
+      - Health check
+    responses:
+      200:
+        description: API is healthy
+        content:
+          text/plain:
+            schema:
+              type: string
+              example: '1.0.0'
+      405:
+        description: Method not allowed
+        content:
+          text/plain:
+            schema:
+              type: string
+              example: 'Method Not Allowed'

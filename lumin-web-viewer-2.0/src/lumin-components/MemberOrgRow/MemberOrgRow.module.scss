@@ -1,0 +1,101 @@
+@import '../OrganizationList//OrganizationList.module.scss';
+
+.container {
+  @include organization-list-grid-template;
+  padding: var(--kiwi-spacing-1);
+  position: relative;
+  background-color: transparent;
+  transition: var(--default-web-transition);
+  border-bottom: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-surface-container-high);
+
+  &::after {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    background-color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    transition: var(--default-web-transition);
+  }
+
+  &[data-selected='true'] {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue);
+  }
+
+  &[data-selected='false']:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &[data-selected='false']:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+}
+
+.memberRole {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  z-index: 2;
+
+  &[data-role='billing_moderator'] {
+    color: var(--kiwi-colors-core-primary);
+  }
+
+  &[data-role='organization_admin'] {
+    color: var(--kiwi-colors-semantic-error);
+  }
+}
+
+.memberDateAction {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  z-index: 2;
+}
+
+.memberEmail {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  z-index: 2;
+}
+
+.memberSignSeat {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  z-index: 2;
+}
+
+.memberAssignSeat {
+  @include kiwi-typography-body-sm;
+  width: fit-content;
+  color: var(--kiwi-colors-core-secondary);
+  font-weight: 500;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: var(--kiwi-border-radius-md);
+  z-index: 2;
+}
+
+.memberSeatRequest {
+  @include kiwi-typography-body-sm;
+
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+  width: fit-content;
+  color: var(--kiwi-colors-core-secondary);
+  font-weight: 500;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: var(--kiwi-border-radius-md);
+  z-index: 2;
+}
+
+.removeMemberDesc {
+  list-style-type: disc;
+  padding-left: var(--kiwi-spacing-2-5);
+  padding-top: var(--kiwi-spacing-0-5);
+  gap: var(--kiwi-spacing-0-5);
+  display: flex;
+  flex-direction: column;
+}

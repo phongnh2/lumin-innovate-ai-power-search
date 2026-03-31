@@ -1,0 +1,48 @@
+.planInfoTooltip {
+  z-index: 1;
+}
+
+.planInfoTooltipContent {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5) var(--kiwi-spacing-1-25);
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-inverse-surface);
+  flex-direction: column;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.wrapper {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.orgName {
+  @include kiwi-typography-title-sm;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.planListWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-25);
+}
+
+.planInfoTooltipItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+}
+
+.planDescription {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-low);
+}

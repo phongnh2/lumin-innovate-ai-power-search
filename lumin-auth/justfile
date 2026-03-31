@@ -1,0 +1,20 @@
+set shell := ["zsh", "-cu"]
+
+default:
+    @just --list
+
+# Install dependencies (Yarn classic — see package.json packageManager)
+[group('setup')]
+install:
+    yarn install
+
+# Next.js dev on PORT=3300 (runs proto:gen-types first per package.json)
+[group('development')]
+run:
+    yarn dev
+
+# Init, sync, and fetch all git submodules
+[group('git')]
+submodule:
+    git submodule sync --recursive
+    git submodule update --init --recursive

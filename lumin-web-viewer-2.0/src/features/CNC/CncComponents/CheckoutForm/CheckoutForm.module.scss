@@ -1,0 +1,28 @@
+.container {
+	overflow: hidden;
+	height: fit-content;
+	border-radius: var(--kiwi-border-radius-md);
+}
+
+.paymentForm {
+	display: flex;
+	padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+	flex-direction: column;
+	justify-content: center;
+	gap: var(--kiwi-spacing-3);
+}
+
+.paymentDetail {
+	display: flex;
+	flex-direction: column;
+	gap: var(--kiwi-spacing-1-5);
+}
+
+.periodContainer {
+	display: flex;
+  justify-content: space-between;
+}
+
+.divider {
+  margin: var(--kiwi-spacing-1-5) 0;
+}

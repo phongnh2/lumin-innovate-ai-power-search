@@ -1,0 +1,74 @@
+@import '../../constants/lumin-styles.scss';
+
+.DashboardWelcome {
+  overflow: hidden;
+  background-color: var(--color-primary-10);
+  border-bottom: 1px solid var(--color-primary-80);
+  padding: 12px 8px;
+  margin-bottom: 16px;
+  border-radius: 8px 8px 0 0;
+  flex-shrink: 0;
+  @include tablet-up {
+    padding: 8px 16px;
+  }
+  @include small-desktop-up {
+    margin-bottom: 24px;
+  }
+}
+.DashboardWelcome__Description {
+  margin-top: 4px;
+  @include tablet-up {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+.DashboardWelcome__LastUpdated {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--color-neutral-80);
+  flex-shrink: 0;
+  @include mobile() {
+    margin-top: 4px;
+    display: inline-block;
+  }
+}
+
+.DashboardWelcome__Organization {
+  background: url('/assets/images/welcome-org-dashboard.svg') no-repeat, $dark-sky-blue;
+  background-position: right calc(100% + 1px);
+
+  @include mobile() {
+    background: url('/assets/images/welcome-org-dashboard.svg') no-repeat, $dark-sky-blue;
+    background-position: right calc(100% + 1px);
+  }
+}
+
+.DashboardWelcome__Title {
+  color: var(--color-neutral-100);
+  font-family: var(--font-primary);
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+  @include mobile {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.DashboardWelcome__Text {
+  color: var(--color-neutral-80);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  display: block;
+  margin: 5px 32px 0 0;
+  word-break: break-word;
+  @include mobile {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

@@ -1,0 +1,42 @@
+@import 'reskin/screens.scss';
+
+.root {
+  overflow-y: unset;
+}
+
+.body {
+  padding: var(--kiwi-spacing-2) 0;
+
+  @include md-screen {
+    padding: var(--kiwi-spacing-3) 0;
+  }
+}
+
+.header {
+  position: relative;
+  padding: 0 var(--kiwi-spacing-2) var(--kiwi-spacing-2);
+
+  @include md-screen {
+    padding: 0 var(--kiwi-spacing-3) var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+  }
+}
+
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-md;
+
+  @include md-screen {
+    @include kiwi-typography-headline-lg;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: -7px;
+  right: 5px;
+
+  @include md-screen {
+    top: -12px;
+    right: 12px;
+  }
+}

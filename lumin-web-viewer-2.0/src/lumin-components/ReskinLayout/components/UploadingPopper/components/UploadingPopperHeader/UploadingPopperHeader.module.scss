@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+  background-color: var(--kiwi-colors-core-primary);
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+
+  button:first-child {
+    i {
+      transition: transform var(--default-web-transition-duration) ease;
+    }
+  }
+
+  button:first-child:where([data-collapsed='true']) {
+    i {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../constants/lumin-styles.scss';
+
+.MemberOrgRowSkeleton__container {
+  background-color: $white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  margin-top: 8px;
+  box-shadow: 0 1px 3px 0 rgba(192, 208, 223, 0.2),
+    0 2px 1px -1px rgba(192, 208, 223, 0.12),
+    0 1px 1px 0 rgba(192, 208, 223, 0.14);
+  align-items: center;
+}
+
+.MemberOrgRowSkeleton__nameAvatar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.MemberOrgRowSkeleton__name {
+  margin-left: 10px; 
+}

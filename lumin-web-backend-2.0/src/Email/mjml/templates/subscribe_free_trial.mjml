@@ -1,0 +1,42 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/subscribe-free-trial.png" />
+          <mj-spacer height="12px" />
+          <mj-text mj-class="text-large">Welcome to 7 days of FREE Lumin {{plan}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Hi there,</mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            You’ve made a great decision! Enjoy 7 days of Lumin {{plan}}, allowing you to unlock all the features and functionalities Lumin has to offer.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            The following features are now yours for the next 7 days:
+          </mj-text>
+          <mj-text>
+            <ul>
+              <li style="margin-bottom: 4px">Unlimited document life</li>
+              <li style="margin-bottom: 4px">Unlimited E-signatures</li>
+              <li style="margin-bottom: 4px">Unlimited document size</li>
+              <li style="margin-bottom: 4px">PDF manipulation</li>
+              <li style="margin-bottom: 4px">Access shapes, highlighting tools + more!</li>
+            </ul>
+          </mj-text>
+          <mj-text>
+            If you want to learn more about how to use Lumin, view our
+            <a class="link" href="https://help.luminpdf.com/">
+              Knowledge Base. 
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

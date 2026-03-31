@@ -1,0 +1,31 @@
+version: '3'
+services:
+  opensearch:
+     environment:
+            - "opensearch.ssl.verificationMode:none"
+            - "discovery.type=single-node"
+            - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+            - plugins.security.ssl.http.enabled=false
+            - network.bind_host=0.0.0.0
+            - plugins.security.disabled=true
+     image: opensearchproject/opensearch:1.0.0
+     ports:
+         - 9200:9200
+     expose:
+        - "9200"
+     networks:
+      - opensearch-net
+  opensearch-dashboards:
+     image: opensearchproject/opensearch-dashboards:1.0.0
+     environment:
+        OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+        DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
+     ports:
+         - 5601:5601
+     expose:
+         - "5601"
+     networks:
+      - opensearch-net
+networks:
+  opensearch-net:
+         

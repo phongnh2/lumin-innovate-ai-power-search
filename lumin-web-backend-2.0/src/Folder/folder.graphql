@@ -1,0 +1,175 @@
+type Breadcrumb {
+  _id: String
+  name: String
+  listUserStar: [String]
+}
+
+type FolderBelongsTo {
+  type: LocationType
+  location: LocationInfo
+  workspaceId: String
+}
+
+type Folder {
+  _id: String
+  ownerId: String
+  name: String
+  shareSetting: ShareSetting
+  path: String
+  depth: Int
+  parentId: String
+  color: String
+  createdAt: String
+  listUserStar: [String]
+  totalDocument: Int
+  # ResolveProperties
+  belongsTo: FolderBelongsTo
+  # ResolveProperties
+  breadcrumbs: [Breadcrumb]
+  ownerName: String
+  folders: [Folder]
+}
+
+type FolderPublicInfo {
+  _id: String
+  name: String
+  canOpen: Boolean
+  belongsTo: FolderBelongsTo
+}
+
+input CreateFolderInput {
+  name: String! @MaxLength(max: 255)
+  color: String! @IsHexColor
+  parentId: ID @MongoId
+}
+
+input GetFolderListInput {
+  sortOptions: FolderSortOptions
+  parentId: ID @MongoId
+  isStarredTab: Boolean
+  searchKey: String
+}
+
+input FolderSortOptions {
+  name: SortStrategy
+  createdAt: SortStrategy
+}
+
+input CreateFolderSubscriptionInput {
+  clientId: ID! @MongoId(key: "clientId")
+  parentId: ID @MongoId(key: "parentId")
+  isStarredTab: Boolean
+}
+
+type CreateFolderPayload {
+  folder: Folder!
+  clientId: ID!
+}
+
+input UpdateFolderSubscriptionInput {
+  userId: ID! @MongoId(key: "userId")
+  folderId: ID @MongoId(key: "folderId")
+  parentId: ID @MongoId(key: "parentId")
+}
+
+type UpdateFolderPayload {
+  folder: Folder!
+  folders: [Folder]
+  userId: ID!
+  actorId: String
+  subscriptionEvent: String!
+}
+
+input FolderEventSubscriptionInput {
+  clientId: ID! @MongoId(key: "clientId")
+}
+type FolderEventSubscriptionPayload {
+  workspaceId: String
+  eventType: String
+  total: Int
+}
+
+input EditFolderInput {
+  folderId: ID! @MongoId
+  updateProperties: UpdateFolderInfoProperties!
+}
+
+input UpdateFolderInfoProperties {
+  color: String @IsHexColor
+  name: String @MaxLength(max: 255)
+}
+
+input GetDocumentsInFolderInput {
+  folderId: ID! @MongoId
+  query: DocumentQueryInput!
+  filter: DocumentFilterInput!
+}
+
+input FolderQueryInput {
+  searchKey: String
+}
+
+input GetFoldersInFolderInput {
+  folderId: ID! @MongoId
+  searchKey: String
+  sortOptions: FolderSortOptions
+}
+
+input GetTotalFoldersInput {
+  refId: ID! @MongoId
+  targetType: DestinationType!
+}
+
+type GetTotalFoldersPayload {
+  total: Int
+}
+
+input DeleteMultipleFolderInput {
+  folderIds: [ID]! @MongoId
+  isNotify: Boolean
+  clientId: ID!
+}
+
+input GetFolderTreeInput {
+  folderId: ID! @MongoId
+}
+
+enum FolderChildType {
+  FOLDER
+  DOCUMENT
+}
+
+type FolderChildrenTree {
+  _id: String
+  name: String
+  type: FolderChildType
+  parentId: String
+  createdAt: String
+  children: [FolderChildrenTree]
+}
+
+type Mutation {
+  createFolder(input: CreateFolderInput!): Folder
+  editFolderInfo(input: EditFolderInput!): Folder
+  addFolderColor(color: String! @IsHexColor(key: "color")): [String]
+  starFolder(folderId: ID! @MongoId(key: "folderId")): Folder
+  deleteFolder(folderId: ID! @MongoId(key: "folderId"), isNotify: Boolean): ID
+  duplicateDocumentToFolder(input: DuplicateDocumentToFolderInput!, file: Upload): Document
+  deleteMultipleFolder(input: DeleteMultipleFolderInput!): [ID]
+}
+
+type Query {
+  getPersonalFolders(input: GetFolderListInput!): [Folder]
+  getFolderDetail(folderId: ID! @MongoId(key: "folderId")): Folder
+  getDocumentsInFolder(input: GetDocumentsInFolderInput!): GetDocumentPayload
+  getTotalFolders(input: GetTotalFoldersInput!): GetTotalFoldersPayload
+  getFoldersInFolder(input: GetFoldersInFolderInput): [Folder]
+  getFolderTree(folderId: ID! @MongoId(key: "folderId")): Folder
+  getPersonalFolderTree: GetPersonalFolderTreePayload
+}
+
+type Subscription {
+  createFolderSubscription(input: CreateFolderSubscriptionInput!): CreateFolderPayload
+  updateFolderSubscription(input: UpdateFolderSubscriptionInput!): UpdateFolderPayload
+  folderEventSubscription(input: FolderEventSubscriptionInput!): FolderEventSubscriptionPayload
+}

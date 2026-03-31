@@ -1,0 +1,103 @@
+@import "../../constants/lumin-styles.scss";
+@import "../../constants/styles";
+
+.AddMessage__wrapper {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.AddMessage__title {
+  font-family: var(--font-primary);
+  color: var(--color-neutral-80);
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  @include themify() {
+    color: themed("textColorLighter");
+  }
+}
+
+.AddMessage__optionalText {
+  font-weight: 400;
+}
+
+.AddMessage__counting {
+  color: var(--color-neutral-80);
+  @include themify() {
+    color: themed("textColorLighter");
+  }
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+.AddMessage__textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 160px;
+  border-radius: var(--border-radius-primary);
+  outline: none;
+  border: var(--border-primary);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-neutral-80);
+  padding: 16px;
+  resize: none;
+  font-weight: 400;
+  line-height: 20px;
+  @include mobile {
+    min-height: 120px;
+  }
+
+  &::placeholder {
+    font-family: var(--font-primary);
+    color: var(--color-neutral-40);
+    -webkit-text-fill-color: var(--color-neutral-40); /* required on iOS, safari */
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    @include themify() {
+      color: themed('textColorPlaceHolder');
+    }
+  }
+  @include themify() {
+    border-color: themed('textFrameHover');
+    background-color: themed('bgColor');
+    color: themed('leftPanelTabHeaderText');
+  }
+
+  &:focus {
+    border: 1px solid var(--color-primary-50);
+    @include themify {
+      box-shadow: 0 0 0 1.2px themed('textFrameSelected');
+    }
+  }
+
+}
+
+.AddMessageReskin {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--kiwi-spacing-0-75);
+    margin-top: var(--kiwi-spacing-2);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__textarea {
+    width: 100%;
+
+    & textarea {
+      height: 140px;
+    }
+  }
+}

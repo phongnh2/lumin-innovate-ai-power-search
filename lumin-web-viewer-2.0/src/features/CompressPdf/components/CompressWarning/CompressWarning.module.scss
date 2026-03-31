@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: underline;
+  padding: 0 var(--kiwi-spacing-0-5);
+  cursor: pointer;
+}

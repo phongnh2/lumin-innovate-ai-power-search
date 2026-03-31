@@ -1,0 +1,48 @@
+/oauth2/consent:
+  post:
+    tags:
+      - OAuth2
+    summary: Handle OAuth2 consent requests
+    description: Processes user consent for OAuth2 authorization requests. Handles both allowing and denying access.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OAuth2ConsentRequest'
+    responses:
+      '308':
+        description: Redirect to the appropriate URL based on the consent decision
+        headers:
+          Location:
+            schema:
+              type: string
+            description: URL to redirect to
+      '401':
+        description: Unauthorized - No valid session found
+
+/oauth2/logout:
+  post:
+    tags:
+      - OAuth2
+    summary: Handle OAuth2 logout requests
+    description: Processes user logout requests for OAuth2. Handles both accepting and denying logout attempts.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OAuth2LogoutRequest'
+    responses:
+      '302':
+        description: Redirect response
+        headers:
+          Location:
+            schema:
+              type: string
+            description: Redirect URL after logout process
+            examples:
+              success:
+                value: Redirect URL from OAuth2 provider
+              denied:
+                value: "/"

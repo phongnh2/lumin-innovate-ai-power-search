@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-2-5);
+}
+
+.stepWrapper {
+  position: relative;
+
+  p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    margin-top: var(--kiwi-spacing-0-75);
+  }
+}
+
+.stepCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: var(--kiwi-spacing-0-75);
+  border-radius: var(--kiwi-border-radius-rounded);
+  box-shadow: var(--kiwi-shadow-1);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+
+  &[data-active='true'] {
+    background-color: var(--kiwi-colors-custom-brand-tools-collaboration);
+  }
+}
+
+.line {
+  height: 2px;
+  width: 100%;
+  max-width: 84px;
+  background-color: var(--kiwi-colors-surface-outline-variant);
+}

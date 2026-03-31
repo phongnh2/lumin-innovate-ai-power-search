@@ -1,0 +1,491 @@
+export class EnvConstants {
+  public static readonly BASE_URL = 'BASEURL';
+
+  public static readonly STATIC_URL = 'STATIC_URL';
+
+  public static readonly MONGO_URL = 'MONGO_URL';
+
+  public static readonly JWT_SECRET_KEY = 'JWT_SECRET_KEY';
+
+  public static readonly GOOGLE_CLIENT_ID = 'GOOGLE_CLIENT_ID';
+
+  public static readonly GOOGLE_IOS_CLIENT_ID = 'GOOGLE_IOS_CLIENT_ID';
+
+  public static readonly GOOGLE_ANDROID_CLIENT_ID = 'GOOGLE_ANDROID_CLIENT_ID';
+
+  public static readonly CONTRACT_GOOGLE_IOS_CLIENT_ID = 'CONTRACT_GOOGLE_IOS_CLIENT_ID';
+
+  public static readonly CONTRACT_GOOGLE_ANDROID_CLIENT_ID = 'CONTRACT_GOOGLE_ANDROID_CLIENT_ID';
+
+  public static readonly DROPBOX_CLIENT_ID = 'DROPBOX_CLIENT_ID';
+
+  public static readonly DROPBOX_SECRET = 'DROPBOX_SECRET';
+
+  public static readonly DROPBOX_REDIRECT_URL = 'DROPBOX_REDIRECT_URL';
+
+  public static readonly S3_REGION = 'S3_REGION';
+
+  public static readonly S3_FOLDER = 'S3_FOLDER';
+
+  public static readonly S3_DOCUMENTS_BUCKET = 'S3_DOCUMENTS_BUCKET';
+
+  public static readonly S3_CLOUDFRONT_DOMAIN = 'S3_CLOUDFRONT_DOMAIN';
+
+  public static readonly S3_DISTRIBUTION_ID = 'S3_DISTRIBUTION_ID';
+
+  public static readonly S3_TEMPLATES_BUCKET = 'S3_TEMPLATES_BUCKET';
+
+  public static readonly S3_FORMS_BUCKET = 'S3_FORMS_BUCKET';
+
+  public static readonly S3_PROFILES_BUCKET = 'S3_PROFILES_BUCKET';
+
+  public static readonly S3_RESOURCES_BUCKET = 'S3_RESOURCES_BUCKET';
+
+  public static readonly S3_COMMUNITY_RESOURCES_BUCKET = 'S3_COMMUNITY_RESOURCES_BUCKET';
+
+  public static readonly S3_LOG_FILE_BUCKET = 'S3_LOG_FILE_BUCKET';
+
+  public static readonly S3_ACCESS_KEY = 'S3_ACCESS_KEY';
+
+  public static readonly S3_SECRET_KEY = 'S3_SECRET_KEY';
+
+  public static readonly S3_ANNOTATIONS_HISTORY_BUCKET = 'S3_ANNOTATIONS_HISTORY_BUCKET';
+
+  public static readonly CRON_JOB_CLEAR_DOCUMENT_TOUR_ANNOTATION = 'CRON_JOB_CLEAR_DOCUMENT_TOUR_ANNOTATION';
+
+  public static readonly CRON_TIME_DELETE_ACCOUNT = 'CRON_TIME_DELETE_ACCOUNT';
+
+  public static readonly MILLISECOND_TO_DELETE_ACCOUNT = 'MILLISECOND_TO_DELETE_ACCOUNT';
+
+  public static readonly DOCUMENT_TIME_LIMITED = 'DOCUMENT_TIME_LIMITED';
+
+  public static readonly MAILGUN_API_KEY = 'MAILGUN_API_KEY';
+
+  public static readonly MAILGUN_API_PUBLIC_KEY = 'MAILGUN_API_PUBLIC_KEY';
+
+  public static readonly MAILGUN_DOMAIN = 'MAILGUN_DOMAIN';
+
+  public static readonly REDIS_URL = 'REDIS_URL';
+
+  public static readonly REDIS_ADAPTER_URL = 'REDIS_ADAPTER_URL';
+
+  public static readonly ENCRYPT_KEY = 'ENCRYPT_KEY';
+
+  public static readonly SSL_PASS = 'SSL_PASS';
+
+  public static readonly ENGINE_API_KEY = 'ENGINE_API_KEY';
+
+  public static readonly ENV = 'ENV';
+
+  public static readonly BUCKET_REGION = 'BUCKET_REGION';
+
+  public static readonly EXPIRE_INVITE_EMAIL_TO_TEAM = 'EXPIRE_INVITE_EMAIL_TO_TEAM';
+
+  public static readonly FREE_TRIAL_TIME = 'FREE_TRIAL_TIME';
+
+  public static readonly FREE_TRIAL_TIME_UNIT = 'FREE_TRIAL_TIME_UNIT';
+
+  public static readonly EXPIRE_TRANSFER_ORG_OWNERSHIP = 'EXPIRE_TRANSFER_ORG_OWNERSHIP';
+
+  public static readonly ELASTIC_SEARCH_URL = 'ELASTIC_SEARCH_URL';
+
+  public static readonly DOCUMENT_STAT_EXPIRE_IN = 'DOCUMENT_STAT_EXPIRE_IN';
+
+  public static readonly NON_DOCUMENT_STAT_EXPIRE_IN = 'NON_DOCUMENT_STAT_EXPIRE_IN';
+
+  public static readonly SUBSCRIPTION_ACTOR_EXPIRE_IN = 'SUBSCRIPTION_ACTOR_EXPIRE_IN';
+
+  public static readonly EXPORTED_FILE_PATH = 'EXPORTED_FILE_PATH';
+
+  public static readonly MINIMUM_EXPERIMENTAL_USER_ID_FOR_DATA_COLLECTION = 'MINIMUM_EXPERIMENTAL_USER_ID_FOR_DATA_COLLECTION';
+
+  public static readonly RATE_LIMIT_DEFAULT_TOTAL = 'RATE_LIMIT_DEFAULT_TOTAL';
+
+  public static readonly RATE_LIMIT_DEFAULT_EXPIRE = 'RATE_LIMIT_DEFAULT_EXPIRE';
+
+  public static readonly SHARE_DOCUMENT_LIMIT_TOTAL = 'SHARE_DOCUMENT_LIMIT_TOTAL';
+
+  public static readonly RATE_LIMIT_DEFAULT_PAID_TOTAL = 'RATE_LIMIT_DEFAULT_PAID_TOTAL';
+
+  public static readonly RATE_LIMIT_DEFAULT_PAID_EXPIRE = 'RATE_LIMIT_DEFAULT_PAID_EXPIRE';
+
+  public static readonly S3_TEMPORARY_FILES = 'S3_TEMPORARY_FILES';
+
+  public static readonly S3_INTEGRATION_BUCKET = 'S3_INTEGRATION_BUCKET';
+
+  public static readonly S3_STATIC_TOOL_FILE_FOLDER = 'S3_STATIC_TOOL_FILE_FOLDER';
+
+  public static readonly JWT_EXPIRE_VERIFY_ACCOUNT_IN = 'JWT_EXPIRE_VERIFY_ACCOUNT_IN';
+
+  public static readonly JWT_EXPIRE_REFRESH_TOKEN_IN = 'JWT_EXPIRE_REFRESH_TOKEN_IN';
+
+  public static readonly EXPIRE_VERIFY_TOKEN = 'EXPIRE_VERIFY_TOKEN';
+
+  public static readonly STRIPE_ENTERPRISE_PRODUCT = 'STRIPE_ENTERPRISE_PRODUCT';
+
+  public static readonly SALE_DASHBOARD_URL = 'SALE_DASHBOARD_URL';
+
+  public static readonly SALE_EMAIL = 'SALE_EMAIL';
+
+  public static readonly TOTAL_TIME_TO_RENEW = 'TOTAL_TIME_TO_RENEW';
+
+  public static readonly RESET_PASSWORD_TOKEN_EXPIRE_IN = 'RESET_PASSWORD_TOKEN_EXPIRE_IN';
+
+  public static readonly GOOGLE_RECAPTCHA_SECRET_KEY = 'GOOGLE_RECAPTCHA_SECRET_KEY';
+
+  public static readonly GOOGLE_RECAPTCHA_V3_SECRET_KEY = 'GOOGLE_RECAPTCHA_V3_SECRET_KEY';
+
+  public static readonly CREATE_PASSWORD_TOKEN_EXPIRE_IN = 'CREATE_PASSWORD_TOKEN_EXPIRE_IN'; // example: 86400 (1 day)
+
+  public static readonly DAILY_RESET_PASSWORD_LIMIT = 'DAILY_RESET_PASSWORD_LIMIT';
+
+  public static readonly CAN_RESET_PASSWORD_AFTER = 'CAN_RESET_PASSWORD_AFTER';
+
+  public static readonly PREMIUM_SHARE_DOCUMENT_LIMIT_TOTAL = 'PREMIUM_SHARE_DOCUMENT_LIMIT_TOTAL';
+
+  public static readonly FREE_SHARE_DOCUMENT_LIMIT_TOTAL = 'FREE_SHARE_DOCUMENT_LIMIT_TOTAL';
+
+  public static readonly HUBSPOT_POOL_SIZE = 'HUBSPOT_POOL_SIZE';
+
+  public static readonly S3_ATTACHMENTS_BUCKET = 'S3_ATTACHMENTS_BUCKET';
+
+  public static readonly ORGANIZATION_FORMS = 'ORGANIZATION_FORMS';
+
+  public static readonly HIDE_MEMBER_PAGE_ORGANIZATIONS = 'HIDE_MEMBER_PAGE_ORGANIZATIONS';
+
+  public static readonly BANANASIGN_BASE_URL = 'BANANASIGN_BASE_URL';
+
+  public static readonly LXB_KEY = 'LXB_KEY';
+
+  public static readonly EXPIRE_SETUP_INTENT = 'EXPIRE_SETUP_INTENT';
+
+  public static readonly DAILY_UPLOAD_TEMPLATE_LIMIT = 'DAILY_UPLOAD_TEMPLATE_LIMIT';
+
+  public static readonly PRISMIC_ENDPOINT = 'PRISMIC_ENDPOINT';
+
+  public static readonly PRISMIC_TOKEN = 'PRISMIC_TOKEN';
+
+  public static readonly PRISMIC_TERM_OF_USE_ID = 'PRISMIC_TERM_OF_USE_ID';
+
+  public static readonly STARTED_DOCUMENT_REMOTE_ID = 'STARTED_DOCUMENT_REMOTE_ID';
+
+  public static readonly THUMBNAIL_STARTED_DOCUMENT_REMOTE_ID = 'THUMBNAIL_STARTED_DOCUMENT_REMOTE_ID';
+
+  public static readonly MOBILE_STARTED_DOCUMENT_REMOTE_ID = 'MOBILE_STARTED_DOCUMENT_REMOTE_ID';
+
+  public static readonly THUMBNAIL_MOBILE_STARTED_DOCUMENT_REMOTE_ID = 'THUMBNAIL_MOBILE_STARTED_DOCUMENT_REMOTE_ID';
+
+  public static readonly RESEND_ORGANIZATION_INVITATION_EXPIRE_TIME = 'RESEND_ORGANIZATION_INVITATION_EXPIRE_TIME';
+
+  public static readonly BANANASIGN_TEMP_DOCUMENTS_BUCKET = 'BANANASIGN_TEMP_DOCUMENTS_BUCKET';
+
+  public static readonly IPSTACK_KEY = 'IPSTACK_KEY';
+
+  public static readonly HUBSPOT_ACCESS_TOKEN = 'HUBSPOT_ACCESS_TOKEN';
+
+  public static readonly KRATOS_HOOK_API_KEY = 'KRATOS_HOOK_API_KEY';
+
+  public static readonly DOC_STACK_INTERVAL = 'DOC_STACK_INTERVAL';
+
+  public static readonly ENABLE_NEW_AUTHEN_DATE = 'ENABLE_NEW_AUTHEN_DATE';
+
+  public static readonly OLD_PLAN_CARD_INFO = 'OLD_PLAN_CARD_INFO';
+
+  public static readonly OLD_PLAN_SUBSCRIPTION_COUPON = 'OLD_PLAN_SUBSCRIPTION_COUPON';
+
+  public static readonly INVITE_TO_ORG_TOKEN_EXPIRE = 'INVITE_TO_ORG_TOKEN_EXPIRE';
+
+  public static readonly SHARE_DOCUMENT_INVITATION_TOKEN_EXPIRE_IN = 'SHARE_DOCUMENT_INVITATION_TOKEN_EXPIRE_IN';
+
+  public static readonly GOOGLE_CLIENT_SECRET = 'GOOGLE_CLIENT_SECRET';
+
+  public static readonly AUTH_URL = 'AUTH_URL';
+
+  public static readonly BACKEND_URL = 'BACKEND_URL';
+
+  public static readonly KRATOS_PUBLIC_URL = 'KRATOS_PUBLIC_URL';
+
+  public static readonly ORY_PAT = 'ORY_PAT';
+
+  public static readonly HUBSPOT_DASHBOARD_URL = 'HUBSPOT_DASHBOARD_URL';
+
+  public static readonly HYDRA_PUBLIC_URL = 'HYDRA_PUBLIC_URL';
+
+  public static readonly HYDRA_LUMIN_MOBILE_REDIRECT_URL = 'HYDRA_LUMIN_MOBILE_REDIRECT_URL';
+
+  public static readonly HYDRA_LUMIN_MOBILE_CLIENT_ID = 'HYDRA_LUMIN_MOBILE_CLIENT_ID';
+
+  public static readonly HYDRA_LUMIN_MOBILE_CLIENT_SECRET = 'HYDRA_LUMIN_MOBILE_CLIENT_SECRET';
+
+  public static readonly ORIGINAL_VERSION_EXPIRE_TIME = 'ORIGINAL_VERSION_EXPIRE_TIME';
+
+  public static readonly ORIGINAL_VERSION_EXPIRE_TIME_UNIT = 'ORIGINAL_VERSION_EXPIRE_TIME_UNIT';
+
+  public static readonly TRACKING_BROWSER_LANGUAGE_START_DATE = 'TRACKING_BROWSER_LANGUAGE_START_DATE';
+
+  public static readonly AUTH_GOOGLE_RECAPTCHA_SECRET_KEY = 'AUTH_GOOGLE_RECAPTCHA_SECRET_KEY';
+
+  public static readonly EDITOR_BACKEND_BASEURL = 'EDITOR_BACKEND_BASEURL';
+
+  public static readonly EDITOR_BACKEND_WEBSOCKET_BASEURL = 'EDITOR_BACKEND_WEBSOCKET_BASEURL';
+
+  public static readonly EDITOR_PUBLIC_KEY = 'EDITOR_PUBLIC_KEY';
+
+  public static readonly TRUSTPILOT_BUSINESS_UNIT = 'TRUSTPILOT_BUSINESS_UNIT';
+
+  public static readonly TRUSTPILOT_API_KEY = 'TRUSTPILOT_API_KEY';
+
+  public static readonly INTERCOM_API_KEY = 'INTERCOM_API_KEY';
+
+  public static readonly INTERCOM_JWT_SECRET = 'INTERCOM_JWT_SECRET';
+
+  public static readonly SIGN_URL = 'SIGN_URL';
+
+  public static readonly GA4_MEASUREMENT_ID = 'GA4_MEASUREMENT_ID';
+
+  public static readonly GA4_API_SECRET = 'GA4_API_SECRET';
+
+  public static readonly NEXT_TIME_RATE_MODAL = 'NEXT_TIME_RATE_MODAL';
+
+  public static readonly OPEN_FORM_FROM_TEMPLATES_EXPIRE_TIME = 'OPEN_FORM_FROM_TEMPLATES_EXPIRE_TIME';
+
+  public static readonly FORM_TEMPLATES_BASE_URL = 'FORM_TEMPLATES_BASE_URL';
+
+  public static readonly S3_STRAPI_TEMPLATES_BUCKET = 'S3_STRAPI_TEMPLATES_BUCKET';
+
+  public static readonly APP_BACKEND_URL = 'APP_BACKEND_URL';
+
+  public static readonly APOLLO_GRAPH_REF = 'APOLLO_GRAPH_REF';
+
+  public static readonly DOMAIN_RULES = 'DOMAIN_RULES';
+
+  public static readonly DEFAULT_RULES = 'DEFAULT_RULES';
+
+  public static readonly REDIRECT_FLOW_PERCENTAGE = 'REDIRECT_FLOW_PERCENTAGE';
+
+  public static readonly PINPOINT_APP_ID = 'PINPOINT_APP_ID';
+
+  public static readonly PINPOINT_FLUSH_INTERVAL = 'PINPOINT_FLUSH_INTERVAL';
+
+  public static readonly KRATOS_ADMIN_URL = 'KRATOS_ADMIN_URL';
+
+  public static readonly LOG_LEVEL = 'LOG_LEVEL';
+
+  public static readonly BRAZE_API_KEY = 'BRAZE_API_KEY';
+
+  public static readonly BRAZE_REST_URL = 'BRAZE_REST_URL';
+
+  public static readonly CONVERT_DOCX_API_KEY = 'CONVERT_DOCX_API_KEY';
+
+  public static readonly PAYMENT_RECAPTCHA_V3_THRESHOLD = 'PAYMENT_RECAPTCHA_V3_THRESHOLD';
+
+  public static readonly JWT_AUTHENTICATION_PUBLIC_KEY = 'JWT_AUTHENTICATION_PUBLIC_KEY';
+
+  public static readonly JWT_AUTHORIZATION_PUBLIC_KEY = 'JWT_AUTHORIZATION_PUBLIC_KEY';
+
+  public static readonly ORY_SESSION_NAME = 'ORY_SESSION_NAME';
+
+  public static readonly JWT_AUTHORIZATION_EXPIRE_IN = 'JWT_AUTHORIZATION_EXPIRE_IN';
+
+  public static readonly JWT_AUTHENTICATION_EXPIRE_IN = 'JWT_AUTHENTICATION_EXPIRE_IN';
+
+  public static readonly MOBILE_APP_URL = 'MOBILE_APP_URL';
+
+  public static readonly STRIPE_PLATFORM_ACCOUNT = 'STRIPE_PLATFORM_ACCOUNT';
+
+  public static readonly STRIPE_NZ_CONNECTED_ACCOUNT = 'STRIPE_NZ_CONNECTED_ACCOUNT';
+
+  public static readonly STRIPE_US_CONNECTED_ACCOUNT = 'STRIPE_US_CONNECTED_ACCOUNT';
+
+  public static readonly STRIPE_PLATFORM_SECRET_KEY = 'STRIPE_PLATFORM_SECRET_KEY';
+
+  public static readonly STRIPE_PLATFORM_WEBHOOK_SECRET = 'STRIPE_PLATFORM_WEBHOOK_SECRET';
+
+  public static readonly RABBITMQ_URL = 'RABBITMQ_URL';
+
+  public static readonly STRIPE_US_ACCOUNT_TOGGLE = 'STRIPE_US_ACCOUNT_TOGGLE';
+
+  public static readonly GROWTHBOOK_API_HOST = 'GROWTHBOOK_API_HOST';
+
+  public static readonly GROWTHBOOK_CLIENT_KEY = 'GROWTHBOOK_CLIENT_KEY';
+
+  public static readonly OCR_API_KEY = 'OCR_API_KEY';
+
+  public static readonly LAMBDA_ALIAS = 'LAMBDA_ALIAS';
+
+  public static readonly SLOW_QUERY_USER_ID = 'SLOW_QUERY_USER_ID';
+
+  // When create a new webhook on Stripe platform account and pointing it into testing env, we need to update this env to 'true' value
+  public static readonly ENABLED_STRIPE_TESTING_WEBHOOK = 'ENABLED_STRIPE_TESTING_WEBHOOK';
+
+  public static readonly DOC_SUM_GRPC_HOST = 'DOC_SUM_GRPC_HOST';
+
+  public static readonly DOC_SUM_GRPC_PORT = 'DOC_SUM_GRPC_PORT';
+
+  public static readonly DOC_SUM_RATE_LIMIT = 'DOC_SUM_RATE_LIMIT';
+
+  public static readonly KRATOS_SCHEMA_ID = 'KRATOS_SCHEMA_ID';
+
+  public static readonly CANNY_BASE_URL = 'CANNY_BASE_URL';
+
+  public static readonly CANNY_API_KEY = 'CANNY_API_KEY';
+
+  public static readonly CANNY_AUTHOR_ID = 'CANNY_AUTHOR_ID';
+
+  public static readonly CANNY_LAYOUT_FEEDBACK_BOARD_ID = 'CANNY_LAYOUT_FEEDBACK_BOARD_ID';
+
+  public static readonly CANNY_UNRELIABLE_STORAGE_POST_ID = 'CANNY_UNRELIABLE_STORAGE_POST_ID';
+
+  public static readonly CANNY_CONFUSING_UX_POST_ID = 'CANNY_CONFUSING_UX_POST_ID';
+
+  public static readonly CANNY_NO_DEMAND_POST_ID = 'CANNY_NO_DEMAND_POST_ID';
+
+  public static readonly CANNY_SPECIFIC_FEEDBACK_POST_ID = 'CANNY_SPECIFIC_FEEDBACK_POST_ID';
+
+  public static readonly CANNY_DOCUMENT_MANAGEMENT_CATEGORY_ID = 'CANNY_DOCUMENT_MANAGEMENT_CATEGORY_ID';
+
+  public static readonly CANNY_FORM_FIELDS_CATEGORY_ID = 'CANNY_FORM_FIELDS_CATEGORY_ID';
+
+  public static readonly CANNY_LAYOUT_FEEDBACK_TAG_ID = 'CANNY_LAYOUT_FEEDBACK_TAG_ID';
+
+  public static readonly CANNY_LUMIN_TAG_ID = 'CANNY_LUMIN_TAG_ID';
+
+  public static readonly CANNY_FEEDBACK_SCORE_TAGS = 'CANNY_FEEDBACK_SCORE_TAGS';
+
+  public static readonly MICROSOFT_CLIENT_ID = 'MICROSOFT_CLIENT_ID';
+
+  public static readonly MICROSOFT_CLIENT_SECRET = 'MICROSOFT_CLIENT_SECRET';
+
+  public static readonly CANNY_LAYOUT_FEEDBACK_IN_APP_TAG_ID = 'CANNY_LAYOUT_FEEDBACK_IN_APP_TAG_ID';
+
+  public static readonly CANNY_MOBILE_FEEDBACK_BOARD_ID = 'CANNY_MOBILE_FEEDBACK_BOARD_ID';
+
+  public static readonly CANNY_MOBILE_FEEDBACK_CATEGORY_ID = 'CANNY_MOBILE_FEEDBACK_CATEGORY_ID';
+
+  public static readonly CANNY_MOBILE_FEEDBACK_TAG_ID = 'CANNY_MOBILE_FEEDBACK_TAG_ID';
+
+  public static readonly RESTRICTED_BILLING_ACTIONS_ORG_IDS = 'RESTRICTED_BILLING_ACTIONS_ORG_IDS';
+
+  public static readonly CONTRACT_GRPC_HOST = 'CONTRACT_GRPC_HOST';
+
+  public static readonly CONTRACT_GRPC_PORT = 'CONTRACT_GRPC_PORT';
+
+  public static readonly AGREEMENT_GEN_GRPC_HOST = 'AGREEMENT_GEN_GRPC_HOST';
+
+  public static readonly AGREEMENT_GEN_GRPC_PORT = 'AGREEMENT_GEN_GRPC_PORT';
+
+  public static readonly ENABLE_AGREEMENT_GEN_INTEGRATION = 'ENABLE_AGREEMENT_GEN_INTEGRATION';
+
+  public static readonly INVITE_LINK_EXPIRING_SOON_DURATION_THRESHOLD = 'INVITE_LINK_EXPIRING_SOON_DURATION_THRESHOLD';
+
+  public static readonly INVITE_LINK_EXPIRATION_DURATION = 'INVITE_LINK_EXPIRATION_DURATION';
+
+  public static readonly SLACK_INSTALL_APP_INTEGRATION_URL = 'SLACK_INSTALL_APP_INTEGRATION_URL';
+
+  public static readonly SLACK_CREDENTIAL_SECRET = 'SLACK_CREDENTIAL_SECRET';
+
+  public static readonly SLACK_CREDENTIAL_SALT = 'SLACK_CREDENTIAL_SALT';
+
+  public static readonly SLACK_PRIVATE_SHARING_MEMBER_THRESHOLD = 'SLACK_PRIVATE_SHARING_MEMBER_THRESHOLD';
+
+  public static readonly SLACK_OAUTH_EMAIL_WHITELIST = 'SLACK_OAUTH_EMAIL_WHITELIST';
+
+  public static readonly MICROSOFT_ADD_INS_CLIENT_ID = 'MICROSOFT_ADD_INS_CLIENT_ID';
+
+  public static readonly MICROSOFT_ADD_INS_CLIENT_SECRET = 'MICROSOFT_ADD_INS_CLIENT_SECRET';
+
+  public static readonly ONE_DRIVE_ADD_INS_WHITELISTED_DOMAINS = 'ONE_DRIVE_ADD_INS_WHITELISTED_DOMAINS';
+
+  public static readonly ONE_DRIVE_FILE_PICKER_WHITELISTED_DOMAINS = 'ONE_DRIVE_FILE_PICKER_WHITELISTED_DOMAINS';
+
+  public static readonly CASH_APP_EXPERIMENT_PMC_ID = 'CASH_APP_EXPERIMENT_PMC_ID';
+
+  public static readonly PROMPT_TO_JOIN_TRIALING_ORG_BRAZE_CAMPAIGN_ID = 'PROMPT_TO_JOIN_TRIALING_ORG_BRAZE_CAMPAIGN_ID';
+
+  public static readonly RENEWAL_EMAIL_BRAZE_CAMPAIGN_ID = 'RENEWAL_EMAIL_BRAZE_CAMPAIGN_ID';
+
+  public static readonly WEB_RAG_GRPC_HOST = 'WEB_RAG_GRPC_HOST';
+
+  public static readonly WEB_RAG_GRPC_PORT = 'WEB_RAG_GRPC_PORT';
+
+  public static readonly EXCLUDE_DOMAIN_MIGRATE_TO_NEW_BUSINESS_PRICE = 'EXCLUDE_DOMAIN_MIGRATE_TO_NEW_BUSINESS_PRICE';
+
+  public static readonly EXCLUDE_ORG_IDS_MIGRATE_TO_NEW_BUSINESS = 'EXCLUDE_ORG_IDS_MIGRATE_TO_NEW_BUSINESS';
+
+  public static readonly COUPON_CODE_MIGRATE_TO_NEW_BUSINESS = 'COUPON_CODE_MIGRATE_TO_NEW_BUSINESS';
+
+  public static readonly ENABLE_CONTRACT_INTEGRATION = 'ENABLE_CONTRACT_INTEGRATION';
+
+  public static readonly SLACK_SMB_WEBHOOK_URL = 'SLACK_SMB_WEBHOOK_URL';
+
+  public static readonly SMB_ORGANIZATION_IDS_CSV_PATH = 'SMB_ORGANIZATION_IDS_CSV_PATH';
+
+  public static readonly TERMS_OF_USE_VERSION = 'TERMS_OF_USE_VERSION';
+
+  public static readonly TOP_K_INDEXING_BACKLOG_ITEMS = 'TOP_K_INDEXING_BACKLOG_ITEMS';
+
+  public static readonly PRIVATE_KEY_SIGNED_RESPONSE = 'PRIVATE_KEY_SIGNED_RESPONSE';
+
+  public static readonly ONE_DRIVE_ADD_INS_WHITELISTED_EMAILS_BY_DOMAIN = 'ONE_DRIVE_ADD_INS_WHITELISTED_EMAILS_BY_DOMAIN';
+
+  public static readonly MAX_DOCUMENT_TEMPLATE_QUOTA = 'MAX_DOCUMENT_TEMPLATE_QUOTA';
+
+  public static readonly GCLOUD_RECAPTCHA_PROJECT_ID = 'GCLOUD_RECAPTCHA_PROJECT_ID';
+
+  public static readonly GCLOUD_RECAPTCHA_API_KEY = 'GCLOUD_RECAPTCHA_API_KEY';
+
+  public static readonly GCLOUD_RECAPTCHA_AUTH_SITE_KEY = 'GCLOUD_RECAPTCHA_AUTH_SITE_KEY';
+
+  public static readonly GCLOUD_RECAPTCHA_WEB_SITE_KEY = 'GCLOUD_RECAPTCHA_WEB_SITE_KEY';
+
+  // HubSpot Workspace Custom Object Configuration
+  public static readonly ENABLE_HUBSPOT_WORKSPACE = 'ENABLE_HUBSPOT_WORKSPACE';
+
+  public static readonly HUBSPOT_WORKSPACE_OBJECT_TYPE_ID = 'HUBSPOT_WORKSPACE_OBJECT_TYPE_ID';
+
+  public static readonly HUBSPOT_WORKSPACE_CONTACT_OWNER_ASSOCIATION_TYPE_ID = 'HUBSPOT_WORKSPACE_CONTACT_OWNER_ASSOCIATION_TYPE_ID';
+
+  public static readonly HUBSPOT_WORKSPACE_CONTACT_ADMIN_ASSOCIATION_TYPE_ID = 'HUBSPOT_WORKSPACE_CONTACT_ADMIN_ASSOCIATION_TYPE_ID';
+
+  public static readonly HUBSPOT_WORKSPACE_SUBSCRIPTION_CHANGED_EVENT_NAME = 'HUBSPOT_WORKSPACE_SUBSCRIPTION_CHANGED_EVENT_NAME';
+
+  public static readonly HUBSPOT_WORKSPACE_SIZE_CHANGED_EVENT_NAME = 'HUBSPOT_WORKSPACE_SIZE_CHANGED_EVENT_NAME';
+
+  public static readonly LOGO_DEV_PRIVATE_API_KEY = 'LOGO_DEV_PRIVATE_API_KEY';
+
+  public static readonly LOGO_DEV_API_KEY = 'LOGO_DEV_API_KEY';
+
+  public static readonly ORY_NETWORK_API_URL = 'ORY_NETWORK_API_URL';
+
+  public static readonly ORY_WORKSPACE_API_KEY = 'ORY_WORKSPACE_API_KEY';
+
+  public static readonly ORY_PROJECT_ID = 'ORY_PROJECT_ID';
+
+  public static readonly ORY_SAML_SSO_ASC_URL = 'ORY_SAML_SSO_ASC_URL';
+
+  public static readonly ORY_SAML_SSO_SP_ENTITY_ID_BASE_URL = 'ORY_SAML_SSO_SP_ENTITY_ID_BASE_URL';
+
+  public static readonly ORY_SAML_SSO_DATA_MAPPING = 'ORY_SAML_SSO_DATA_MAPPING';
+
+  public static readonly ORY_SCIM_SSO_SERVER_URL_TEMPLATE = 'ORY_SCIM_SSO_SERVER_URL_TEMPLATE';
+
+  public static readonly ORY_SCIM_SSO_DATA_MAPPING = 'ORY_SCIM_SSO_DATA_MAPPING';
+
+  public static readonly AWS_SQS_REGION = 'AWS_SQS_REGION';
+
+  public static readonly AWS_SQS_ACCESS_KEY = 'AWS_SQS_ACCESS_KEY';
+
+  public static readonly AWS_SQS_SECRET_KEY = 'AWS_SQS_SECRET_KEY';
+
+  public static readonly AWS_SQS_QUEUE_URL = 'AWS_SQS_QUEUE_URL';
+
+  public static readonly AWS_SQS_QUEUE_NAME = 'AWS_SQS_QUEUE_NAME';
+
+  public static readonly STRIPE_TIME_SENSITIVE_COUPON_US = 'STRIPE_TIME_SENSITIVE_COUPON_US';
+
+  public static readonly STRIPE_TIME_SENSITIVE_COUPON_NZ = 'STRIPE_TIME_SENSITIVE_COUPON_NZ';
+
+  public static readonly TIME_SENSITIVE_COUPON_EXPIRE_TIME = 'TIME_SENSITIVE_COUPON_EXPIRE_TIME';
+
+  public static readonly TIME_SENSITIVE_COUPON_EXPIRE_TIME_UNIT = 'TIME_SENSITIVE_COUPON_EXPIRE_TIME_UNIT';
+}

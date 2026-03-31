@@ -1,0 +1,129 @@
+/callbacks/kratos-registration-flow-v2:
+  post:
+    summary: Handle Kratos registration flow callback (v2)
+    description: Processes registration callbacks from Kratos identity service, handling both email/password and social login flows
+    tags:
+      - Callbacks
+    security:
+      - KratosHookAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RegistrationRequest'
+    responses:
+      '201':
+        description: Registration successfully processed
+      '400':
+        description: Registration failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationError'
+      '422':
+        description: Registration failed
+
+/callbacks/kratos-verification-flow:
+  post:
+    summary: Handle Kratos verification flow callback
+    description: Processes email verification callbacks from Kratos identity service
+    tags:
+      - Callbacks
+    security:
+      - KratosHookAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - identity
+              - flow
+            properties:
+              identity:
+                $ref: '#/components/schemas/KratosIdentity'
+              flow:
+                $ref: '#/components/schemas/KratosFlow'
+    responses:
+      '201':
+        description: Verification flow successfully processed
+      '400':
+        description: Verification flow failed
+      '422':
+        description: Verification flow failed
+
+/callbacks/kratos-sync-up-settings-data:
+  post:
+    summary: Sync up user settings data
+    description: Handles settings flow callback, including email verification, account linking, and login service updates
+    tags:
+      - Callbacks
+    security:
+      - KratosHookAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SyncUpSettingsRequest'
+    responses:
+      '201':
+        description: Settings successfully synced and updated
+      '400':
+        description: Failed to sync settings or link accounts
+      '422':
+        description: Failed to sync settings or link accounts
+
+/callbacks/kratos-after-login-flow:
+  post:
+    summary: Handle post-login operations
+    description: Updates the user's last login timestamp after successful authentication
+    tags:
+      - Callbacks
+    security:
+      - KratosHookAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AfterLoginRequest'
+    responses:
+      '201':
+        description: Last login timestamp successfully updated
+      '400':
+        description: Failed to update last login timestamp
+      '422':
+        description: Failed to update last login timestamp
+
+/callbacks/kratos-after-registration-flow:
+  post:
+    summary: Handle post-registration operations
+    description: Processes tasks after successful user registration, including syncing OIDC avatar for third-party login services
+    tags:
+      - Callbacks
+    security:
+      - KratosHookAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - flow
+              - identity
+            properties:
+              flow:
+                $ref: '#/components/schemas/KratosFlow'
+              identity:
+                $ref: '#/components/schemas/KratosIdentity'
+    responses:
+      '201':
+        description: Post-registration tasks successfully processed
+      '400':
+        description: Failed to process post-registration tasks
+      '422':
+        description: Failed to process post-registration tasks

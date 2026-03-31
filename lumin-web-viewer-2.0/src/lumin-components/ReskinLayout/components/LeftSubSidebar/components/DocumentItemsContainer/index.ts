@@ -1,0 +1,1 @@
+export { default as DocumentItemsContainer } from './DocumentItemsContainer';

@@ -1,0 +1,22 @@
+# .gitignore
+.env
+*.log
+.DS_Store
+
+# Strapi data directories
+strapi/data/csv/
+strapi/data/pdf/
+strapi/data/thumbnails/
+strapi/data/mapping-template/
+strapi/data/upload-failture/
+strapi/data/lumin/
+
+# Prismic data directories
+prismic/data/csv/
+prismic/data/xml/
+prismic/data/output/
+prismic/data/export/
+
+# Logs
+strapi/logs/
+prismic/logs/

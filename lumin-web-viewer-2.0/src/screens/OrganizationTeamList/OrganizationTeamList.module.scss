@@ -1,0 +1,8 @@
+@import 'reskin/screens.scss';
+
+.teamListContainer {
+  padding: var(--kiwi-spacing-3) var(--kiwi-spacing-3) 0;
+  @include xl-screen {
+    padding: 0 var(--kiwi-spacing-4);
+  }
+}

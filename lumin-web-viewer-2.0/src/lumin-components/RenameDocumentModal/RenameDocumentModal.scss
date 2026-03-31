@@ -1,0 +1,27 @@
+@import '../../constants/lumin-styles.scss';
+
+.RenameModal__title {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--color-neutral-100);
+  margin: 0 0 24px 0;
+  text-align: center;
+  @include mobile() {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.RenameModal__wrapper {
+  box-sizing: border-box;
+  @include low-mobile {
+    width: calc(100vw - 32px);
+  }
+}
+
+.RenameModal__input {
+  margin-bottom: 16px;
+}
+

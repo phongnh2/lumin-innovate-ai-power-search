@@ -1,0 +1,24 @@
+{
+  "name": "font-icomoon",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "cd ./fonts && cat icomoon.ttf | ttf2woff2 > icomoon.woff2 && rm icomoon.ttf && cd ../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/nitrolabs/font-icomoon.git"
+  },
+  "keywords": [
+    "font",
+    "icomoon"
+  ],
+  "author": "LuminPDF",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nitrolabs/font-icomoon#readme",
+  "dependencies": {
+    "ttf2woff2": "^4.0.5"
+  }
+}

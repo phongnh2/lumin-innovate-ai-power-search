@@ -1,0 +1,32 @@
+@import "../../constants/styles";
+
+.ZoomOverlay {
+  position: absolute;
+  top: 46px;
+  z-index: 100;
+  box-shadow: $md-shadow1;
+
+  &.open {
+    display: visible;
+  }
+  &.closed {
+    display: none;
+  }
+
+  .spacer {
+    height: 1px;
+    background: #f0f0f0;
+    background: var(--button-active-color);
+  }
+
+  .ToolButton {
+    background-color: #ffffff;
+    background-color: var(--primary-color);
+    height: 35px;
+
+    &:hover {
+      background-color: #f6f6f6;
+      background-color: var(--button-hover-color);
+    }
+  }
+}

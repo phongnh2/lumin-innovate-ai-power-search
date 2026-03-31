@@ -1,0 +1,27 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your subscription has been canceled as fraud detected</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            As fraud has been detected on your card, we’re sorry to cancel your subscription and refund all of your previous payments of 
+            <b class="highlight">{{refundedAmount}}</b>. You will see the refund as a credit 
+            <b class="highlight">approximately 5-10 business days later</b>, depending upon the bank.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            If you have any questions about the card, please contact your bank. Besides, <a class="link" href="{{staticUrl}}/contact-support/">
+              contact Lumin support team</a>
+            to clarify the others.
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

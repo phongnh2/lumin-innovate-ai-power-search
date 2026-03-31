@@ -1,0 +1,44 @@
+.sharingListWrapper {
+  padding: 0 var(--kiwi-spacing-1);
+}
+
+.listTabs {
+  & > button {
+    flex: 1;
+  }
+}
+
+.listUsers {
+  padding: var(--kiwi-spacing-1) 0;
+}
+
+.listMembers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.noResults {
+  height: 100%;
+  display: flex;
+  padding: var(--kiwi-spacing-5) var(--kiwi-spacing-1-25);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+
+  .illustration {
+    height: 112px;
+    width: auto;
+  }
+
+  .info {
+    text-align: center;
+  }
+}
+
+.loadingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--kiwi-spacing-3) 0;
+}

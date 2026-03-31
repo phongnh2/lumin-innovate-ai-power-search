@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  right: var(--kiwi-spacing-2);
+  bottom: var(--kiwi-spacing-2);
+  z-index: var(--zindex-modal-low);
+  background: var(--kiwi-colors-surface-surface-bright);
+  width: var(--kiwi-sizing-dialogs-xs);
+  padding: var(--kiwi-spacing-2);
+}
+
+.title {
+  margin-bottom: var(--kiwi-spacing-2);
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-title-sm; 
+}

@@ -1,0 +1,103 @@
+@import 'reskin/screens.scss';
+
+.dragAndDropSvg {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  padding: 1px;
+}
+
+.dragAndDropBorder {
+  stroke-width: 1;
+  stroke: var(--kiwi-colors-core-primary);
+  rx: var(--kiwi-border-radius-md);
+}
+
+.headerWrapper {
+  padding-left: var(--kiwi-spacing-1);
+}
+
+.headerWrapperReskin {
+  position: sticky;
+  top: 0;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  z-index: 3;
+  transition: var(--default-web-transition);
+  &[data-is-dragging='true'] {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue);
+  }
+
+  &[data-is-dragging='false'] {
+    &::before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      background-color: var(--kiwi-colors-surface-surface-container-lowest);
+      z-index: -1;
+      top: 0;
+      // based on DocumentListWrapper padding
+      left: calc(var(--kiwi-spacing-2) * -1);
+      right: calc(var(--kiwi-spacing-2) * -1);
+
+      @include xl-screen {
+        left: calc(var(--kiwi-spacing-5) * -1);
+        right: calc(var(--kiwi-spacing-3) * -1);
+      }
+    }
+  }
+}
+
+.failedFetchErrorWrapper {
+  margin-top: var(--kiwi-spacing-8);
+}
+
+.listContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.scrollerContainer {
+  overflow-y: hidden !important;
+  // empty document list min height
+  min-height: 554px;
+  @include md-screen {
+    min-height: 494px;
+  }
+}
+
+.notScrollerContainer {
+  scroll-behavior: auto;
+  will-change: scroll-position;
+  // 3 rows document list min height
+  min-height: 208px;
+}
+
+.virtuosoContainer {
+  padding-bottom: var(--kiwi-spacing-1-5);
+}
+
+.virtuosoGrid {
+  display: grid;
+  width: 100%;
+  gap: var(--kiwi-spacing-1-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @include md-screen {
+    gap: var(--kiwi-spacing-2);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include xl-screen {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include xxxl-screen {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.uploadDropZoneContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

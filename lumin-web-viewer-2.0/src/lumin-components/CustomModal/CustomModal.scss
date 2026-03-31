@@ -1,0 +1,12 @@
+@import "../../constants/lumin-styles";
+
+.CustomModal__wrapper {
+  min-width: 364px;
+  text-align: center;
+  padding: 32px;
+  box-sizing: border-box;
+  @include mobile() {
+    min-width: unset;
+    padding: 16px;
+  }
+}

@@ -1,0 +1,74 @@
+.container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: var(--kiwi-spacing-0-5);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.noResults {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-4);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-sm;
+}
+
+.skeletonItem {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  margin: 2px var(--kiwi-spacing-0-5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.skeletonIcon,
+.skeletonText {
+  background: var(--kiwi-colors-surface-outline-variant);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.skeletonText {
+  height: 16px;
+  flex: 1;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+}

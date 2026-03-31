@@ -1,0 +1,25 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your Lumin Sign seat has been removed from {{orgName}}'s {{orgWord}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Hi <b class="highlight">{{userName}}</b>,
+          </mj-text>
+          <mj-text>
+            Your seat for Lumin Sign in <b class="highlight">{{orgName}}</b> has been removed. You no longer have access to Lumin Sign Pro features.
+          </mj-text>
+          <mj-text>
+            If you believe this is a mistake, please contact your administrator.
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

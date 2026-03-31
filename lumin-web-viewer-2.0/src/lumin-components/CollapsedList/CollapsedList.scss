@@ -1,0 +1,30 @@
+@import "../../constants/lumin-styles.scss";
+
+.CollapsedList {
+  width: 100%;
+  color: $primary;
+  &__header {
+    padding: 8px 0 8px 10px;
+    @include mobile {
+      padding: 12px 0;
+      > div {
+        max-width: 100%;
+      }
+    }
+    &:hover {
+      @include themify() {
+        background-color: themed('popperItemHover') ;
+      }
+    }
+  }
+  &__icon {
+    @include themify (){
+      color: themed('textColor')
+    }
+    transition: all 0.25s !important;
+    transform: rotate(0deg);
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+}

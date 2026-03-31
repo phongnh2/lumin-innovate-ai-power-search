@@ -1,0 +1,31 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Success! {{orgName}}'s {{orgWord}} has been upgraded</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text><b class="highlight">{{orgName}}'s&nbsp;</b>{{orgWord}} has been upgraded from the&nbsp;<b class="highlight">{{oldPlan}} {{oldPeriod}}
+          <mj-raw>{{#if (neq oldDocstack 0)}}</mj-raw>
+            - {{oldDocstack}}&nbsp;Documents Plan
+          <mj-raw>
+            {{/if}}
+          </mj-raw>
+          </b> to the&nbsp;<b class="highlight">{{newPlan}} {{newPeriod}} - {{newDocstack}}&nbsp;{{pluralize "Document" "Documents" newDocstack}} Plan</b>. From now on, your {{orgWord}} can finish up to&nbsp;<b class="highlight">{{newDocstack}}&nbsp;</b>{{pluralize "document" "documents" newDocstack}}.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

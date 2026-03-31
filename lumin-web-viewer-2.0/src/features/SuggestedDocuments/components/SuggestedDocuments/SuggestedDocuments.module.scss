@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding-top: var(--kiwi-spacing-2);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+}

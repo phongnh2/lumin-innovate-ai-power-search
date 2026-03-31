@@ -1,0 +1,171 @@
+@import "../../src/constants/lumin-styles";
+@import "lumin-ui/tokens.css";
+
+input[type="text"] {
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-appearance: none;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.divider {
+  min-height: 24px;
+  height: 100%;
+  border-right: 1px solid;
+  transition: border-color .3s ease;
+
+  @include themify {
+    border-color: themed("sliderLineEmpty");
+  }
+
+  margin: 0 12px;
+
+  @include desktop {
+    margin: 0 16px;
+  }
+
+  &.horizontal {
+    height: 1px;
+    min-height: unset;
+    margin-bottom: 16px !important;
+
+    @include themify {
+      background: themed("sliderLineEmpty");
+    }
+  }
+
+  .AnnotationPopup & {
+    margin: 0 8px;
+  }
+}
+
+.noWrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @include mobile {
+    text-overflow: clip;
+  }
+}
+
+.input {
+  &--error {
+    border-color: $accent !important;
+  }
+
+  &__error {
+    margin: 8px 0;
+    font-size: 12px;
+    color: $accent;
+    letter-spacing: 0.3px;
+    display: block;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.hide-in-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.hide-in-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hide-in-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hide-in-tablet-up {
+  @include tablet-up {
+    display: none !important;
+  }
+}
+
+.hide-in-small-desktop {
+  @include small-desktop {
+    display: none !important;
+  }
+}
+
+.hide-in-small-desktop-up {
+  @include small-desktop-up {
+    display: none !important;
+  }
+}
+
+.hide-in-mobile-up-small-desktop {
+  @include mobile-up-small-desktop {
+    display: none !important;
+  }
+}
+
+.hide-in-tablet-and-mobile {
+  @include tablet-and-mobile {
+    display: none !important;
+  }
+}
+
+.hide-in-tablet-and-small-desktop {
+  @include tablet-and-small-desktop {
+    display: none !important;
+  }
+}
+
+.hide-in-smaller-than-desktop {
+  @include smaller-than-desktop {
+    display: none !important;
+  }
+}
+
+.hide-in-bigger-than-desktop {
+  @include desktop-up {
+    display: none !important;
+  }
+}
+
+.show-in-tablet {
+  @include mobile {
+    display: none !important;
+  }
+
+  @include small-desktop-up {
+    display: none !important;
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hide-in-editTextOnly {
+  display: none !important;
+}

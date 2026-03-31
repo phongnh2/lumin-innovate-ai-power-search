@@ -1,0 +1,71 @@
+{
+  "policies": {
+    "version": "2025-11-17",
+    "statements": {
+      "export": {
+        "sid": "de6a57ac-8907-41f0-9b76-e696982a5e16",
+        "resource": "document",
+        "description": "Export permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "print": {
+        "sid": "49ed4621-68f3-4421-b0a2-af3e46ef21e5",
+        "resource": "document",
+        "description": "Print permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "copy": {
+        "sid": "d89e4c5d-debb-4a33-bd48-7c134777680d",
+        "resource": "document",
+        "description": "Copy permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "saveAsTemplate": {
+        "sid": "0150943d-1061-459f-ba09-6277fa16cc67",
+        "resource": "document",
+        "description": "Save as template permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "merge": {
+        "sid": "91273f0d-e1cb-44c1-a0a5-fd8becb4fa87",
+        "resource": "document",
+        "description": "Merge permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "sendForSignatures": {
+        "sid": "810b733c-a113-4962-86ff-d8f19a3bbbbe",
+        "resource": "document",
+        "description": "Send for signatures permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "requestSignatures": {
+        "sid": "9562572a-a34c-4ef5-9018-5f142ac9c5d9",
+        "resource": "document",
+        "description": "Request signatures permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      },
+      "saveACertifiedVersion": {
+        "sid": "3ffc88d6-2708-4bb0-94e6-85d5a1e97a20",
+        "resource": "document",
+        "description": "Save a certified version permission for document",
+        "principle": {
+          "role": ["owner", "anyone", "sharer", "editor", "viewer", "spectator"]
+        }
+      }
+    }
+  }
+}

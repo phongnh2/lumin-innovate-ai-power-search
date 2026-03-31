@@ -1,0 +1,51 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import "../../constants/overlay";
+
+.ViewControlsOverlayLumin {
+  max-width: 286px;
+  padding: 16px 24px;
+  &__container {
+    display: flex;
+    align-items: center;
+    &--has-margin {
+      margin-bottom: 16px;
+    }
+  }
+  &__title--wrapper {
+    width: 106px;
+    margin-right: 8px;
+  }
+  .title {
+    font-family: $font-stack-primary;
+    font-style: normal;
+    font-weight: 375;
+    font-size: 14px;
+    line-height: 20px;
+    @include themify() {
+      color: themed('textColorLighter');
+    }
+  }
+  // For iOS 10
+  &.open {
+    display: block;
+  }
+
+  i {
+    margin: 0;
+  }
+
+  @include mobile {
+    left: 8px;
+    top: calc(#{$top-bar-height-m} + 3px);
+  }
+}
+
+.ViewControlsOverlayLumin__button {
+  width: 28px;
+  margin: 0 8px;
+  border-radius: 4px;
+  &--no-margin {
+    margin-right: 0;
+  }
+}

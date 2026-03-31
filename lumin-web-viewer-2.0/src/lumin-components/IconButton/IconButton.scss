@@ -1,0 +1,22 @@
+@import '../../constants/lumin-styles.scss';
+
+.IconButton {
+    min-width: 28px;
+    max-width: 28px;
+    height: 28px;
+    display: inline-flex;
+    flex: 0;
+    padding: 0;
+    @include themify() {
+      color: themed('squareButtonColor');
+    }
+    &:hover {
+      @include themify() {
+        background: themed('popperItemHover');
+      }
+    }
+    &--disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+}

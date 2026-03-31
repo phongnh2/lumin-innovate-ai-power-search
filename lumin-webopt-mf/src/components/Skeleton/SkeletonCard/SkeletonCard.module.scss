@@ -1,0 +1,68 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.thumbnailWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 225 / 115;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200px 100%;
+  animation:
+    shimmer 1.5s infinite,
+    pulse 1.8s ease-in-out infinite;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.titleSkeleton {
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200px 100%;
+  animation:
+    shimmer 1.5s infinite,
+    pulse 1.8s ease-in-out infinite;
+  width: 80%;
+}
+
+.usageSkeleton {
+  height: 16px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200px 100%;
+  animation:
+    shimmer 1.5s infinite,
+    pulse 1.8s ease-in-out infinite;
+  width: 60%;
+}

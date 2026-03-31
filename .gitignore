@@ -1,0 +1,43 @@
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
+# Dependencies
+node_modules/
+
+# Next.js build output
+lumin-auth/.next/
+lumin-auth/out/
+lumin-templates/.next/
+lumin-templates/out/
+
+# Backend build output
+lumin-web-backend-2.0/dist/
+
+# Viewer build output
+lumin-web-viewer-2.0/dist/
+lumin-web-viewer-2.0/build/
+
+# MF build output
+lumin-webopt-mf/dist/
+
+# Python
+lumin-wo-ai-innovate/__pycache__/
+lumin-wo-ai-innovate/**/__pycache__/
+lumin-wo-ai-innovate/.venv/
+lumin-wo-ai-innovate/*.pyc
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Git backups
+.git.bak/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

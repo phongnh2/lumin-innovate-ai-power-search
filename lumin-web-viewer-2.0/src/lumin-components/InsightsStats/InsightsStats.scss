@@ -1,0 +1,74 @@
+@import '../../constants/lumin-styles.scss';
+
+.InsightsStats__value {
+  color: var(--color-neutral-100);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  display: block;
+  margin-bottom: 8px;
+  &--document {
+    color: var(--color-white);
+  }
+}
+
+.InsightsStats__title {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  color: var(--color-neutral-100);
+  &--document {
+    color: var(--color-white);
+  }
+}
+
+.InsightsStats__subtitle {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-neutral-100);
+  margin-top: 12px;
+  @include mobile() {
+    margin-top: 8px;
+  }
+  &--document {
+    color: var(--color-white);
+  }
+}
+.InsightStats_IconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.InsightsStats__percent {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-neutral-100);
+  @include mobile() {
+    font-size: 17px;
+    line-height: 24px;
+    margin-left: 8px;
+  }
+  &--document {
+    color: var(--color-white);
+  }
+}
+.InsightsStats__percentContainer {
+  margin-left: 4px;
+  &--document {
+    margin-left: 8px;
+  }
+}
+.InsightsStats__text {
+  white-space: nowrap;
+}

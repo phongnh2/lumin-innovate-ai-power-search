@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+}
+
+.productItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-surface-container-high);
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}

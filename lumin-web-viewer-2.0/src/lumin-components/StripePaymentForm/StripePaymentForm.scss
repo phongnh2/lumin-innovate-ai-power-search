@@ -1,0 +1,224 @@
+@import "../../constants/lumin-styles";
+
+.StripePaymentForm {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: $white;
+  width: 100%;
+
+  &__form-group {
+    &-item {
+      &:last-child {
+        padding-left: 8px;
+      }
+
+      &:first-child {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &__form-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label {
+    font-family: $font-stack-primary;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: $primary;
+    margin-bottom: 8px;
+    display: block;
+
+    &--error {
+      color: $accent;
+    }
+
+    & .option {
+      font-weight: normal;
+      color: $lightslategray;
+    }
+
+    &.change-card {
+      color: $royalblue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__input_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 40px;
+    border: 2px solid $cloudyblue;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+
+    &--error {
+      border-color: $accent;
+    }
+
+    &--focus {
+      border-color: $primary;
+    }
+
+    & .stripe-card {
+      width: 100%;
+      height: fit-content;
+    }
+
+    & > input,
+    & .stripe-card > input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-family: $font-stack-primary;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      color: $primary;
+      appearance: none;
+      background: transparent;
+      font-weight: 400;
+
+      &::placeholder {
+        color: rgba($secondary, 0.5);
+      }
+    }
+
+    &--disabled {
+      background-color: rgb(192 208 223 / 20%);
+      pointer-events: none;
+
+      & .stripe-card > input {
+        color: $secondary;
+      }
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include mobile {
+        width: 60px;
+        right: 8px;
+      }
+    }
+
+    & > .icon {
+      color: $accent;
+    }
+  }
+
+  &__error {
+    font-family: $font-stack-primary;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: $accent;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 400;
+  }
+
+  &__note {
+    margin-top: 32px;
+    width: 100%;
+
+    p {
+      color: $secondary;
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.43;
+      letter-spacing: 0.34px;
+    }
+
+    a {
+      color: $royalblue;
+      text-decoration: underline;
+    }
+  }
+
+  &__promotion {
+    border-color: transparent;
+    border-left: none;
+    padding: 0;
+
+    .icon {
+      color: $secondary;
+      vertical-align: middle;
+    }
+
+    &__code {
+      color: $primary;
+      font-weight: bold;
+    }
+
+    &__discount {
+      color: $royalblue;
+      margin: 0 5px;
+    }
+  }
+
+  .tnc {
+    margin-top: 16px;
+  }
+}
+
+.StripePaymentForm__input {
+  margin-bottom: 16px;
+}
+
+.StripePaymentForm__note--has-frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 0.34px;
+  color: $primary;
+  background-color: rgba(#3c80ef, 0.1);
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 16px;
+
+  i {
+    flex-shrink: 0;
+  }
+
+  span {
+    flex: 1;
+    padding-left: 8px;
+  }
+}
+
+.StripePaymentForm__form-currency {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 16px;
+  margin-bottom: 16px;
+}
+
+.StripePaymentForm__row {
+  margin-bottom: 16px;
+}

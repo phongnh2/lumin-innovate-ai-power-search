@@ -1,0 +1,37 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">The subscription for {{orgName}}'s {{orgWord}} will end on {{dateEnd}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            This is a confirmation that your subscription for&nbsp;<b class="text-highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;will end on&nbsp;<b class="text-highlight">{{dateEnd}}.&nbsp;</b>
+            Until then, you can continue enjoying Lumin premium features.&nbsp;
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            After that, your {{orgWord}} plan will be downgraded to the free plan which affects&nbsp;<b class="text-highlight">{{totalMembers}}&nbsp;</b>{{pluralize "member" "members" totalMembers}} in&nbsp;<b class="text-highlight">{{orgName}}'s {{orgWord}}</b>.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            If you change your mind, you can reactivate your subscription any time before&nbsp;<b class="text-highlight">{{dateEnd}}</b>.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">Reactivate Subscription</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Without further action, your plan will be downgraded to the free version by <b class="text-highlight">{{dateEnd}}</b>.
+            This change will affect all&nbsp;<b class="text-highlight">{{totalMembers}}&nbsp;</b>{{pluralize "member" "members" totalMembers}} in&nbsp;<b class="text-highlight">{{orgName}}'s {{orgWord}}</b>.
+            People in this {{orgWord}} may experience the following limitations:
+          </mj-text>
+          <mj-app-product-restriction />
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

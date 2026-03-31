@@ -1,0 +1,1 @@
+export { kratosService } from './kratos';

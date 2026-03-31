@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--kiwi-spacing-0-5);
+
+  button {
+    margin-right: calc(var(--kiwi-spacing-2) * -1);
+  }
+}
+
+.label {
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}

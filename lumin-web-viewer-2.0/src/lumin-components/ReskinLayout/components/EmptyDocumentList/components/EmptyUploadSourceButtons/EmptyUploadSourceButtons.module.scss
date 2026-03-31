@@ -1,0 +1,42 @@
+.uploadFromMyDeviceInput {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+}
+
+.uploadFromSection {
+  margin-top: var(--kiwi-spacing-2);
+  height: calc(36% - var(--kiwi-spacing-2));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.uploadFromDescription {
+  color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+  text-align: center;
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.uploadFromGroupButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-2-5);
+  flex-wrap: wrap;
+}
+
+.uploadFromButton {
+  min-width: 160px;
+}
+
+.uploadFromButtonWrapper {
+  position: relative;
+}
+
+.disbaledUploadFromButtonWrapper {
+  pointer-events: none;
+}

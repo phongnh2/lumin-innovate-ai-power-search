@@ -1,0 +1,19 @@
+.info {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-core-on-secondary-container);
+  line-height: 1.5;
+
+  a {
+    color: var(--kiwi-colors-semantic-information);
+    font-weight: 600;
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-0-5);
+  }
+}
+
+.headerTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-core-on-secondary-container);
+}

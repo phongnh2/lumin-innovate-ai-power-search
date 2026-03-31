@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package docsum;
+
+service DocSumService {
+    rpc GetSummary(GetSummaryRequest) returns (GetSummaryResponse) {};
+    rpc UpdateVoting(UpdateVotingRequest) returns (UpdateVotingResponse) {};
+    rpc CompleteSummarization(CompleteSummarizationRequest) returns (Status) {};
+}
+
+
+message Status {
+    int32 code = 1;
+    string error_code = 2;
+    string message = 3;
+}
+
+message GetSummaryRequest {
+    string doc_id = 1;
+    string doc_version = 2;
+    string doc_name = 3;
+    string text = 4;
+    bool force_new = 5;
+}
+
+message GetSummaryResponse {
+    Status status = 1;
+}
+
+message CompleteSummarizationRequest {
+    Status status = 1;
+    string doc_id = 2;
+    string summary_id = 3;
+    string summary_content = 4;
+}
+
+message UpdateVotingRequest {
+
+    string summary_id = 1;
+    string voting = 2;
+}
+
+message UpdateVotingResponse{
+    Status status = 1;
+}
+

@@ -1,0 +1,105 @@
+@import "../../constants/lumin-styles";
+
+@keyframes highlight-item {
+  from { background-color: var(--kiwi-colors-custom-role-web-surface-blue-activated); }
+  to { background-color: transparent; }
+}
+
+.shareListItem {
+  padding: var(--kiwi-spacing-1);
+  width: 100%;
+  position: relative;
+  border-radius: var(--kiwi-border-radius-md);
+  transition: var(--default-web-transition);
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-column-gap: var(--kiwi-spacing-1);
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    transition: var(--default-web-transition);
+  }
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  };
+  &:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  };
+  &[data-selected='true'] {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue);
+  };
+  &[data-highlight='true'] {
+    animation: highlight-item 5s;
+  };
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    opacity: var(--kiwi-opacity-disabled-on-container);
+    &::after {
+      background-color: transparent;
+    }
+  };
+}
+
+.container {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.text {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pendingUser {
+  color: var(--kiwi-colors-semantic-error)
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+}
+
+.roleText {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+}
+
+.docOwner {
+  opacity: var(--kiwi-opacity-disabled-on-container);
+}
+
+.permissions {
+  z-index: 1;
+  position: relative;
+}
+
+.adminRole {
+  color: var(--kiwi-colors-core-primary);
+}
+
+.orgOwnerRole {
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.checkbox {
+  padding-left: var(--kiwi-spacing-1);
+}

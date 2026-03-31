@@ -1,0 +1,100 @@
+@mixin element-wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  height: 40px;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  align-items: center;
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  width: 100%;
+  position: relative;
+  transition: var(--default-web-transition);
+
+  &[data-skeleton='true'] {
+    gap: var(--kiwi-spacing-1);
+  }
+
+  &[data-document-activated='true'] {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue-activated);
+  }
+  &[data-setting-activated='true'] {
+    background-color: var(--kiwi-colors-surface-surface-container-highest);
+  }
+
+  &::after {
+    z-index: 1;
+    transition: var(--default-web-transition);
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: var(--kiwi-opacity-state-layer-none);
+    background-color: var(--kiwi-colors-surface-on-surface);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--kiwi-border-radius-md);
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &[data-active='true']:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-none);
+  }
+
+  &:not([data-active]):hover,
+  &[data-active='false']:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+
+  &:hover .rightElement {
+    display: flex;
+  }
+}
+
+.wrapper {
+  &.disabled:not([aria-current='page']) {
+    pointer-events: none;
+    opacity: var(--kiwi-opacity-disabled-on-container);
+  }
+}
+
+.title {
+  flex: 1;
+}
+
+.leftElement {
+  margin-right: var(--kiwi-spacing-1);
+  @include element-wrapper;
+}
+
+.rightElement {
+  margin-left: var(--kiwi-spacing-0-25);
+  margin-right: calc(var(--kiwi-spacing-0-5) * -1);
+  @include element-wrapper;
+  display: none;
+
+  button {
+    z-index: 2;
+  }
+}
+
+.tooltip {
+  word-break: break-word;
+}

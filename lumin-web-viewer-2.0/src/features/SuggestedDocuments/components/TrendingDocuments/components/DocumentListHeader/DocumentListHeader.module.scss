@@ -1,0 +1,53 @@
+@import 'reskin/screens.scss';
+@import '../../styles/variables';
+
+.container {
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1) var(--kiwi-spacing-1-5) 0;
+  display: grid;
+  grid-template-columns: $document-header-grid-cols;
+  column-gap: var(--kiwi-spacing-0-5);
+  align-items: center;
+  border-bottom: 1px solid var(--kiwi-colors-surface-surface-container-high);
+
+  @include xl-screen {
+    column-gap: var(--kiwi-spacing-2);
+    grid-template-columns: $document-header-grid-cols-xl;
+  }
+
+  &[data-chatbot-opened='true'] {
+    @include xl-down-screen-webchatbot {
+      .lastUpdated,
+      .ownerCol,
+      .storageCol {
+        display: none;
+      }
+    }
+    @include xl-to-xxxl-screen-webchatbot {
+      grid-template-columns: $document-header-grid-cols-xl-to-xxxl-chatbot;
+      .storageCol,
+      .lastUpdated {
+        display: none;
+      }
+    }
+  }
+}
+
+.column {
+  @include kiwi-typography-body-md;
+  min-height: 24px;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  display: flex;
+  align-items: center;
+
+  &.ownerCol {
+    gap: var(--kiwi-spacing-0-5);
+  }
+
+  &.storageCol {
+    margin-left: var(--kiwi-spacing-1-75);
+  }
+
+  &.lastUpdated {
+    margin-left: var(--kiwi-spacing-1);
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../constants/lumin-styles.scss';
+@import '../../constants/styles';
+@import '../../constants/panel';
+
+.CommentPanel {
+  @extend %right-panel-comment;
+  width: $right-panel-width;
+  @include themify() {
+    background-color: themed('bgDocumentContainer');
+    border: 0;
+  }
+  .Panel {
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px 8px 40px 16px;
+    &.allow-self-scroll {
+      overflow: auto;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    .normal-notes-container {
+      position: relative;
+    }
+  }
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

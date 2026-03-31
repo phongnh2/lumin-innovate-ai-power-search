@@ -1,0 +1,26 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your {{orgName}}'s {{orgWord}} was auto-changed to visible for anyone to join in Lumin</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            New users with
+            <a class="link-not-underline" href="">
+              <b class="highlight">{{listDomain}}</b>
+            </a>
+            domain can join <b class="highlight">{{orgName}}'s {{orgWord}}</b> without needing your approval because your current subscription no longer supports that setting.
+            Upgrade your plan to require approval before users can join.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/payment/business/annual?{{orgUrlSegment}}_id={{orgId}}">Upgrade Now</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

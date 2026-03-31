@@ -1,0 +1,727 @@
+import { ExploredFeatures, PdfAction } from 'features/EnableToolFromQueryParams/constants';
+
+import { TOOLS_NAME } from './toolsName';
+
+export const Colors = {
+  PRIMARY: '#273d57',
+  SECONDARY: '#8093a7',
+  SECONDARY_50: '#F2385A',
+  ACCENT: '#ed3e47',
+  ROYALBLUE: '#3c80ef',
+  CLOUDYBLUE: '#c0d0df',
+  SMOKE: '#ebf0f5',
+  WHITE: '#ffffff',
+  PALEBLUE: '#c1d1e0',
+  RED: '#ed3d48',
+  RED_ORANGE: '#ff3519',
+  GREEN: '#a4de53',
+  YELLOW: '#ffbc41',
+  SOLITUDE: '#e7ebf0',
+  BLUE: '#377df2',
+  ALICEBLUE: '#f2f6fa',
+};
+
+export const ModalTypes = {
+  WARNING: 'warning',
+  SUCCESS: 'success',
+  ERROR: 'error',
+  INFO: 'info',
+  TADA: 'tada',
+  MOOD: 'mood',
+  LUMIN: 'lumin',
+  THREE_STARS: 'three-stars',
+  BETA: 'beta',
+  FIRE: 'fire',
+  NEUTRAL: 'neutral',
+  DRIVE: 'drive',
+  ONE_DRIVE: 'one-drive',
+  HIT_DOC_STACK: 'hit-doc-stack',
+};
+
+export const MaterialThemes = {
+  palette: {
+    primary: { main: '#20375a' },
+    secondary: { main: '#4083ec' },
+    accent: { main: '#ea3f4c' },
+    text: {
+      secondary: '#c0d0df',
+    },
+    action: {
+      active: '#4083ec',
+    },
+  },
+  typography: {
+    fontFamily: ['var(--font-primary)', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(','),
+  },
+};
+
+export const MANIPULATION_TYPE = {
+  ROTATE_PAGE: 'ROTATE_PAGE',
+  REMOVE_PAGE: 'REMOVE_PAGE',
+  MOVE_PAGE: 'MOVE_PAGE',
+  INSERT_BLANK_PAGE: 'INSERT_BLANK_PAGE',
+  CROP_PAGE: 'CROP_PAGE',
+  MERGE_PAGE: 'MERGE_PAGE',
+  SPLIT_PAGE: 'SPLIT_PAGE',
+} as const;
+
+export const MAXIMUM_NUMBER_SIGNATURE = {
+  FREE_PLAN: 2,
+  PREMIUM_PLAN: 100,
+};
+
+export const MAX_DOCUMENT_SIZE = 200;
+export const MAXIMUM_FILE_SIZE = {
+  // MB
+  FREE_PLAN: 20,
+  PREMIUM_PLAN: MAX_DOCUMENT_SIZE,
+};
+
+export const FREE_SHARER = {
+  tools: [
+    'AnnotationCreateTextHighlight',
+    'AnnotationCreateTextUnderline',
+    'AnnotationCreateTextSquiggly',
+    'AnnotationCreateTextStrikeout',
+    // 'AnnotationCreateFreeText',
+    // 'AnnotationCreateSignature',
+    'AnnotationCreateLine',
+    'AnnotationCreateArrow',
+    'AnnotationCreatePolyline',
+    'AnnotationCreateStamp',
+    'AnnotationCreateRectangle',
+    'AnnotationCreateEllipse',
+    'AnnotationCreatePolygon',
+    'AnnotationCreatePolygonCloud',
+  ],
+  elements: [
+    // 'textPopup',
+    'textToolGroupButton',
+    'shapeToolGroupButton',
+  ],
+};
+
+export const FREE_VIEWER = {
+  tools: [...FREE_SHARER.tools, 'AnnotationCreateFreeHand', 'AnnotationCreateSignature', 'AnnotationCreateFreeText'],
+  elements: [
+    ...FREE_SHARER.elements,
+    // 'textPopup',
+    'freeHandToolGroupButton',
+    'annotationStyleEditButton',
+    'linkButton',
+  ],
+};
+
+export const FREE_SPECTATOR = {
+  tools: [...FREE_VIEWER.tools, 'AnnotationCreateSticky'],
+  elements: [...FREE_VIEWER.elements, 'stickyToolButton', 'textPopup', 'annotationPopup'],
+};
+
+export const ANONYMOUS_VIEWER = {
+  tools: [...FREE_VIEWER.tools, 'AnnotationCreateSignature', 'AnnotationCreateSticky'],
+  elements: [...FREE_VIEWER.elements, 'textPopup', 'signatureToolButton', 'stickyToolButton'],
+};
+
+export const STORAGE_TYPE = {
+  S3: 's3',
+  LOCAL: 'local',
+  GOOGLE: 'google',
+  DROPBOX: 'dropbox',
+  ONEDRIVE: 'onedrive',
+  CACHING: 'caching',
+  SYSTEM: 'system',
+} as const;
+
+export const STORAGE_TYPE_DESC = {
+  [STORAGE_TYPE.S3]: 'Lumin Storage',
+  [STORAGE_TYPE.GOOGLE]: 'Google Drive',
+  [STORAGE_TYPE.DROPBOX]: 'Dropbox',
+  [STORAGE_TYPE.ONEDRIVE]: 'OneDrive',
+};
+
+export const FEATURE_VALIDATION = {
+  SIGNIN_REQUIRED: 'Sign In Required',
+  PERMISSION_REQUIRED: 'Permission Required',
+  PREMIUM_FEATURE: 'Premium Feature',
+  LIMIT_FEATURE: 'Feature Limited',
+  UNSUPPORTED_FILE_TYPE: 'Unsupported File Type',
+};
+
+export const DEACTIVATED_USER_NAME = 'Deactivated user';
+
+export const PURPOSE = {
+  TEACHER: 'teacher',
+  STUDENT: 'student',
+  PERSONAL: 'personal',
+  SMALL_BUSINESS: 'small-business',
+  LARGE_COMPANY: 'large-company',
+  NON_PROFIT: 'non-profit',
+};
+
+export const PURPOSE_STEP = {
+  /**
+   * @deprecated
+   */
+  GET_PURPOSE: 1,
+  /**
+   * @deprecated
+   */
+  INVITE_MEMBER: 2,
+  START_FREE_TRIAL: 3,
+  AFTER_FREE_TRIAL: 4,
+};
+
+export const INVITATION_TYPE = {
+  CREATE: 'CREATE',
+  TEAM: 'TEAM',
+};
+
+export const MAPPING_USER_PURPOSE = {
+  education: PURPOSE.TEACHER,
+  feature: PURPOSE.PERSONAL,
+  free_trial: PURPOSE.PERSONAL,
+  recruitment: PURPOSE.SMALL_BUSINESS,
+  business: PURPOSE.LARGE_COMPANY,
+  real_estate: PURPOSE.SMALL_BUSINESS,
+  landing: PURPOSE.PERSONAL,
+};
+
+export const SORT_BY_ALPHABETICAL_ORDER = {
+  ASC: 'A to Z',
+  DESC: 'Z to A',
+};
+
+export const SORT_BY_DATE = {
+  ASC: 'ascending',
+  DESC: 'descending',
+};
+
+export const LIST_MEMBER_TO_SHOW = {
+  MEMBER: 'MEMBER',
+  PENDING_MEMBER: 'PENDING_MEMBER',
+};
+
+export const INVITATION_TO_LUMIN_TYPE = {
+  TEAM: 'TEAM',
+  ORGANIZATION: 'ORGANIZATION',
+};
+
+export const STATUS_CODE = {
+  SUCCEED: 200,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_ACCEPTABLE: 406,
+  UNPROCESSABLE_ENTITY: 422,
+  INTERNAL_ERROR: 500,
+  CREATED: 201,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  TOO_MANY_REQUESTS: 429,
+  SERVICE_UNAVAILABLE: 503,
+};
+
+export const FULL_PROGRESS = 100;
+
+/**
+ * ENTITY is
+ */
+export const ENTITY = {
+  INDIVIDUAL: 'INDIVIDUAL',
+  TEAM: 'TEAM',
+  ORGANIZATION: 'ORGANIZATION',
+  ORGANIZATION_TEAM: 'ORGANIZATION_TEAM',
+};
+
+export const SHARE_LINK_PERMISSION = {
+  SPECTATOR: 'People can view',
+  VIEWER: 'People can comment',
+  EDITOR: 'People can comment and edit',
+  SHARER: 'People can comment, edit and share',
+};
+
+export const DOCUMENT_LINK_TYPE = {
+  ANYONE: 'ANYONE',
+  INVITED: 'INVITED',
+};
+
+export const DOCUMENT_ROLES = {
+  OWNER: 'OWNER',
+  SHARER: 'SHARER',
+  EDITOR: 'EDITOR',
+  /**
+   * @description Can view and comment
+   */
+  VIEWER: 'VIEWER',
+  /**
+   * @description Can view
+   */
+  SPECTATOR: 'SPECTATOR',
+};
+
+export const DOCUMENT_ROLES_TEXT = {
+  [DOCUMENT_ROLES.OWNER]: 'Owner',
+  [DOCUMENT_ROLES.EDITOR]: 'Edit',
+  [DOCUMENT_ROLES.VIEWER]: 'Comment',
+  [DOCUMENT_ROLES.SHARER]: 'Share',
+  [DOCUMENT_ROLES.SPECTATOR]: 'View',
+};
+
+export const POPPER_OPTIONS = [
+  { name: 'Can View', icon: 'eye-open', id: 'spectator' },
+  { name: 'Can Comment', icon: 'comment', id: 'viewer' },
+  { name: 'Can Edit', icon: 'edit', id: 'editor' },
+  { name: 'Can Share', icon: 'share', id: 'sharer' },
+];
+
+export const NOTE_FILTER_VALUES = {
+  ALL: 'all',
+  ONLY_ME: 'onlyMe',
+};
+
+export const NOTE_FILTER_OPTIONS = [
+  { label: 'viewer.viewerLeftPanel.allNotes', value: NOTE_FILTER_VALUES.ALL },
+  { label: 'viewer.viewerLeftPanel.onlyMyNotes', value: NOTE_FILTER_VALUES.ONLY_ME },
+];
+
+export const StorageLogo = {
+  LUMIN: 'lumin-symbol',
+  GOOGLE: 'google',
+  DROPBOX: 'dropbox',
+  SYSTEM: 'system',
+  ONEDRIVE: 'onedrive',
+};
+
+export const StorageLogoMapping = {
+  [STORAGE_TYPE.DROPBOX]: StorageLogo.DROPBOX,
+  [STORAGE_TYPE.GOOGLE]: StorageLogo.GOOGLE,
+  [STORAGE_TYPE.S3]: StorageLogo.LUMIN,
+  [STORAGE_TYPE.CACHING]: StorageLogo.LUMIN,
+  [STORAGE_TYPE.SYSTEM]: StorageLogo.SYSTEM,
+  [STORAGE_TYPE.ONEDRIVE]: StorageLogo.ONEDRIVE,
+};
+
+export const ErrorCode = {
+  Document: {
+    INVALID_INPUT: 'invalid_input',
+    DOCUMENT_NOT_FOUND: 'document_not_found',
+    ALREADY_HAVE_PERMISSION: 'already_have_permission',
+    EXCEEDED_LIMIT_SHARE_DOCUMENT: 'exceeded_limit_share_document',
+  },
+  Org: {
+    TRANSFER_TOKEN_EXPIRED: 'transfer_token_expired',
+    TRANSFER_ALREADY_CONFIRM: 'transfer_already_confirm',
+    MEMBERSHIP_NOT_FOUND: 'membership_not_found',
+    CANNOT_REMOVE_TEAM_ADMIN: 'cannot_remove_team_admin',
+    GRANTED_ADMIN_IS_PROCESSING: 'granted_admin_is_processing',
+    UPGRADING_ENTERPRISE: 'upgrading_enterprise',
+    SCHEDULED_DELETE: 'scheduled_delete',
+    DOMAIN_EXISTED: 'organization_domain_existed',
+    DOMAIN_FORBIDDEN: 'organization_domain_forbidden',
+  },
+  Common: {
+    INVALID_INPUT: 'invalid_input',
+    BAD_REQUEST: 'bad_request',
+    UNAUTHORIZED: 'unauthorized',
+    NOT_ACCEPTABLE: 'not_acceptable',
+    FORBIDDEN: 'forbidden_resource',
+    NOT_FOUND: 'not_found',
+    CONFLICT: 'conflict',
+    INTERNAL_SERVER_ERROR: 'internal_server_error',
+    UNPROCESSABLE_ERROR: 'unprocessable_error',
+    TOO_MANY_REQUESTS: 'too_many_requests',
+    TOKEN_EXPIRED: 'token_expired',
+    NO_PERMISSION: 'no_permission',
+  },
+  User: {
+    USER_NOT_FOUND: 'user_not_found',
+    EMAIL_IS_BANNED: 'email_is_banned',
+    UNAVAILABLE_USER: 'unavailable_user',
+    USER_DELETING: 'user_deleting',
+  },
+  Payment: {
+    INVOICE_QUANTITY_NOT_ENOUGH: 'invoice_quantity_not_enough',
+    CURRENCY_NOT_MATCHED: 'currency_not_matched',
+    CANNOT_GET_CLIENT_SECRET: 'cannot_get_client_secret',
+  },
+};
+
+export const RESOLUTION_TYPE = {
+  MOBILE: 'mobile',
+  SMALL_DESKTOP: 'small-desktop',
+  DESKTOP: 'desktop',
+  TABLET_AND_MOBILE: 'tablet-and-mobile',
+  TABLE_AND_SMALL_DESKTOP: 'tablet-and-small-desktop',
+  SMALLER_THAN_DESKTOP: 'smaller-than-desktop',
+};
+
+export const DIVIDER_ID = {
+  ONE: 'd1',
+  TWO: 'd2',
+  THREE: 'd3',
+};
+
+// do not change the order of this. this value of properties must be decrease.
+export const RESOLUTION_MAPPING = {
+  [RESOLUTION_TYPE.DESKTOP]: 1440,
+  [RESOLUTION_TYPE.SMALL_DESKTOP]: 1200,
+  [RESOLUTION_TYPE.MOBILE]: 600,
+};
+
+export const CHECKBOX_TYPE = {
+  SELECT: 'select',
+  DESELECT: 'deselect',
+  DELETE: 'delete',
+  ALL: 'all',
+  SELECT_ONE: 'selectOne',
+};
+
+export const USER_TYPE = {
+  EDUCATION: 'education',
+};
+
+export const APP_USER_TYPE = {
+  LUMIN_USER: 'LUMIN_USER',
+  SALE_ADMIN: 'SALE_ADMIN',
+};
+
+export const UserStatus = {
+  OK: 'Ok',
+  ADDED: 'Added',
+  UNAVAILABLE: 'Unavailable',
+  PENDING: 'Pending user',
+};
+
+export const EntitySearchType = {
+  DOCUMENT: 'DOCUMENT',
+  ORGANIZATION: 'ORGANIZATION',
+  ORGANIZATION_TEAM: 'ORGANIZATION_TEAM',
+  ORGANIZATION_CREATION: 'ORGANIZATION_CREATION',
+  ORGANIZATION_TEAM_CREATION: 'ORGANIZATION_TEAM_CREATION',
+  ORGANIZATION_GRANT_BILLING: 'ORGANIZATION_GRANT_BILLING',
+};
+
+export const SearchUserStatus = {
+  USER_ADDED: 'USER_ADDED',
+  USER_VALID: 'USER_VALID',
+  USER_NOT_BELONG_TO_ORG: 'USER_NOT_BELONG_TO_ORG',
+  USER_DELETING: 'USER_DELETING',
+  USER_UNAVAILABLE: 'USER_UNAVAILABLE',
+  USER_UNALLOWED: 'USER_UNALLOWED',
+  USER_RESTRICTED: 'USER_RESTRICTED',
+};
+
+export const DEBOUNCED_SEARCH_TIME = 500;
+export const DEBOUNCED_SIGN_SIGNATURE_TIME = 50;
+export const DEBOUNCED_FETCH_SIGNATURE_TIME = 300;
+export const DEBOUNCED_DOCUMENT_LOADED_TIME = 1000;
+export const DEBOUNCED_CLICK_NOTIFICATION_TIME = 200;
+
+export const MAX_DROPDOWN_HEIGHT = 600;
+
+export const THEME_MODE = {
+  LIGHT: 'light',
+  DARK: 'dark',
+};
+
+export const APP_DOWNLOAD = {
+  APPLE: 'https://apps.apple.com/us/app/lumin-pdf/id1367372862',
+  GOOGLE: 'https://play.google.com/store/apps/details?id=com.luminpdfapp',
+  MS_STORE: 'https://www.microsoft.com/store/apps/9NBLGGH4V3NT',
+};
+
+export const TIMEOUT = {
+  SAVE_ANNOT: 2000,
+  SAVING_STATUS: 200,
+  CHECK_NETWORK_CONNECTION: 20000,
+  MEASURE_GRIDVIEW_ROWS: 300,
+  GRID_VIEW_SCROLLING: 500,
+  GRID_VIEW_SHOW_CROP_PREVIEW: 1000,
+  GRID_VIEW_SHOW_CROP_PREVIEW_ON_SCROLL: 1000,
+  FIELD_CHANGED: 100,
+  VALIDATE: 300,
+  CONTENT_CHANGED: 1000,
+  SINGLE_CLICK: 400,
+  COPY: 2000,
+  ANNOTATION_CHANGE: 100,
+};
+
+export const LOGGER = {
+  EVENT: {
+    SIGN_IN_BY_GOOGLE: 'SIGN_IN_BY_GOOGLE',
+    SIGN_IN_BY_GOOGLE_INFO: 'SIGN_IN_BY_GOOGLE_INFO',
+    CREATE_GOOGLE_FILE_PICKER: 'CREATE_GOOGLE_FILE_PICKER',
+    HANDLE_UPLOAD_GOOGLE_DRIVE: 'HANDLE_UPLOAD_GOOGLE_DRIVE',
+    SIGN_OUT_BY_GOOGLE: 'SIGN_OUT_BY_GOOGLE',
+    SIGN_OUT: 'SIGN_OUT',
+    SIGN_IN_BY_GOOGLE_FOR_TRANSFERING_FILE: 'SIGN_IN_BY_GOOGLE_FOR_TRANSFERING_FILE',
+    IS_VALID_GOOGLE_PERMISSION: 'IS_VALID_GOOGLE_PERMISSION',
+    GAPI_HAS_BEEN_LOADED: 'GAPI_HAS_BEEN_LOADED',
+    SETUP_GOOGLE_CLIENT: 'SETUP_GOOGLE_CLIENT',
+    HANDLE_SIGN_IN_DRIVE_REQUIRED_ERROR: 'HANDLE_SIGN_IN_DRIVE_REQUIRED_ERROR',
+    RE_SIGN_IN: 'RE_SIGN_IN',
+    OPEN_DRIVE_SUCCESS_LOGIN: 'Open Drive - Login successfully',
+    UPLOAD_FILE_TO_GOOGLE_DRIVE: 'UPLOAD_FILE_TO_GOOGLE_DRIVE',
+    REQUEST_PERMISSION: 'REQUEST_PERMISSION',
+    GET_CURRENT_REMOTE_EMAIL: 'GET_CURRENT_REMOTE_EMAIL',
+    GET_CURRENT_DRIVE_USER_ID: 'GET_CURRENT_DRIVE_USER_ID',
+    GET_USER_GOOGLE_DRIVE_INFO: 'GET_USER_GOOGLE_DRIVE_INFO',
+    GET_USER_GOOGLE_DRIVE_SCOOP: 'GET_USER_GOOGLE_DRIVE_SCOOP',
+    GET_FILE_INFO: 'GET_FILE_INFO',
+    DOWNLOAD_FILE: 'DOWNLOAD_FILE',
+    GET_CURRENT_SCOOP: 'GET_CURRENT_SCOOP',
+    VALIDATE_GOOGLE_AUTH_CONNECTION: 'VALIDATE_GOOGLE_AUTH_CONNECTION',
+    IS_USER_LOGIN_WITH_GOOGLE: 'IS_USER_LOGIN_WITH_GOOGLE',
+    GET_FILE_GOOGLE_SERVICE: 'GET_FILE_GOOGLE_SERVICE',
+    INIT_GOOGLE_API: 'INIT_GOOGLE_API',
+    SET_THIRD_PARTY_COOKIE_LISTENER: 'SET_THIRD_PARTY_COOKIE_LISTENER',
+    WINDOW_GAPI_NOT_FOUND: 'Window Gapi is not found',
+    HANDLE_UPLOAD_FILE_TO_REMOTE_REMOTE_INVALID: 'HANDLE_UPLOAD_FILE_TO_REMOTE_REMOTE_INVALID',
+    AXIOS_INSTANCE_RESPONSE: 'AXIOS_INSTANCE_RESPONSE',
+    DROPBOX_INSTANCE_RESPONSE: 'DROPBOX_INSTANCE_RESPONSE',
+    GRAPHQL_RESPONSE: 'GRAPHQL_RESPONSE',
+    DROPBOX_UPLOAD_FILE: 'DROPBOX_UPLOAD_FILE_TO_DROPBOX',
+    DROPBOX_INSERT_FILE: 'DROPBOX_INSERT_FILE',
+    DROPBOX_GET_FILE_META_DATA: 'DROPBOX_GET_FILE_META_DATA',
+    DROPBOX_RENAME_FILE: 'DROPBOX_RENAME_FILE',
+    DROPBOX_GET_FILE: 'DROPBOX_GET_FILE',
+    DROPBOX_HANDLE_ERROR_GET_FILE: 'DROPBOX_HANDLE_ERROR_GET_FILE',
+    DROPBOX_GET_USER_INFO: 'DROPBOX_GET_USER_INFO',
+    DROPBOX_SIGN_IN: 'DROPBOX_SIGN_IN',
+    DROPBOX_AUTHENTICATE_INFO: 'DROPBOX_AUTHENTICATE_INFO',
+    DROPBOX_SIGN_IN_RESPONSE: 'DROPBOX_SIGN_IN_RESPONSE',
+    DROPBOX_HANDLE_PICK_FILE: 'DROPBOX_HANDLE_PICK_FILE',
+    GOOGLE_DRIVE_DOCUMENT_NOT_FOUND: 'The document is not found in Google Drive',
+    GOOGLE_DRIVE_UNAUTHORIZE: 'Can not authorize Google Drive. Authorization failed',
+    GOOGLE_DRIVE_SIGNIN_REQUIRED: 'GOOGLE_DRIVE_SIGNIN_REQUIRED',
+    GOOGLE_DRIVE_DOWNLOAD_REQUIRED: 'GOOGLE_DRIVE_DOWNLOAD_REQUIRED',
+    LOADING_ANNOTATIONS: 'LOADING_ANNOTATIONS',
+    DOCUMENT_LIMITED_TIME: 'DOCUMENT_LIMITED_TIME',
+    OPEN_DRIVE_LOGIN_FAILED_LOGIN_DIFF_ACCOUNT: 'OPEN_DRIVE_LOGIN_FAILED: Login different account',
+    OPEN_DRIVE_LOGIN_FAILED_HAVE_NO_PERMISSION: "OPEN_DRIVE_LOGIN_FAILED: Don't have permission",
+    OPEN_DRIVE_LOGIN_FAILED_COMMON_ERROR: 'OPEN_DRIVE_LOGIN_FAILED: Common error',
+    PDFTRON_CORE_DOCUMENT: 'PDFTRON_CORE_DOCUMENT',
+    ACCEPT_COOKIES: 'ACCEPT_COOKIES',
+    FEATURE_UPDATE_EMAIL: 'RECEIVE_FEATURE_UPDATE_EMAIL',
+    PROMOTION_EMAIL: 'RECEIVE_PROMOTION_EMAIL',
+    INVITE_MEMBER_TO_ORGANIZATION: 'INVITE_MEMBER_TO_ORGANIZATION',
+    INVITE_MEMBER_TO_TEAM: 'INVITE_MEMBER_TO_TEAM',
+    INVITED_TO_ORGANIZATION: 'INVITED_TO_ORGANIZATION',
+    INVITED_TO_TEAM: 'INVITED_TO_TEAM',
+    FILE_UPLOADED: 'FILE_UPLOADED',
+    CHANGE_ROLE_ORGANIZATION: 'CHANGE_ROLE_ORGANIZATION',
+    CHANGE_ROLE_TEAM: 'CHANGE_ROLE_TEAM',
+    CHANGE_PERMISSION: 'CHANGE_PERMISSION',
+    FILE_SHARED_ORGANIZATION: 'FILE_SHARED_ORGANIZATION',
+    FILE_SHARED_PERSONAL: 'FILE_SHARED_PERSONAL',
+    AUTO_SYNC_RESULT: 'AUTO_SYNC_RESULT',
+    AUTO_SYNC_ERROR: 'AUTO_SYNC_ERROR',
+    REMOVE_MEMBER_FROM_ORGANIZATION: 'REMOVE_MEMBER_FROM_ORGANIZATION',
+    REMOVED_FROM_ORGANIZATION: 'REMOVED_FROM_ORGANIZATION',
+    REMOVED_FROM_TEAM: 'REMOVED_FROM_TEAM',
+    REMOVE_MEMBER_FROM_TEAM: 'REMOVE_MEMBER_FROM_TEAM',
+    REMOVE_DOCUMENT_PERMISSION: 'REMOVE_DOCUMENT_PERMISSION',
+    CLEAR_ANNOTATION_AND_MANIPULATION_OF_DOCUMENT: 'CLEAR_ANNOTATION_AND_MANIPULATION_OF_DOCUMENT',
+    USER_USED_STORAGE: 'USER_USED_STORAGE',
+    INVITE_COLLABORATOR_USER: 'INVITE_COLLABORATOR_USER',
+    CLEAN_OFFLINE_DOCUMENTS: 'CLEAN_OFFLINE_DOCUMENTS',
+    FIND_DOCUMENT_LOCATION: 'FIND_DOCUMENT_LOCATION',
+    SECURITY_HANDLER: 'SECURITY_HANDLER',
+    DROPBOX_GET_USER_SPACE_INFO: 'DROPBOX_GET_USER_SPACE_INFO',
+  },
+  Service: {
+    BACKUP_DOCUMENT_ERROR: 'BACKUP_DOCUMENT_ERROR',
+    PASSWORD_PROTECTION: 'PASSWORD_PROTECTION',
+    EXPORT_FILE_CONTENT: 'EXPORT_FILE_CONTENT',
+    APP_DOWNLOAD: 'APP_DOWNLOAD',
+    GRAPHQL_ERROR: 'GRAPHQL_ERROR',
+    NETWORK_ERROR: 'NETWORK_ERROR',
+    GRAPHQL_INFO: 'GRAPHQL_INFO',
+    NETWORK_INFO: 'NETWORK_INFO',
+    DOCUMENT_INFO: 'DOCUMENT_INFO',
+    DROPBOX_API_ERROR: 'DROPBOX_API_ERROR',
+    DROPBOX_API_INFO: 'DROPBOX_API_INFO',
+    GOOGLE_API_ERROR: 'GOOGLE_API_ERROR',
+    GOOGLE_API_INFO: 'GOOGLE_API_INFO',
+    ONE_DRIVE_API_ERROR: 'ONE_DRIVE_API_ERROR',
+    HUBSPOT_API_ERROR: 'HUBSPOT_API_ERROR',
+    APPLE_API_ERROR: 'APPLE_API_ERROR',
+    PDFTRON: 'PDFTRON',
+    LEGAL_OPT_INS: 'LEGAL_OPT_INS',
+    HIGH_RISK_FUNCTIONALITY_INFO: 'HIGH_RISK_FUNCTIONALITY_INFO',
+    COMMON_ERROR: 'COMMON_ERROR',
+    WINDOW_EXCEPTIONS: 'WINDOW_EXCEPTIONS',
+    WORKSPACE_ANNOUNCEMENT: 'WORKSPACE_ANNOUNCEMENT',
+    KRATOS_ERROR: 'KRATOS_ERROR',
+    USED_STORAGE: 'USED_STORAGE',
+    TRACK_EVENT_ERROR: 'TRACK_EVENT_ERROR',
+    CREATE_GUEST_DRIVE_FILE: 'CREATE_GUEST_DRIVE_FILE',
+    KRATOS_INFO: 'KRATOS_INFO',
+    CACHE_DOCUMENT_ERROR: 'CACHE_DOCUMENT_ERROR',
+    APPLY_OCR_DOCUMENT_ERROR: 'APPLY_OCR_DOCUMENT_ERROR',
+    CONVERT_DOCUMENT_TO_OFFICE_FILE_ERROR: 'CONVERT_DOCUMENT_TO_OFFICE_FILE_ERROR',
+    PERFORMANCE_OBSERVER_ERROR: 'PERFORMANCE_OBSERVER_ERROR',
+    TECHNICAL_ERROR: 'TECHNICAL_ERROR',
+    BRANCH_IO_ERROR: 'BRANCH_IO_ERROR',
+    GET_ANNOTATIONS_ERROR: 'GET_ANNOTATIONS_ERROR',
+    CONVERT_BASE64_IMAGE_ERROR: 'CONVERT_BASE64_IMAGE_ERROR',
+    FETCH_DRIVE_FILE_ERROR: 'FETCH_DRIVE_FILE_ERROR',
+    EXPORT_FILE_CONTENT_ERROR: 'EXPORT_FILE_CONTENT_ERROR',
+    GA4_EVENT_INFO: 'GA4_EVENT_INFO',
+    GROWTHBOOK_ERROR: 'GROWTHBOOK_ERROR',
+    AUTO_TURN_ON_AUTO_COMPLETE_ERROR: 'AUTO_TURN_ON_AUTO_COMPLETE_ERROR',
+    FORM_FIELD_AUTO_COMPLETE_ERROR: 'FORM_FIELD_AUTO_COMPLETE_ERROR',
+    GET_PROMPT_INVITE_USERS_ERROR: 'GET_PROMPT_INVITE_USERS_ERROR',
+    REFETCH_DOCUMENT_ERROR: 'REFETCH_DOCUMENT_ERROR',
+    INDEXED_DB_ERROR: 'INDEXED_DB_ERROR',
+    OUTLINE_ERROR: 'OUTLINE_ERROR',
+    SUMMARIZE_ERROR: 'SUMMARIZE_ERROR',
+    IMPLICIT_SIGN_IN_ERROR: 'IMPLICIT_SIGN_IN_ERROR',
+    VALIDATE_IP_WHITELIST_ERROR: 'VALIDATE_IP_WHITELIST_ERROR',
+    REVISION_ERROR: 'REVISION_ERROR',
+    GOOGLE_REVISION_API_ERROR: 'GOOGLE_REVISION_API_ERROR',
+    LUMIN_REVISION_API_ERROR: 'LUMIN_REVISION_API_ERROR',
+    DROPBOX_REVISION_API_ERROR: 'DROPBOX_REVISION_API_ERROR',
+    ONEDRIVE_REVISION_API_ERROR: 'ONEDRIVE_REVISION_API_ERROR',
+    INJECT_OUTLINES_ERROR: 'INJECT_OUTLINES_ERROR',
+    MERGE_DOCUMENT_ERROR: 'MERGE_DOCUMENT_ERROR',
+    DOWNLOAD_DOCUMENT_ERROR: 'DOWNLOAD_DOCUMENT_ERROR',
+    PRINT_DOCUMENT_ERROR: 'PRINT_DOCUMENT_ERROR',
+    BACK_UP_DOCUMENT_ERROR: 'BACK_UP_DOCUMENT_ERROR',
+    APRYSE_PDF_WORKER: 'APRYSE_PDF_WORKER',
+    CACHE_VERSIONING_ERROR: 'CACHE_VERSIONING_ERROR',
+    RUBBER_STAMP_ERROR: 'RUBBER_STAMP_ERROR',
+    READ_ALOUD: 'READ_ALOUD',
+    MULTIPLE_MERGE: 'MULTIPLE_MERGE',
+    EDITOR_CHATBOT: 'EDITOR_CHATBOT',
+    COMPRESS_PDF: 'COMPRESS_PDF',
+    CONVERT_TO_IMAGES: 'CONVERT_TO_IMAGES',
+    INVITE_LINK: 'INVITE_LINK',
+    SHARE_IN_SLACK: 'SHARE_IN_SLACK',
+    EXTERNAL_PDF: 'EXTERNAL_PDF',
+    ONEDRIVE_ADD_INS_AUTHORIZATION: 'ONEDRIVE_ADD_INS_AUTHORIZATION',
+    PROMPT_TO_JOIN_TRIALING_ORG: 'PROMPT_TO_JOIN_TRIALING_ORG',
+    INVITE_TO_ADD_DOCS_STACK: 'INVITE_TO_ADD_DOCS_STACK',
+    FORCE_SYNC_DOCUMENT_ERROR: 'FORCE_SYNC_DOCUMENT_ERROR',
+    USER_CANCEL: 'USER_CANCEL',
+    FORCE_SYNC_DOCUMENT: 'FORCE_SYNC_DOCUMENT',
+    SUBMIT_CHATBOT_USER_FEEDBACK_ERROR: 'SUBMIT_CHATBOT_USER_FEEDBACK_ERROR',
+    CHANGE_FORM_FIELD_TYPE: 'CHANGE_FORM_FIELD_TYPE',
+    WEB_CHAT_BOT: 'WEB_CHAT_BOT',
+    AUTO_DETECT_FORM_FIELD: 'AUTO_DETECT_FORM_FIELD',
+    AI_CHATBOT: 'AI_CHATBOT',
+    REDACT_DOCUMENT: 'REDACT_DOCUMENT',
+    SYNC_DOCUMENT_ON_OUTLINES_CHANGED: 'SYNC_DOCUMENT_ON_OUTLINES_CHANGED',
+    DROPBOX_GET_USER_SPACE_INFO: 'DROPBOX_GET_USER_SPACE_INFO',
+    MINIAPPS: 'MINIAPPS',
+    HANDLE_PICK_THIRD_PARTY_FILE: 'HANDLE_PICK_THIRD_PARTY_FILE',
+    ENABLE_SCIM_PROVISION: 'ENABLE_SCIM_PROVISION',
+    DISABLE_SCIM_PROVISION: 'DISABLE_SCIM_PROVISION',
+    CREATE_CERTIFIED_VERSION: 'CREATE_CERTIFIED_VERSION',
+    GUEST_MODE_MANIPULATE_CACHE_ERROR: 'GUEST_MODE_MANIPULATE_CACHE_ERROR',
+  },
+};
+
+export const GA4_LOGGER_MESSAGE = {
+  PURCHASE_PLAN: 'PURCHASE_PLAN',
+  BEGIN_CHECKOUT: 'BEGIN_CHECKOUT',
+};
+
+export const BANNER_INTERACTIONS = {
+  VIEWED: 'Viewed',
+  DIMISS: 'Dimiss',
+  CONFIRMATION: 'Confirmation',
+  HIDDEN: 'Hidden',
+};
+
+export const CARD_INTERACTIONS = {
+  VIEWED: 'Viewed',
+};
+
+export const SENSITIVE_VARIABLES = ['idToken'];
+
+export const COMMENT_PANEL_WIDTH = 303;
+
+export const OLD_LAYOUT_COMMENT_PANEL_WIDTH = 359;
+
+export const LUMIN_COMMENT_SPACING = 8;
+
+export const LEFT_PANEL_TAB_WIDTH = 47;
+
+export const RIGHT_SIDE_BAR_WIDTH = 40;
+
+export const RIGHT_COMMENT_SPACING = 8;
+
+export const HTTP_PROTOCOL = 'http://';
+
+export const HTTPS_PROTOCOL = 'https://';
+
+export const INFO_MODAL_TYPE = {
+  FOLDER: 'FOLDER',
+  TEMPLATE: 'TEMPLATE',
+  DOCUMENT: 'DOCUMENT',
+};
+
+export const ASSOCIATE_DOMAIN_MODAL_TYPE = {
+  ADD: 'ADD',
+  EDIT: 'EDIT',
+  REMOVE: 'REMOVE',
+};
+
+export const DEFAULT_DATE_FORMAT = 'MMM DD, YYYY';
+
+export const DEFAULT_DATETIME_FORMAT = 'MMM DD, YYYY. HH:mm';
+
+export const CONTACT_POINT = {
+  OWNER: 'owner',
+  ADMINISTRATORS: 'Administrators',
+};
+
+export const MAX_WIDTH_CONTAINER = 1164;
+
+export const CHECK_ONLINE_POLLING_TIME = 5000;
+
+export const CHECK_ONINE_DELAY_TIME = 5000;
+
+export const TOAST_DURATION = 5000;
+
+export const MAX_THUMBNAIL_SIZE = 0.5 * 1024 * 1024; // Max size of thumbnail will write into db is 500KB
+
+export const DATA_PORTAL_ID = 'data-portal-id';
+
+export const INVALID_USER_STATUS = [
+  SearchUserStatus.USER_ADDED,
+  SearchUserStatus.USER_DELETING,
+  SearchUserStatus.USER_UNAVAILABLE,
+  SearchUserStatus.USER_RESTRICTED,
+];
+
+export const TOOLTIP_OPEN_DELAY = 1000;
+
+export const TOOLTIP_MAX_WIDTH = 300;
+
+export const MAX_DISPLAY_MEMBERS = 5;
+
+export const THIRD_PARTY_DOCUMENT_SERVICES: string[] = [
+  STORAGE_TYPE.GOOGLE,
+  STORAGE_TYPE.DROPBOX,
+  STORAGE_TYPE.ONEDRIVE,
+];
+
+export const OPERATION_CANCELED_MESSAGE = 'Operation was canceled';
+
+export const FEATURE_USED_ONCE_FROM_FLP_FOR_LOGIN_USER = {
+  [TOOLS_NAME.REDACTION]: ExploredFeatures.REDACT_PDF,
+  [TOOLS_NAME.PASSWORD_PROTECTION]: ExploredFeatures.PROTECT_PDF,
+};
+
+export const FEATURE_USED_ONCE_FROM_FLP_FOR_GUEST_MODE = {
+  [TOOLS_NAME.MERGE_PAGE]: ExploredFeatures.MERGE,
+  [TOOLS_NAME.PASSWORD_PROTECTION]: ExploredFeatures.PROTECT_PDF,
+  [TOOLS_NAME.CONTENT_EDIT]: ExploredFeatures.EDIT_PDF,
+};
+
+export const TOOL_NAME_TO_ACTION = {
+  [TOOLS_NAME.REDACTION]: PdfAction.REDACT_PDF,
+  [TOOLS_NAME.PASSWORD_PROTECTION]: PdfAction.PROTECT_PDF,
+};

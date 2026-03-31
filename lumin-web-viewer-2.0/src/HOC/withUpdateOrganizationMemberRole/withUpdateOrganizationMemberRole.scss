@@ -1,0 +1,25 @@
+@import "../../constants/lumin-styles";
+
+.withUpdateOrganizationMemberRole__CustomModal {
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 364px;
+
+  .Container__Content--message {
+    min-width: unset;
+    max-width: unset;
+  }
+
+  .Container__Content--title {
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .Container__Content--button .ButtonMaterial {
+    height: 40px;
+  }
+  .Container__image {
+    width: 88px;
+    margin: 0 auto;
+  }
+}

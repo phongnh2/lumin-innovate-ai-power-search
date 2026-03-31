@@ -1,0 +1,68 @@
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 4px;
+  position: relative;
+  max-width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  &[data-size="small"] {
+    height: 20px;
+    padding: 0 8px;
+
+    @include kiwi-typography-label-md;
+  }
+
+  &[data-size="medium"] {
+    height: 24px;
+    padding: 0 12px;
+
+    @include kiwi-typography-body-sm;
+  }
+
+  &[data-size="large"] {
+    height: 28px;
+    padding: 4px 16px;
+
+    @include kiwi-typography-body-sm;
+  }
+
+  &[data-color="lumin_growth"] {
+    color: var(--kiwi-colors-core-secondary);
+    background-color: var(--kiwi-colors-surface-outline-variant);
+  }
+
+  &[data-color="modern"] {
+    color: var(--kiwi-colors-surface-on-surface);
+    background-color: var(--kiwi-colors-surface-container-low);
+
+    &:hover::before {
+      background-color: var(--kiwi-colors-surface-container-hover);
+    }
+
+    &:focus::before {
+      background-color: var(--kiwi-colors-surface-container-focus);
+    }
+
+    &:disabled {
+      background-color: var(--kiwi-colors-surface-container);
+      color: var(--kiwi-colors-surface-on-surface-low);
+    }
+  }
+}
+
+.label {
+  white-space: nowrap;
+
+  @include kiwi-typography-title-xs;
+}

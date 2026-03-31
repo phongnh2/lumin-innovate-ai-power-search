@@ -1,0 +1,30 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">The subscription for {{orgName}}'s {{orgWord}} has been canceled</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            We hope Lumin has improved your {{orgWord}}'s experience over the last&nbsp;<b class="text-highlight">{{numberDaysUsePremium}}&nbsp;</b>days, streamlining processes and making collaboration seamless.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            Your {{orgWord}} has now been downgraded to the free plan. You can still do cool things on a free plan, like signatures and annotate, just less often.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            If you'd like to renew your premium {{orgWord}} subscription at any time, click the button below:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/payment/{{orgUrlSegment}}/annual?org_id={{orgId}}">Renew Subscription</mj-button>
+          <mj-spacer height="32px" />
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

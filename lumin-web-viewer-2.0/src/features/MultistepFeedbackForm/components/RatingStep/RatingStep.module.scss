@@ -1,0 +1,22 @@
+
+.iconList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  cursor: pointer;
+  width: 32px;
+  transition: all var(--editor-transition);
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    width: 100%;
+  }
+}

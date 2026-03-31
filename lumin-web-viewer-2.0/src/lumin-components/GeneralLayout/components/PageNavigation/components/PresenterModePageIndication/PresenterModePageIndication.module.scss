@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.currentPageWrapper {
+  position: relative;
+}
+
+.hiddenTotalPages {
+  visibility: hidden;
+}
+
+.currentPage {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+

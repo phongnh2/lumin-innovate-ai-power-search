@@ -1,0 +1,42 @@
+.container {
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-low);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1);
+  width: 100%;
+  height: 100%;
+}
+
+.progressContainer {
+  position: relative;
+  display: inline-flex;
+}
+
+.progressCircle {
+  width: 96px;
+  height: 96px;
+  padding: var(--kiwi-spacing-1);
+}
+
+.progressDescriptionContainer {
+  inset: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressDescription {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  text-align: center;
+}
+
+.description {
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  text-align: center;
+}

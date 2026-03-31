@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+
+  &:where([data-clickable='true']) {
+    cursor: pointer;
+    transition: background-color var(--default-web-transition-duration) ease;
+  }
+
+  &:where([data-clickable='true']):hover {
+    background-color: var(--kiwi-colors-surface-surface-container-low);
+  }
+
+  &:where([data-clickable='true']):hover p:where([data-clickable='true']) {
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.thumbnailWrapper {
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: var(--kiwi-border-radius-md);
+  margin-right: var(--kiwi-spacing-1-5);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.fileContentWrapper {
+  width: 100%;
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-5);
+
+  &:where([data-uploading='true']) {
+    row-gap: var(--kiwi-spacing-0-75);
+  }
+}
+
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileActionsWrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  margin-left: var(--kiwi-spacing-3);
+
+  &:where([data-compressing='true']) {
+    margin-left: var(--kiwi-spacing-2);
+  }
+}
+
+.icon {
+  &::before {
+    display: inline-block;
+    height: 24px;
+  }
+}

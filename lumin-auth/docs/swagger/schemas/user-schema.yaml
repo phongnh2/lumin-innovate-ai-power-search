@@ -1,0 +1,105 @@
+ChangeNameDTO:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+      example: 'John Doe'
+
+CurrentUserResponse:
+  type: object
+  properties:
+    _id:
+      type: string
+      description: User ID
+    deletedAt:
+      type: string
+      format: date-time
+      description: Timestamp when the user was deleted (if applicable)
+    avatarRemoteId:
+      type: string
+      description: Remote ID for user's avatar image
+    name:
+      type: string
+      description: User display name
+    metadata:
+      $ref: '#/components/schemas/UserMetadata'
+      description: Additional user metadata
+
+UserMetadata:
+  type: object
+  description: Additional metadata associated with the user
+
+TeamAndOrganizationResponse:
+  type: object
+  properties:
+    organizationOwner:
+      type: array
+      description: List of organizations where the user is an owner
+      items:
+        $ref: '#/components/schemas/Organization'
+    teamOwner:
+      type: array
+      description: List of teams where the user is an owner
+      items:
+        $ref: '#/components/schemas/Team'
+    error:
+      $ref: '#/components/schemas/Error'
+      description: Error information if the request failed
+
+Organization:
+  type: object
+  properties:
+    _id:
+      type: string
+      description: Unique identifier for the organization
+    name:
+      type: string
+      description: Name of the organization
+    createdAt:
+      type: string
+      format: date-time
+      description: Timestamp when the organization was created
+    avatarRemoteId:
+      type: string
+      description: Remote ID for organization's avatar image
+    url:
+      type: string
+      description: URL associated with the organization
+    domain:
+      type: string
+      description: Domain associated with the organization
+
+Team:
+  type: object
+  properties:
+    _id:
+      type: string
+      description: Unique identifier for the team
+    name:
+      type: string
+      description: Name of the team
+    avatarRemoteId:
+      type: string
+      description: Remote ID for team's avatar image
+    belongsTo:
+      $ref: '#/components/schemas/Organization'
+      description: Organization this team belongs to
+    createdAt:
+      type: string
+      format: date-time
+      description: Timestamp when the team was created
+
+Error:
+  type: object
+  properties:
+    message:
+      type: string
+      description: Error message
+    code:
+      type: string
+      description: Error code
+    metadata:
+      type: object
+      description: Additional error metadata

@@ -1,0 +1,51 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--kiwi-spacing-1) calc(var(--kiwi-spacing-2) * -1) 0;
+  width: calc(100% + var(--kiwi-spacing-2) * 2);
+}
+
+.createStampButton {
+  margin: 0 var(--kiwi-spacing-2) var(--kiwi-spacing-1);
+  width: calc(100% - var(--kiwi-spacing-2) * 2);
+  border-style: dashed;
+  border-radius: var(--kiwi-border-radius-md);
+  padding: var(--kiwi-spacing-1) 0;
+  height: 48px;
+
+  @include kiwi-typography-label-lg;
+}
+
+.errorMessage {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin-bottom: var(--kiwi-spacing-1);
+
+  @include kiwi-typography-body-sm;
+}
+
+
+.rubberStampList {
+  @include kiwi-typography-body-md
+  
+}
+
+.scrollContainer {
+  height: 272px;
+  width: 100%;
+  overflow-y: auto;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.scrollInner {
+  width: 100%;
+}
+
+.draggableRubberStampListItems {
+  >:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}

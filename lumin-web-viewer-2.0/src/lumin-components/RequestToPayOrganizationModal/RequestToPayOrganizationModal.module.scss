@@ -1,0 +1,12 @@
+.descriptionWrapper {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.chargeWrapper {
+  padding: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  border-radius: var(--kiwi-border-radius-md);
+  text-align: center;
+  margin-top: var(--kiwi-spacing-1);
+}

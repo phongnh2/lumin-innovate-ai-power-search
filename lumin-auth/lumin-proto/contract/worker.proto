@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package contract.worker;
+
+service WorkerService {
+  rpc NotifyContractDueDate (NotifyContractDueDateRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveDeletedUsers (RemoveDeletedUsersRequest) returns (google.protobuf.Empty) {}
+  rpc FlattenContract (FlattenContractRequest) returns (google.protobuf.Empty) {}
+}
+
+message NotifyContractDueDateRequest {
+  repeated string contractIds = 1;
+}
+
+message RemoveDeletedUsersRequest {
+  repeated string userIds = 1;
+}
+
+message MigrationWorkspace {
+  string workspaceId = 1;
+  bool onlyMigrateContracts = 2;
+}
+
+message FlattenContractRequest {
+  string contractId = 1;
+  string userId = 2;
+  optional bool addWatermarkId = 3;
+}

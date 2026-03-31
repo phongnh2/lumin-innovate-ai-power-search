@@ -1,0 +1,100 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.ToolButton {
+  border-radius: 4px;
+
+  &.hasStyles.active {
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-bottom: 8px solid #757575;
+      border-bottom: 8px solid var(--icon-color);
+
+      @include mobile {
+        border-left: 8px solid transparent;
+        border-bottom: 8px solid #757575;
+        border-bottom: 8px solid var(--icon-color);
+      }
+    }
+  }
+
+  &.hasStyles.down-arrow {
+    &::after {
+      right: 5px;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top-color: $secondary;
+    }
+  }
+
+  &.hasStyles.down-arrow.active {
+    &::after {
+      border-top-color: $primary;
+
+      @include themify {
+        border-top-color: themed("arrowPopperActive");
+      }
+    }
+  }
+
+  &--has-margin {
+    margin-left: 6px !important;
+  }
+
+  &--with-badge {
+    position: relative;
+  }
+}
+
+.beta-badge {
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -10px;
+  top: -4px;
+  border-radius: 12px;
+  padding: 0 3px;
+  background: var(--color-secondary-50);
+
+  @include themify {
+    border: 1px solid  themed("popperBackground");
+  }
+
+  font-weight: 700;
+  font-size: 6px;
+  line-height: 10px;
+  color: var(--color-neutral-0);
+}
+
+.warning-edit-text-message-list {
+  text-align: left;
+  list-style: disc;
+  padding-left: 24px;
+}
+
+.ToolButtonWrapper {
+  position: relative;
+  &.active {
+    .ViewerButtonMaterial {
+      background-color: var(--color-neutral-20);
+      @include themify {
+        background-color: themed("selectedPopperButton");
+      }
+    }
+    .icon {
+      color: var(--color-primary-90);
+      @include themify {
+        color: themed("selectedPopperButtonIcon");
+      }
+    }
+  }
+}

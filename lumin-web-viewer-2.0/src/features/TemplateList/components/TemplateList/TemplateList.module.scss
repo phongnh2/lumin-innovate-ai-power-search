@@ -1,0 +1,39 @@
+@import 'reskin/screens.scss';
+
+.listContainer {
+  min-height: max-content;
+  padding-top: 0px;
+}
+
+.listHeader {
+  z-index: 3;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  top: 0px;
+
+  --list-header-margin-top: 0px;
+}
+
+.dragAndDropSvg {
+  width: calc(100% + var(--kiwi-spacing-2) * 2);
+  left: calc(var(--kiwi-spacing-2) * -1);
+
+  @include xl-screen {
+    left: calc(var(--kiwi-spacing-5) * -1);
+    width: calc(100% + var(--kiwi-spacing-3) + var(--kiwi-spacing-5));
+  }
+}
+
+.scrollAreaRoot {
+  height: 100%;
+}
+
+.triggerParentScrollDropHighlight {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 4px;
+}
+
+.backToTop {
+  position: fixed;
+}

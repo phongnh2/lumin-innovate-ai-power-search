@@ -1,0 +1,29 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-raw>
+      {{setVar "documentUrl" (concat baseUrl "/viewer/" documentId)}}
+      {{setVar "url" (concat documentUrl searchParam)}}
+    </mj-raw>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{actor}} would like to join {{orgName}}'s {{orgWord}} in Lumin</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Head to your dashboard to add this member
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{url}}">Go to Dashboard</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text color="#667085">
+            If you'd prefer not to add&nbsp;<b class="highlight">{{actor}}&nbsp;</b>you can safely ignore this email.
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

@@ -1,0 +1,59 @@
+.membersContainer {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  padding-left: var(--kiwi-spacing-1);
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  &:hover,
+  &:active {
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+
+.skeletonContainer {
+  padding-left: var(--kiwi-spacing-1);
+  display: flex;
+  align-items: center;
+}
+
+.popoverArrow {
+  border: none;
+}
+
+.popoverDropdown {
+  background-color: var(--kiwi-colors-semantic-information);
+  color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.shareLinkContainer {
+  max-width: 270px;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--kiwi-spacing-1);
+  right: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.shareLinkTitle {
+  @include kiwi-typography-headline-sm;
+  color: var(--kiwi-colors-surface-surface-container-lowest);
+}
+
+.shareLinkDescription {
+  @include kiwi-typography-body-md;
+  padding: var(--kiwi-spacing-0-75) 0 var(--kiwi-spacing-2);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tryItNow {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}

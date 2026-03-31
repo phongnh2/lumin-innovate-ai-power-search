@@ -1,0 +1,10 @@
+/**/*.test.js
+/**/*.test.ts
+/lumin-proto/*
+/lumin-nestjs/*
+/scripts/*
+graphql.schema.ts
+.cache
+gulpfile.ts
+webpack.config.js
+__mocks__

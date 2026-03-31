@@ -1,0 +1,68 @@
+const FeatureFlags = {
+  NEW_LAYOUT: 'new-layout',
+  USE_REACTIVATE_LUMIN_CIRCLE_SUBSCRIPTION_MODAL: 'use-reactivate-lumin-circle-subscription-modal',
+  USE_LUMIN_SIGN_PAYWALL: 'use-lumin-sign-paywall',
+  MODAL_EXTRA_FREE_TRIAL_DAYS: 'modal-extra-free-trial-days',
+  PERIOD_PRO_TRIAL_PLAN: 'period-pro-trial-plan',
+  REQUEST_SIGNATURES: 'request-signatures',
+  RESKIN_IN_APP: 'reskin-in-app',
+  FREE_TRIAL_MODAL_COOL_DOWN: 'free-trial-modal-cool-down',
+  PREVENT_USING_PREPAID_CARD: 'prevent-using-prepaid-card',
+  PROMOTE_CHROME_EXTENSION: 'promote-chrome-extension',
+  ONEDRIVE_INTEGRATION: 'onedrive-integration',
+  ONLY_SHOW_FREE_TRIAL_BANNER_VIEWER: 'only-show-free-trial-banner-viewer',
+  DISMISS_FREE_TRIAL_SURVEY: 'dismiss-free-trial-survey',
+  PROMOTE_DOWNLOAD_MOBILE_APP: 'promote-download-mobile-app',
+  PROMOTE_DOWNLOAD_DESKTOP_APP: 'promote-download-desktop-app',
+  ONBOARDING_FLOW_FROM_OPEN_DRIVE: 'onboarding-flow-from-open-drive',
+  PROMOTE_CHROME_EXTENSION_MODAL: 'promote-chrome-extension-modal',
+  SHOW_APPLE_PAY_AND_GOOGLE_PAY: 'show-apple-pay-and-google-pay',
+  CANCEL_SUBSCRIPTION_SURVEY: 'cancel-subscription-survey',
+  INVITE_SHARED_USERS: 'invite-shared-users',
+  VIEWER_NAVIGATION: 'viewer-navigation',
+  EDIT_TEXT_BY_AGREEMENT_GEN: 'edit-text-by-agreement-gen',
+  EDIT_BY_AGREEMENT_GEN: 'edit-by-agreement-gen',
+  AI_CHATBOT: 'interactive-ai-chatbot',
+  REMOVE_UPGRADE_BTN_START_TRIAL_POPOVER: 'remove-upgrade-btn-start-trial-popover',
+  NEW_PRICING_MODELS: 'new-pricing-models',
+  COMPRESS_PDF: 'compress-pdf',
+  NEW_PRICING: 'new-pricing',
+  FREE_TEXT_TOOLBAR: 'free-text-toolbar',
+  WEB_AI_CHATBOT: 'web-ai-chatbot',
+  COLLECT_NON_SHARING_FEEDBACK: 'collect-non-sharing-feedback',
+  MICROSOFT_ADD_INS_AUTHORIZATION: 'microsoft-add-ins-authorization',
+  INVITE_COLLABORATORS_MODAL: 'invite-collaborators-modal',
+  EXPORT_DOCUMENT_TO_DIFFERENT_FORMAT: 'export-document-to-different-format',
+  AUTO_DETECT_FORM_FIELDS: 'auto-detect-form-fields',
+  STYLING_IMPACT_FOR_TEMPLATES: 'styling-impact-for-templates',
+  SIGN_WORKSPACE_ANNOUNCEMENT: 'sign-workspace-announcement',
+  ENABLE_NESTED_FOLDERS: 'enable-nested-folders',
+  PROMPT_USERS_TO_DOWNLOAD_AFTER_CANCELLATION: 'prompt-users-to-download-after-cancellation',
+  CHECKOUT_ON_VIEWER: 'checkout-on-viewer',
+  SHOW_CUSTOMER_SUPPORT_MODAL: 'show-customer-support-modal',
+  EXPLORE_OTHER_PRODUCTS: 'explore-other-products',
+  FILL_AND_SIGN_DEFAULT_TAB: 'fill-and-sign-default-tab',
+  APP_MARKETPLACE: 'app-marketplace',
+  SHOW_AGREEMENT_GEN_INPUT_BOX: 'show-agreement-gen-input-box',
+  DOCUMENT_ACTION_PERMISSION: 'document-action-permission',
+  SHOW_AGREEMENT_GEN_SURVEY: 'show-agreement-gen-survey',
+  PROMPT_UPDATE_LOGO: 'prompt-update-logo',
+};
+
+enum InviteActionTypes {
+  MODAL_EXTRA_FREE_TRIAL_DAYS = 'MODAL_EXTRA_FREE_TRIAL_DAYS',
+  ADD_SHARED_USERS_MODAL = 'ADD_SHARED_USERS_MODAL',
+  JOIN_ORGANIZATION_FROM_OPEN_DRIVE = 'JOIN_ORGANIZATION_FROM_OPEN_DRIVE',
+  INVITE_COLLABORATORS_MODAL = 'INVITE_COLLABORATORS_MODAL',
+}
+
+const CTAEventValues = {
+  [InviteActionTypes.MODAL_EXTRA_FREE_TRIAL_DAYS]: FeatureFlags.MODAL_EXTRA_FREE_TRIAL_DAYS,
+  [InviteActionTypes.ADD_SHARED_USERS_MODAL]: FeatureFlags.INVITE_SHARED_USERS,
+  [InviteActionTypes.JOIN_ORGANIZATION_FROM_OPEN_DRIVE]: FeatureFlags.ONBOARDING_FLOW_FROM_OPEN_DRIVE,
+  [InviteActionTypes.INVITE_COLLABORATORS_MODAL]: FeatureFlags.INVITE_COLLABORATORS_MODAL,
+};
+
+export type FeatureFlag = typeof FeatureFlags[keyof typeof FeatureFlags];
+
+export { FeatureFlags, InviteActionTypes, CTAEventValues };

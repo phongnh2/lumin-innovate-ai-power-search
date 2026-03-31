@@ -1,0 +1,63 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: var(--kiwi-spacing-3);
+}
+
+.paginationText {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.pageLimit {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.pageLimitSelect {
+  width: 50px;
+  border-radius: var(--kiwi-border-radius-sm);
+
+  & > div[data-position='right'] {
+    width: fit-content;
+    padding: 0 var(--kiwi-spacing-0-5);
+  }
+}
+
+.pageLimitSelectDropdown {
+  width: 50px;
+  padding: var(--kiwi-spacing-1);
+}
+
+.pageLimitSelectInput {
+  width: 50px;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-body-sm;
+}
+
+.pageLimitSelectOption {
+  display: block;
+  white-space: nowrap;
+  text-align: center;
+  color: var(--kiwi-colors-surface-on-surface);
+  padding:  var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  @include kiwi-typography-label-md;
+
+  &[data-checked='true'] {
+    color: var(--kiwi-colors-core-on-primary-container);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.paginationInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

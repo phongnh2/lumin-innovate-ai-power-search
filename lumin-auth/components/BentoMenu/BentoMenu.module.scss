@@ -1,0 +1,58 @@
+.dropdown {
+  padding: var(--kiwi-spacing-2-5) 0;
+}
+
+.title {
+  margin: 0 var(--kiwi-spacing-3) var(--kiwi-spacing-1);
+}
+
+.iconButton {
+  color: var(--color-neutral-100);
+  margin-right: var(--kiwi-spacing-2);
+  padding: var(--kiwi-spacing-0-5);
+}
+
+.menuItem {
+  padding: var(--kiwi-spacing-1-25) var(--kiwi-spacing-2-5);
+  gap: var(--kiwi-spacing-0-25);
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover::after, &[data-hovered=true]::after {
+    border-radius: 0;
+  }
+}
+
+.menuItemRightSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-75);
+}
+
+.badgeContainer {
+  height: fit-content;
+  border: 1px solid var(--kiwi-colors-surface-on-surface-variant);
+  border-radius: var(--kiwi-border-radius-xs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--kiwi-spacing-0-25) var(--kiwi-spacing-0-5);
+}
+
+.badge {
+  @include kiwi-typography-label-2-xs;
+  color: var(--kiwi-colors-surface-on-surface);
+  height: fit-content;
+}

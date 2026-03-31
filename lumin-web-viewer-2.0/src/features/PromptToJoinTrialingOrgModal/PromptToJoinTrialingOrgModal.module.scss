@@ -1,0 +1,26 @@
+.wrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+}
+
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-lg;
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.header {
+  position: relative;
+  padding: 0 0 var(--kiwi-spacing-2) 0;
+}
+
+.closeButton {
+  outline: unset;
+  position: absolute;
+  top: -6px;
+  right: -12px;
+}

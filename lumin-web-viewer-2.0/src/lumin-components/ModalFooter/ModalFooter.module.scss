@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &[data-has-left-element='true'] {
+    gap: var(--kiwi-spacing-2);
+    justify-content: space-between;
+  }
+  &[data-extra-spacing='true'] {
+    margin-top: var(--kiwi-spacing-1);
+  }
+}
+
+.rightSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}

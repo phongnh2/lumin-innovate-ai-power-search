@@ -1,0 +1,28 @@
+.uploadLogoNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-0-5);
+  background-color: var(--kiwi-colors-semantic-information-container);
+  border-radius: var(--kiwi-border-radius-md);
+  position: relative;
+}
+
+.uploadLogoNote::before {
+  content: "";
+  position: absolute;
+  border-radius: 0 4px 4px 0;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  background: var(--kiwi-colors-semantic-information);
+}
+
+.uploadLogoNoteWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+}

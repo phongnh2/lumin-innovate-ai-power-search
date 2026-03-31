@@ -1,0 +1,64 @@
+{
+  "prompts": [
+    "Find a ___ agreement template for my business",
+    "Show me a ___ form for tax filing",
+    "I need a lease agreement for ___",
+    "Download a ___ authorization form",
+    "Get a ___ contract template for freelancers",
+    "Find a power of attorney form for ___",
+    "Show me ___ compliance documents",
+    "I need a ___ template for HR onboarding",
+    "Find legal forms related to ___",
+    "Show me a ___ disclosure agreement template"
+  ],
+  "inlineCompletions": [
+    " agreement template",
+    "-4 tax withholding form",
+    " for residential property",
+    " authorization form",
+    " agreement for independent contractors",
+    " template for small business"
+  ],
+  "suggestions": [
+    { "original": "form 4w", "corrected": "Form W-4", "confidence": 0.95 },
+    { "original": "w2", "corrected": "Form W-2", "confidence": 0.92 },
+    { "original": "1099", "corrected": "Form 1099-MISC", "confidence": 0.88 },
+    { "original": "nda", "corrected": "Non-Disclosure Agreement", "confidence": 0.90 },
+    { "original": "lease agrement", "corrected": "Lease Agreement", "confidence": 0.93 },
+    { "original": "poa", "corrected": "Power of Attorney", "confidence": 0.87 },
+    { "original": "bill of sael", "corrected": "Bill of Sale", "confidence": 0.91 },
+    { "original": "llc operating agrmt", "corrected": "LLC Operating Agreement", "confidence": 0.85 }
+  ],
+  "contextQuestions": [
+    {
+      "id": "jurisdiction",
+      "question": "Which jurisdiction applies?",
+      "options": [
+        { "label": "United States (Federal)", "value": "US federal jurisdiction" },
+        { "label": "California", "value": "California state law" },
+        { "label": "New York", "value": "New York state law" },
+        { "label": "Texas", "value": "Texas state law" },
+        { "label": "Other / Not sure", "value": "" }
+      ]
+    },
+    {
+      "id": "party_type",
+      "question": "Who is this for?",
+      "options": [
+        { "label": "Individual / Personal", "value": "for an individual" },
+        { "label": "Small Business", "value": "for a small business" },
+        { "label": "Corporation", "value": "for a corporation" },
+        { "label": "Non-profit", "value": "for a non-profit organization" }
+      ]
+    },
+    {
+      "id": "use_case",
+      "question": "What is the primary use?",
+      "options": [
+        { "label": "One-time use", "value": "one-time use" },
+        { "label": "Recurring / Ongoing", "value": "recurring use" },
+        { "label": "Compliance / Filing", "value": "compliance and filing" }
+      ]
+    }
+  ]
+}

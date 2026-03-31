@@ -1,0 +1,44 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/welcome-organization-enterprise.png" />
+          <mj-spacer height="12px" />
+          <mj-text font-size="24px" font-weight="500">Welcome to Lumin Enterprise</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Your enterprise subscription for&nbsp;<b class="highlight">{{orgName}}'s&nbsp;</b>{{orgWord}} is now active. With Lumin Enterprise you will have access to our extensive range of features including:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            <ul class="list">
+              <li style="margin-bottom: 4px">A dedicated success manager</li>
+              <li style="margin-bottom: 4px">Unlimited eSignatures</li>
+              <li style="margin-bottom: 4px">The redaction tool</li>
+              <li style="margin-bottom: 4px">Unlimited documents</li>
+            </ul>
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Plus much more!
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Head to your dashboard to get started:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard" width="100%">View My Dashboard</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Information about this plan plus your billing invoices can be found here at&nbsp;<a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">Dashboard - Billing</a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

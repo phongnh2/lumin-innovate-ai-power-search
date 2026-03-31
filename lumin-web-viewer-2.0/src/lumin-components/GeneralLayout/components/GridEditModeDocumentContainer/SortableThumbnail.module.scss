@@ -1,0 +1,30 @@
+.sortableThumbnail {
+  --insert-before-position: var(--kiwi-spacing-1-25);
+
+  &:not(.dragging) {
+    &.insertBefore,
+    &.insertAfter {
+      :global(.thumbnailCanvas) {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          height: 100%;
+          width: 2px;
+          background-color: var(--kiwi-colors-core-primary);
+        }
+      }
+    }
+  }
+
+  &.firstItemOfRow {
+    --insert-before-position: var(--kiwi-spacing-0-75);
+  }
+  &.insertBefore :global(.thumbnailCanvas):after {
+    left: calc(var(--insert-before-position) * -1);
+  }
+  &.insertAfter :global(.thumbnailCanvas):after {
+    right: calc(var(--kiwi-spacing-1-25) * -1);
+  }
+}

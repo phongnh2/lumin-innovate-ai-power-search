@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package lumin.integration;
+
+enum SigningType {
+  SAME_TIME = 0;
+  ORDER = 1;
+}
+
+message RoleMapping {
+  string key = 1;
+  string value = 2;
+}
+
+message TemplateSignerRole {
+  string name = 1;
+  int32 group = 2;
+}
+
+message FormField {
+  string name = 1;
+  string type = 2;
+  bool is_required = 3;
+  string assigned_role = 4;
+}
+
+message Variable {
+  string name = 1;
+}
+
+message TextTag {
+  string name = 1;
+  string type = 2;
+  bool is_required = 3;
+}
+
+message TemplateInfo {
+  string id = 1;
+  string name = 2;
+  int64 created_at = 3;
+  int64 updated_at = 4;
+}
+
+message Template {
+  string id = 1;
+  string name = 2;
+  optional SigningType signing_type = 3;
+  repeated TemplateSignerRole signer_roles = 4;
+  repeated Variable variables = 5;
+  repeated FormField fields = 6;
+  repeated TextTag tags = 7;
+  int64 created_at = 8;
+  int64 updated_at = 9;
+}

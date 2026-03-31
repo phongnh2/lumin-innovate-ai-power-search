@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package webchatbot;
+
+service WebChatbotService {
+  rpc StreamChat(ChatRequest) returns (stream ChatResponse) {};
+}
+
+message ChatMessage {
+  string content = 1;
+}
+
+message ChatContext {
+  string orgId = 1;
+  repeated string teamIds = 2;
+  string currentTeamId = 3;
+  string folderId = 4;
+  string documentTab = 5;
+}
+
+message ChatRequest {
+  string userId = 1;
+  ChatContext context = 2;
+  ChatMessage message = 3;
+  optional string threadId = 4;
+  ChatMetadata metadata = 5;
+}
+
+message ChatResponse {
+  bytes data = 1;
+}
+
+message ChatMetadata {
+  string luminLanguage = 1;
+  string browserLanguage = 2;
+  string orgId = 3;
+  string orgPaymentType = 4;
+  string userEmailDomain = 5;
+}

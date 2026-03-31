@@ -1,0 +1,1 @@
+export { useWorkspaceAnnouncement } from './useWorkspaceAnnouncement';

@@ -1,0 +1,74 @@
+.container {
+  margin-top: var(--kiwi-spacing-1-5);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.collapseHeader {
+  display: flex;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+  justify-content: space-between;
+  align-items: center;
+  border-radius: inherit;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: inherit;
+    border-radius: inherit;
+    opacity: var(--kiwi-opacity-state-layer-none);
+    background-color: transparent;
+    transition: var(--default-web-transition);
+  }
+
+  &:hover::after {
+    background-color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &[data-expanded="true"] {
+    padding-bottom: var(--kiwi-spacing-1);
+  }
+
+  .collapseLeftSection {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+
+  .collapseIcon {
+    i {
+      transition: var(--default-web-transition);
+    }
+
+    &[data-expanded="true"] {
+      i {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.collapseBody {
+  padding: 0 var(--kiwi-spacing-2) var(--kiwi-spacing-1-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.viewAllBtn {
+  min-width: var(--kiwi-spacing-10);
+}
+
+.collapseWrapper {
+  // fix display highlight state when expand/collapse section
+  display: block !important;
+}

@@ -1,0 +1,5 @@
+export const CHATBOT_PREFIX = 'chatbot';
+
+export const CHATBOT_FREE_REQUESTS_LIMIT = 100;
+
+export const EXPIRE_TIME_REDIS_ATTACHED_FILES_METADATA = 60 * 60 * 24;

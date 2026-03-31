@@ -1,0 +1,38 @@
+type InitSlackOAuthResponse {
+  contextJwt: String
+  flowId: String
+}
+
+type SlackTeam {
+  id: String
+  domain: String
+  name: String
+  avatar: String
+}
+
+type SlackChannel {
+  id: String
+  name: String
+  isPrivate: Boolean
+  totalMembers: Int
+}
+
+type SlackRecipient {
+  id: String
+  name: String
+  avatarUrl: String
+  email: String
+  displayName: String
+}
+
+type Query {
+  initSlackOAuth: InitSlackOAuthResponse
+  getSlackTeams: [SlackTeam]
+  getSlackChannels(teamId: String!): [SlackChannel]
+  getSlackRecipients(teamId: String!): [SlackRecipient]
+  countSlackChannelMembers(teamId: String!, channelId: String!): Int
+}
+
+type Mutation {
+  revokeSlackConnection(teamId: String): BasicResponse
+}

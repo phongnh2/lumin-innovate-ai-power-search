@@ -1,0 +1,17 @@
+{
+  "LUMIN_BASEURL": "https://app-dev.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://app-dev.luminpdf.com/api/web/graphql",
+  "LUMIN_SIGN_BACKEND_URL": "https://sign-dev.luminpdf.com/api/web",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://app-dev.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://app-dev.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://app-dev.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-dev.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-dev.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://dev-socket.luminpdf.com",
+  "LUMIN_ENV": "develop",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "903627406732",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "903627406732-afvaa1qa8tajhibsmoiledrr2n1gd0rs.apps.googleusercontent.com",
+  "LUMIN_STRIPE_NZ_ACCOUNT_ID": "acct_1E2cGhJM6pJQSuvz",
+  "LUMIN_STRIPE_US_ACCOUNT_ID": "acct_1OlovnEi1kknSIST",
+  "LUMIN_CANNY_FEEDBACK_REDIRECT_URL": "https://lumin-dev.canny.io/lumin-dev-feedback"
+}

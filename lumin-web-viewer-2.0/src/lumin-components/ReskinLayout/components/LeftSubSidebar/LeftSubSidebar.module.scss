@@ -1,0 +1,90 @@
+@import 'reskin/screens.scss';
+
+@mixin title-padding {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1) var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+}
+
+.scrollArea {
+  display: none;
+  @include xl-screen {
+    height: 100%;
+    display: block;
+    .scrollViewport > div {
+      height: 100%;
+    }
+  }
+}
+
+.container {
+  display: none;
+  padding: var(--kiwi-spacing-1-5) 0px;
+
+  @include xl-screen {
+    display: block;
+    margin-right: var(--kiwi-spacing-2);
+  }
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  width: var(--sub-sidebar-width);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-3);
+}
+
+.spaceTitleContainer {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  @include title-padding;
+
+  &::after {
+    z-index: 1;
+    transition: var(--default-web-transition);
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: var(--kiwi-opacity-state-layer-none);
+    background-color: var(--kiwi-colors-surface-on-surface);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--kiwi-border-radius-md);
+  }
+
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+}
+
+.exploreTitle {
+  @include title-padding;
+}
+
+.itemsWrapper {
+  width: 100%;
+}
+
+.itemsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.viewAllText {
+  color: var(--kiwi-colors-core-secondary);
+}
+
+.rightButton {
+  z-index: 2;
+}

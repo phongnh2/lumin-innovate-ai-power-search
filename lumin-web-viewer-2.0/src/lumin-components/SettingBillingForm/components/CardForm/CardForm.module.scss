@@ -1,0 +1,23 @@
+@import 'reskin/screens.scss';
+
+.container {
+  max-width: 100%;
+  width: 100%;
+
+  @include md-screen {
+    max-width: 594px;
+  }
+}
+
+.actionButtonsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+
+  @include md-screen {
+    width: fit-content;
+    margin-left: auto;
+    display: flex;
+  }
+}

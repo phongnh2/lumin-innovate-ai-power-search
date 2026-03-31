@@ -1,0 +1,20 @@
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+  margin-top: var(--kiwi-spacing-1);
+}
+
+.input {
+  margin: var(--kiwi-spacing-2) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.actions {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+  justify-content: flex-end;
+  margin-top: var(--kiwi-spacing-2);
+}

@@ -1,0 +1,61 @@
+scalar Date
+scalar Object
+scalar Long
+
+type BasicResponse {
+  message: String!
+  statusCode: Int!
+}
+
+type BasicResponseData {
+  message: String!
+  statusCode: Int!
+  data: Object
+}
+
+type Payment {
+  customerRemoteId: String @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  subscriptionRemoteId: String @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  planRemoteId: String @RequireRole(roles: ["organization_admin", "billing_moderator"])
+  type: String
+  period: String
+  status: String
+  stripeSubscriptionStatus: String
+  quantity: Int
+  currency: String
+  remainingPlan: RemainingPlan
+  productId: String
+  priceVersion: PriceVersion
+  trialInfo: TrialInfo
+  stripeAccountId: String
+  subscriptionItems: [SubscriptionItem]
+}
+
+type Setting {
+  marketingEmail: Boolean
+  subscriptionEmail: Boolean
+  otherEmail: Boolean
+  featureUpdateEmail: Boolean
+  dataCollection: Boolean
+  documentEmail: DocumentEmail
+  organizationEmail: OrganizationEmail
+  defaultWorkspace: String
+}
+
+type DocumentEmail {
+  shareDocument: Boolean
+  commentDocument: Boolean
+  replyCommentDocument: Boolean
+  mentionCommentDocument: Boolean
+  requestAccessDocument: Boolean
+}
+
+type OrganizationEmail {
+  inviteToOrganization: Boolean
+  inviteToOrganizationTeam: Boolean
+}
+
+enum SortStrategy {
+  ASC
+  DESC
+}

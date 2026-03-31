@@ -1,0 +1,1097 @@
+scalar Object
+
+enum senderDocumentType {
+  TEAM
+  INDIVIDUAL
+}
+
+enum DocumentRole {
+  EDITOR
+  VIEWER
+  SHARER
+  SPECTATOR
+}
+
+enum ShareLinkPermission {
+  VIEWER
+  EDITOR
+  SPECTATOR
+}
+
+enum ShareLinkType {
+  ANYONE
+  INVITED
+}
+
+enum OwnedFilterCondition {
+  BY_ANYONE
+  BY_ME
+  NOT_BY_ME
+}
+
+enum LastModifiedFilterCondition {
+  MODIFIED_BY_ME
+  MODIFIED_BY_ANYONE
+}
+
+enum TypeOfDocument {
+  TEAM
+  ORGANIZATION
+  PERSONAL
+  ORGANIZATION_TEAM
+}
+
+enum DestinationType {
+  PERSONAL
+  ORGANIZATION
+  ORGANIZATION_TEAM
+}
+
+enum LocationType {
+  PERSONAL
+  ORGANIZATION
+  ORGANIZATION_TEAM
+  FOLDER
+}
+
+enum DocumentTab {
+  MY_DOCUMENT
+  SHARED_WITH_ME
+  ORGANIZATION
+  STARRED
+  RECENT
+  TRENDING
+  ACCESSIBLE
+}
+
+enum RestoreOriginalPermission {
+  NOT_ALLOWED
+  VIEW
+  RESTORE
+}
+
+enum DocumentFromSourceEnum {
+  USER_UPLOAD
+  LUMIN_TEMPLATES_LIBRARY
+}
+
+enum AvailableCompressQuality {
+  STANDARD
+  MAXIMUM
+}
+
+type DocumentStatus {
+  isSyncing: Boolean
+}
+
+type LocationInfo {
+  _id: String,
+  name: String,
+  url: String
+  ownedOrgId: String,
+  avatarRemoteId: String,
+}
+
+type BelongsTo {
+  type: LocationType,
+  location: LocationInfo,
+  workspaceId: String,
+}
+
+type DocumentSummarizationPolicies {
+  enabled: Boolean,
+  maxPages: Int,
+}
+
+type ExternalSyncPolicies {
+  oneDrive: Boolean,
+}
+
+type ActionCountDocStack {
+  print: Boolean,
+  download: Boolean,
+  share: Boolean,
+  sync: Boolean,
+}
+
+type DocumentVersioningPolicies {
+  quantity: Int,
+  maximumSaveTime: Int,
+  maximumSaveTimeUnit: String,
+}
+
+type CompressPdfPolicies {
+  enabled: Boolean,
+  fileSizeLimitInMB: Int,
+  availableCompressQuality: [AvailableCompressQuality!]
+}
+
+type AiChatbotPolicies {
+  daily: Int,
+  attachedFilesSizeLimitInMB: Int,
+}
+
+type PremiumToolsInfo {
+  passwordProtection: Boolean,
+  watermark: Boolean,
+  formBuilder: Boolean,
+  autoSync: Boolean,
+  editPDFContent: Boolean,
+  splitPage: Boolean,
+  mergePage: Boolean,
+  rotatePage: Boolean,
+  deletePage: Boolean,
+  movePage: Boolean,
+  insertPage: Boolean,
+  cropPage: Boolean,
+  highlight: Boolean,
+  freeHand: Boolean,
+  freeText: Boolean,
+  redaction: Boolean,
+  shape: Boolean,
+  stamp: Boolean,
+  rubberStamp: Boolean,
+  textTool: Boolean,
+  comment: Boolean,
+  eraser: Boolean,
+  maximumNumberSignature: Int,
+  priceVersion: PriceVersion,
+  restoreOriginal: Boolean,
+  ocr: Boolean,
+  maximumMergeSize: Int,
+  dotStamp: Boolean,
+  crossStamp: Boolean,
+  tickStamp: Boolean,
+  documentSummarization: DocumentSummarizationPolicies,
+  externalSync: ExternalSyncPolicies,
+  documentVersioning: DocumentVersioningPolicies,
+  compressPdf: CompressPdfPolicies,
+  aiChatbot: AiChatbotPolicies
+  actionCountDocStack: ActionCountDocStack,
+  signedResponse: String
+}
+
+type DocumentMetadata {
+  hasAppliedOCR: Boolean
+  hasMerged: Boolean
+  hasOutlines: Boolean
+  hasClearedAnnotAndManip: Boolean
+}
+
+type FormField {
+  name: String
+  value: String
+  xfdf: String
+  isDeleted: Boolean
+  isInternal: Boolean
+  widgetId: String
+  pageNumber: Int
+  createdAt: Date
+  updatedAt: Date
+}
+
+type GetDocumentOutlinesPayload {
+  _id: String
+  name: String
+  parentId: String
+  pathId: String
+  parentPath: String
+  level: Int
+  lexicalRanking: String
+  pageNumber: Int
+  verticalOffset: Float
+  horizontalOffset: Float
+  hasChildren: Boolean
+}
+
+type DocumentCapabilities {
+  canEditDocumentActionPermission: Boolean
+  canExport: Boolean
+  canCopy: Boolean
+  canPrint: Boolean
+  canSaveAsTemplate: Boolean
+  canMerge: Boolean
+  canSendForSignatures: Boolean
+  canRequestSignatures: Boolean
+  canSaveACertifiedVersion: Boolean
+  principleList: [String]
+}
+
+enum DocumentKindEnum {
+  TEMPLATE
+}
+
+type Document {
+  _id: String
+  name: String
+  remoteId: String
+  remoteEmail: String
+  size: Float
+  service: String
+  isPersonal: Boolean
+  mimeType: String
+  annotations: String
+  ownerId: String
+  ownerAvatarRemoteId: String
+  lastAccess: String
+  lastModify: String
+  createdAt: String
+  downloadUrl: String
+  manipulationStep: String
+  thumbnail: String
+  bookmarks: String
+  listUserStar: [ID]
+  ownerOfTeamDocument: Boolean
+  enableGoogleSync: Boolean
+  signedUrl: String
+  isShared: Boolean
+  folderId: String
+  getAnnotationUrl: String
+  etag: String
+  lastChangedAnnotation: Date
+  # ResolveField
+  clientId: String
+  roleOfDocument: String
+  documentType: TypeOfDocument
+  shareSetting: ShareSetting
+  folderData: FolderPublicInfo
+  isOverTimeLimit: Boolean
+  ownerName: String
+  ownerEmail: String
+  belongsTo: BelongsTo
+  version: Int
+  premiumToolsInfo: PremiumToolsInfo
+  backupInfo: BackupInfo
+  imageSignedUrls: Object
+  temporaryRemoteId: String
+  lastModifiedBy: String
+  metadata: DocumentMetadata
+  externalStorageAttributes: Object
+  sharedPermissionInfo: SharedPermissionInfo
+  fromSource: DocumentFromSourceEnum
+  thumbnailRemoteId: String
+  openedAt: String
+  status: DocumentStatus
+  actionCountDocStack: ActionCountDocStack
+  capabilities: DocumentCapabilities
+  kind: DocumentKindEnum
+}
+
+type DocumentForm {
+  _id: String
+  name: String
+  size: Int
+  thumbnail: String
+  categories: [String]
+}
+
+type Annotations {
+  annotationId: String
+  xfdf: String
+  lastModified: Date
+}
+
+type ShareSetting {
+  link: String
+  permission: ShareLinkPermission
+  linkType: ShareLinkType
+}
+
+input ShareSettingInput {
+  link: String
+  permission: ShareLinkPermission
+  linkType: ShareLinkType
+}
+
+enum ThirdPartyService {
+  google
+  dropbox
+  onedrive
+}
+
+input DocumentInput {
+  name: String! @MaxLength(max: 255, strategy: "documentName")
+  ownerId: String @MongoId
+  remoteId: String!
+  remoteEmail: String @IsEmail @Length(min: 1, max: 255)
+  size: Float
+  # Deprecated
+  isPersonal: Boolean
+  service: ThirdPartyService!
+  mimeType: String! @DocumentMimeType
+  lastAccess: Date
+  thumbnail: String
+  lastModifiedBy: ID @MongoId
+  externalStorageAttributes: Object
+}
+
+input DeleteDocumentInput {
+  documentId: ID @MongoId
+  clientId: ID! @MongoId
+  isNotify: Boolean
+}
+
+input CreateDocumentsInput {
+  documents: [DocumentInput]!
+  clientId: ID! @MongoId
+  folderId: ID @MongoId
+}
+
+input GetMembersByDocumentIdInput {
+  minQuantity: Int!
+  documentId: ID! @MongoId
+  cursor: ID
+}
+
+input ChangeDocumentPermissionInput {
+  documentId: ID! @MongoId
+  clientId: ID! @MongoId
+}
+
+input ChangeDocumentPermissionInputPersonal {
+  documentId: ID! @MongoId
+  clientId: ID! @MongoId
+  notificationId: ID @MongoId(isOptional: true)
+}
+
+input DocumentRequestAccessInput {
+  documentId: ID! @MongoId
+  cursor: ID
+  limit: Int @Range(min: 0, max: 30)
+}
+
+type DeleteDocumentPayload {
+  message: String!
+  statusCode: Int!
+  type: String
+}
+
+input RenameDocumentInput {
+  documentId: ID! @MongoId
+  newDocumentName: String! @MaxLength(max: 255, strategy: "documentName")
+}
+
+input UpdateDocumentListInput {
+  clientId: ID! @MongoId
+  folderId: ID @MongoId
+}
+
+input UpdateDocumentInfoInput {
+  clientId: ID! @MongoId
+  folderId: ID @MongoId
+}
+
+input UpdateDocumentBookmarkInput {
+  clientId: ID! @MongoId
+  documentId: ID! @MongoId
+}
+
+input BookmarkInput {
+  page: Int!
+  message: String! @MaxLength(max: 1000, isOptional: true)
+}
+
+input UpdateBookmarksInput {
+  documentId: ID! @MongoId
+  bookmarks: [BookmarkInput]!
+}
+
+input UpdateThumbnailInput {
+  documentId: ID! @MongoId
+  thumbnail: String!
+  clientId: ID! @MongoId
+}
+
+input ManipulationDocumentInput {
+  documentId: ID! @MongoId
+  refId: ID! @MongoId
+  type: String
+  option: Object
+  createdAt: Date
+  id: ID
+}
+
+input CreateDocumentPermissionInput {
+  shareUserList: [ShareUser]!
+  removeShareUserList: [ID]!
+  documentId: ID! @MongoId
+  clientId: ID @MongoId
+  sharerName: String! @MaxLength(max: 30)
+  sharerAvatar: String!
+  documentName: String! @MaxLength(max: 255, strategy: "documentName")
+}
+
+input UpdateDocumentPermissionInput {
+  documentId: ID! @MongoId
+  role: DocumentRole!
+  email: String! @IsEmail @Length(min: 1, max: 255)
+}
+
+input RemoveDocumentPermissionInput {
+  documentId: ID! @MongoId
+  email: String! @IsEmail @Length(min: 1, max: 255)
+}
+
+input ShareUser {
+  documentId: ID! @MongoId
+  role: DocumentRole!
+  shareClientId: ID! @MongoId
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  isNew: Boolean
+}
+
+input DocumentFilterInput {
+  ownedFilterCondition: OwnedFilterCondition
+  lastModifiedFilterCondition: LastModifiedFilterCondition
+}
+
+input DocumentQueryInput {
+  cursor: ID
+  searchKey: String
+  minimumQuantity: Int! @Range(min: 1, max: 100)
+}
+
+input GetPersonalWorkspaceDocumentsInput {
+  query: DocumentQueryInput!
+  filter: DocumentFilterInput!
+  tab: DocumentTab!
+}
+
+input GetOrganizationDocumentsInput {
+  orgId: ID! @MongoId
+  query: DocumentQueryInput!
+  filter: DocumentFilterInput!
+  tab: DocumentTab!
+}
+
+input GetOrganizationTeamDocumentsInput {
+  teamId: ID! @MongoId
+  query: DocumentQueryInput!
+  filter: DocumentFilterInput!
+  tab: DocumentTab
+}
+
+input GetDocumentFormInput {
+  category: String
+  pageNumber: Int
+}
+
+input MentionListInput {
+  documentId: ID! @MongoId
+  searchKey: String @MaxLength(max: 255, isOptional: true)
+  # Deprecated: remove this field in the future
+  excludeUserIds: [ID]
+}
+
+input PresignedUrlForImageInput {
+  documentId: ID! @MongoId
+  mimeType: String
+}
+
+
+input PresignedUrlForMultiImagesInput {
+  documentId: ID! @MongoId
+  listMimeTypes: [String!]! @DocumentMimeType @Array(min: 1, max: 50)
+}
+
+type GetDocumentPayload {
+  documents: [Document]
+  cursor: ID!
+  hasNextPage: Boolean
+  total: Int
+}
+
+type UserPermission {
+  _id: ID
+  email: String
+  name: String
+  avatarRemoteId: String
+  role: String!
+  type: String
+  teamName: String
+}
+
+type RequestAccessDocsListPayload {
+  requesters: [UserPermission]!
+  cursor: ID!
+  hasNextPage: Boolean
+  total: Int!
+}
+
+input ShareDocumentInput {
+  emails: [String]! @IsEmail
+  message: String @MaxLength(max: 3000, isOptional: true)
+  documentId: ID! @MongoId
+  role: DocumentRole!
+}
+
+input UpdateShareSettingInput {
+  linkType: ShareLinkType!
+  permission: ShareLinkPermission!
+  documentId: ID! @MongoId
+}
+
+input StarDocumentInput {
+  _id: ID! @MongoId
+  clientId: ID! @MongoId
+  documentId: ID! @MongoId
+}
+
+input CreatePDFFormInput {
+  _id: ID!
+  formStaticPath: String!
+  source: String
+  variationIdentifier: String
+}
+
+input CreatePdfFromStaticToolUploadInput {
+  encodedUploadData: String! @MaxLength(max: 1000)
+  orgId: String @MongoId
+}
+
+input RequestAccessDocumentInput {
+  documentId: ID! @MongoId
+  documentRole: DocumentRole!
+  message: String @MaxLength(max: 1000, isOptional: true)
+}
+
+input UpdateRequestAccessInput {
+  documentId: ID! @MongoId
+  requesterIds: [ID!]! @MongoId
+}
+
+input DeleteMultipleDocumentInput {
+  documentIds: [ID]! @MongoId
+  clientId: ID! @MongoId
+  isNotify: Boolean
+}
+
+input CopiedDocumentInput {
+  destinationId: ID! @MongoId
+  destinationType: TypeOfDocument!
+  documentName: String! @MaxLength(max: 255, strategy: "documentName")
+  notifyUpload: Boolean
+}
+
+input DuplicateDocumentInput {
+  documentId: ID! @MongoId
+  newDocumentData: CopiedDocumentInput!
+}
+
+input DuplicateDocumentToFolderInput {
+  documentId: ID! @MongoId
+  folderId: ID! @MongoId
+  documentName: String! @MaxLength(max: 255, strategy: "documentName")
+  notifyUpload: Boolean
+}
+
+input MoveDocumentsInput {
+  documentIds: [ID]! @MongoId
+  destinationId: ID! @MongoId
+  destinationType: DestinationType!
+  isNotify: Boolean
+  documentName: String @MaxLength(max: 255, strategy: "documentName")
+}
+
+input MoveDocumentsToFolderInput {
+  documentIds: [ID]! @MongoId
+  folderId: ID! @MongoId
+  isNotify: Boolean
+  documentName: String @MaxLength(max: 255, strategy: "documentName")
+}
+
+input TemplateInput {
+  name: String! @Length(min: 1, max: 255)
+  description: String @Length(min: 1, max: 10000)
+}
+
+input CreateTemplateBaseOnDocumentInput {
+  documentId: ID! @MongoId
+  destinationId: ID! @MongoId
+  destinationType: DestinationType!
+  templateData: TemplateInput!
+  isNotify: Boolean
+  isRemoveThumbnail: Boolean
+}
+
+input GetDocumentOutlinesInput {
+  documentId: ID! @MongoId
+}
+
+input ImportOutlineInput {
+  name: String! @Length(min: 0, max: 255)
+  parentId: String @UUID
+  pathId: String! @UUID
+  level: Int @Range(min: 0, max: 100)
+  pageNumber: Int @Range(min: 1, max: 100000)
+  verticalOffset: Float
+  horizontalOffset: Float
+  hasChildren: Boolean
+}
+
+input ImportDocumentOutlinesInput {
+  documentId: ID! @MongoId
+  outlineChunk: [ImportOutlineInput]!
+  totalOutlines: Int! @Range(min: 0, max: 1000000)
+  isInsertMultiple: Boolean
+}
+
+type CreatePDFFormPayload {
+  documentId: ID!
+  documentName: String!
+}
+
+type CreatePdfFromStaticToolUploadPayload {
+  documentId: ID!
+  documentName: String!
+  documentSize: Int!
+  documentMimeType: String!
+  temporaryRemoteId: String!
+}
+
+type GetFormListPayload {
+  documents: [DocumentForm]!
+  totalPage: Int
+}
+
+type StarDocumentPayload {
+  statusCode: Int!
+  message: String!
+  document: Document!
+}
+
+type CreateDocumentsPayload {
+  message: String!
+  statusCode: Int!
+  documents: [Document]!
+}
+
+type GetDocumentByRemoteIdPayload {
+  haveDocument: Boolean
+  document: Document
+  message: String
+}
+
+type SubDocumentSettings {
+  keepInSearch: Boolean
+}
+
+type UpdateDocumentListPayload {
+  teamId: ID
+  organizationId: ID
+  clientId: ID!
+  document: Document!
+  type: String!
+  statusCode: Int!
+  additionalSettings: SubDocumentSettings
+}
+
+type UpdateDocumentInfoPayload {
+  clientId: ID!
+  document: Document!
+  type: String!
+  statusCode: Int!
+  ownerId: ID!
+}
+
+type BookmarkPayloadItem {
+  message: String!
+  email: String!
+}
+
+type BookmarkPayload {
+  bookmark: [BookmarkPayloadItem]
+  page: Int!
+  message: String!
+}
+
+
+type UpdateDocumentBookmarkPayload {
+  message: String
+  bookmarks: [BookmarkPayload]!
+}
+
+type PDFInfoPayload {
+  organizationName: String
+  teamName: String
+  fileName: String!
+  fileType: String!
+  fileSize: Float!
+  creator: String!
+  creationDate: String!
+  modificationDate: String
+  storage: String!
+}
+
+type Message {
+  id: ID
+  text: String!
+}
+
+type DeletedOriginalDocumentInfo {
+  documentId: ID!
+  documentFolder: ID
+}
+
+type DeleteOriginalDocumentPayload {
+  statusCode: Int!
+  teamId: ID
+  organizationId: ID
+  clientId: ID!
+  documentList: [DeletedOriginalDocumentInfo]!
+  type: String!
+  additionalSettings: SubDocumentSettings
+}
+
+type GetShareInviteByEmailListPayload {
+  sharees: [UserPermission]
+}
+
+type MemberOrgMention {
+  _id: String
+  email: String
+  name: String
+  avatarRemoteId: String
+}
+
+type GetMentionListPayload {
+  mentionList: [MemberOrgMention]
+}
+
+type MemberWithCursorPaginationPayload {
+  members: [MemberPermission]!
+  organizationName: String!
+  teamName: String
+  hasNextPage: Boolean!
+  cursor: ID
+  total: Int
+  currentRole: OrganizationRole
+  documentRole: DocumentRole
+}
+
+type ManipulationDocumentPayload {
+  documentId: String
+  refId: String
+  type: String
+  option: Object
+  createdAt: Date
+}
+
+input BulkUpdateDocumentPermissionInput {
+  documentId: ID! @MongoId
+  role: DocumentRole!
+}
+
+input DeleteSharedDocumentsInput {
+  documentIds: [ID]! @MongoId
+}
+
+type GetDocStackInfoPayload {
+  canFinishDocument: Boolean
+  totalUsed: Int
+  totalStack: Int
+}
+
+type CheckThirdPartyStoragePayload {
+  organization: Organization
+  folder: Folder
+  remoteId: String!
+  documentId: String
+}
+
+type PresignedUrlForImagePayload {
+  remoteId: String!
+  getSignedUrl: String!
+  putSignedUrl: String!
+}
+
+type PresignedUrlForSignaturePayload {
+  remoteId: String!
+  getSignedUrl: String!
+  putSignedUrl: String!
+  encodeSignatureData: String!
+}
+
+type BackupInfo {
+  createdAt: String
+  restoreOriginalPermission: RestoreOriginalPermission
+}
+
+input CreateDocumentBackupInfoInput {
+  encodedUploadData: String! @MaxLength(max: 1000)
+  documentId: String! @MongoId
+}
+
+input DeleteDocumentImagesInput {
+  remoteIds: [String]!
+  documentId: String! @MongoId
+}
+
+type GetPresignedUrlForTemporaryDocumentPayload {
+  document: ISignedUrl
+  encodedUploadData: String
+}
+
+type GetSignedUrlPayload {
+  signedUrl: String
+}
+
+type SharedPermissionInfo {
+  type: String
+  total: Int
+  organizationName: String
+  teamName: String
+}
+
+type GetPresignedUrlForOcrPayload {
+  key: String!
+  listSignedUrls: [String!]!
+}
+
+input CheckDownloadMultipleDocumentsInput {
+  orgId: ID @MongoId
+  documentIds: [ID!] @MongoId
+  folderIds: [ID!] @MongoId
+}
+
+type CheckDownloadMultipleDocumentsPayload {
+  isDocStackInsufficient: Boolean
+  isDocumentLimitExceeded: Boolean
+  isTotalSizeExceeded: Boolean
+  totalDocuments: Int
+}
+
+input UpdateStackedDocumentsInput {
+  documentIds: [ID!]! @MongoId
+}
+
+enum SlackConversationType {
+  CHANNEL
+  DIRECT_MESSAGE
+}
+
+input SlackConversation {
+  id: String!
+  type: SlackConversationType!
+  isPrivate: Boolean
+}
+
+input ShareDocumentInSlackInput {
+  documentId: ID! @MongoId
+  slackTeamId: String!
+  conversation: SlackConversation!
+  role: DocumentRole!
+  sharingMode: ShareLinkType!
+  message: String @MaxLength(max: 3000, isOptional: true)
+  isOverwritePermission: Boolean
+}
+
+input PreCheckShareDocumentInSlackInput {
+  documentId: ID! @MongoId
+  slackTeamId: String!
+  conversation: SlackConversation!
+}
+
+type PreCheckShareDocumentInSlackResponse {
+  isPermissionUpdateNeeded: Boolean!
+}
+
+type ShareDocumentInSlackResponse {
+  message: String!
+  statusCode: Int!
+  hasUnshareableEmails: Boolean!
+  isQueuedSharing: Boolean!
+}
+
+type DocumentSharingQueuePayload {
+  isChannelSharing: Boolean!
+  documentName: String!
+  hasUnshareableEmails: Boolean!
+  isOverwritePermission: Boolean
+  documentId: String!
+}
+
+type GetSignedUrlForExternalPdfByEncodeDataPayload {
+  signedUrl: String
+  documentName: String
+  remoteId: String
+  fileSize: Float
+}
+
+input CheckShareThirdPartyDocumentInput {
+  documentId: ID! @MongoId
+}
+
+type CheckShareThirdPartyDocumentPayload {
+  isAllowed: Boolean!
+}
+
+enum DocumentTemplateSourceTypeEnum {
+  PDF
+  LUMIN
+}
+
+type DocumentTemplate {
+  _id: String
+  name: String
+  remoteId: String
+  remoteEmail: String
+  size: Float
+  service: String
+  isPersonal: Boolean
+  mimeType: String
+  annotations: String
+  ownerId: String
+  ownerAvatarRemoteId: String
+  lastAccess: String
+  lastModify: String
+  createdAt: String
+  downloadUrl: String
+  manipulationStep: String
+  thumbnail: String
+  bookmarks: String
+  listUserStar: [ID]
+  ownerOfTeamDocument: Boolean
+  enableGoogleSync: Boolean
+  signedUrl: String
+  isShared: Boolean
+  folderId: String
+  getAnnotationUrl: String
+  etag: String
+  lastChangedAnnotation: Date
+  # ResolveField
+  clientId: String
+  roleOfDocument: String
+  documentType: TypeOfDocument
+  shareSetting: ShareSetting
+  folderData: FolderPublicInfo
+  isOverTimeLimit: Boolean
+  ownerName: String
+  ownerEmail: String
+  belongsTo: BelongsTo
+  version: Int
+  premiumToolsInfo: PremiumToolsInfo
+  backupInfo: BackupInfo
+  imageSignedUrls: Object
+  temporaryRemoteId: String
+  lastModifiedBy: String
+  metadata: DocumentMetadata
+  externalStorageAttributes: Object
+  sharedPermissionInfo: SharedPermissionInfo
+  fromSource: DocumentFromSourceEnum
+  thumbnailRemoteId: String
+  openedAt: String
+  status: DocumentStatus
+  actionCountDocStack: ActionCountDocStack
+  kind: DocumentKindEnum
+  templateSourceType: DocumentTemplateSourceTypeEnum
+}
+
+input GetOrganizationDocumentTemplatesInput {
+  orgId: ID! @MongoId
+  query: DocumentQueryInput!
+  tab: DocumentTab!
+}
+
+type GetDocumentTemplatesPayload {
+  documents: [DocumentTemplate]
+  cursor: ID!
+  hasNextPage: Boolean
+}
+
+input GetOrganizationTeamDocumentTemplatesInput {
+  teamId: ID! @MongoId
+  query: DocumentQueryInput!
+  tab: DocumentTab
+}
+
+type Query {
+  getDocumentById(documentId: ID! @MongoId(key: "documentId")): Document
+  getDocuments(input: GetPersonalWorkspaceDocumentsInput!): GetDocumentPayload
+  document(documentId: ID! @MongoId(key: "documentId"), usePwa: Boolean): Document
+  getDocumentByRemoteId(
+    documentRemoteId: ID!
+    clientId: ID @MongoId(key: "clientId")
+  ): GetDocumentByRemoteIdPayload
+  getFormList(input: GetDocumentFormInput): GetFormListPayload
+  getRequestAccessDocsList(
+    input: DocumentRequestAccessInput!
+  ): RequestAccessDocsListPayload
+  getPDFInfo(documentId: ID! @MongoId(key: "documentId")): PDFInfoPayload
+  getShareInviteByEmailList(documentId: ID! @MongoId(key: "documentId"), searchKey: String): GetShareInviteByEmailListPayload
+  getMentionList(input: MentionListInput!): GetMentionListPayload
+  getMembersByDocumentId(input: GetMembersByDocumentIdInput!): MemberWithCursorPaginationPayload
+  getManipulationDocument(input: ManipulationDocumentInput): [ManipulationDocumentPayload]
+  getSharedDocuments(input: DocumentQueryInput!): GetDocumentPayload
+  downloadDocument(documentId: ID! @MongoId(key: "documentId")): Document
+  getRequestAccessDocById(documentId: ID! @MongoId(key: "documentId") requesterId: ID! @MongoId(key: "requesterId")): UserPermission
+  getDocStackInfo(documentId: ID! @MongoId(key: "documentId")): GetDocStackInfoPayload
+  checkThirdPartyStorage(remoteIds: [ID!]! @Array(key: "remoteIds", min: 1, max: 20, unique: true)): [CheckThirdPartyStoragePayload]
+  getAnnotations(documentId: ID! @MongoId(key: "documentId")): [Annotations]
+  getPremiumToolInfoAvailableForUser: PremiumToolsInfo
+  getDocumentOriginalFileUrl(documentId: ID! @MongoId(key: "documentId")): String
+  getPresignedUrlForDocumentOriginalVersion(input: GetPresignedUrlForUploadDocInput!): GetPresignedUrlForUploadDocPayload
+  getPresignedUrlForDocumentImage(input: PresignedUrlForImageInput!): PresignedUrlForImagePayload
+  getCreatedSignaturePresignedUrl(fileType: String!): PresignedUrlForSignaturePayload
+  getPresignedUrlForTemporaryDrive(documentId: ID! @MongoId(key: "documentId")): GetPresignedUrlForTemporaryDocumentPayload
+  getSignedUrlForOCR(documentId: ID! @MongoId(key: "documentId"), totalParts: Int! @Range(key: "totalParts", min: 1, max: 10)): GetPresignedUrlForOcrPayload
+  getTemporaryDocumentPresignedUrl(documentId: ID! @MongoId(key: "documentId"), key: String!, convertType: String): GetPresignedUrlForTemporaryDocumentPayload
+  getPresignedUrlForMultipleDocumentImages(input: PresignedUrlForMultiImagesInput!): [PresignedUrlForImagePayload]
+  refreshDocumentImageSignedUrls(documentId: ID! @MongoId(key: "documentId")): Object
+  getSignedUrlForAnnotations(documentId: ID! @MongoId(key: "documentId")): String
+  getFormField(documentId: ID! @MongoId(key: "documentId")): [FormField]
+  getDocumentOutlines(input: GetDocumentOutlinesInput!): [GetDocumentOutlinesPayload]
+  checkDownloadMultipleDocuments(input: CheckDownloadMultipleDocumentsInput!): CheckDownloadMultipleDocumentsPayload
+  preCheckShareDocumentInSlack(input: PreCheckShareDocumentInSlackInput!): PreCheckShareDocumentInSlackResponse
+  getSignedUrlForExternalPdfByEncodeData(encodeData: String!): GetSignedUrlForExternalPdfByEncodeDataPayload
+  checkShareThirdPartyDocument(input: CheckShareThirdPartyDocumentInput!): CheckShareThirdPartyDocumentPayload
+}
+
+type Mutation {
+  createDocuments(input: CreateDocumentsInput!): CreateDocumentsPayload
+  deleteDocument(input: DeleteDocumentInput!): DeleteDocumentPayload
+  renameDocument(input: RenameDocumentInput!): BasicResponseData
+  updateThumbnail(input: UpdateThumbnailInput!): BasicResponse
+  createDocumentPermission(input: CreateDocumentPermissionInput!): BasicResponse
+  updateDocumentPermission(input: UpdateDocumentPermissionInput!): BasicResponse
+  removeDocumentPermission(input: RemoveDocumentPermissionInput!): BasicResponse
+  shareDocument(input: ShareDocumentInput!): BasicResponse
+  updateBookmarks(input: UpdateBookmarksInput!): BasicResponse
+  updateShareSetting(input: UpdateShareSettingInput!): ShareSetting
+  starDocument(input: StarDocumentInput!): StarDocumentPayload
+  updateMimeType(documentId: ID! @MongoId(key: "documentId")): BasicResponseData
+  createPDFForm(input: CreatePDFFormInput!): CreatePDFFormPayload
+  createPdfFromStaticToolUpload(input: CreatePdfFromStaticToolUploadInput!): CreatePdfFromStaticToolUploadPayload
+  requestAccessDocument(input: RequestAccessDocumentInput!): BasicResponse
+  acceptRequestAccessDocument(input: UpdateRequestAccessInput!): BasicResponse
+  rejectRequestAccessDocument(input: UpdateRequestAccessInput!): BasicResponse
+  openDocument(documentId: ID! @MongoId(key: "documentId")): BasicResponse
+  deleteMultipleDocument(input: DeleteMultipleDocumentInput): BasicResponse
+  deleteSharedDocuments(input: DeleteSharedDocumentsInput): BasicResponse
+  duplicateDocument(input: DuplicateDocumentInput!, file: Upload): Document
+  moveDocuments(input: MoveDocumentsInput!, file: Upload): BasicResponse
+  moveDocumentsToFolder(input: MoveDocumentsToFolderInput!, file: Upload): BasicResponse
+  createTemplateBaseOnDocument(input: CreateTemplateBaseOnDocumentInput!, files: [Upload]): Template
+  bulkUpdateDocumentInvitedList(input: BulkUpdateDocumentPermissionInput!): BasicResponse
+  bulkUpdateDocumentMemberList(input: BulkUpdateDocumentPermissionInput!): BasicResponse
+  createUserStartedDocument(isMobile: Boolean): Document
+  trackingUserUseDocument(documentId: ID! @MongoId(key: "documentId")): BasicResponse
+  countDocStackUsage(documentId: ID! @MongoId(key: "documentId")): BasicResponse
+  restoreOriginalVersion(documentId: ID! @MongoId(key: "documentId")): BasicResponse
+  createDocumentBackupInfoForDocument(input: CreateDocumentBackupInfoInput!): BasicResponse
+  deleteDocumentImages(input: DeleteDocumentImagesInput!): BasicResponse
+  createTemporaryContentForDrive(input: CreateDocumentBackupInfoInput!): BasicResponse
+  deleteTemporaryContentForDrive(documentId: ID! @MongoId(key: "documentId")): BasicResponse
+  importDocumentOutlines(input: ImportDocumentOutlinesInput!): BasicResponse
+  updateStackedDocuments(input: UpdateStackedDocumentsInput!): BasicResponse
+  shareDocumentInSlack(input: ShareDocumentInSlackInput!): ShareDocumentInSlackResponse
+  updateDocumentMimeTypeToPdf(documentId: ID! @MongoId(key: "documentId"), remoteId: String!): BasicResponseData
+}
+
+type Subscription {
+  updateDocumentList(input: UpdateDocumentListInput!): UpdateDocumentListPayload
+  updateDocumentInfo(input: UpdateDocumentInfoInput!): UpdateDocumentInfoPayload
+  updateBookmark(input: UpdateDocumentBookmarkInput!): UpdateDocumentBookmarkPayload
+  deleteOriginalDocument(clientId: ID! @MongoId(key: "clientId")): DeleteOriginalDocumentPayload
+  documentSharingQueue(clientId: ID! @MongoId(key: "clientId")): DocumentSharingQueuePayload
+}

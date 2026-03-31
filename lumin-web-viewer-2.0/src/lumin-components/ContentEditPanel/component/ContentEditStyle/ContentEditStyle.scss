@@ -1,0 +1,162 @@
+@import "../../../../constants/lumin-styles";
+
+.ContentEditStyle {
+  &__inputFontSize {
+    width: 80px;
+
+    .LuminInput__wrapper {
+      border-radius: var(--border-radius-dense);
+      height: 28px;
+
+      @include themify {
+        border-color: themed("borderInput");
+        color: themed("paletteInputColor");
+      }
+
+      .LuminInput__input {
+        font-size: 14px;
+        @include themify {
+          color: themed("paletteInputColor");
+        }
+      }
+
+      &:focus-within {
+        border-color: var(--color-primary-50);
+      }
+    }
+
+    .icon {
+      position: absolute;
+      right: 8px;
+      top: 9px;
+    }
+  }
+
+  &__MaterialSelect-input {
+    justify-content: center;
+
+    @include themify {
+      background-color: themed("bgColor");
+    }
+
+    span {
+      @include themify {
+        color: themed("paletteInputColor");
+      }
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+
+      @include themify {
+        color: themed("paletteInputColor");
+      }
+    }
+  }
+
+  &__MenuList {
+    li {
+      @include themify {
+        color: themed("fontStyleText");
+      }
+
+      i {
+        @include themify {
+          color: themed("fontStyleCheckedIcon");
+        }
+      }
+
+      .FormBuildStyle__MaterialSelect-input--checked {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__MaterialSelect {
+    width: 184px;
+    height: 28px;
+    margin-top: 0;
+    margin-right: 12px;
+    border-radius: var(--border-radius-dense);
+    padding-left: 2px;
+    padding-right: 7px;
+
+    @include themify {
+      border: 1px solid themed("borderInput");
+      background-color: themed("bgColor");
+    }
+
+    &.MaterialSelect--focus {
+      @include themify {
+        border-color: var(--color-primary-50);
+        box-shadow: themed("inputBoxShadow");
+      }
+    }
+
+    .font-arimo {
+      font-family: $font-stack-arimo;
+    }
+
+    .font-caladea {
+      font-family: $font-stack-caladea;
+    }
+
+    .font-carlito {
+      font-family: $font-stack-carlito;
+    }
+
+    .font-carlito {
+      font-family: $font-stack-carlito;
+    }
+
+    .font-liberation-serif {
+      font-family: $font-stack-liberation-serif;
+    }
+
+    .font-open-sans {
+      font-family: $font-stack-open-sans;
+    }
+
+    .font-roboto {
+      font-family: $font-stack-roboto;
+    }
+
+    .font-roboto-mono {
+      font-family: $font-stack-roboto-mono;
+    }
+
+    .font-tinos {
+      font-family: $font-stack-tinos;
+    }
+
+    .MaterialSelect__popper {
+      .Popper__styleContent {
+        li {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          font-weight: 375;
+          font-size: 14px;
+          line-height: 20px;
+
+          @include themify {
+            color: themed("fontStyleText");
+          }
+
+          i {
+            @include themify {
+              color: themed("fontStyleCheckedIcon");
+            }
+          }
+
+          .form__text--overflow {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+}

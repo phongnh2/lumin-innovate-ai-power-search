@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+@import 'reskin/screens.scss';
+
+.suggestedDocSkeletonContainer {
+  padding: var(--kiwi-spacing-1);
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: $document-grid-cols;
+  column-gap: var(--kiwi-spacing-0-5);
+
+  @include xl-screen {
+    grid-template-columns: $document-grid-cols-xl;
+    column-gap: var(--kiwi-spacing-2);
+  }
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+
+  .status {
+    display: grid;
+    grid-template-columns: 36px;
+    column-gap: var(--kiwi-spacing-0-5);
+
+    @include xl-screen {
+      grid-template-columns: 48px;
+    }
+  }
+}
+
+.column {
+  &.location {
+    margin-left: var(--kiwi-spacing-1-5);
+  }
+
+  &.lastUpdated {
+    margin-left: var(--kiwi-spacing-1);
+  }
+}
+
+.moreActions {
+  display: none;
+}
+
+.chatbotOpened {
+  &.suggestedDocSkeletonContainer {
+    grid-template-columns: minmax(220px, 1fr) 32px;
+  }
+
+  .location,
+  .lastUpdated {
+    display: none;
+  }
+
+  .moreActions {
+    display: block;
+  }
+
+  @include lgr-screen {
+    &.suggestedDocSkeletonContainer {
+      grid-template-columns: $document-grid-cols;
+    }
+
+    .location,
+    .lastUpdated {
+      display: block;
+    }
+
+    .moreActions {
+      display: none;
+    }
+  }
+
+  @include xl-screen {
+    &.suggestedDocSkeletonContainer {
+      grid-template-columns: $document-grid-cols-xl;
+    }
+  }
+}

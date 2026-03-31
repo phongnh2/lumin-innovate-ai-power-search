@@ -1,0 +1,51 @@
+.wrapper {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: inline-block;
+}
+
+.rootButton {
+  &[data-with-outline='true'] {
+    outline: calc(var(--kiwi-spacing-0-25) + var(--kiwi-spacing-0-125)) solid
+      var(--kiwi-colors-custom-role-web-thumbnail-blue-1);
+  }
+}
+
+.border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(0.9);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-custom-role-web-thumbnail-blue-1);
+  animation: wave 2s ease-out 1s 10 forwards;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3, 1.9);
+    opacity: 0;
+  }
+}

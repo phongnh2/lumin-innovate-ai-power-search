@@ -1,0 +1,111 @@
+set shell := ["zsh", "-cu"]
+
+# Default recipe - shows available commands
+default:
+    @just --list
+
+# 📦 Install dependencies - Fresh start with clean node_modules
+[group('setup')]
+install:
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[1;35m📦 Installing Dependencies\033[0m"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[0;33m🗑️  Cleaning node_modules...\033[0m"
+    rm -rf node_modules
+    @echo "\033[0;32m✓ Cleaned successfully\033[0m"
+    @echo ""
+    @echo "\033[0;33m📥 Installing packages with pnpm...\033[0m"
+    pnpm install
+    @echo ""
+    @echo "\033[1;32m✨ Installation complete!\033[0m"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+
+# 🚀 Run the application with environment and mode options
+[group('development')]
+run env="dev" mode="dev":
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[1;35m🚀 Starting Lumin WebOpt MF\033[0m"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[0;36m📋 Configuration:\033[0m"
+    @echo "   \033[0;33m• Environment:\033[0m {{ env }}"
+    @echo "   \033[0;33m• Mode:\033[0m {{ mode }}"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    # @just _setup-env {{ env }}
+    @just _run-mode {{ mode }}
+
+# Internal: Setup environment file
+_setup-env env:
+    #!/usr/bin/env zsh
+    set -euo pipefail
+    echo "\033[0;33m🔧 Setting up environment...\033[0m"
+
+    if [[ "{{ env }}" == "dev" ]]; then
+        if [[ -f .env.copy.dev ]]; then
+            cp .env.copy.dev .env
+            echo "\033[0;32m✓ Copied .env.copy.dev to .env\033[0m"
+        else
+            echo "\033[0;31m✗ Warning: .env.copy.dev not found\033[0m"
+        fi
+    elif [[ "{{ env }}" == "prod" ]]; then
+        if [[ -f .env.copy.prod ]]; then
+            cp .env.copy.prod .env
+            echo "\033[0;32m✓ Copied .env.copy.prod to .env\033[0m"
+        else
+            echo "\033[0;31m✗ Warning: .env.copy.prod not found\033[0m"
+        fi
+    else
+        echo "\033[0;31m✗ Invalid environment: {{ env }}\033[0m"
+        exit 1
+    fi
+    echo ""
+
+# Internal: Run application based on mode
+_run-mode mode:
+    #!/usr/bin/env zsh
+    set -euo pipefail
+
+    if [[ "{{ mode }}" == "dev" ]]; then
+        echo "\033[0;33m🔨 Running in development mode...\033[0m"
+        echo "\033[0;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        LUMIN_ENVIRONMENT_NAME="${LUMIN_ENVIRONMENT_NAME:-local}" NODE_ENV=development pnpm run dev
+
+    elif [[ "{{ mode }}" == "prod" ]]; then
+        echo "\033[0;33m🏗️  Building for production...\033[0m"
+        echo ""
+
+        echo "\033[0;33m🧹 Cleaning artifacts...\033[0m"
+        pnpm run clean
+        echo "\033[0;32m✓ Cleaned build artifacts\033[0m"
+        echo ""
+
+        echo "\033[0;33m📦 Building project...\033[0m"
+        NODE_ENV=production pnpm run build
+        echo "\033[0;32m✓ Build complete\033[0m"
+        echo ""
+
+        echo "\033[0;33m🚀 Starting production server...\033[0m"
+        echo "\033[0;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        # Note: Add your production start command here if different
+        # For now, using dev server - adjust as needed
+        NODE_ENV=production pnpm start
+
+    else
+        echo "\033[0;31m✗ Invalid mode: {{ mode }}\033[0m"
+        echo "\033[0;33mValid modes: dev, prod\033[0m"
+        exit 1
+    fi
+
+# ⭐️ Git helpers
+
+# 🔄 Update all submodules - init, sync, and pull latest from remote
+[group('git')]
+submodule:
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[1;35m🔄 Updating All Submodules\033[0m"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    @echo "\033[0;33m📡 Initializing and syncing submodules...\033[0m"
+    git submodule sync --recursive
+    git submodule update --init --recursive
+    @echo "\033[0;32m✓ Submodules initialized and synced\033[0m"
+    @echo "\033[1;32m✨ Done!\033[0m"
+    @echo "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"

@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .divider {
+    margin: var(--kiwi-spacing-1-5) 0 var(--kiwi-spacing-1);
+  }
+  
+  .container {
+    display: flex;
+    padding: var(--kiwi-spacing-0) var(--kiwi-spacing-1);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--kiwi-spacing-1);
+
+    .checkboxWrapper {
+      display: flex;
+      align-items: center;
+      gap: var(--kiwi-spacing-1-5);
+    }
+    
+    .actionGroup {
+      display: flex;
+      align-items: center;
+      gap: var(--kiwi-spacing-2);
+    }
+  }
+}

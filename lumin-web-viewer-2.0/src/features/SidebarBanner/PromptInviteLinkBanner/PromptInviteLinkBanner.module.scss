@@ -1,0 +1,27 @@
+.closeButton {
+  position: absolute;
+  top: var(--kiwi-spacing-0-75);
+  right: var(--kiwi-spacing-0-75);
+}
+
+.wrapper {
+  background: linear-gradient(303deg, #89d4ff 3.59%, #02669c 96.49%);
+  padding: var(--kiwi-spacing-2-5) var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-surface-container-lowest);
+  text-align: center;
+}
+
+.button {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}

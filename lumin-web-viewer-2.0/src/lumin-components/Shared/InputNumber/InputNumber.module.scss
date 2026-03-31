@@ -1,0 +1,38 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  display: inline-flex;
+  background: none;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.buttonMinus {
+  border-radius: var(--kiwi-border-radius-md) 0 0 var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-right: unset;
+}
+
+.buttonPlus {
+  border-radius: 0 var(--kiwi-border-radius-md) var(--kiwi-border-radius-md) 0;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-left: unset;
+}
+
+.root {
+  width: calc(100% - 80px);
+  @include md-screen {
+    width: auto;
+  }
+}
+
+.wrapper {
+  border-radius: 0;
+  @include md-screen {
+    width: 78px;
+  }
+}
+
+.input {
+  text-align: center;
+}

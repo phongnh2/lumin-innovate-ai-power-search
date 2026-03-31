@@ -1,0 +1,122 @@
+$text-color: var(--kiwi-colors-surface-on-surface);
+
+.modalWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: $text-color;
+}
+
+.text {
+  @include kiwi-typography-body-md;
+  color: $text-color;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  
+  margin: var(--kiwi-spacing-3) 0;
+}
+
+.noteWrapper {
+  padding: var(--kiwi-spacing-2);
+  margin: var(--kiwi-spacing-2) 0;
+  
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.noteList {
+  list-style: revert;
+  li {
+    margin-left: var(--kiwi-spacing-2);
+  }
+}
+
+.link {
+  @include kiwi-typography-body-md;
+  text-decoration: underline;
+  color: $text-color;
+}
+
+.checkboxWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: calc(var(--kiwi-spacing-1) * -1);
+
+  .text {
+    padding-left: var(--kiwi-spacing-1);
+    cursor: pointer;
+  }
+}
+
+.checkbox {
+  margin-top: calc(var(--kiwi-spacing-0-5) * -1);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-2);
+}
+
+.guide {
+  background-color: var(--kiwi-colors-semantic-information-container);
+  padding: var(--kiwi-spacing-1);
+  margin: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.guideHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.guideHeaderTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-semantic-on-information-container);
+}
+
+.guideHeaderIcon {
+  margin-top: calc(var(--kiwi-spacing-0-5) * -1);
+}
+
+.guideList {
+  list-style: disc;
+  margin-top: var(--kiwi-spacing-0-5);
+
+  li {
+    @include kiwi-typography-body-sm;
+    color: var(--kiwi-colors-semantic-on-information-container);
+    margin-left: var(--kiwi-spacing-2);
+  }
+}
+
+.unProcessableModalPaper {
+  width: var(--kiwi-sizing-dialogs-sm);
+  max-width: var(--kiwi-sizing-dialogs-sm);
+  padding: var(--kiwi-spacing-3);
+}
+
+.preconditionModalPaper {
+  width: var(--kiwi-sizing-dialogs-sm);
+}
+
+.preconditionModalBody {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin: $kiwi-spacing-2 0 $kiwi-spacing-3 0;
+}

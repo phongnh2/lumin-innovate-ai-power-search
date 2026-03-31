@@ -1,0 +1,48 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{requesterName}} requested a Lumin Sign Pro seat</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Hi <b class="highlight">{{approverName}}</b>,
+          </mj-text>
+          <mj-text>
+            <b class="highlight">{{requesterName}}</b> requested a Lumin Sign Pro seat in <b class="highlight">{{orgName}}'s</b>
+          </mj-text>
+          <mj-text>
+            <b class="highlight">Workspace</b>. Once assigned a seat, they’ll have access to premium Lumin Sign
+          </mj-text>
+          <mj-text>
+            features including:
+          </mj-text>
+          <mj-text>
+            <mj-raw>
+              <ul class="list">
+                <li>Reusable signing templates</li>
+                <li>Certificate of completion</li>
+                <li>Plus much more</li>
+              </ul>
+            </mj-raw>
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-app-comment-list />
+          <mj-spacer height="24px" />
+          <mj-button width="154px" line-height="24px" align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/people?email={{encodedRequesterEmail}}">Review request</mj-button>
+          <mj-spacer height="24px" />
+          <mj-text>
+            For more information about this plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

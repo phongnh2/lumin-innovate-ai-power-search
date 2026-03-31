@@ -1,0 +1,14 @@
+{
+  "luminpdf.com": {
+    "orgId": "62ddffc6728608d5f272041e",
+    "autoJoinOrg": "true",
+    "onlyJoinOrg": "true",
+    "requireOrgMembership": "true",
+    "onlyDriveFile": "true",
+    "notAllowCreateOrg": "true",
+    "onlyInviteInternal": "true",
+    "hideDefaultOrg": "true",
+    "onlyPersonalFile": "true",
+    "onlySearchForInternal": "true"
+  }
+}

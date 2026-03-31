@@ -1,0 +1,1 @@
+export { useRatingModal } from './useRatingModal';

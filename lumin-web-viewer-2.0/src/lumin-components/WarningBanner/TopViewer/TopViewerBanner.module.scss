@@ -1,0 +1,43 @@
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  background-color: var(--kiwi-colors-custom-brand-tools-pdfreader-container);
+  position: relative;
+  min-height: 48px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  @include kiwi-typography-title-sm;
+}
+
+.redirectButton {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  &:visited {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 50%;
+  right: var(--kiwi-spacing-1);
+  transform: translateY(-50%);
+}

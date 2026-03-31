@@ -1,0 +1,28 @@
+urls:
+  self:
+    issuer: ${LUMIN_HYDRA_PUBLIC_URL}
+  consent: ${LUMIN_AUTH_URL}/oauth2/consent
+  login: ${LUMIN_AUTH_URL}/oauth2/sign-in
+  logout: ${LUMIN_AUTH_URL}/oauth2/logout
+  post_logout_redirect: ${LUMIN_AUTH_URL}/logout?oauth2_revoke=true
+
+secrets:
+  system:
+    - youReallyNeedToChangeThis
+
+serve:
+  public:
+    cors:
+      enabled: true
+      allowed_origins:
+        - http://localhost
+      allowed_methods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+      exposed_headers:
+        - Content-Type

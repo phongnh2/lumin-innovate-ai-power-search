@@ -1,0 +1,63 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+
+  @include md-screen {
+    row-gap: var(--kiwi-spacing-2-5);
+  }
+}
+
+.description {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-body-md;
+
+  @include md-screen {
+    @include kiwi-typography-body-lg;
+  }
+}
+
+.ourPlansPageLink {
+  @include kiwi-typography-label-md;
+  color: var(--kiwi-colors-semantic-information);
+
+  @include md-screen {
+    @include kiwi-typography-label-lg;
+  }
+}
+
+.inactiveLink {
+  pointer-events: none;
+}
+
+.reactivateBtn {
+  @include md-screen {
+    width: fit-content;
+  }
+}
+
+.buttonGroup {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--kiwi-spacing-2);
+  align-items: center;
+
+  @include md-screen {
+    display: flex;
+  }
+  margin-left: unset;
+  margin-top: unset;
+}
+
+.boldText {
+  @include kiwi-typography-body-lg-semibold;
+}
+
+.subscriptionDetail {
+  display: flex;
+  gap: var(--kiwi-spacing-3);
+  align-items: center;
+  justify-content: space-between;
+}

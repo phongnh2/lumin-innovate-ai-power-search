@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package common;
+
+message Setting {
+  bool google_sign_in = 1;
+  string password_strength = 2;
+  string domain_visibility = 3;
+  bool auto_upgrade = 4;
+}
+
+message Payment {
+  string customer_remote_id = 1;
+  string subscription_remote_id = 2;
+  string plan_remote_id = 3;
+  string type = 4;
+  string period = 5;
+  string status = 6;
+  int64 quantity = 7;
+  string currency = 8;
+  optional bool is_sign_pro_seat = 9;
+  optional bool is_enterprise = 10;
+  string stripe_account_id = 11;
+  optional bool has_subscription = 12;
+}
+
+message Organization {
+  string organization_id = 1;
+  string name = 2;
+  Payment payment = 3;
+  int64 created_at = 4;
+  string avatar_remote_id = 5;
+  string billing_email = 6;
+  string url = 7;
+  string domain = 8;
+  repeated string associate_domains = 9;
+  Setting settings = 10;
+  repeated string unallowed_auto_join = 11;
+  string creation_type = 12;
+  int64 deleted_at = 13;
+  bool is_migrated_from_team = 14;
+  int64 doc_stack_start_date = 15;
+  string purpose = 16;
+  optional string user_role = 17;
+  optional int64 premium_seats = 18;
+}
+
+message ContractStackInfo {
+  bool isOverDocStack = 1;
+  int64 totalUsed = 2;
+  int64 totalStack = 3;
+  int64 templateLimit = 4;
+}

@@ -1,0 +1,48 @@
+type DocumentSummary {
+    ownedDocumentTotal: Int
+    sharedDocumentTotal: Int
+    commentTotal: Int
+}
+
+type OrgDocumentSummary {
+    ownedDocumentTotal: Int
+    signatureTotal: Int
+    annotationTotal: Int
+}
+
+type TotalDailyNewResource {
+    date: String
+    total: Int
+}
+
+type DocumentStat {
+    derivativeDocumentRate: Float
+    derivativeCommentRate: Float
+    derivativeSignatureRate: Float
+    derivativeAnnotationRate: Float
+    dailyNewDocuments: [TotalDailyNewResource]
+    dailyNewComments: [TotalDailyNewResource]
+    dailyNewSignatures: [TotalDailyNewResource]
+    dailyNewAnnotations: [TotalDailyNewResource]
+}
+
+type GetDocumentSummaryPayload {
+    documentSummary: DocumentSummary
+    documentStat: DocumentStat
+}
+
+type NonDocumentStat {
+  derivativeMemberRate: Float
+}
+
+type GetOrganizationInsightPayload {
+    documentSummary: OrgDocumentSummary
+    documentStat: DocumentStat
+    nonDocumentStat: NonDocumentStat
+    lastUpdated: String
+}
+
+type Query {
+    getPersonalDocumentSummary: GetDocumentSummaryPayload
+    getTeamDocumentSummary(teamId: ID! @MongoId(key: "teamId")): GetDocumentSummaryPayload 
+}

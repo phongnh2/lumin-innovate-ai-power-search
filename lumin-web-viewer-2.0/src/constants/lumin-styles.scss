@@ -1,0 +1,780 @@
+/* stylelint-disable scss/at-mixin-pattern */
+/* stylelint-disable scss/no-global-function-names */
+/* stylelint-disable scss/dollar-variable-pattern */
+// Colors
+$primary: #273d57;
+$secondary: #8093a7;
+$dark: #13263c;
+$accent: #ed3e47;
+$accent-hover: #d82530;
+$royalblue: #3683ff;
+$cloudyblue: #c0d0df;
+$aliceblue: #f2f6fa;
+$smoke: #f1f5f8;
+$red: #ed3d48;
+$lightslategray: #8699bf;
+$cover-background: rgb(27 42 60 / 70%); // Used for modal cover's background
+$white: #fff;
+$background: rgb(242 246 250);
+$line-color: #e6e6e6;
+$button-hover: #e7ebf0;
+$dark-sky-blue: #3c80ef;
+$dark-sky-blue-20: rgb(60 128 239 / 20%);
+$dark-sky-blue-15: rgb(60 128 239 / 15%);
+$dark-sky-blue-hover: #1665d8;
+$tabActiveColor: #dde8f0;
+$input-border: #c1d1e0;
+$divider: #d1d6dc;
+$grey-3: #e7ebf0;
+$grey-4: #d8dfe8;
+$grey-5: #c1d1e0;
+$dark-sky-blue-20: #3c80ef33;
+$input-border-dark: #4e6c92;
+$input-border-dark-selected: #e6f0fc;
+
+// Borders
+$popper-border: solid 2px $cloudyblue;
+
+// Shadows
+
+$popper-shadow: 0 6px 18px -7px #5e88b3;
+$popper-shadow-darkmode: 0 5px 5px -3px rgb(0 24 41 / 20%), 0 3px 14px 2px rgb(0 24 41 / 12%), 0 8px 10px 1px rgb(0 24 41 / 14%);
+$element-shadow: 0 2px 4px 0 rgb(195 210 225 / 65%);
+$secondary-shadow: 0 3px 5px -1px rgb(128 147 167 / 20%), 0 1px 18px 0 rgb(128 147 167 / 12%), 0 6px 10px 0 rgb(128 147 167 / 14%);
+$container-shadow: 0 5px 5px -3px rgb(128 147 167 / 20%), 0 3px 14px 2px rgb(128 147 167 / 12%), 0 8px 10px 1px rgb(128 147 167 / 14%);
+$container-shadow-darkmode: 0 5px 5px -3px rgb(0 24 41 / 20%), 0 3px 14px 2px rgb(0 24 41 / 12%), 0 8px 10px 1px rgb(0 24 41 / 14%);
+$modal-shadow: 0 11px 15px -7px rgb(0 24 41 / 20%), 0 9px 46px 8px rgb(0 24 41 / 12%), 0 24px 38px 3px rgb(0 24 41 / 14%);
+$modal-shadow-darkmode: 0 5px 5px -3px rgb(0 24 41 / 20%), 0 3px 14px 2px rgb(0 24 41 / 12%), 0 8px 10px 1px rgb(0 24 41 / 14%);
+$org-member-tab-shadow: 0 1px 4px 0 rgb(192 208 223 / 20%), 0 2px 1px -1px rgb(192 208 223 / 12%), 0 1px 1px 0 rgb(192 208 223 / 14%);
+$org-member-tab-actived-shadow: inset 0 1px 5px 0 rgb(128 147 167 / 20%), inset 0 3px 1px 0 rgb(128 147 167 / 12%), inset 0 2px 2px 0 rgb(128 147 167 / 14%);
+$card-shadow: 0 1px 5px 0 rgb(192 208 223 / 20%), 0 2px 1px -1px rgb(192 208 223 / 12%), 0 1px 1px 0 rgb(192 208 223 / 14%);
+$sidebar-shadow: 0 1px 4px 0 rgb(128 147 167 / 20%), 0 2px 1px -1px rgb(128 147 167 / 12%), 0 1px 1px 0 rgb(128 147 167 / 14%);
+$document-shadow: 0 1px 3px 0 rgb(192 208 223 / 20%),
+  0 2px 1px -1px rgb(192 208 223 / 12%),
+  0 1px 1px 0 rgb(192 208 223 / 14%);
+
+// Dimentions
+$header-height: 56px;
+$toolbar-height: 48px;
+$tablet-bar: 44px;
+$notification-width: 370px;
+$banner-viewer-height: 48px;
+
+// Form Build Dimensions
+$form-build-margin-top: 16px;
+$form-build-margin-right: 16px;
+
+// Fonts
+$font-stack-primary: "Axiforma", "Arial", sans-serif;
+$font-stack-montserrat: "Montserrat", "Arial", sans-serif;
+$font-stack-montserrat-bold: "Montserrat-Bold", "Arial", sans-serif;
+$font-stack-helvetica: "Helvetica", "Arial", sans-serif;
+$font-stack-roboto: "Roboto", "Arial", sans-serif;
+$font-stack-lora: "Lora", "Arial", sans-serif;
+$font-stack-merriweather: "Merriweather", "Arial", sans-serif;
+$font-stack-dancing-script: "DancingScript", "Arial", sans-serif;
+$font-stack-aladin: "Aladin", "Arial", sans-serif;
+$font-stack-allura: "Allura", "Arial", sans-serif;
+$font-stack-cookie: "Cookie", "Arial", sans-serif;
+$font-stack-courgette: "Courgette", "Arial", sans-serif;
+$font-stack-gill-sans: "GillSans", "Arial", sans-serif;
+$font-stack-italianno: "Italianno", "Arial", sans-serif;
+$font-stack-arimo: "Arimo";
+$font-stack-caladea: "Caladea";
+$font-stack-carlito: "Carlito";
+$font-stack-cousin: "Cousin";
+$font-stack-liberation-serif: "LiberationSerif";
+$font-stack-open-sans: "OpenSans";
+$font-stack-roboto-mono: "RobotoMono";
+$font-stack-tinos: "Tinos";
+
+// Screens
+$desktop-width: 1440px;
+$tablet-width: 1024px;
+$mobile-width: 600px;
+$small-desktop-width: 1200px;
+$low-mobile-width: 500px;
+
+// New UI breakpoints
+$breakpoint-md: 768px;
+
+@mixin media-md-up {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+// Responsive
+@mixin desktop-up {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin smaller-than-desktop {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-small-desktop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$small-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (max-width: #{$small-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-desktop-up {
+  @media (min-width: #{$small-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-up-desktop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin ie11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin low-mobile {
+  @media (max-width: #{$low-mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile-up-small-desktop {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$small-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-desktop-up-desktop {
+  @media (min-width: #{$small-desktop-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium-tablet {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+$themes: (
+  light: (
+    arrowPopperActive: $primary,
+    avatarBg: var(--color-neutral-20),
+    avatarBorder: $white,
+    bgColor: var(--color-neutral-0),
+    bgDocumentContainer: var(--color-other-4),
+    bgPanel: var(--color-neutral-10),
+    bgPanelTop: var(--color-neutral-0),
+    bgPanelBorder: var(--color-neutral-20),
+    bgResultSelected: var(--color-other-2),
+    borderColorNoteInputFocus: var(--color-primary-30),
+    bgSearchSelectedValue: var(--color-neutral-100),
+    bgSearchValue: var(--color-white),
+    bgSecondary: $smoke,
+    borderColorHeader: $cloudyblue,
+    borderColorRenameDocument: var(--color-neutral-30),
+    borderColorRenameDocumentFocus: var(--color-primary-30),
+    boxShadowHeader: var(--shadow-xs),
+    boxShadowPanel:  inset 0 0 12px rgb(16 45 66 / 16%),
+    boxShadowNote: var(--shadow-m),
+    buttonActiveColor: var(--color-primary-10),
+    formFieldCheckboxWrapperBg: var(--color-primary-10),
+    formFieldCheckboxText: var(--color-neutral-100),
+    bgCommentListColor: var(--color-neutral-10),
+    dividerColor: var(--color-neutral-20),
+    dropShadowHeader: "none",
+    leftPanelBorderManipulation: 1px solid var(--color-neutral-20),
+    leftPanelTabActive: var(--color-primary-80),
+    leftPanelTabHeaderText: var(--color-neutral-100),
+    miniDividerColor: var(--color-neutral-20),
+    modalShadow: var(--shadow-xl),
+    outlineButtonBgColor: $white,
+    outlineButtonBorderColor: var(--color-neutral-20),
+    popperButtonActive: $smoke,
+    popperItemHover: var(--color-neutral-10),
+    sharedItemHover: var(--color-neutral-10),
+    sharedItemSelected: var(--color-primary-30),
+    popperShadow: var(--shadow-s),
+    popperBackground: var(--color-neutral-0),
+    popperBorder: var(--color-neutral-20),
+    popperFilter: "none",
+    primaryBorderColor: var(--color-neutral-20),
+    secondaryBorderColor: $cloudyblue,
+    secondaryButtonBgColor: $smoke,
+    sliderLineEmpty: var(--color-neutral-20),
+    squareButtonColor: var(--color-neutral-60),
+    squareButtonPressed: var(--color-neutral-20),
+    searchButtonActive: var(--color-neutral-60),
+    tabActiveColor: #dde8f0,
+    paletteInputBorder: var(--color-neutral-20),
+    paletteInputColor: var(--color-neutral-60),
+    textColor: var(--color-neutral-100),
+    textColorLighter: var(--color-neutral-80),
+    textColorSecondary: var(--color-neutral-60),
+    textColorPlaceHolder: $cloudyblue,
+    textManipulation: var(--color-neutral-80),
+    textSearchValue: var(--color-neutral-60),
+    secondaryColor: var(--color-neutral-60),
+    textMenuItem: var(--color-neutral-80),
+    trialBaseText: var(--color-neutral-80),
+    trialBaseTitle: var(--color-neutral-100),
+    banner: var(--color-neutral-10),
+    bannerText: var(--color-primary-90),
+    bannerBtnColor: var(--color-white),
+    bannerBtnBgHover: var(--color-secondary-60),
+    bannerBtnBgFocus: var(--color-secondary-70),
+    bannerButtonClose: var(--color-neutral-60),
+    shareRoleText: var(--color-neutral-100),
+    buttonSwitchActiveBgColor: var(--color-primary-80),
+    buttonSwitchActiveTextColor: var(--color-white),
+    buttonSwitchTextColor: var(--color-primary-80),
+    buttonSwitchBgColor: var(--color-neutral-0),
+    buttonSwitchBgColorHover: var(--color-neutral-10),
+    textFrameSelected: var(--color-primary-30),
+    textFrameHover: var(--color-neutral-30),
+    borderInput: var(--color-neutral-20),
+    borderInputSelected: var(--color-primary-50),
+    fontStyleHover: var(--color-neutral-10),
+    fontStyleSelected: var(--color-primary-30),
+    toolOverlayButtonActiveBg: var(--color-primary-30),
+    toolOverlayButtonActiveHover: var(--color-neutral-10),
+    colorCellActiveBorder: var(--color-neutral-100),
+    colorCellActive: var(--color-neutral-0),
+    colorCellHover: var(--color-neutral-10),
+    colorPickerCellActive: var(--color-primary-90),
+    darkerActive: var(--color-primary-30),
+    textFrameSelectedBg: var(--color-primary-30),
+    textFrameHoverBg: var(--color-neutral-10),
+    toolbarHover: var(--color-neutral-10),
+    toolbarItemActive: var(--color-neutral-60),
+    fontStyleText: var(--color-neutral-80),
+    fontStyleTextHover: var(--color-neutral-80),
+    fontStyleCheckedIcon: var(--color-secondary-50),
+    fontStyleTextHoverBg: var(--color-neutral-10),
+    commentTextLighter: var(--color-neutral-100),
+    commentHrBg: $grey-3,
+    commentTextAreaPlaceholder: var(--color-neutral-40),
+    commentPopup: var(--color-neutral-80),
+    commentPopupActive: var(--color-primary-90),
+    commentDeleteMaskBg: var(--color-neutral-100),
+    commentResolvedBg: var(--color-neutral-10),
+    commentResolvedIconBg: var(--color-primary-30),
+    commentMenuOpenButtonBg: var(--color-neutral-20),
+    commentRightButtonText: var(--color-neutral-0),
+    noteResolvedButtonHoverBg: var(--color-neutral-10),
+    commentStatus: var(--color-neutral-60),
+    commentAuthor: var(--color-neutral-100),
+    commentTime: var(--color-neutral-60),
+    commentTimeIcon: var(--color-neutral-60),
+    commentInputFocusing: var(--color-primary-50),
+    noteDeleteContent: var(--color-neutral-0),
+    commentHighlightText: var(--color-neutral-100),
+    commentHighlight: var(--color-primary-20),
+    commentInputBorder: var(--color-neutral-30),
+    commentHeaderPanelBg: var(--color-neutral-0),
+    panelPageNumber: var(--color-neutral-80),
+    panelNoItemText: var(--color-neutral-60),
+    panelSubTitleText: var(--color-neutral-80),
+    panelInputTitle: var(--color-neutral-60),
+    panelInputFormContainerBg: var(--color-primary-10),
+    panelInputBorder: var(--color-neutral-30),
+    gridViewPageNumber: var(--color-neutral-80),
+    helpCenterButtonActive: var(--color-neutral-20),
+    helpCenterIconColorActive: var(--color-primary-90),
+    helpCenterBtnActionHover: var(--color-neutral-10),
+    inputBg: var(--color-white),
+    inputText: var(--color-neutral-100),
+    inputBoxShadow: var(--shadow-input),
+    inputBorder: var(--color-neutral-30),
+    inputBorderError: var(--color-secondary-50),
+    commentButtonText: var(--color-neutral-100),
+    commentButtonDisabledBg: var(--color-secondary-30),
+    disabledButtonBg: var(--color-secondary-30),
+    commentButtonCancelBg: var(--color-neutral-10),
+    commentButtonReplyButtonText: var(--color-neutral-0),
+    commentButtonReplyButtonBg: var(--color-secondary-50),
+    commentDeleteMaskBorder: #4f6177,
+    cropButtonDisabledText: var(--color-neutral-0),
+    previewCropButtonDisabledBg: var(--color-neutral-0),
+    previewCropButtonActiveBg: var(--color-neutral-0),
+    previewCropButtonDisabledText: var(--color-secondary-30),
+    borderToolButtonArrowDropdown: var(--color-neutral-10),
+    confirmCropPageMessage: var(--color-neutral-80),
+    buttonArrowHoverBg: var(--color-neutral-10),
+    buttonArrowActiveBg: var(--color-neutral-20),
+    buttonArrowFocusBg: var(--color-neutral-20),
+    buttonArrowFocusText: var(--color-primary-90),
+    modalSignatureBg: $white,
+    mergeBtnUploadBorder: var(--color-secondary-50),
+    mergeBtnUploadBg: var(--color-secondary-20),
+    mergeLoadingBg: var(--color-neutral-5),
+    mergeSpinnerInactive: var(--color-neutral-40),
+    mergeSpinnerActive: var(--color-neutral-80),
+    moreButtonBg: var(--color-neutral-10),
+    notifyDateBg: var(--color-primary-10),
+    notiUnseenHover: var(--color-primary-20),
+    notiUnseenBg: var(--color-neutral-10),
+    iconColor: var(--color-neutral-60),
+    iconColorActive: var(--color-primary-90),
+    iconColorDarker: var(--color-neutral-60),
+    borderCommentElement: var(--color-neutral-20),
+    colorPickerUpdownFill: var(--color-neutral-60),
+    colorPickerUpdownBg: var(--color-neutral-10),
+    leftPanelTabsBg: var(--color-white),
+    leftPanelTabsBgHover: var(--color-neutral-10),
+    outlineTextColor: var(--color-neutral-100),
+    outlineTextHover: var(--color-neutral-100),
+    outlineHoverBg: var(--color-neutral-30),
+    noOutlineTextColor: var(--color-neutral-60),
+    textBookmarkTitle: var(--color-neutral-100),
+    textBookmarkLabel: var(--color-neutral-80),
+    tertiaryButtonBg: var(--color-neutral-10),
+    tertiaryButtonBgHover: var(--color-neutral-20),
+    tertiaryButtonColor: var(--color-neutral-100),
+    tertiaryButtonColorHover: var(--color-neutral-100),
+    primaryButtonBgHover: var(--color-secondary-60),
+    primaryButtonColor: var(--color-white),
+    primaryOutlineBtnBgHover: var(--color-secondary-10),
+    primaryOutlineColorDisable: var(--color-secondary-30),
+    colorAutoSyncText: var(--color-neutral-80),
+    materialModalMessage: var(--color-neutral-80),
+    checkboxMessage: var(--color-neutral-100),
+    checkboxBg: var(--color-primary-10),
+    overlayPopperBg: rgb(255 255 255 / 50%),
+    zoomPopperItem: var(--color-neutral-80),
+    zoomPopperItemBgHover: var(--color-neutral-10),
+    zoomPopperItemHover: var(--color-neutral-80),
+    zoomValue: var(--color-neutral-60),
+    zoomBgReadOnly: var(--color-neutral-20),
+    zoomColorReadOnly: var(--color-primary-90),
+    zoomIconReadOnly: var(--color-neutral-60),
+    zoomIcon: var(--color-neutral-60),
+    zoomHover: var(--color-neutral-10),
+    zoomDivider: var(--color-neutral-20),
+    sliderTrack: var(--color-neutral-60),
+    sliderRail: var(--color-neutral-20),
+    pointerBorder: var(--color-neutral-20),
+    pointerBoxShadow: var(--shadow-xs),
+    pointerBg: var(--color-neutral-100),
+    signatureItemBorder: var(--color-neutral-30),
+    signatureItemBg: var(--color-white),
+    signatureItemHoverBg: var(--color-neutral-0),
+    signatureMenuTabActiveColor: var(--color-primary-90),
+    menuItemCheckIconColor: var(--color-secondary-50),
+    changeColorBtnActive: var(--color-neutral-20),
+    pageToolInputWrapperBg: var(--color-primary-10),
+    moveDocumentIcon: var(--color-neutral-60),
+    moveDocumentIconHover: var(--color-neutral-10),
+    disconnectedToastBg: var(--color-other-1),
+    disconnectedToastBorder: var(--color-secondary-40),
+    disconnectedToastBoxShadow: var(--shadow-xs),
+    disconnectedToastMsg: var(--color-secondary-60),
+    disconnectedToastRetryingMsg: var(--color-neutral-60),
+    limitBannerMergeBg: var(--color-primary-20),
+    limitBannerMergeIcon: var(--color-primary-90),
+    toastBgSuccess: var(--color-success-10),
+    toastBorderSuccess: var(--color-success-50),
+    toastBgInfo: var(--color-primary-20),
+    toastBorderInfo: var(--color-primary-40),
+    toastBgWarning: var(--color-warning-10),
+    toastBorderWarning: var(--color-warning-50),
+    toastBgError: var(--color-other-1),
+    toastBorderError: var(--color-secondary-40),
+    toastMessage: var(--color-neutral-100),
+    toastIconSuccess: var(--color-primary-90),
+    toastIconInfo: var(--color-primary-90),
+    toastIconWarning: var(--color-warning-60),
+    toastIconError: var(--color-secondary-60),
+    userTagBg: var(--color-primary-10),
+    copyLinkToShareBtn: var(--color-white),
+    shareOwnerRoleText: var(--color-neutral-50),
+    formBuildPanelBg: var(--color-neutral-5),
+    formBuildBoxShadowTop: var(--shadow-m),
+    tooltipBg: var(--color-neutral-100),
+    toolContent: var(--color-neutral-20),
+    toastTextColor: var(--color-primary-90),
+    buttonBgToast: var(--color-primary-40),
+    iconBgColorToast: var(--color-primary-90),
+    selectedPopperButton: var(--color-neutral-20),
+    selectedPopperButtonIcon: var(--color-primary-90),
+    userTagHoverBg: var(--color-neutral-10),
+    mergeDndPlaceholder: var(--color-neutral-80),
+    mergeFileBorder: var(--color-neutral-20),
+    circularProgressStroke: var(--color-primary-90),
+    circularProgressStrokeTrail: var(--color-neutral-20),
+    circularProgressText: var(--color-neutral-100),
+    viewerLoadingModalStatus: var(--color-neutral-100),
+    viewerLoadingModalCancelBtn: var(--color-neutral-70),
+    dummyItemBorder: var(--color-neutral-20),
+    dummyItemBg: var(--color-neutral-10),
+    mergeFileDescError: var(--color-secondary-50),
+    moveSignatureBg: var(--color-neutral-80),
+    signatureItemMovingBg: var(--color-neutral-10),
+    signatureItemMovingBorder: var(--color-neutral-80),
+    mergeLoadingProgressBg: var(--color-neutral-30),
+    mergeLoadingProgressFg: var(--color-neutral-90),
+    signaturesWrapper: var(--color-neutral-10),
+    signaturesWrapperBorder: var(--color-neutral-20),
+    addNewSignatureBorder: var(--color-neutral-40),
+    shareButtonColor: var(--color-neutral-80),
+    replyTogglerColor: var(--color-primary-90),
+    selectedNoteShadown: none,
+    signatureTitle: var(--color-neutral-80),
+    selectedTabBg: var(--color-neutral-10),
+    selectedTabColor: var(--color-neutral-100),
+    tabColor: var(--color-neutral-70),
+    openRubberStampModalBtnColor: var(--color-neutral-0),
+    previewStampBorder: var(--color-neutral-20),
+    previewStampBg: var(--color-neutral-5),
+    stampColorBlockHolderBorder: var(--color-neutral-60),
+    stampColorBlockBorder: var(--color-neutral-20),
+  ),
+  dark: (
+    arrowPopperActive: $white,
+    avatarBg: var(--color-neutral-80),
+    avatarBorder: var(--color-neutral-100),
+    bgColor: var(--color-neutral-100),
+    bgDocumentContainer: var(--color-other-5),
+    bgPanel: var(--color-neutral-100),
+    bgPanelTop: var(--color-neutral-90),
+    bgPanelBorder: var(--color-neutral-80),
+    bgResultSelected: var(--color-other-3),
+    borderColorNoteInputFocus: var(--color-primary-80),
+    bgSearchSelectedValue: var(--color-neutral-10),
+    bgSearchValue: var(--color-neutral-90),
+    bgSecondary: #c1d1e0,
+    borderColorHeader: #587491,
+    borderColorRenameDocument: var(--color-neutral-60),
+    borderColorRenameDocumentFocus: var(--color-primary-80),
+    boxShadowHeader: var(--shadow-xs-dark),
+    boxShadowPanel:  inset 0 0 8px rgb(16 45 66 / 48%),
+    boxShadowNote: var(--shadow-m-dark),
+    buttonActiveColor: var(--color-neutral-80),
+    formFieldCheckboxWrapperBg: var(--color-neutral-90),
+    formFieldCheckboxText: var(--color-neutral-10),
+    mergeDndPlaceholder: var(--color-neutral-20),
+    bgCommentListColor: var(--color-neutral-100),
+    dividerColor: var(--color-neutral-80),
+    dropShadowHeader: var(--drop-shadow-xs-dark),
+    leftPanelBorderManipulation: 1px solid var(--color-neutral-80),
+    leftPanelTabActive: var(--color-primary-50),
+    leftPanelTabHeaderText: var(--color-neutral-20),
+    miniDividerColor: var(--color-neutral-30),
+    modalShadow: var(--shadow-xl-dark),
+    outlineButtonBgColor: transparent,
+    outlineButtonBorderColor: $secondary,
+    popperButtonActive: #041a31,
+    popperItemHover: var(--color-neutral-80),
+    sharedItemHover: var(--color-neutral-70),
+    sharedItemSelected: var(--color-primary-90),
+    popperShadow: var(--shadow-xs-dark),
+    popperBackground: var(--color-neutral-100),
+    popperBorder: var(--color-neutral-100),
+    popperFilter: "none",
+    primaryBorderColor: var(--color-neutral-80),
+    secondaryBorderColor: #405b77,
+    secondaryButtonBgColor: $smoke,
+    sliderLineEmpty: var(--color-neutral-80),
+    squareButtonColor: var(--color-neutral-40),
+    squareButtonPressed: var(--color-neutral-60),
+    searchButtonActive: var(--color-primary-90),
+    tabActiveColor: $dark,
+    paletteInputBorder: var(--color-neutral-80),
+    paletteInputColor: var(--color-neutral-40),
+    textColor: var(--color-neutral-10),
+    textColorLighter: var(--color-neutral-20),
+    textColorSecondary: var(--color-neutral-20),
+    textColorPlaceHolder: #587491,
+    textManipulation: var(--color-neutral-20),
+    textSearchValue: var(--color-neutral-40),
+    secondaryColor: var(--color-neutral-40),
+    textMenuItem: var(--color-neutral-40),
+    trialBaseText: var(--color-neutral-5),
+    trialBaseTitle: white,
+    banner: var(--color-neutral-80),
+    bannerText: var(--color-white),
+    bannerBtnColor: var(--color-neutral-10),
+    bannerBtnBgHover: var(--color-secondary-40),
+    bannerBtnBgFocus: var(--color-secondary-60),
+    bannerButtonClose: var(--color-neutral-20),
+    shareRoleText: var(--color-neutral-10),
+    buttonSwitchActiveBgColor: var(--color-primary-40),
+    buttonSwitchActiveTextColor: var(--color-neutral-100),
+    buttonSwitchTextColor: var(--color-primary-40),
+    buttonSwitchBgColor: var(--color-neutral-100),
+    buttonSwitchBgColorHover: var(--color-neutral-90),
+    textFrameSelected: var(--color-primary-80),
+    textFrameHover: var(--color-neutral-80),
+    borderInput: var(--color-neutral-80),
+    borderInputSelected: var(--color-primary-50),
+    fontStyleHover: var(--color-neutral-80),
+    fontStyleSelected: var(--color-primary-40),
+    toolOverlayButtonActiveBg: var(--color-primary-40),
+    toolOverlayButtonActiveHover: var(--color-neutral-80),
+    colorCellActiveBorder: var(--color-neutral-5),
+    colorCellActive: var(--color-neutral-100),
+    colorCellHover: var(--color-neutral-80),
+    colorPickerCellActive: var(--color-neutral-90),
+    darkerActive: var(--color-primary-30),
+    textFrameSelectedBg: var(--color-primary-40),
+    textFrameHoverBg: var(--color-neutral-80),
+    toolbarHover: var(--color-neutral-80),
+    toolbarItemActive: var(--color-primary-90),
+    fontStyleText: var(--color-neutral-40),
+    fontStyleTextHover: var(--color-neutral-20),
+    fontStyleCheckedIcon: var(--color-neutral-0),
+    fontStyleTextHoverBg: var(--color-neutral-80),
+    commentTextLighter: var(--color-neutral-10),
+    commentHrBg: $input-border-dark,
+    commentTextAreaPlaceholder: var(--color-neutral-60),
+    commentPopup: var(--color-neutral-40),
+    commentPopupActive: var(--color-neutral-20),
+    commentDeleteMaskBg: var(--color-neutral-100),
+    commentResolvedBg: var(--color-neutral-90),
+    commentResolvedIconBg: var(--color-primary-40),
+    commentMenuOpenButtonBg: var(--color-neutral-60),
+    commentRightButtonText: var(--color-neutral-10),
+    noteResolvedButtonHoverBg: var(--color-neutral-80),
+    commentStatus: var(--color-neutral-60),
+    commentAuthor: var(--color-neutral-10),
+    commentTime: var(--color-neutral-40),
+    commentTimeIcon: var(--color-neutral-60),
+    commentInputFocusing: var(--color-primary-50),
+    noteDeleteContent: var(--color-neutral-10),
+    commentHighlightText: var(--color-neutral-10),
+    commentHighlight: var(--color-neutral-60),
+    commentInputBorder: var(--color-neutral-80),
+    commentHeaderPanelBg: var(--color-neutral-90),
+    panelPageNumber: var(--color-neutral-20),
+    panelNoItemText: var(--color-neutral-20),
+    panelSubTitleText: var(--color-neutral-20),
+    panelInputTitle: var(--color-neutral-20),
+    panelInputFormContainerBg: var(--color-neutral-90),
+    panelInputBorder: var(--color-neutral-80),
+    gridViewPageNumber: var(--color-neutral-20),
+    helpCenterButtonActive: var(--color-neutral-60),
+    helpCenterIconColorActive: var(--color-neutral-90),
+    helpCenterBtnActionHover: var(--color-neutral-80),
+    inputBg: var(--color-neutral-100),
+    inputText: var(--color-neutral-10),
+    inputBoxShadow: var(--shadow-input-dark),
+    inputBorder: var(--color-neutral-80),
+    inputBorderError: var(--color-secondary-50),
+    inputBorderFocusing: $input-border-dark-selected,
+    commentButtonText: var(--color-neutral-20),
+    commentButtonDisabledBg: var(--color-secondary-60),
+    disabledButtonBg: var(--color-secondary-60),
+    commentButtonCancelBg: var(--color-neutral-80),
+    commentButtonReplyButtonText: var(--color-neutral-10),
+    commentButtonReplyButtonBg: var(--color-secondary-50),
+    commentDeleteMaskBorder: $primary,
+    cropButtonDisabledText: var(--color-secondary-40),
+    previewCropButtonDisabledBg: var(--color-neutral-100),
+    previewCropButtonActiveBg: var(--color-neutral-90),
+    previewCropButtonDisabledText: var(--color-secondary-80),
+    borderToolButtonArrowDropdown: var(--color-neutral-80),
+    confirmCropPageMessage: var(--color-neutral-10),
+    buttonArrowHoverBg: var(--color-neutral-90),
+    buttonArrowActiveBg: var(--color-neutral-40),
+    buttonArrowFocusBg: var(--color-neutral-90),
+    buttonArrowFocusText: var(--color-neutral-40),
+    modalSignatureBg: var(--color-neutral-100),
+    mergeBtnUploadBorder: var(--color-secondary-50),
+    mergeBtnUploadBg: var(--color-neutral-90),
+    mergeLoadingBg: var(--color-neutral-90),
+    mergeSpinnerInactive: var(--color-neutral-60),
+    mergeSpinnerActive: var(--color-neutral-10),
+    moreButtonBg: var(--color-primary-40),
+    notifyDateBg: var(--color-primary-90),
+    notiUnseenHover: var(--color-primary-80),
+    notiUnseenBg: var(--color-neutral-90),
+    iconColor: var(--color-neutral-40),
+    iconColorActive: var(--color-neutral-40),
+    iconColorDarker: var(--color-neutral-80),
+    borderCommentElement: var(--color-neutral-90),
+    colorPickerUpdownFill: var(--color-neutral-40),
+    colorPickerUpdownBg: var(--color-neutral-80),
+    leftPanelTabsBg: var(--color-neutral-100),
+    leftPanelTabsBgHover: var(--color-neutral-90),
+    outlineTextColor: var(--color-neutral-40),
+    outlineTextHover: var(--color-neutral-20),
+    outlineHoverBg: var(--color-neutral-80),
+    noOutlineTextColor: var(--color-neutral-40),
+    textBookmarkTitle: var(--color-neutral-5),
+    textBookmarkLabel: var(--color-neutral-10),
+    tertiaryButtonBg: var(--color-neutral-80),
+    tertiaryButtonBgHover: var(--color-neutral-70),
+    tertiaryButtonColor: var(--color-neutral-20),
+    tertiaryButtonColorHover: var(--color-white),
+    primaryButtonBgHover: var(--color-secondary-40),
+    primaryButtonColor: var(--color-neutral-10),
+    primaryOutlineBtnBgHover: var(--color-neutral-80),
+    primaryOutlineColorDisable: var(--color-secondary-80),
+    colorAutoSyncText: var(--color-neutral-40),
+    materialModalMessage: var(--color-neutral-10),
+    checkboxMessage: var(--color-neutral-10),
+    checkboxBg: var(--color-neutral-90),
+    overlayPopperBg: rgb(16 45 66 / 50%),
+    zoomPopperItem: var(--color-neutral-10),
+    zoomPopperItemBgHover: var(--color-neutral-80),
+    zoomPopperItemHover: var(--color-neutral-20),
+    zoomValue: var(--color-neutral-40),
+    zoomBgReadOnly: var(--color-neutral-60),
+    zoomColorReadOnly: var(--color-neutral-90),
+    zoomIconReadOnly: var(--color-neutral-90),
+    zoomHover: var(--color-neutral-90),
+    zoomDivider: var(--color-neutral-80),
+    sliderTrack: var(--color-neutral-40),
+    sliderRail: var(--color-neutral-80),
+    pointerBorder: var(--color-neutral-80),
+    pointerBoxShadow: var(--shadow-xs-dark),
+    pointerBg: var(--color-neutral-0),
+    signatureItemBorder: var(--color-neutral-40),
+    signatureItemBg: var(--color-neutral-20),
+    signatureItemHoverBg: var(--color-neutral-0),
+    signatureMenuTabActiveColor: var(--color-primary-30),
+    menuItemCheckIconColor: var(--color-white),
+    changeColorBtnActive: var(--color-neutral-90),
+    pageToolInputWrapperBg: var(--color-neutral-90),
+    moveDocumentIcon: var(--color-neutral-40),
+    moveDocumentIconHover: var(--color-neutral-80),
+    disconnectedToastBg: var(--color-secondary-70),
+    disconnectedToastBorder: var(--color-secondary-60),
+    disconnectedToastBoxShadow: var(--shadow-xs-dark),
+    disconnectedToastMsg: var(--color-neutral-10),
+    disconnectedToastRetryingMsg: var(--color-neutral-5),
+    limitBannerMergeBg: var(--color-neutral-90),
+    limitBannerMergeIcon: var(--color-neutral-20),
+    toastBgSuccess: #1d8a66,
+    toastBorderSuccess: var(--color-success-60),
+    toastBgInfo: #1d668a,
+    toastBorderInfo: var(--color-primary-60),
+    toastBgWarning: #ce9014,
+    toastBorderWarning: var(--color-warning-50),
+    toastBgError: var(--color-secondary-70),
+    toastBorderError: var(--color-secondary-60),
+    toastMessage: var(--color-neutral-10),
+    toastIconSuccess: var(--color-success-10),
+    toastIconInfo: var(--color-primary-10),
+    toastIconWarning: var(--color-warning-10),
+    toastIconError: var(--color-secondary-10),
+    userTagBg: var(--color-primary-90),
+    copyLinkToShareBtn: var(--color-neutral-80),
+    shareOwnerRoleText: var(--color-neutral-50),
+    formBuildPanelBg: var(--color-neutral-100),
+    formBuildBoxShadowTop: 0 -3px 8px rgb(255 255 255 / 20%),
+    tooltipBg: var(--color-neutral-40),
+    toolContent: var(--color-neutral-100),
+    fadeoutItem: fadeoutItemShare-dark 5s,
+    requestPopperTitle: var(--color-neutral-10),
+    toastTextColor: var(--color-primary-10),
+    buttonBgToast: var(--color-primary-80),
+    iconBgColorToast: var(--color-primary-10),
+    selectedPopperButton: var(--color-neutral-90),
+    selectedPopperButtonIcon: var(--color-neutral-40),
+    userTagHoverBg: var(--color-neutral-90),
+    mergeFileBorder: var(--color-neutral-80),
+    circularProgressStroke: var(--color-primary-40),
+    circularProgressStrokeTrail: var(--color-neutral-80),
+    circularProgressText: var(--color-neutral-10),
+    viewerLoadingModalStatus: var(--color-neutral-10),
+    viewerLoadingModalCancelBtn: var(--color-neutral-30),
+    dummyItemBorder: var(--color-neutral-80),
+    dummyItemBg: var(--color-neutral-90),
+    mergeFileDescError: var(--color-secondary-40),
+    moveSignatureBg: var(--color-neutral-20),
+    signatureItemMovingBg: var(--color-neutral-90),
+    signatureItemMovingBorder: var(--color-neutral-20),
+    mergeLoadingProgressBg: var(--color-neutral-90),
+    mergeLoadingProgressFg: var(--color-neutral-60),
+    signaturesWrapper: var(--color-neutral-90),
+    signaturesWrapperBorder: var(--color-neutral-80),
+    addNewSignatureBorder: var(--color-neutral-60),
+    shareButtonColor: var(--color-neutral-20),
+    replyTogglerColor: var(--color-primary-60),
+    selectedNoteShadown: var(--note-selected-shadow-xs-dark),
+    signatureTitle: var(--color-neutral-10), 
+    selectedTabBg: var(--color-neutral-90),
+    selectedTabColor: var(--color-neutral-10),
+    tabColor: var(--color-neutral-30),
+    openRubberStampModalBtnColor: var(--color-neutral-100),
+    previewStampBorder: var(--color-neutral-80),
+    previewStampBg: var(--color-neutral-90),
+    stampColorBlockHolderBorder: var(--color-neutral-40),
+    stampColorBlockBorder: var(--color-neutral-20),
+  ),
+);
+
+/*
+ * Implementation of themes
+ */
+@mixin themify() {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin skeletonStyled {
+  background: linear-gradient(90deg, #c0d0df 25%, rgba(#c0d0df, 0.5) 37%, #c0d0df 63%);
+  background-size: 400% 100%;
+  animation: thumb-skeleton 1.2s infinite;
+}

@@ -1,0 +1,18 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-5) var(--kiwi-spacing-1-5) var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  min-width: 360px;
+  @include kiwi-typography-body-md;
+}
+
+
+.container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}

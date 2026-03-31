@@ -1,0 +1,57 @@
+@import '../../constants/lumin-styles';
+@import '../../constants/styles';
+@import '../../constants/panel';
+
+.ContentEditPanel {
+  @extend %content-edit-panel;
+  z-index: 79;
+  &__top {
+    width: 100%;
+    height: 40px;
+    transition: background-color .3s ease;
+    @include themify() {
+      background-color: themed('bgColor');
+    }
+    text-align: left;
+    padding: 8px 8px 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px 8px 0 0;
+    i {
+      @include themify() {
+        color: themed('iconColor');
+      }
+    }
+    p {
+      font-size: 12px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 16px;
+      letter-spacing: -0.02px;
+      @include themify() {
+        color: themed('commentHighlightText');
+      }
+    }
+    span {
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.26px;
+      color: $secondary;
+    }
+  }
+
+  .title-divider {
+    margin: 0;
+    transition: background-color .3s ease;
+    @include themify() {
+      background-color: themed('borderCommentElement');
+    }
+    height: 1px;
+    border: 0;
+  }
+}

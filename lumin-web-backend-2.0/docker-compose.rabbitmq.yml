@@ -1,0 +1,31 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672   # AMQP protocol port
+      - 15672:15672 # Management UI port
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq_data:  # Named volume to persist RabbitMQ data between container restarts
+
+# To start RabbitMQ:
+# docker-compose -f docker-compose.rabbitmq.yml up -d
+#
+# To stop RabbitMQ:
+# docker-compose -f docker-compose.rabbitmq.yml down
+#
+# To view logs:
+# docker-compose -f docker-compose.rabbitmq.yml logs -f
+#
+# Access the management UI at http://localhost:15672
+# Default credentials: guest/guest 
+
+
+# You might need to run npx ts-node scripts/set-up.rabbitmq.ts to setup the rabbitmq exchange and queue

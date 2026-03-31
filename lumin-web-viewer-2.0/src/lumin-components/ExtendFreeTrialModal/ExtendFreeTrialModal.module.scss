@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 24px;
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: 8px;
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-inverse-surface);
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--kiwi-colors-surface-surface-container-low);
+  margin-bottom: 16px;
+}
+
+.input {
+  width: 100%;
+}
+
+.buttonWrapper {
+  column-gap: var(--kiwi-spacing-2);
+  margin-top: var(--kiwi-spacing-2);
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: stretch;
+}
+
+.headerWrapper {
+  width: 100%;
+  display: flex;
+  padding: var(--kiwi-spacing-1-5);
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-custom-brand-tools-unlock-container);
+  height: 48px;
+  margin-bottom: 24px;
+}
+
+.header {
+  @include kiwi-typography-label-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.button {
+  @include kiwi-typography-label-lg;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--kiwi-spacing-1);
+  right: var(--kiwi-spacing-1);
+}

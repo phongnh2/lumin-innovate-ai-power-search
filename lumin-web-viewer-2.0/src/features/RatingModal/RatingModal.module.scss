@@ -1,0 +1,43 @@
+@keyframes fade-in {
+  from {
+    transform: scale3d(1, 1, 0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  position: fixed;
+  right: 16px;
+  width: var(--modal-container-width-mdx);
+  z-index: var(--rating-modal);
+  padding: 24px;
+  border-radius: var(--kiwi-border-radius-lg);
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  animation: 0.25s ease forwards fade-in;
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  box-shadow: var(--kiwi-shadow-4);
+
+  &.withCookiesBanner {
+    bottom: calc(var(--banner-cookies-height) + 14px);
+  }
+
+  &.withoutCookiesBanner {
+    bottom: 24px;
+  }
+}

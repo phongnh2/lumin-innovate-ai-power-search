@@ -1,0 +1,28 @@
+.loading {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  margin: var(--kiwi-spacing-1) 0 var(--kiwi-spacing-1-5) 0;
+
+  background: linear-gradient(90deg, #cd96ed 0%, #e7aa8b 52%, #ff81c0 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: text-shine 2s ease-in-out infinite alternate;
+
+  @keyframes text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+  p {
+    margin: 0;
+    @include kiwi-typography-body-md;
+  }
+}

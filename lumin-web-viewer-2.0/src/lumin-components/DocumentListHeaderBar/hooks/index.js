@@ -1,0 +1,1 @@
+export { useTotalDocument } from './useTotalDocument';

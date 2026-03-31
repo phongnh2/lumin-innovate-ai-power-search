@@ -1,0 +1,5 @@
+export enum ACTION_TYPES {
+  EDIT = 'EDIT',
+  DELETE = 'DELETE',
+  UPDATE_COLOR = 'UPDATE_COLOR',
+}

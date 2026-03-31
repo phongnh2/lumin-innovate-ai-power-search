@@ -1,0 +1,111 @@
+.item {
+  display: flex;
+  align-items: center;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  gap: var(--kiwi-spacing-2);
+  cursor: pointer;
+  transition: all var(--editor-transition);
+  &:hover {
+    background-color: var(--kiwi-colors-surface-surface-container-high);
+    .itemName {
+      color: var(--kiwi-colors-surface-on-surface-variant);
+    }
+    .itemDescription {
+      color: var(--kiwi-colors-surface-on-surface-variant);
+    }
+  }
+}
+
+.itemIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kiwi-border-radius-sm);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.itemName {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-title-xs;
+  margin-bottom: var(--kiwi-spacing-0-5);
+}
+
+.itemDescription {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-sm;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  gap: var(--kiwi-spacing-2);
+  overflow-y: auto;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+}
+
+.sectionTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--kiwi-spacing-0-5);
+  gap: var(--kiwi-spacing-1);
+}
+
+.sectionTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.sectionItem {
+  margin-bottom: var(--kiwi-spacing-1);
+}
+
+.panel {
+  padding: var(--kiwi-spacing-1) 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex-grow: 1;
+}
+
+.categoryContainer {
+  --padding-x: var(--kiwi-spacing-1-5);
+  padding: var(--kiwi-spacing-1) 0;
+  flex-shrink: 0;
+}
+
+.categoryList {
+  overflow-y: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;  
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  gap: var(--kiwi-spacing-1);
+}
+
+.categoryItem {
+  flex-shrink: 0;
+  &[data-no-icon="true"] {
+    :global(.label) {
+      min-width: 40px;
+      text-align: center;
+    }
+  }
+  &[data-first-item="true"] {
+    margin-left: var(--padding-x);
+  }
+
+  &[data-last-item="true"] {
+    margin-right: var(--padding-x);
+  }
+}

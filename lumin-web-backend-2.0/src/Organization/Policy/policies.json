@@ -1,0 +1,570 @@
+{
+  "policies": {
+    "version": "2020-10-07",
+    "statements": {
+      "deletePendingInvite": {
+        "sid": "11f39d7f-810a-5613-8b35-f100abfccccb",
+        "resource": "organization",
+        "description": "Remove non-lumin user from organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"],
+          "higher_role_required": true
+        }
+      },
+      "deleteMemberInOrganization": {
+        "sid": "4707d4d9-c8fb-55e4-a0b1-763fa104c4e2",
+        "resource": "organization",
+        "description": "Remove lumin user from organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"],
+          "higher_role_required": true
+        }
+      },
+      "changeAvatarOrganization": {
+        "sid": "55cbdb57-a39b-5e38-befd-04f907910318",
+        "resource": "organization",
+        "description": "Change avatar of organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "setAvatarOrganizationSuggestion": {
+        "sid": "7c3e5f92-4d8a-4b3c-9a6e-1f8d2c4a9b71",
+        "resource": "organization",
+        "description": "Set avatar of organization from suggestion",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "setAvatarFromSuggestion": {
+        "sid": "a4f6d8c1-2b7e-4c9a-9f31-6e5d2a8b7c04",
+        "resource": "organization",
+        "description": "Set avatar of organization from suggestion",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "changeProfileOrganization": {
+        "sid": "4a3c165f-29f0-5e6a-8624-e1e54efbf1f3",
+        "resource": "organization",
+        "description": "Change profile (i.e. name) of organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "removeAvatarOrganization": {
+        "sid": "4ef56796-5b8a-5709-a08a-a95f31b98698",
+        "resource": "organization",
+        "description": "Remove avatar of organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "setOrganizationMembersRole": {
+        "sid": "998838a6-e32d-53c1-98c1-b5b9efc2a71b",
+        "resource": "organization",
+        "description": "Update role of member in organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "rejectRequestingAccessOrganization": {
+        "sid": "96defa97-8f31-5767-a328-e45519cef745",
+        "resource": "organization",
+        "description": "Reject requesting user in organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "acceptRequestingAccessOrganization": {
+        "sid": "2297a397-8299-5033-9d2d-1e081a063024",
+        "resource": "organization",
+        "description": "Accept requesting user in organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "inviteOrgTeamMember": {
+        "sid": "4b4e620b-27eb-5519-85e7-1bd198da9a2e",
+        "resource": "organization_team",
+        "description": "Invite organization member to organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "editOrgTeamInfo": {
+        "sid": "bf730d73-a0b4-5753-a0e1-3584372738b3",
+        "resource": "organization_team",
+        "description": "Update info of organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "transferTeamOwnership": {
+        "sid": "94524018-c31e-5609-b121-bec11eb351a9",
+        "resource": "organization_team",
+        "description": "Transfer owner in organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "removeOrgTeamMember": {
+        "sid": "bc042776-977a-5d94-b123-d55512d253d7",
+        "resource": "organization_team",
+        "description": "Remove member in organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "deleteOrgTeam": {
+        "sid": "9b9c9130-9c64-5dee-8eed-3c9ba55f4da0",
+        "resource": "organization_team",
+        "description": "Delete organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "exportDomainData": {
+        "sid": "5ab9a1b2-c8a8-514f-bfe6-6a162a5ce7c5",
+        "resource": "organization",
+        "description": "Export organization data (i.e. payment invoice, members,...)",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "getOrganizationInsight": {
+        "sid": "8780f1e6-15c7-50f2-a2a0-28833953cf89",
+        "resource": "organization",
+        "description": "Get organization insight",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "getOrganizationPrice": {
+        "sid": "4b9ccf2b-495d-5fb0-9d74-47726d93f200",
+        "resource": "organization",
+        "description": "Get organization insight",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "getListPendingUserOrganization": {
+        "sid": "0a1afebb-3816-40b7-8d2f-9895d3f76654",
+        "resource": "organization",
+        "description": "Get list pending user organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "getListRequestJoinOrganization": {
+        "sid": "6802bc17-2d10-46cb-a754-bb9a4128fe05",
+        "resource": "organization",
+        "description": "Get list request join organization",
+        "principal": {
+          "role": ["organization_admin",  "billing_moderator"]
+        }
+      },
+      "updateGoogleSignInSecurity": {
+        "sid": "3ec1bc66-18a9-55a5-b2ec-4c010026ea6a",
+        "resource": "organization",
+        "description": "Update organization google signin security",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "plan": ["BUSINESS", "ORG_BUSINESS", "ENTERPRISE"],
+          "associated_domain_required": true,
+          "internal_required": true
+        }
+      },
+      "scheduleDeleteOrganization": {
+        "sid": "94cd86e4-0f4a-5194-8c11-ea90a66a1707",
+        "resource": "organization",
+        "description": "Delete organization",
+        "principal": {
+          "role": ["organization_admin"]
+        }
+      },
+      "createSubscriptionInOrganization": {
+        "sid": "fe7b75c8-e060-5eb6-a4c0-25e339193fc4",
+        "resource": "organization",
+        "description": "Create subcription for organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "createUnifySubscriptionInOrganization": {
+        "sid": "ad3152df-694a-4fbf-acff-61ad6a601273",
+        "resource": "organization",
+        "description": "Create subcription for organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "upgradeOrganizationSubcription": {
+        "sid": "78d0c557-9cb4-5333-9a45-29dc86f17606",
+        "resource": "organization",
+        "description": "Upgrade subcription for organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "upgradeUnifySubscriptionInOrganization": {
+        "sid": "29775202-674f-46d6-a225-cd4c86409a13",
+        "resource": "organization",
+        "description": "Upgrade subcription for organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "reactiveOrganization": {
+        "sid": "91a2ec3e-26ca-5237-96ea-a5daedcdc075",
+        "resource": "organization",
+        "description": "Abort schedule delete organization",
+        "principal": {
+          "role": ["organization_admin"]
+        }
+      },
+      "reactiveOrganizationSubscription": {
+        "sid": "2e56adb4-67fe-57d9-8715-1f6efaf60b65",
+        "resource": "organization",
+        "description": "Reactive organization plan",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "reactivateUnifyOrganizationSubscription": {
+        "sid": "37c327cd-d01c-4081-9920-71e556e5aa84",
+        "resource": "organization",
+        "description": "Reactive organization plan",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "premium_products_required": ["PDF", "SIGN"]
+        }
+      },
+      "forceResetOrgMemberPassword": {
+        "sid": "48bb47ef-5f29-563b-a3db-488d3b8c1f22",
+        "resource": "organization",
+        "description": "Force reset all member password",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "createOrganizationFolder": {
+        "sid": "f63feae9-b71e-4cb5-ba44-9bd671d6c1cb",
+        "resource": "organization",
+        "description": "Create folder in organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+
+      "createOrganizationTeamFolder": {
+        "sid": "89dcc79b-4127-458d-ac05-76db6d5ab907",
+        "resource": "organization_team",
+        "description": "Create folder in organization team",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "updateOrgTemplateWorkspace": {
+        "sid": "80159aac-befe-4a8a-b4af-6cdc79e5ede5",
+        "resource": "organization",
+        "description": "Setting workspace document when clone from template",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "addAssociateDomain": {
+        "sid": "f6def418-c248-439b-b14e-6b9de37a0f64",
+        "resource": "organization",
+        "description": "Add an associate domain to circle",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "editAssociateDomain": {
+        "sid": "583edab0-9b81-42af-ac22-de84474df4c5",
+        "resource": "organization",
+        "description": "Edit an associate domain in circle",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "premium_required": true
+        }
+      },
+      "removeAssociateDomain": {
+        "sid": "a279b910-8060-4561-b1dc-ecb7d859ba45",
+        "resource": "organization",
+        "description": "Remove an associate domain in circle",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "updateTeamSettings": {
+        "sid": "129932c5-464b-5e8b-9cc0-e6d5d373148c",
+        "resource": "organization_team",
+        "description": "Update organization team settings (templateWorkspace and so on)",
+        "principal": {
+          "admin_required": true
+        }
+      },
+      "createOrgStartedDocument": {
+        "sid": "b152193d-4d25-43bb-88db-027164481879",
+        "resource": "organization",
+        "description": "Create organization started document",
+        "principal": {
+          "role": ["organization_admin"]
+        }
+      },
+      "updateDomainVisibilitySetting": {
+        "sid": "bffca230-d4cb-11ec-9d64-0242ac120002",
+        "resource": "organization",
+        "description": "Update domain visibility setting",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "resendOrganizationInvitation": {
+        "sid": "645bc6dc-dcae-11ec-9d64-0242ac120002",
+        "resource": "organization",
+        "description": "Resend organization invitation",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "removeOrganizationInvitation": {
+        "sid": "4ca4b965-74ed-48e8-9c97-03d21387826e",
+        "resource": "organization",
+        "description": "Remove organization invitation",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "createFreeTrialSubscription": {
+        "sid": "280d1e5a-741c-43f3-a722-edada1d924dd",
+        "resource": "organization",
+        "description": "Create free trial subscription of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"],
+          "organization_free_required_with_role": ["member"]
+        }
+      },
+      "createFreeTrialUnifySubscription": {
+        "sid": "5cb78bc9-3391-44b3-be90-faf57828e54b",
+        "resource": "organization",
+        "description": "Create free trial subscription of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"],
+          "organization_free_required_with_role": ["member"]
+        }
+      },
+      "cancelOrganizationFreeTrial": {
+        "sid": "5a12a5eb-c028-4d29-a405-b748b9dcbec5",
+        "resource": "organization",
+        "description": "Cancel free trial subscription of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "changeAutoUpgradeSetting": {
+        "sid": "6836f506-4e4b-574c-80ee-c0083010d269",
+        "resource": "organization",
+        "description": "Toggle auto upgrade document stack when exceeded",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "plan": ["ORG_STARTER" ,"ORG_PRO" ,"ORG_BUSINESS"]
+        }
+      },
+      "previewUpcomingDocStackInvoice": {
+        "sid": "57dc3fd4-9a6f-49a3-a0cf-a53a9bb99057",
+        "resource": "organization",
+        "description": "Preview upcoming invoice of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "previewUpcomingSubscriptionInvoice": {
+        "sid": "aaadab18-7f70-4384-98e3-fdd7484ebda2",
+        "resource": "organization",
+        "description": "Preview upcoming invoice of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "removeOrganizationPaymentMethod": {
+        "sid": "bf3708f5-592c-466b-84ce-8b610284eee6",
+        "resource": "organization",
+        "description": "Remove payment method of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "retrieveOrganizationSetupIntent": {
+        "sid": "987d70c1-c711-418d-b127-43a2949241bd",
+        "resource": "organization",
+        "description": "Retrieve setup intent of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "deactivateOrganizationSetupIntent": {
+        "sid": "62ce0722-ebda-4378-8d52-8024ab5801f2",
+        "resource": "organization",
+        "description": "Deactivate setup intent of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "getGoogleUsersNotInCircle": {
+        "sid": "9c07fd6d-f8bd-4e76-b7b2-8549d8e8c71a",
+        "resource": "organization",
+        "description": "Get google users to invite to organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "extraTrialDaysOrganization": {
+        "sid": "00b60fbe-d361-4c04-bd02-a6c879138aa1",
+        "resource": "organization",
+        "description": "Extra more trial days to get more users",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "updateInviteUsersSetting": {
+        "sid": "578db795-cdd4-411b-a697-ec0b72b6009a",
+        "resource": "organization",
+        "description": "Update invite users setting of organization",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "getPromptInviteUsersBanner": {
+        "sid": "77fe386b-a39e-4696-af66-8fba75a59560",
+        "resource": "organization",
+        "description": "Get prompt invite banner",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "getSuggestedUsersToInvite": {
+        "sid": "8bfc8c22-be66-4af0-9690-452b1149dd22",
+        "resource": "organization",
+        "description": "Get suggested list of user to invite",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      },
+      "createOrganizationInviteLink": {
+        "sid": "235c418a-2a1c-48bf-a48e-35da424e1f16",
+        "resource": "organization",
+        "description": "Create organization invite link",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "old_plan_unsupported": true
+        }
+      },
+      "regenerateOrganizationInviteLink": {
+        "sid": "24ce47de-3beb-4fbb-91c1-7fda6e002bf9",
+        "resource": "organization",
+        "description": "Regenerate organization invite link",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "old_plan_unsupported": true
+        }
+      },
+      "deleteOrganizationInviteLink": {
+        "sid": "ef0950b0-dcdd-495c-94d7-4abeb98bdef5",
+        "resource": "organization",
+        "description": "Delete organization invite link",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"],
+          "old_plan_unsupported": true
+        }
+      },
+      "upsertSamlSsoConfiguration": {
+        "sid": "c4382262-3f1e-46c2-9011-5d299e3f0edd",
+        "resource": "organization",
+        "description": "Upsert SAML SSO sign in",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "deleteSamlSsoConfiguration": {
+        "sid": "9442ac1e-9e05-4bc9-9112-dc4384dbd740",
+        "resource": "organization",
+        "description": "Delete SAML SSO sign in",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "getSamlSsoConfiguration": {
+        "sid": "63f0a956-7652-456b-a271-d425abd16b7b",
+        "resource": "organization",
+        "description": "Get SAML SSO sign in",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "enableScimSsoProvision": {
+        "sid": "c161729d-ce08-43d1-94ba-5fc6de2971ec",
+        "resource": "organization",
+        "description": "Enable SCIM SSO provision",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "disableScimSsoProvision": {
+        "sid": "1b74c177-7e94-4b93-a4da-316432f6d817",
+        "resource": "organization",
+        "description": "Disable SCIM SSO provision",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "getScimSsoConfiguration": {
+        "sid": "05459d92-7ab6-4a37-9b7a-57e6b0a07544",
+        "resource": "organization",
+        "description": "Get SCIM SSO configuration",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "assignSignSeats": {
+        "sid": "6b4c3601-3686-434c-a21f-09a9dc20b13b",
+        "resource": "organization",
+        "description": "Assign seats for sign product",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "unassignSignSeats": {
+        "sid": "66ffc287-7183-4ec1-a317-2de621ee0949",
+        "resource": "organization",
+        "description": "Unassign seats for sign product",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "rejectSignSeatRequests": {
+        "sid": "df81818f-b78e-4fd1-977b-1e4b32986034",
+        "resource": "organization",
+        "description": "Reject seat for sign product",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator"]
+        }
+      },
+      "retrieveOrganizationSetupIntentV2": {
+        "sid": "f965fa8b-0001-494d-b3e6-e6370ff3eea2",
+        "resource": "organization",
+        "description": "Retrieve organization setup intent v2",
+        "principal": {
+          "role": ["organization_admin", "billing_moderator", "member"]
+        }
+      }
+    }
+  }
+}

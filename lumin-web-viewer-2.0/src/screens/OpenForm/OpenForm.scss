@@ -1,0 +1,60 @@
+@import '../../constants/lumin-styles.scss';
+
+.OpenForm {
+  padding: 16px 16px 0;
+  @include tablet-up {
+    padding-top: 100px;
+  }
+}
+
+.OpenForm__container {
+  margin: 0 auto;
+  padding: 45px 24px 36px;
+  box-shadow: var(--shadow-m);
+  background: white;
+  border-radius: 4px;
+  width: 328px;
+  @include tablet-up {
+    padding-left: 0;
+    padding-right: 0;
+    width: 640px;
+  }
+}
+
+.OpenForm__title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  margin: 0 0 8px 0;
+  color: var(--color-neutral-100);
+  @include tablet-up {
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 32px ;
+  }
+}
+
+.OpenForm__desc {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.34px;
+  text-align: center;
+  color: var(--color-neutral-80);
+  margin: 0 auto;
+  display: block;
+  line-height: 20px;
+  @include tablet-up {
+    line-height: 24px;
+    font-size: 17px;
+  }
+}
+
+.OpenForm__img {
+  display: block;
+  margin: 0 auto 16px;
+  width: 190px;
+  @include tablet-up {
+    width: 246px;
+  }
+}

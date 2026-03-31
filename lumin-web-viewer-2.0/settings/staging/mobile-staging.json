@@ -1,0 +1,13 @@
+{
+  "LUMIN_BASEURL": "https://mobile-staging.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://mobile-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://mobile-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://mobile-staging.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://mobile-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://mobile-staging-socket.luminpdf.com",
+  "LUMIN_ENV": "mobile-staging",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "903627406732",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "903627406732-c9mco7hfifin9ns3q0oolca0nmvlb58g.apps.googleusercontent.com"
+}

@@ -1,0 +1,28 @@
+.radioItemWrapper {
+  position: relative;
+}
+
+.radioItem {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline);
+  padding: var(--kiwi-spacing-1-25) var(--kiwi-spacing-2) var(--kiwi-spacing-1-25) var(--kiwi-spacing-2-5);
+}
+
+.activeItem {
+  border: 1px solid var(--kiwi-colors-surface-on-surface);
+}
+
+.disabledItem {
+  opacity: var(--kiwi-opacity-disabled-on-container);
+  cursor: not-allowed;
+}
+
+.maximumSuffix {
+  position: absolute;
+  top: 50%;
+  right: var(--kiwi-spacing-2);
+  transform: translateY(-50%);
+}

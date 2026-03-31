@@ -1,0 +1,33 @@
+@import '../../src/constants/lumin-styles.scss';
+
+.react-contexify {
+  border-radius: var(--border-radius-primary);
+  box-shadow: var(--shadow-xs);
+  border: var(--border-primary);
+  background-color: white;
+  padding: 8px 0;
+  will-change: transform, opacity;
+  z-index: 100;
+}
+
+.react-contexify__item__content {
+  font-size: 14px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  color: var(--color-neutral-80) !important;
+  padding: 10px 16px;
+}
+
+.react-contexify__item {
+  &:hover {
+    .react-contexify__item__content {
+      background: var(--color-neutral-10) !important;
+    }
+  }
+}
+
+.react-contexify__will-enter--scale, .react-contexify__will-leave--scale {
+  animation-duration: 0.1s;
+}

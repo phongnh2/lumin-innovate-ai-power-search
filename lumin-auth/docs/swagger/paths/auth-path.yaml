@@ -1,0 +1,291 @@
+/auth/forgot-password:
+  post:
+    summary: Initiate forgot password flow
+    description: Handle forgot password request by verifying the token and updating the recovery flow
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ForgotPasswordDTO'
+    responses:
+      '200':
+        description: Successfully processed forgot password request
+      '400':
+        description: Bad request - Invalid input or verification failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/sign-in:
+  post:
+    summary: User sign in
+    description: Authenticate user with email and password. Uses Ory Kratos for identity management and authentication flow.
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SignInDTO'
+    responses:
+      '200':
+        description: Successfully authenticated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Identity'
+      '400':
+        description: Bad request - Invalid credentials or verification failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/sign-out:
+  post:
+    summary: User sign out
+    description: Log out the current user session
+    tags:
+      - Auth
+    security:
+      - BearerAuth: []
+    responses:
+      '204':
+        description: Successfully logged out
+      '400':
+        description: Bad request - Failed to process logout
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '401':
+        description: Unauthorized - No valid authentication token provided
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/sign-up-invitation:
+  post:
+    summary: Create user account from invitation
+    description: |
+      Creates a new user account using an invitation token. The process includes:
+      - Verifying the invitation token
+      - Validating user information
+      - Creating account with Ory Kratos
+      - Setting up email-password authentication
+      The email address is extracted from the invitation token data.
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SignUpInvitationDTO'
+    responses:
+      '201':
+        description: Successfully created user account
+      '400':
+        description: Bad request - validation failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '403':
+        description: Forbidden - Invalid or expired invitation token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/sign-up:
+  post:
+    summary: Create a new user account
+    description: |
+      Creates a new user account with email and password authentication. The process includes:
+      - Validating user input (email, name, password)
+      - Verifying email availability
+      - Creating account with Ory Kratos
+      - Setting up email-password authentication method
+      - Storing additional user properties
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SignUpDTO'
+    responses:
+      '201':
+        description: Successfully created user account
+      '400':
+        description: Bad request - Invalid input or verification failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/force-log-out:
+  post:
+    summary: Force logout all sessions
+    description: |
+      Forces logout of all active sessions for the current user. This endpoint:
+      - Revokes all active sessions for the user
+      - Notifies Kratos identity service
+      - Updates contract auth service state
+      - Terminates all instances of user login
+    tags:
+      - Auth
+    security:
+      - BearerAuth: []
+    responses:
+      '204':
+        description: Successfully logged out
+      '401':
+        description: Unauthorized - Invalid or missing authentication token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/resend-verification-link:
+  post:
+    summary: Resend verification link
+    description: Resend verification link to the user
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResendVerificationDTO'
+    responses:
+      '200':
+        description: Successfully resended verification link
+      '400':
+        description: Bad request - Invalid input or verification failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '429':
+        description: Too Many Requests - Rate limit exceeded
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TooManyRequestsError'
+
+/auth/create-temporary-access-url:
+  post:
+    summary: Create temporary access URL for mobile users
+    description: Creates a temporary access URL for authenticated mobile users. Requires mobile-specific headers and authentication tokens.
+    tags:
+      - Auth
+    security:
+      - MobileAuth: []
+    parameters:
+      - $ref: '#/components/parameters/RefreshTokenHeader'
+      - $ref: '#/components/parameters/MobileHeader'
+    responses:
+      '200':
+        description: Successfully created temporary access URL
+        content:
+          application/json:
+            schema:
+              type: string
+              description: The generated temporary access URL
+              example: "https://example.com/temporary-access/abc123"
+      '400':
+        description: Bad request - Usually when user has no identityId
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '401':
+        description: Unauthorized - Missing or invalid access/refresh tokens
+      '403':
+        description: Forbidden - Not a mobile client or invalid token verification
+      '405':
+        description: Method not allowed - Request not from mobile client
+
+/auth/get-canny-redirect-url:
+  get:
+    summary: Get Canny SSO redirect URL
+    description: Generate a Canny SSO redirect URL for authenticated users. The URL includes SSO token and company ID for seamless Canny integration.
+    tags:
+      - Auth
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: query
+        name: redirect
+        schema:
+          type: string
+          format: uri
+        required: false
+        description: Optional redirect URL. If provided and starts with Canny base URL, it will be used; otherwise defaults to Canny base URL
+    responses:
+      '200':
+        description: Successfully generated Canny redirect URL
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: Complete Canny SSO redirect URL with token and company ID
+                  example: "https://canny.io/redirects/sso?companyID=123&ssoToken=xyz&redirect=https://feedback.example.com"
+      '400':
+        description: Bad request - Invalid redirect URL or token generation failed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+      '401':
+        description: Unauthorized - User not authenticated

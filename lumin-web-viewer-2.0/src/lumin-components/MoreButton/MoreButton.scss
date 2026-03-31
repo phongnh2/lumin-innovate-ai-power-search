@@ -1,0 +1,15 @@
+@import "../../constants/lumin-styles";
+
+.MoreButton {
+  button {
+    border-radius: 4px;
+  }
+  &--active {
+    button.ViewerButtonMaterial {
+      @include themify() {
+        color: themed('searchButtonActive');
+        background-color: themed('moreButtonBg');
+      }
+    }
+  }
+}

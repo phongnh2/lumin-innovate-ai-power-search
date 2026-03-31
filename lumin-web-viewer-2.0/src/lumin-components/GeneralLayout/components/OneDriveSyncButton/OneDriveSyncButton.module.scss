@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1);
+  padding: 0 var(--kiwi-spacing-1);
+}
+
+.syncStatus {
+  @include kiwi-typography-label-md;
+  color: var(--kiwi-colors-core-secondary);
+
+  &.disabled {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+}

@@ -1,0 +1,234 @@
+.resultsHeader {
+  margin-bottom: 24px;
+}
+
+.resultsTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-headline-xl;
+}
+
+.sparklesIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.searchQuery {
+  color: var(--kiwi-colors-surface-on-surface-low);
+
+  @include kiwi-typography-label-md;
+}
+
+.editButton {
+  display: inline-flex;
+  margin-left: 8px;
+  box-shadow: none;
+  vertical-align: middle;
+}
+
+.templatesList {
+  display: flex;
+  gap: 24px;
+  margin: -8px;
+  margin-bottom: 16px;
+  padding: 8px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+}
+
+:global {
+  @keyframes templateFadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.templateCard {
+  width: 200px;
+  min-width: 200px;
+  height: 353px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+  background: white;
+  opacity: 0;
+  animation-name: templateFadeInUp;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+
+  &:hover:not(.disabled) {
+    transform: translateY(-2px);
+
+    .templatePreview {
+      border-color: #9333ea;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.templatePreview {
+  position: relative;
+  width: 100%;
+  height: 283px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  margin-bottom: 8px;
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.progressOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.progressBar {
+  width: 80%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #9333ea, #c084fc);
+  border-radius: 2px;
+  animation: progressAnimation 2s ease-in-out infinite;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0%;
+    transform: translateX(-100%);
+  }
+  50% {
+    width: 100%;
+    transform: translateX(0%);
+  }
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+.templateTitle {
+  color: var(--kiwi-colors-custom-role-avatar-label-fixed);
+  margin: 0 0 4px;
+
+  /* body/semibold/sm */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+
+.templateUsage {
+  color: var(--kiwi-colors-custom-role-avatar-label-fixed);
+
+  /* caption/regular/lg */
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+}
+
+.templatesGridSeparator {
+  height: 1px;
+  background: var(--kiwi-colors-surface-outline-variant);
+  margin: 16px 0;
+}
+
+.resultsFooter {
+  text-align: left;
+}
+
+.followUpChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.followUpChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--kiwi-colors-surface-on-surface);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+
+  &:hover {
+    background-color: var(--kiwi-colors-surface-container-low);
+    border-color: var(--kiwi-colors-core-primary);
+  }
+}

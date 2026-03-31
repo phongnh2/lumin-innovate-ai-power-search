@@ -1,0 +1,41 @@
+.description {
+  @include kiwi-typography-body-sm;
+
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+
+  @include media-query-up(md) {
+    @include kiwi-typography-body-md;
+  }
+
+  @include media-query-up(lgr) {
+    margin-bottom: 24px;
+  }
+
+  & > span {
+    height: 20px;
+    color: var(--kiwi-colors-surface-on-surface);
+    margin-left: calc(var(--spacing-icon) * 1px);
+  }
+}
+
+.descriptionMobileApp {
+  margin-bottom: 24px;
+}
+
+.descriptionFixedMarginBottom {
+  margin-bottom: var(--kiwi-spacing-1-5);
+}
+
+.icon {
+  font-size: 20px;
+
+  @include media-query-up(md) {
+    font-size: 24px;
+  }
+}
+
+.iconFixedSize {
+  font-size: 20px;
+}

@@ -1,0 +1,102 @@
+.container {
+  overflow: hidden;
+  min-height: 260px;
+  position: relative;
+  box-sizing: border-box;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    transition: border-color var(--default-web-transition-duration) ease-in;
+  }
+
+  &:hover::before,
+  &:active::before {
+    border-color: var(--kiwi-colors-support-dark-blue-background-low);
+  }
+}
+
+.detailSection {
+  display: flex;
+  padding: var(--kiwi-spacing-4) var(--kiwi-spacing-2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+
+  .orgInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kiwi-spacing-0-5);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+.orgName {
+  @include kiwi-typography-headline-sm;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.memberInfoSection {
+  display: flex;
+  padding: var(--kiwi-spacing-2);
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+
+  .inviteMemberBtnWrapper {
+    position: relative;
+    display: flex;
+    border-radius: var(--kiwi-border-radius-rounded);
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: inherit;
+      border: 1px dashed var(--kiwi-colors-surface-outline);
+    }
+
+    .inviteMemberBtn {
+      border-radius: inherit;
+    }
+  }
+}
+
+.moreActionsBtn {
+  position: absolute;
+  z-index: 2;
+  right: var(--kiwi-spacing-1);
+  top: var(--kiwi-spacing-1);
+}
+
+.moreActionsDropdown {
+  min-width: 176px;
+}
+
+.avatarSection {
+  position: relative;
+}
+
+.uploadLogoBtn {
+  position: absolute;
+  top: -14px;
+  right: -9px;
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  color: var(--kiwi-colors-core-secondary);
+}

@@ -1,0 +1,753 @@
+@import "../../constants/lumin-styles";
+
+.HeaderLumin {
+  $self: &;
+
+  height: $header-height;
+  min-height: $header-height;
+  overflow: hidden;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+
+  @include themify {
+    background-color: themed("bgColor");
+    border-bottom: 1px solid themed("primaryBorderColor");
+  }
+
+  &__button-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    &--disabled {
+      position: relative;
+    }
+    &--uploadLumin {
+      height: 32px;
+      font-size: 12px;
+    }
+    .Popper__styleContent {
+      overflow: visible;
+    }
+    .Popper__contentScroll {
+      .Share_list-container {
+        .MuiListItem-button {
+          padding: 6px 16px;
+          @include themify {
+            color: themed("shareButtonColor");
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            min-height:36px;
+          }
+        }
+      }
+    }
+  }
+
+
+  &__button-wrapper-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: not-allowed;
+
+    @include themify {
+      background: themed("bgColor");
+      opacity: 0.5;
+    }
+  }
+
+  &__auto-sync--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    width: 135px;
+
+    @include tablet {
+      margin: 0;
+      width: 190px;
+    }
+
+    .HeaderLumin__auto-sync--label {
+      display: flex;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+
+      @include themify {
+        color: themed("textMenuItem");
+      }
+
+      margin-right: 7px;
+
+      @include tablet {
+        font-weight: 375;
+        margin-left: -2px;
+      }
+
+      .GoogleLogo {
+        margin-right: 5px;
+
+        @include tablet {
+          margin-right: 9px;
+        }
+      }
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    #{$self}__logo {
+      min-width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      color: $white;
+      background: var(--color-secondary-50);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        @include themify {
+          background: themed("primaryButtonBgHover");
+        }
+      }
+    }
+
+    #{$self}__offline-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 12px;
+    }
+
+    #{$self}__offline-status--hide {
+      display: none;
+    }
+
+    #{$self}__offline-status-text {
+      font-weight: normal;
+      font-style: normal;
+      font-family: $font-stack-primary;
+      font-size: 12px;
+      line-height: 16px;
+      white-space: nowrap;
+
+      @include themify {
+        color: themed("textSearchValue");
+      }
+
+      margin-left: 4px;
+    }
+
+    #{$self}__star-document {
+      &--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
+    #{$self}__move-document {
+      margin-left: 4px;
+      background: transparent;
+      border-radius: 4px;
+      border-color: transparent;
+
+      @include themify {
+        color: themed("moveDocumentIcon");
+      }
+
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      max-width: 48px;
+      display: inline-flex;
+      justify-content: center;
+
+      &:hover {
+        cursor: pointer;
+
+        @include themify {
+          background: themed("moveDocumentIconHover");
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+    #{$self}__document-info {
+      flex: 1;
+      max-height: 65px;
+      width: calc(100% - 80px);
+      #{$self}__document-name {
+        max-height: 24px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.02px;
+
+        @include themify {
+          color: themed("textColor");
+        }
+
+        width: 100%;
+        background: none;
+
+        input {
+          margin-right: 8px;
+          border: 1px solid transparent;
+          padding: 0 4px;
+          height: 22px;
+          text-overflow: ellipsis;
+          max-width: calc(100% - 16px); /* 16px = margin + padding */
+          font-family: $font-stack-primary;
+          font-size: 14px;
+          font-weight: 600;
+          background: none;
+          font-style: normal;
+          line-height: 24px;
+
+          @include themify {
+            color: themed("textColor");
+          }
+
+          &:hover {
+            border-radius: 4px;
+            border: solid 1px;
+            cursor: text;
+
+            @include themify {
+              border-color: themed("borderColorRenameDocument");
+            }
+          }
+
+          &:focus {
+            outline: none;
+            border-radius: 4px;
+            border: solid 1px;
+            border: 1px solid var(--color-primary-50);
+
+            @include themify {
+              box-shadow: 0 0 0 1.2px themed("borderColorRenameDocumentFocus");
+            }
+          }
+
+          &:disabled {
+            @include themify {
+              -webkit-text-fill-color: themed("textColor");
+              opacity: 1;
+            }
+          }
+        }
+
+        .FavoriteIcon__button {
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
+
+          &:hover {
+            @include themify {
+              background-color: themed("toolbarHover");
+            }
+          }
+        }
+      }
+      #{$self}__document-storage {
+        width: fit-content;
+        min-height: 18px;
+        font-weight: 375;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 6px;
+        display: flex;
+        align-items: center;
+        &--highlight {
+          background: var(--color-neutral-10);
+          padding: 4px;
+          border-radius: var(--border-radius-dense);
+        }
+        @include themify() {
+          color: themed('textSearchValue');
+        }
+
+        .mini-divider {
+          width: 1px;
+          min-height: 10px;
+          height: 100%;
+
+          @include themify {
+            background-color: themed("miniDividerColor");
+          }
+
+          margin: 0 4px;
+        }
+
+        .icon-info {
+          vertical-align: middle;
+          margin-left: 4px;
+        }
+
+        &__link {
+          display: contents;
+          color: $dark-sky-blue;
+          cursor: pointer;
+          pointer-events: auto;
+
+          &--inactive {
+            color: "grey";
+            pointer-events: none;
+          }
+        }
+      }
+      #{$self}__document-google-sync {
+        width: auto;
+        height: 21px;
+        margin-left: 6px;
+        border-radius: 4px;
+        padding: 3px 9px;
+
+        i {
+          margin: 14px 4px 5px;
+          object-fit: contain;
+        }
+
+        &--saving {
+          background-color: $white;
+          color: "grey";
+
+          @include themify {
+            background: rgb(0 0 0 / 0%);
+            color: themed("textColorLighter");
+          }
+
+          i {
+            &.loading {
+              &::before {
+                animation: spin 2s linear infinite;
+                display: inline-block;
+              }
+            }
+          }
+
+          &::after {
+            content: "Saving...";
+            margin-left: 5px;
+            font-size: 12px;
+          }
+
+          @include tablet {
+            &::after {
+              content: none;
+            }
+          }
+        }
+
+        &--saved {
+          background-color: $dark-sky-blue-20;
+          color: $dark-sky-blue;
+
+          @include tablet {
+            background-color: $white;
+
+            @include themify {
+              background: rgb(0 0 0 / 0%);
+            }
+          }
+
+          &::after {
+            content: "Saved";
+            margin-left: 5px;
+            font-size: 12px;
+          }
+
+          @include tablet {
+            &::after {
+              content: none;
+            }
+          }
+        }
+
+        .icon-info {
+          vertical-align: middle;
+          margin-left: 4px;
+        }
+
+        &__link {
+          display: contents;
+          color: $dark-sky-blue;
+          cursor: pointer;
+          pointer-events: auto;
+
+          &--inactive {
+            color: "grey";
+            pointer-events: none;
+          }
+        }
+      }
+      #{$self}__document-storage-text {
+        opacity: 1;
+        cursor: default;
+
+        &--inactive {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        &--desktop {
+          display: none;
+
+          @include desktop {
+            display: block;
+          }
+        }
+
+        &--tablet {
+          display: flex;
+          align-items: center;
+
+          @include desktop {
+            display: none;
+          }
+
+          img,
+          i {
+            width: 16px;
+            margin-right: 4px;
+          }
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-icon {
+          margin-right: 3px;
+        }
+
+        i {
+          margin-right: 3px;
+        }
+
+        &__link {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    #{$self}__online-member {
+      display: none;
+
+      @media screen and (width >= 1200px) {
+        margin-right: 2px;
+        flex-direction: row-reverse;
+        display: flex;
+      }
+
+      &__wrapper {
+        margin: 0 6px;
+        position: relative;
+        z-index: 1;
+        border: 2px solid;
+        border-color: transparent;
+        border-radius: 50%;
+        max-height: 36px;
+
+        .MaterialAvatar__border--circle {
+          border: 1px solid;
+
+          @include themify {
+            border-color: themed("popperBorder");
+          }
+        }
+
+        &.showmore {
+          cursor: pointer;
+        }
+      }
+
+      &__wrapper:hover {
+        cursor: pointer;
+        border-color: var(--color-secondary-50);
+
+        .MaterialAvatar__border--circle {
+          @include themify {
+            border-color: themed("popperBackground");
+          }
+        }
+      }
+
+      .Collaborator__btn {
+        .MaterialAvatar__container {
+          color: var(--color-neutral-80);
+        }
+      }
+
+      .Collaborator__btn.active {
+        .showmore {
+          border-color: var(--color-secondary-50);
+
+          .MaterialAvatar__border--circle {
+            @include themify {
+              border-color: themed("popperBackground");
+            }
+          }
+        }
+      }
+
+      .Popper__styleContent {
+        padding: 8px 0;
+        .Collaborator__menu-list {
+          width: 264px;
+          max-height: 335px;
+          overflow: auto;
+
+          .Collaborator__menu-item {
+            padding: 8px 24px;
+
+            &--idle {
+              opacity: 0.5;
+            }
+
+            span {
+              font-family: $font-stack-primary;
+              font-style: normal;
+              font-weight: 375;
+              font-size: 14px;
+              line-height: 20px;
+
+              @include themify {
+                color: themed("textColorLighter");
+              }
+
+              margin-left: 8px;
+            }
+
+            .MaterialAvatar__border {
+              border-color: transparent;
+            }
+          }
+        }
+      }
+    }
+    #{$self}__share-button {
+      height: 32px;
+      min-width: 68px;
+      margin-left: 4px;
+      margin-right: 4px;
+      padding: 0 15px;
+      border: none;
+      background: var(--color-secondary-50);
+      border-radius: 8px;
+
+      @include themify {
+        color: themed("primaryButtonColor");
+      }
+
+      .LuminButton__label {
+        margin-left: 0;
+        font-family: $font-stack-primary;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        text-transform: lowercase;
+        &::first-letter {
+          text-transform: capitalize !important;
+        }
+      }
+
+      @include desktop {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        @include themify {
+          background: themed("primaryButtonBgHover");
+        }
+
+        color: var(--color-white);
+      }
+    }
+    #{$self}__download-button,
+    #{$self}__print-button,
+    #{$self}__offline-button {
+      margin: 0 4px;
+
+      @include desktop {
+        margin: 0 4px;
+      }
+    }
+    #{$self}__comment-button-active {
+      border: solid 2px $dark-sky-blue !important;
+      color: $dark-sky-blue !important;
+    }
+    #{$self}__enable-sync-toggle {
+      width: max-content;
+      height: 28px;
+      margin: 0 8px;
+
+      @include tablet {
+        margin: 0 4px;
+        padding: 0 4px;
+      }
+
+      border-radius: 4px;
+
+      @include themify {
+        background: rgb(0 0 0 / 0%);
+        color: themed("colorAutoSyncText");
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 0.34px;
+      }
+
+      .Mui-disabled {
+        color: $secondary;
+      }
+    }
+
+    .divider {
+      margin: 0 4px;
+
+      @include themify {
+        border-color: themed("dividerColor");
+      }
+
+      @include desktop {
+        margin: 0 4px;
+      }
+    }
+  }
+
+  &--hide {
+    height: 0;
+    min-height: 0;
+  }
+
+  &__auto-size-input-wrapper {
+    $star-button-witdh: 24px;
+    $move-button-witdh: 24px;
+    $auto-sync-status-width: 150px;
+    $offline-label-width: 110px;
+    $margin: 4px;
+
+    max-width: calc(100% - #{$margin} - #{$star-button-witdh} - #{$move-button-witdh});
+    box-sizing: content-box;
+
+    &--with-auto-sync {
+      max-width: calc(100% - #{$star-button-witdh} - #{$margin} - #{$auto-sync-status-width});
+    }
+
+    &--with-offline {
+      max-width: calc(100% - #{$star-button-witdh} - #{$margin} - #{$offline-label-width});
+    }
+  }
+}
+
+.HeaderLumin__back {
+  flex-shrink: 0;
+  background: none;
+
+  @include themify {
+    color: themed("squareButtonColor");
+  }
+
+  &:hover {
+    @include themify {
+      background: themed("popperItemHover");
+    }
+  }
+}
+
+.tooltip--make_file_available_online_only {
+  .tooltip__content {
+    white-space: nowrap;
+  }
+}
+
+.request-popper {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 266px;
+  font-size: 14px;
+  list-style: 20px;
+}
+.request-popper__title {
+  margin-top: 16px;
+  font-weight: 600;
+  @include themify() {
+    color: themed('requestPopperTitle');
+  }
+}
+.request-popper__description {
+  margin-top: 8px;
+  font-weight: 375;
+  text-align: center;
+  line-height: 20px;
+  @include themify() {
+    color: themed('trialBaseText');
+  }
+}
+.request-popper__button {
+  margin-top: 16px;
+  height: 40px;
+  width: 218px;
+  border: none;
+  font-weight: 600;
+  background: var(--color-secondary-50);
+  border-radius: 8px;
+  color: var(--color-white);
+  text-transform: none;
+  &:hover {
+    @include themify() {
+      background: themed('primaryButtonBgHover');
+    }
+  }
+
+}
+.restoreOriginalButton {
+  margin-right: 8px;
+}
+
+.document-name-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  @include themify {
+    color: themed("textColor");
+  }  
+}

@@ -1,0 +1,71 @@
+.circleContainer {
+  display: flex;
+  align-items: center;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-3);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  width: 100%;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+}
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+  margin-left: var(--kiwi-spacing-1-5);
+  width: 100%;
+}
+
+.orgName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  // Make space for avatar and gap
+  width: calc(100% - var(--kiwi-spacing-1-5) - var(--kiwi-spacing-6));
+  cursor: pointer;
+}
+
+.memberContainer {
+  display: flex;
+  flex-direction: row;
+  gap: var(--kiwi-spacing-1);
+  max-width: 100%;
+  margin: 1px 0;
+}
+
+.orgRoleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: var(--kiwi-spacing-0-5);
+  max-width: 100%;
+  align-items: center;
+}
+
+.orgRoleTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.orgRole {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ctaBtn {
+  flex-shrink: 0;
+}

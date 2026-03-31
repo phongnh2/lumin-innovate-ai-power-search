@@ -1,0 +1,20 @@
+.link {
+  color: var(--kiwi-colors-surface-on-surface);
+  border-bottom: 2px dashed var(--kiwi-colors-surface-on-surface-variant);
+  margin-left: 4px;
+
+  @include kiwi-typography-label-md;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.legalWriterLink {
+  display: block;
+  align-items: center;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-bottom: var(--kiwi-spacing-1);
+
+  @include kiwi-typography-label-md;
+}

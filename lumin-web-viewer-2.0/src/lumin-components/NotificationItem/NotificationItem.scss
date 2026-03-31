@@ -1,0 +1,161 @@
+@import '../../constants/lumin-styles';
+
+.NotificationItem {
+  display: flex;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+
+  .MaterialAvatar__border {
+    transition: border-color 0.3s ease;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: stretch;
+    margin-top: 10px;
+  }
+
+  &__actions {
+    .NotificationActionButton {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      margin-top: -10px;
+    }
+  }
+
+  &:hover {
+    .MaterialAvatar__border {
+      border-color: #fff;
+    }
+    @include themify() {
+      background: themed('notiUnseenHover');
+    }
+    cursor: pointer;
+    .NotificationActionButton {
+      opacity: 1;
+    }
+  }
+
+  &--unseen {
+    @include themify() {
+      background: themed('notiUnseenBg');
+      &:hover {
+        background: themed('notiUnseenHover');
+      }
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 20px;
+  }
+
+  &__time {
+    display: flex;
+
+    & > span {
+      font-family: var(--font-primary);
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--color-neutral-80);
+      font-weight: 600;
+
+      @include themify() {
+        color: themed('textColorLighter');
+      }
+    }
+  }
+  &__left {
+    display: inline-block;
+
+    &__avatar {
+      width: 32px !important;
+      height: 32px !important;
+    }
+  }
+  &__right {
+    padding-left: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+
+      & > span {
+        font-family: var(--font-primary);
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--color-neutral-80);
+        max-height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        -webkit-line-clamp: 3;
+        /* stylelint-disable-next-line value-no-vendor-prefix */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        font-weight: 400;
+        @include themify() {
+          color: themed('textColorLighter');
+        }
+      }
+
+      .bold {
+        font-weight: 600;
+        color: var(--color-neutral-80);
+        @include themify() {
+          color: themed('textColorLighter');
+        }
+      }
+
+      &__btn {
+        width: auto !important;
+        min-width: 88px !important;
+        min-height: 32px !important;
+        margin-top: 16px !important;
+        align-items: center !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        align-self: flex-start;
+
+        & > span {
+          width: auto !important;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 0.2px;
+          text-align: center;
+          color: white;
+        }
+      }
+
+      &__message {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--color-neutral-80);
+
+        &__tag {
+          color: var(--color-secondary-50);
+        }
+      }
+    }
+  }
+}
+
+.NotificationItem__lumin {
+  .MaterialAvatar__container {
+    background-color: var(--color-secondary-50);
+  }
+}
+
+// use for reskin
+.bold {
+  @include kiwi-typography-body-md-semibold;
+}

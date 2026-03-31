@@ -1,0 +1,21 @@
+{
+  "NEXT_PUBLIC_KRATOS_URL": "https://auth-sandbox.luminpdf.com",
+  "NEXT_PUBLIC_APP_URL": "https://app-sandbox.luminpdf.com",
+  "NEXT_PUBLIC_HYDRA_PUBLIC_URL": "https://auth-sandbox.luminpdf.com",
+  "NEXT_PUBLIC_AWS_REGION": "us-east-1",
+  "NEXT_PUBLIC_S3_PROFILES_BUCKET": "lumin-profiles-staging",
+  "NEXT_PUBLIC_SOCKET_IO_URL": "https://sandbox-socket.luminpdf.com",
+  "NEXT_PUBLIC_AUTH_URL": "https://account-sandbox.luminpdf.com",
+  "NEXT_PUBLIC_LUMIN_SIGN_APP_URL": "https://sign-sandbox.luminpdf.com",
+  "NEXT_PUBLIC_AGREEMENT_GEN_URL": "https://dev.luminpdf.com/app/generate",
+  "NEXT_PUBLIC_BACKEND_URL": "https://app-sandbox.luminpdf.com/api/web",
+  "NEXT_PUBLIC_STATIC_URL": "https://www.luminpdf.com",
+  "NEXT_PUBLIC_GA4_MEASUREMENT_ID": "G-DD33R83B11",
+  "NEXT_PUBLIC_AUTHEN_JWT_COOKIE_EXPIRY": 1,
+  "NEXT_PUBLIC_AUTHOR_JWT_EXPIRED_AT": 1680000,
+  "NEXT_PUBLIC_ORY_SESSION_NAME": "ory_session_festivebanzaieca6utc5z8",
+  "NEXT_PUBLIC_CANNY_URL":"https://lumin-dev.canny.io/",
+  "NEXT_PUBLIC_CANNY_COMPANY_ID":"660fbc659625f184d40bf5cb",
+  "NEXT_PUBLIC_SESSION_LIFESPAN": "1d",
+  "NEXT_PUBLIC_OIDC_XERO_CLIENT_ID": "1542F6DAA7C94E6E8AE5B0F708D94020"
+}

@@ -1,0 +1,3 @@
+import CopyDocumentToInternalStorageModal from './CopyDocumentToInternalStorageModal';
+
+export default CopyDocumentToInternalStorageModal;

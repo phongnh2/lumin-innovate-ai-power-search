@@ -1,0 +1,81 @@
+enum FormFieldDetection {
+  signature
+  text_box
+  check_box
+  radio_box
+}
+
+enum FormFieldDetectionTrigger {
+  automatic
+  user_initiated
+}
+
+input CreatePresignedFormFieldDetectionUrlInput {
+  documentId: ID! @MongoId(key: "documentId")
+  fieldType: FormFieldDetection
+  triggerAction: FormFieldDetectionTrigger
+  pages: [Int!] @Array(min: 0, max: 15, isOptional: true)
+}
+
+input BatchCreatePresignedFormFieldDetectionUrlInput {
+  documentId: ID! @MongoId(key: "documentId")
+  fieldType: FormFieldDetection
+  pages: [[Int!]!]!
+}
+
+input BoundingRectanglePayload {
+  x1: Float
+  y1: Float
+  x2: Float
+  y2: Float
+}
+
+input DetectedFormFieldInput {
+  boundingRectangle: BoundingRectanglePayload!
+  fieldType: FormFieldDetection!
+  fieldId: String!
+  pageNumber: Int!
+  score: Float
+}
+
+input PredictionFieldDataInput {
+  appliedFormFields: [DetectedFormFieldInput!]!
+  predictions: [DetectedFormFieldInput!]!
+  sessionId: String! @UUID
+}
+
+input ProcessAppliedFormFieldsInput {
+  documentId: ID! @MongoId(key: "documentId")
+  predictionFieldDataList: [PredictionFieldDataInput!]!
+}
+
+type CreatePresignedFormFieldDetectionUrlPayload {
+  document: ISignedUrl
+  blockTime: Int
+  presignedUrl: String
+  sessionId: String @UUID
+  usage: Int
+  priority: Int
+  isExceeded: Boolean
+}
+
+type BatchCreatePresignedFormFieldDetectionUrlPayload {
+  document: ISignedUrl
+  blockTime: Int
+  presignedUrl: String
+  sessionId: String @UUID
+  usage: Int
+  isExceeded: Boolean
+}
+
+type GetFormFieldDetectionUsagePayload {
+  usage: Int
+  blockTime: Int
+}
+
+type Query {
+  createPresignedFormFieldDetectionUrl(input: CreatePresignedFormFieldDetectionUrlInput!): CreatePresignedFormFieldDetectionUrlPayload
+  getFormFieldDetectionUsage: GetFormFieldDetectionUsagePayload
+  processAppliedFormFields(input: ProcessAppliedFormFieldsInput!): BasicResponse
+  batchCreatePresignedFormFieldDetectionUrl(inputs: BatchCreatePresignedFormFieldDetectionUrlInput!): [BatchCreatePresignedFormFieldDetectionUrlPayload!]!
+}

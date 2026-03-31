@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package chatbot;
+
+service ChatbotService {
+  rpc ValidateRequestsLimit(ValidateRequestsLimitRequest) returns (ValidateRequestsLimitResponse) {};
+  rpc CountFreeRequestsUsage(google.protobuf.Empty) returns (google.protobuf.Empty) {};
+}
+
+message ValidateRequestsLimitRequest {
+  string documentId = 1;
+}
+
+message ValidateRequestsLimitResponse {
+  int32 dailyRequestsLimit = 1;
+}

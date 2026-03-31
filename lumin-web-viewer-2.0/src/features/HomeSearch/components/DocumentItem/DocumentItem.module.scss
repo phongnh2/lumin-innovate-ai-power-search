@@ -1,0 +1,88 @@
+@import 'reskin/screens.scss';
+@import '../../styles/variables';
+
+.container {
+  grid-template-columns: $document-grid-cols;
+
+  @include xl-screen {
+    grid-template-columns: $document-grid-cols-xl;
+  }
+
+  @include xl-down-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      grid-template-columns: $document-grid-cols-xl-down-chatbot;
+      .storageCol,
+      .lastUpdated {
+        display: none;
+      }
+      .ownerColWrapper,
+      .starWrapper {
+        display: none;
+      }
+    }
+  }
+
+  @include xl-to-xxxl-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      grid-template-columns: $document-grid-cols-xl-to-xxxl-chatbot;
+      .storageCol,
+      .starWrapper,
+      .lastUpdated {
+        display: none;
+      }
+      &:hover {
+        .ownerColWrapper {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  .info {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .status {
+    display: grid;
+    grid-template-columns: 36px;
+    column-gap: var(--kiwi-spacing-0-5);
+
+    & > * {
+      width: max-content;
+    }
+
+    @include xl-screen {
+      grid-template-columns: 48px;
+    }
+
+    &.overTimeLimit {
+      grid-template-columns: 76px 36px;
+
+      @include xl-screen {
+        grid-template-columns: 88px 48px;
+      }
+    }
+  }
+}
+
+.ownerCol {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.storageCol {
+  padding: 0 var(--kiwi-spacing-3);
+}
+
+.lastUpdatedCol {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding-left: var(--kiwi-spacing-1);
+}

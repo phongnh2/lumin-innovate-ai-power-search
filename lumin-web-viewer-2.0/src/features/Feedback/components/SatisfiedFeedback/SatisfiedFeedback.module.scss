@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $kiwi-spacing-2;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.satisfiedFeedback {
+  display: flex;
+  justify-content: center;
+  gap: $kiwi-spacing-2;
+}
+
+.satisfiedFeedbackReskin {
+  display: flex;
+  justify-content: center;
+  gap: $kiwi-spacing-4;
+}
+
+.item {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transition: all var(--editor-transition);
+    transform: scale(1.2);
+  }
+}
+
+.itemReskin {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transition: var(--editor-transition);
+    transform: scale(1.2);
+  }
+}
+
+.selected {
+  opacity: 1;
+}
+
+.unSelected {
+  opacity: var(--kiwi-opacity-disabled-on-container);
+}

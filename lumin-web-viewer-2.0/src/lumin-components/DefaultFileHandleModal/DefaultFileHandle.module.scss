@@ -1,0 +1,27 @@
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+} 
+
+.message {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-4);
+}
+
+.introductionImage {
+  min-height: 263px;
+  width: calc(100% + var(--kiwi-spacing-3) * 2);
+  margin: calc(var(--kiwi-spacing-3) * -1) calc(var(--kiwi-spacing-3) * -1) var(--kiwi-spacing-2) calc(var(--kiwi-spacing-3) * -1);
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+  justify-content: flex-end;
+}
+
+.dialogContentInDarkMode {
+  box-shadow: none;
+}

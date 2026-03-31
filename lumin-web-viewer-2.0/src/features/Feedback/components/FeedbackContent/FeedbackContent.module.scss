@@ -1,0 +1,75 @@
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.description {
+  margin: var(--kiwi-spacing-2) 0 0;
+}
+
+.contentContainer {
+  margin-top: var(--kiwi-spacing-2);
+  padding: $kiwi-spacing-3 $kiwi-spacing-5;
+  border-radius: $kiwi-border-radius-md;
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  position: relative;
+  min-height: 338px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerContainer {
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: calc(var(--kiwi-spacing-0-75) * -1);
+  right: calc(var(--kiwi-spacing-1-5) * -1);
+}
+
+.progress {
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  right: 6px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  padding: var(--kiwi-spacing-1);
+}
+
+.step {
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.headerWrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+}
+
+.actionButtonsWrapper {
+  width: 100%;
+  margin-top: var(--kiwi-spacing-3);
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: var(--kiwi-spacing-1);
+}
+
+.tempNavigation {
+  width: 32px;
+}

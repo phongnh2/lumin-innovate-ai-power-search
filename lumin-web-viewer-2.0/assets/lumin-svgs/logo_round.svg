@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="132" height="132" viewBox="0 0 132 132">
+    <defs>
+        <linearGradient id="b" x1="22.571%" x2="91.212%" y1="18.017%" y2="91.909%">
+            <stop offset="0%" stop-color="#EF1A1B"/>
+            <stop offset="42.132%" stop-color="#D13043"/>
+            <stop offset="100%" stop-color="#9F041B"/>
+        </linearGradient>
+        <rect id="a" width="132" height="132" rx="36.837"/>
+        <linearGradient id="c" x1="38.248%" x2="79.987%" y1="32.129%" y2="79.486%">
+            <stop offset="0%" stop-color="#FD8378"/>
+            <stop offset="100%" stop-color="#DB324B"/>
+        </linearGradient>
+        <linearGradient id="e" x1="12.246%" x2="30.832%" y1="18.691%" y2="50%">
+            <stop offset="0%" stop-color="#F7B8C4"/>
+            <stop offset="100%" stop-color="#F0022D"/>
+        </linearGradient>
+        <filter id="f" width="156.4%" height="162.9%" x="-28.1%" y="-31.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="4" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.676046981 0 0 0 0 0.0115368655 0 0 0 0 0.0993023525 0 0 0 0.24793365 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <mask id="d" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <use fill="url(#b)" xlink:href="#a"/>
+            <circle cx="31.227" cy="35.32" r="43.506" fill="url(#c)" mask="url(#d)" opacity=".563"/>
+            <path fill="url(#e)" d="M97.343 149.367c57.11-6.594 53.577-21.003 59.488-59.488 5.912-38.485-51.528-66.246-79.411-54.353-27.884 11.893-14.755 33.227-39.565 54.353-24.81 21.125 2.378 66.082 59.488 59.488z" mask="url(#d)" opacity=".551"/>
+        </g>
+        <g fill="#FFF" filter="url(#f)" transform="translate(25.581 29.674)">
+            <path d="M42.364 0L21.488 36.374l10.514 18.882L63.442 0zM31.72 55.256l11.033 18.418H81.86L71.3 55.256zM12.516 52.186L0 73.674h25.581L12.714 52.186z"/>
+        </g>
+    </g>
+</svg>

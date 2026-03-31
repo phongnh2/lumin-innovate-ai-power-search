@@ -1,0 +1,21 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section css-class="wrapper-child">
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{actorName}} transferred the ownership of {{teamName}}'s {{teamWord}} to you</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            You are now the Admin of&nbsp;<b class="highlight">{{teamName}}'s {{teamWord}}&nbsp;</b>and will be able to access extra features in Lumin.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/{{teamUrlSegment}}s/{{teamId}}/members">View my {{teamWord}}</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

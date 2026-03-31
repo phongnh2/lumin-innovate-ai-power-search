@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-1);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+}
+
+.header {
+  display: flex;
+  padding: var(--kiwi-spacing-0) var(--kiwi-spacing-0-5) var(--kiwi-spacing-0) var(--kiwi-spacing-1);
+  align-items: center;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.suggestedWorkspaceList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.suggestedWorkspaceItem {
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.suggestedWorkspaceItemInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+  cursor: default;
+}
+
+.suggestedWorkspaceItemName {
+  max-width: 120px;
+}

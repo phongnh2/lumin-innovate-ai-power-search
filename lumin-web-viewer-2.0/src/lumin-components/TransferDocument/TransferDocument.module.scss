@@ -1,0 +1,227 @@
+@import 'reskin/scrollbar.scss';
+
+.rootModal {
+  color: var(--kiwi-colors-core-on-secondary-container);
+}
+
+.content {
+  box-shadow: none;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--kiwi-shadow-4);
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+.body {
+  overflow-y: auto;
+  max-height: 90vh;
+  @include scrollbar-reskin;
+  color: var(--kiwi-colors-core-on-secondary-container);
+}
+
+.modalTitle {
+  @include kiwi-typography-headline-md;
+  margin-right: var(--kiwi-spacing-1);
+}
+
+.label {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.breadcrumbMainItem {
+  @include kiwi-typography-title-sm;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.breadcrumbItem {
+  @include kiwi-typography-title-sm;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &[data-last-item="true"] {
+    color: var(--kiwi-colors-surface-on-surface);
+  }
+
+  &[data-last-item="false"] {
+    color: var(--kiwi-colors-core-primary);
+  }
+}
+
+.text {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: var(--kiwi-spacing-1-5);
+  text-align: start;
+
+  &[data-not-found="true"] {
+    font-weight: bold;
+  }
+}
+
+.expandedItemMainContent {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 90%;
+
+  &[data-disabled="true"] {
+    opacity: 0.5;
+  }
+}
+
+.tabContainer {
+  display: flex;
+  margin-bottom: var(--kiwi-spacing-1);
+}
+
+.iconSearch {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.folderIconContainer {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--kiwi-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxWrapper {
+  display: flex;
+  margin-top: var(--kiwi-spacing-2);
+}
+
+.divider {
+  background-color: var(--kiwi-colors-surface-outline-variant);
+  display: block;
+
+  &[data-orientation="vertical"] {
+    width: 2px;
+    background-color: var(--kiwi-colors-core-primary);
+  }
+  &[data-orientation="horizontal"] {
+    margin-bottom: var(--kiwi-spacing-0-5);
+    margin-top: var(--kiwi-spacing-0-5);
+    width: 100%;
+    height: 1px;
+  }
+}
+
+.sourceWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.destinationOption {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.header {
+  display: flex;
+  margin-bottom: var(--kiwi-spacing-2);
+  align-items: center;
+}
+
+.breadcrumbWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumbContainer {
+  display: flex;
+  align-items: center;
+  padding-top: var(--kiwi-spacing-1-5);
+  margin-bottom: var(--kiwi-spacing-1-5);
+  width: 90%;
+}
+
+.breadcrumbItemContainer {
+  display: flex;
+  align-items: center;
+}
+
+.loadingWrapper {
+  margin: var(--kiwi-spacing-6) 0;
+}
+
+.expandedTitleContainer { 
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.expandedTitle {
+  margin-bottom: var(--kiwi-spacing-1);
+  display: flex;
+  
+  text-transform: uppercase;
+  @include kiwi-typography-title-sm;
+
+  &[data-is-breadcrumb-exists="true"] {
+    margin-top: var(--kiwi-spacing-2);
+  }
+}
+
+.expandedItemContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  width: 90%;
+  justify-content: space-between;
+
+  &[data-full-width="true"] {
+    width: 100%;
+  }
+}
+
+.expandedListContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &[data-one-list-only="true"] {
+    margin-bottom: 54px;
+  }
+
+  &[data-fixed="true"] {
+    overflow: unset;
+  }
+}
+
+.nameInput {
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.defaultAvatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kiwi-border-radius-rounded);
+  background-color: var(--kiwi-colors-core-secondary-container);
+}

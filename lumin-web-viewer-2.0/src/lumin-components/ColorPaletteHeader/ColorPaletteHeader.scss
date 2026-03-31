@@ -1,0 +1,435 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/styles";
+
+.stylePopup-title {
+  i {
+    margin: unset;
+  }
+
+  &:nth-child(2) {
+    margin-top: 16px;
+  }
+
+  .palette--title,
+  .palette--title-free-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 16px 0;
+    font-family: $font-stack-primary;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: 0.34px;
+
+    @include themify {
+      color: themed("textColor");
+    }
+
+    @include mobile {
+      font-size: 15px;
+    }
+  }
+
+  .palette--title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 16px 0;
+    font-family: $font-stack-primary;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: 0.34px;
+
+    @include themify {
+      color: themed("textColor");
+    }
+
+    @include mobile {
+      font-size: 15px;
+    }
+  }
+
+  .palette {
+    align-items: center;
+    margin-bottom: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .FreeTextPaletteHeader__ActionButton--disabled {
+      pointer-events: none !important;
+    }
+
+    .input {
+      border-radius: 4px;
+
+      span {
+        @include themify {
+          color: themed("paletteInputColor");
+        }
+      }
+
+      i {
+        @include themify {
+          color: themed("paletteInputColor");
+        }
+      }
+
+      @include themify {
+        background-color: themed("bgColor");
+        color: themed("textColor");
+      }
+    }
+
+    .FreeTextPaletteHeader__MaterialSelect--full-width {
+      width: 100% !important;
+    }
+
+    .FreeTextPaletteHeader__MaterialSelect--font-size {
+      width: 164px;
+      height: 28px;
+      margin-top: 0;
+      margin-right: 16px;
+      border-radius: 4px;
+
+      @include themify {
+        border: 1px solid themed("borderInput");
+        background-color: themed("bgColor");
+      }
+      /* stylelint-disable */
+      .font-helvetica {
+        font-family: 'Helvetica';
+      }
+      .font-roboto {
+        font-family: 'Roboto';
+      }
+      .font-lora {
+        font-family: 'Lora';
+      }
+      .font-merriweather {
+        font-family: 'Merriweather';
+      }
+      .font-dancing-script {
+        font-family: 'DancingScript';
+      }
+      .font-aladin {
+        font-family: 'Aladin';
+      }
+      .font-allura {
+        font-family: 'Allura';
+      }
+      .font-cookie {
+        font-family: 'Cookie';
+      }
+      .font-courgette {
+        font-family: 'Courgette';
+      }
+      .font-gillSans {
+        font-family: 'GillSans';
+      }
+      .font-italianno {
+        font-family: 'Italianno';
+      }
+    }
+
+    .FreeTextPaletteHeader__MaterialSelect__content--no-padding-left {
+      padding-left: 0px;
+    }
+    .FreeTextPaletteHeader__MaterialSelect__input__content--justify-center {
+      justify-content: center;
+      i {
+        position: absolute;
+        right: 0;
+      }
+    }
+    .FreeTextPaletteHeader__input--wrapper {
+      width: 80px;
+      .LuminInput__wrapper  {
+        .LuminInput__input  {
+          text-align: center;
+        }
+        height: 28px;
+        border-radius: 4px;
+        transition: background-color .3s ease;
+
+        @include themify() {
+          border: 1px solid themed('paletteInputBorder');
+          background-color: themed('bgColor');
+        }
+        &:focus-within {
+          @include themify() {
+            border: solid 1px var(--color-primary-50);
+            box-shadow: 0 0 0 1.2px themed('borderColorNoteInputFocus');
+          }
+        }
+      }
+      .FreeTextPaletteHeader__Input--font-extension {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 42%;
+        right: 5px;
+        i {
+          top: -2px;
+        }
+        @include themify() {
+          color: themed('paletteInputColor');
+        }
+      }
+
+      .FreeTextPaletteHeader__MaterialPopper {
+        .Popper__styleContent {
+          @include themify() {
+            box-shadow: themed('boxShadowNote');
+            filter:none;
+          }
+        }
+        .FreeTextPaletteHeader__MenuList {
+          width: 136px;
+          @include themify() {
+            color: themed('fontStyleText')
+          }
+          li {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            font-weight: 375;
+            font-size: 14px;
+            line-height: 20px;
+            i {
+              @include themify(){
+                color: themed('fontStyleCheckedIcon')
+              }
+            }
+          }
+          li:hover {
+            @include themify() {
+              color: themed('fontStyleTextHover');
+              background: themed('fontStyleTextHoverBg');
+            }
+          }
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+      &-flex {
+        display: flex;
+        width: 100%;
+        margin-top: 16px;
+        .Input--container {
+          max-width: 112px;
+          min-width: 112px;
+        }
+        .FreeTextPaletteHeader__MaterialPopper {
+          .FreeTextPaletteHeader__MenuList {
+            width: 136px;
+            @include themify() {
+              color: themed('fontStyleText')
+            }
+            li {
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              font-weight: 375;
+              font-size: 14px;
+              line-height: 20px;
+              i {
+                @include themify(){
+                  color: themed('fontStyleCheckedIcon')
+                }
+              }
+            }
+            li:hover {
+              @include themify() {
+                color: themed('fontStyleTextHover');
+                background: themed('fontStyleTextHoverBg');
+              }
+            }
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
+        }
+        .LuminInput {
+          width: 100%;
+        }
+      }
+      .LuminInput__input  {
+        padding: 0px 24px 0px 18px;
+        @include themify() {
+          color: themed('paletteInputColor');
+        }
+      }
+    }
+
+    .text-tool{
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      @include themify() {
+        border: 1px solid themed('paletteInputBorder');
+      }
+      margin: 0 4px;
+      &:hover {
+        border-radius: 4px;
+        @include themify() {
+          background: themed('fontStyleHover');
+        }
+      }
+      &.active {
+        border-radius: 4px;
+        @include themify() {
+          background: themed('fontStyleSelected');
+        }
+      }
+    }
+
+    .FreeTextPaletteHeader__ActionButton--wrapper {
+      flex-grow: 1;
+      width: 50%;
+      display: flex;
+      .text-tool {
+        margin-left: 8px;
+      }
+    }
+
+    .border {
+      margin-left: 8px;
+    }
+    
+    .text,
+    .border,
+    .fill {
+      height: 28px;
+      width: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      &.text-stroke {
+        -webkit-text-stroke: 1px $cloudyblue;
+        &.selected {
+          -webkit-text-stroke: 1px white;
+        }
+      }
+
+      &.bordered {
+        border: 1px solid $cloudyblue;
+      }
+
+      &.selected {
+        border-radius: 4px;
+        @include themify() {
+          background: themed('textFrameSelectedBg');
+        }
+      }
+
+      &:hover {
+        border-radius: 4px;
+        @include themify() {
+          background: themed('textFrameHoverBg');
+        }
+      }
+
+      .icon-rect-filled:before {
+        padding-left: .5px;
+      }
+    }
+
+    .border-icon,
+    .fill-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 100%;
+
+      &.dark {
+        border: 1px solid #bfbfbf;
+      }
+
+      &.bright {
+        border: none;
+      }
+    }
+
+    .fill-icon {
+      &.transparency {
+        background-color: $white;
+        overflow: hidden;
+      }
+    }
+    
+    .MaterialSelect {
+      &.FreeTextPaletteHeader__MaterialSelect--full-width {
+        .MaterialSelect__popper { 
+          .Popper__styleContent {
+            width: 252px;
+          }
+        }
+      }
+      .MaterialSelect__popper {
+        top: 2px !important;
+        left: 0px !important;
+        .Popper__styleContent {
+          @include themify() {
+            box-shadow: themed('boxShadowNote');
+            filter:none;
+          }
+
+          width: 166px;
+          li {
+            @include themify() {
+              color: themed('fontStyleText');
+            }
+            .item__container{
+              div:first-of-type {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                i {
+                  @include themify() {
+                    color: themed('fontStyleCheckedIcon')
+                  }
+                }
+              }
+            }
+          }
+          li:hover {
+            @include themify() {
+              color: themed('fontStyleTextHover');
+            }
+          }
+        }
+      }
+    }
+
+    .MaterialSelect--focus {
+      @include themify() {
+        border: solid 1px var(--color-primary-50);
+        box-shadow: 0 0 0 1.2px themed('borderColorNoteInputFocus');
+      }
+    }
+
+    &__font-selected {
+      margin-left: 6px;
+      color: $dark-sky-blue;
+    }
+  }
+
+  .ColorPaletteHeader__palette--flex {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .palette--mg-0 {
+    margin: 0;
+  }
+}

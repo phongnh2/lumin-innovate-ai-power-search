@@ -1,0 +1,8 @@
+export const DEFAULT_DOMAIN_WHITE_LIST = ['luminpdf.com'];
+
+const COMMON_DOMAIN_WHITE_LIST = ['dgroup.co', ...DEFAULT_DOMAIN_WHITE_LIST];
+
+export const DOMAIN_WHITE_LIST = {
+  SIGNATURE: COMMON_DOMAIN_WHITE_LIST,
+  CONVERT_TO_DOCX: ['zensurance.com', ...COMMON_DOMAIN_WHITE_LIST],
+};

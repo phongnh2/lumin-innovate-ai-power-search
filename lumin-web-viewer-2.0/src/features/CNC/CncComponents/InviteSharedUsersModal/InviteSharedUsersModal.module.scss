@@ -1,0 +1,169 @@
+@import 'reskin/scrollbar.scss';
+
+.container {
+  width: 480px;
+  margin: 0 auto;
+  border-radius: var(--kiwi-border-radius-lg);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  box-shadow: var(--kiwi-shadow-4);
+  padding: var(--kiwi-spacing-3);
+}
+
+.headerWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+  text-align: center;
+}
+
+.label {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-inverse-surface);
+  background-color: var(--kiwi-colors-surface-surface-container);
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: var(--kiwi-border-radius-md);
+  width: fit-content;
+}
+
+.userSection {
+  margin-top: var(--kiwi-spacing-3);
+}
+
+.userSectionTitle {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.userTags {
+  @include scrollbar-reskin;
+  max-height: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kiwi-spacing-0-5);
+  margin-top: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  overflow-y: auto;
+}
+
+.roleTitle {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.roleSection {
+  margin-top: var(--kiwi-spacing-2);
+}
+
+.buttonRole {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--kiwi-spacing-2);
+  margin-top: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-surface-surface-bright);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    border: 1px solid var(--kiwi-colors-core-secondary);
+  }
+
+  &.buttonRoleActive {
+    border: 1px solid var(--kiwi-colors-core-secondary);
+    outline: 3px solid var(--kiwi-colors-custom-role-web-surface-blue-activated);
+  }
+
+  p {
+    @include kiwi-typography-body-md;
+    color: var(--kiwi-colors-surface-on-surface);
+    line-height: 24px;
+  }
+
+  &.buttonRoleDisabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    border: none;
+
+    &:before {
+      border-radius: var(--kiwi-border-radius-md);
+      background-color: var(--kiwi-colors-surface-on-surface);
+      opacity: var(--kiwi-opacity-background-read-only);
+    }
+  }
+}
+
+.menuItem {
+  height: 40px;
+  line-height: 24px;
+}
+
+.menuItem.hideMenuItem {
+  visibility: hidden;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: var(--kiwi-spacing-2) 0;
+  background-color: var(--kiwi-colors-surface-outline-variant);
+}
+
+.circleTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.circleInfo {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  margin-top: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.circleName {
+  @include kiwi-typography-headline-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.circleDescription {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-2);
+  margin-top: var(--kiwi-spacing-3);
+}
+
+.nameWrapper {
+  display: inline;
+}

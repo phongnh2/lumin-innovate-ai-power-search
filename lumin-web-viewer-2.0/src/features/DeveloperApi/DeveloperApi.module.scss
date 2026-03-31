@@ -1,0 +1,70 @@
+.container {
+  box-sizing: border-box;
+  color: var(--kiwi-colors-surface-on-surface);
+  position: relative;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  padding-bottom: 20vh;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  @include kiwi-typography-headline-lg;
+}
+
+.sectionContainer {
+  display: flex;
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-0-5);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-surface-container-highest);
+  background: var(--kiwi-colors-surface-surface);
+  @include kiwi-typography-body-md;
+}
+
+.sectionHeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 40px;
+}
+
+.sectionTitle {
+  @include kiwi-typography-title-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.sectionDescription {
+  @include kiwi-typography-title-sm;
+  margin-top: var(--kiwi-spacing-0-5);
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.formWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+  align-items: self-start;
+  align-self: stretch;
+  margin-top: var(--kiwi-spacing-2);
+}
+
+.callbackInput {
+  width: 100%;
+  background-color: var(--kiwi-colors-surface-background);
+}

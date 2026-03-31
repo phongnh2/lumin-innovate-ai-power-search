@@ -1,0 +1,18 @@
+input GetPDFFormTemplateInput {
+  templateId: ID!
+}
+
+type GetPDFFormTemplatePayload {
+  templateName: String
+  name: String
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  provider: String
+  url: String
+}
+
+type Query {
+  getPDFFormTemplate(input: GetPDFFormTemplateInput!): GetPDFFormTemplatePayload
+}

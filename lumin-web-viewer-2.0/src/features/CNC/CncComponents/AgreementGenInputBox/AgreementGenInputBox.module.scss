@@ -1,0 +1,160 @@
+.agInputBoxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--kiwi-spacing-2-5);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-xl);
+  background: var(--kiwi-colors-custom-brand-tools-annotation-surface);
+  margin: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-4) 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  width: 100%;
+  user-select: none;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+
+  &::after {
+    content: "";
+    background-image: url("/assets/lumin-svgs/ag-gradient.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    transform: translateY(-5px);
+  }
+}
+
+.collapseButton{
+  cursor: pointer;
+  background:var(--kiwi-colors-surface-surface-container-lowest);
+  width: 32px;
+  height: 32px;
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.inputBoxWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--kiwi-border-radius-lg);
+  border: 1px solid #9F98FC;
+  opacity: 1;
+  transition: max-height 0.25s ease-in-out, margin-top 0.25s ease-in-out;
+  overflow: hidden;
+  max-height: 850px;
+  margin-top: var(--kiwi-spacing-2-5);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+}
+
+.collapsed {
+  margin-top: 0;
+  opacity: 0;
+  max-height: 0;
+}
+
+.textAreaWrapper {
+  border: none;
+
+  --input-focused-border: transparent;
+  --input-focused-box-shadow: transparent;
+}
+
+.textArea {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  margin: var(--kiwi-spacing-1-5);
+  min-height: 72px;
+  max-height: 190px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-body-md;
+  line-height: 24px;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  &:after {
+    content: attr(data-placeholder);
+    opacity: var(--kiwi-opacity-disabled-on-container);
+    pointer-events: none;
+  }
+}
+
+.ctaContainer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  border-bottom-left-radius: var(--kiwi-border-radius-lg);
+  border-bottom-right-radius: var(--kiwi-border-radius-lg);
+  margin: 0 var(--kiwi-spacing-1-5) var(--kiwi-spacing-1-5) var(--kiwi-spacing-1-5)
+}
+
+.promptSubmitButton {
+  background-color: var(--kiwi-colors-custom-brand-sign-sign-surface-container);
+  transition: all .2s;
+  padding: var(--kiwi-spacing-1);
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+  &:disabled,
+  &:hover:disabled,{
+    background-color: var(--kiwi-colors-surface-surface-container-disabled);
+    color: var(--kiwi-colors-surface-on-surface-disabled);
+
+    & span {
+      margin-inline-end: 0;
+    }
+  }
+}
+
+.defaultPromptsContainer {
+  display: flex;
+  padding: var(--kiwi-spacing-1-5);
+  gap: var(--kiwi-spacing-0-5);
+  background: rgba(247, 242, 255, 0.60);
+}
+
+.defaultPrompt {
+  border-radius: var(--kiwi-border-radius-rounded);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.promptMark {
+  @include kiwi-typography-body-md;
+
+  background: rgb(180 213 254 / 50%);
+  span {
+    color: var(--kiwi-colors-semantic-information);
+  }
+}
+
+.activePromptMark {
+  background: rgb(241 245 248 / 100%);
+
+  span {
+    color: var(--kiwi-colors-surface-on-surface);
+    opacity: var(--kiwi-opacity-disabled-on-container-variant);
+  }
+}
+
+

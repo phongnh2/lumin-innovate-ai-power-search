@@ -1,0 +1,12 @@
+export { default as LeftSideBar } from './LeftSideBar';
+export { default as TransferDocumentBody } from './TransferDocumentBody';
+export { default as RightPanel } from './RightPanel';
+export { default as Footer } from './Footer';
+export { default as MoveDocumentModal } from './MoveDocumentModal';
+export { default as Header } from './Header';
+export { default as SearchGroup } from './SearchGroup';
+export { default as SearchResult } from './SearchResult';
+export { default as ResultItemRender } from './ResultItemRender';
+export { default as MoveDocumentConfirmModal } from './MoveDocumentConfirmModal';
+export { default as UploadDocumentModal } from './UploadDocumentModal';
+export { default as CopyDocumentModal } from './CopyDocumentModal';

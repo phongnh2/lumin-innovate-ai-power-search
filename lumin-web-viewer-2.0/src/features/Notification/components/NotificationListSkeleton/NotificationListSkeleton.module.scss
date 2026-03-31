@@ -1,0 +1,12 @@
+.container {
+  grid-template-columns: max-content 1fr;
+}
+
+.labelWrapper {
+  padding-top: calc(var(--kiwi-spacing-1-5) + var(--kiwi-spacing-0-25));
+  padding-left: var(--kiwi-spacing-2-5);
+}
+
+.contentWrapper {
+  gap: var(--kiwi-spacing-1-75);
+}

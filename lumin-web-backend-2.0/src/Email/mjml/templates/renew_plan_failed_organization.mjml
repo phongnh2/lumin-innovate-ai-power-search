@@ -1,0 +1,26 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Oops! {{orgName}}'s {{orgWord}} could not be&nbsp;renewed</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Your subscription for&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;could not be renewed. This is most likely because your credit card has expired or your billing details are incorrect. Please update your billing details to avoid interruption to your Lumin plan.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">Update Billing Details</mj-button>
+          <mj-spacer height="24px" />
+          <mj-text>
+            Your plan will be downgraded to the free version without further action. This change will affect all&nbsp;<b class="highlight">{{totalMember}}</b>&nbsp;{{pluralize "member" "members" totalMember}} in&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>. People in this {{orgWord}} may experience the following limitations:
+          </mj-text>
+          <mj-app-product-restriction />
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

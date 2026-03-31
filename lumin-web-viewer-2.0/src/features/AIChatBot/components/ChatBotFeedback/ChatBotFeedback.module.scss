@@ -1,0 +1,38 @@
+.feedbackWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  flex-direction: column;
+}
+
+.aiResponseActions {
+  padding: var(--kiwi-spacing-0) var(--kiwi-spacing-1);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hasGeneratedButtonAction {
+  justify-content: space-between;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.thanks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1);
+
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container);
+
+  p {
+    margin-bottom: 0;
+  }
+}

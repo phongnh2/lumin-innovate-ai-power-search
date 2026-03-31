@@ -1,0 +1,51 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  height: auto;
+
+  .label {
+    margin-bottom: var(--kiwi-spacing-0-5);
+  }
+}
+
+.creditCardContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.creditCardWrapper {
+  padding-top: var(--kiwi-spacing-1);
+}
+
+.actionButtonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+
+  hr {
+    align-self: center;
+  }
+}
+
+.addNewCardBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.paymentMethodWrapper {
+  max-width: unset;
+  width: 100%;
+
+  @include md-screen {
+    max-width: 320px;
+  }
+}
+
+.errorMessage {
+  width: 100%;
+  max-width: 594px;
+  margin-bottom: var(--kiwi-spacing-2);
+}

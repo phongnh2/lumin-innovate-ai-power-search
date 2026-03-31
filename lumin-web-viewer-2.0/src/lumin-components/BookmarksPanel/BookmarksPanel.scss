@@ -1,0 +1,28 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/panel";
+
+.BookmarksPanel {
+  padding-top: 8px;
+
+  .no-bookmarks {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 31px;
+
+    p {
+      margin-top: 24px;
+      font-family: $font-stack-primary;
+      font-style: normal;
+      font-weight: 375;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--color-neutral-60);
+
+      @include themify {
+        color: themed("noOutlineTextColor");
+      }
+    }
+  }
+}

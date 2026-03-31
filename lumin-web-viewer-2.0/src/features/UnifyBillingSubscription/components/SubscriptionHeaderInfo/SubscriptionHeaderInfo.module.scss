@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-25);
+}
+
+.header {
+  @include kiwi-typography-headline-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}

@@ -1,0 +1,16 @@
+.label {
+  @include kiwi-typography-title-sm;
+  padding: var(--kiwi-spacing-1-5) 0 0 var(--kiwi-spacing-2-5);
+  color: var(--kiwi-colors-surface-on-surface-low);
+}
+
+.itemWrapper {
+  width: 100%;
+}
+
+.reachedEnd {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-low);
+  text-align: center;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2-5) var(--kiwi-spacing-2-5);
+}

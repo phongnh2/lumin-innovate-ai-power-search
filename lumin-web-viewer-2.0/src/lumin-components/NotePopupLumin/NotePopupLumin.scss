@@ -1,0 +1,130 @@
+@import "../../constants/lumin-styles";
+
+
+.NotePopup {
+  &.NotePopup__left-panel--flex-end {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+  display: flex;
+  user-select: none;
+  .icon-color {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px; 
+    box-sizing: border-box;
+    margin-right: 18px;
+    @include themify() {
+      background: themed('commentPopup');
+    }
+  }
+
+  .square {
+    min-width: unset;
+    width: 28px;
+    height: 28px;
+    i {
+      @include themify() {
+        color: themed('iconColor');
+      }
+    }
+    &:hover {
+      @include themify() {
+        background: themed('popperItemHover');
+      }
+    }
+  }
+  button.open{
+    @include themify() {
+      background-color: themed('commentMenuOpenButtonBg');
+    }
+    box-shadow: inset 0px 0px 12px rgba(16, 45, 66, 0.16);
+  }
+
+
+
+  .overflow {
+    .Icon {
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .options {
+    flex-direction: column;
+    right: 0;
+    top: 100%;
+    padding: 5px;
+    background: white;
+    background: var(--primary-color);
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.14);
+    z-index: 80;
+
+    display: flex;
+    position: absolute;
+
+    div {
+      width: 100%;
+      padding: 3px;
+
+      &:hover {
+        color: $smoke;
+      }
+
+      @include tablet-and-mobile {
+        padding: 7px 5px;
+      }
+    }
+
+    &:empty {
+      padding: 0px;
+    }
+  }
+
+}
+
+.NotePopup__popper-comment {
+  z-index: 255;
+  &-palette{
+    position: fixed;
+    top: 0;
+    right: 35px;
+  }
+
+  .Popper__styleContent {
+    ul {
+      min-width: 134px;
+      &.NotePopupLumin__MenuList--comment {
+        min-width: 204px;
+      }
+    }
+  }
+}
+
+.NotePopupLumin__MenuList li {
+  line-height: 0;
+  min-height: 40px;
+  font-size: 14px;
+  @include themify() {
+    color: themed('commentPopup');
+  }
+  &:hover {
+    @include themify() {
+      color: themed('commentPopupActive');
+    }
+    .icon-color {
+      @include themify() {
+        background: themed('commentPopupActive');
+      }
+    }
+  }
+  i {
+    margin-right: 12px;
+  }
+}

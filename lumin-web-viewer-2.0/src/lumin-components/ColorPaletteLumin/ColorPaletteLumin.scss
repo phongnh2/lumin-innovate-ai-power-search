@@ -1,0 +1,135 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/styles";
+@import "../../constants/variables.scss";
+
+%cell {
+  flex: 1 0 28px;
+  height: 26px;
+  display: flex;
+  margin: 0 1px;
+
+  @include mobile {
+    height: 30px;
+    margin: 0 1.2px;
+  }
+}
+
+.ColorPaletteLumin {
+  display: flex;
+  flex-direction: row;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 16px 0;
+
+  .color-cell {
+    padding: 1px !important;
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    margin-right: 4px;
+
+    span {
+      background: unset;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: unset;
+    }
+
+    &.active {
+      .cell {
+        &::after {
+          content: "";
+          position: absolute;
+          inset: -3px;
+          border-radius: 50%;
+
+          @include themify {
+            border: solid 1px themed("textFrameHover");
+          }
+        }
+      }
+    }
+
+    &.active-picker {
+      border-radius: 50%;
+
+      @include themify {
+        border: solid 1px themed("tertiaryButtonBgHover");
+        background-color: themed("squareButtonPressed");
+        box-shadow: themed("boxShadowPanel");
+        color: themed("colorPickerCellActive");
+      }
+    }
+  }
+
+  .ColorPickerBtn {
+    margin-right: 0;
+  }
+
+  .cell {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    
+    @include themify {
+      border: solid 1px themed("textFrameHover");
+    }
+    
+    &.bordered {
+      border: 1px solid $cloudyblue;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .check-mark {
+      width: 20px;
+      height: 20px;
+
+      &.dark {
+        color: rgb(0 0 0 / 54%);
+      }
+
+      &.bright {
+        color: rgb(255 255 255 / 70%);
+      }
+    }
+
+    i {
+      margin-right: 0;
+    }
+  }
+
+  .dummy-cell {
+    @extend %cell;
+  }
+
+  &--no-margin {
+    margin: 0;
+
+    &-top {
+      margin-top: 0;
+    }
+  }
+
+  &--disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+    & > * {
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}

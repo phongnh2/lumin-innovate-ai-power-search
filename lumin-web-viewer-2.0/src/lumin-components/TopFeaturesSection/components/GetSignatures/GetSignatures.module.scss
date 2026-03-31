@@ -1,0 +1,24 @@
+.uploadButton {
+  height: 100%;
+}
+
+.getSignaturesContainer {
+  position: relative;
+}
+
+.getSignatureWrapper {
+  position: absolute;
+  z-index: calc(var(--zindex-kiwi-modal-low) - 1);
+  text-align: start;
+  height: 100%;
+  width: 100%;
+
+  & > div:first-child {
+    height: 100%;
+  }
+}
+
+.signUploadContainer {
+  position: relative;
+  z-index: 400;
+}

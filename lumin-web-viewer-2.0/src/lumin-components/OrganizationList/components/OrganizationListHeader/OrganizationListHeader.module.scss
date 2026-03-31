@@ -1,0 +1,91 @@
+@import '../../OrganizationList.module.scss';
+
+.headerWrapper {
+  @include organization-list-grid-template;
+  white-space: nowrap;
+  padding: var(--kiwi-spacing-1);
+  border-bottom: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-surface-container-high);
+
+  & > span:first-child {
+    margin-left: calc(var(--kiwi-spacing-1) * -1);
+  }
+}
+
+.membersPage {
+  top: 196px; // layout header's height = 64px + top section = 132px
+}
+
+.headerItem {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.roleHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.roleTooltip {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1-5);
+}
+
+.roleContent {
+  display: grid;
+  column-gap: var(--kiwi-spacing-2);
+
+  & > span:first-child {
+    @include kiwi-typography-title-xs;
+    white-space: nowrap;
+    color: var(--kiwi-colors-surface-inverse-on-surface);
+    font-weight: 700;
+  }
+
+  & > span:last-child {
+    @include kiwi-typography-body-sm;
+    color: var(--kiwi-colors-surface-inverse-on-surface);
+  }
+}
+
+.signSeatHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.signSeatContent {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-inverse-on-surface);
+
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: var(--kiwi-spacing-1);
+
+  li {
+    &::marker {
+      content: '•';
+    }
+    & > span {
+      margin-left: var(--kiwi-spacing-1);
+    }
+  }
+}
+
+.sortItemWrapper {
+  @include kiwi-typography-label-md;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: var(--kiwi-spacing-2);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.roleSort {
+  min-width: 108px;
+}
+
+.dateSort {
+  min-width: 148px;
+}

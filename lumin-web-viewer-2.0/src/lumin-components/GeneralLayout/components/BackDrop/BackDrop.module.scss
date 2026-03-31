@@ -1,0 +1,36 @@
+.toastOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 84;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top-left-radius: var(--kiwi-border-radius-md);
+    border-top-right-radius: var(--kiwi-border-radius-md);
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+.toastContainer {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-inverse-surface);
+  color: var(--kiwi-colors-surface-inverse-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 16px;
+  width: auto;
+  p {
+    margin: 0;
+    @include kiwi-typography-body-sm;
+  }
+}

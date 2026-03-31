@@ -1,0 +1,59 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-3);
+}
+
+.header {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-5);
+}
+
+.billingDetail {
+  width: 100%;
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+}
+
+.selectorWrapper {
+  width: 100%;
+  max-width: 100%;
+
+  @include md-screen {
+    max-width: 440px;
+  }
+}
+
+.selectOption {
+  align-items: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--kiwi-spacing-1);
+}
+
+.selectWrapper {
+  --input-left-section-size: var(--kiwi-spacing-5);
+}
+
+.selectInput {
+  padding-left: var(--kiwi-spacing-5);
+}
+
+.groupLabel {
+  @include kiwi-typography-headline-xs;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding: var(--kiwi-spacing-0-5) 0;
+  &::after {
+    display: none;
+  }
+}
+
+.restrictedSection {
+  padding: var(--kiwi-spacing-3) 0;
+
+  @include md-screen {
+    padding: var(--kiwi-spacing-8) var(--kiwi-spacing-5);
+  }
+}

@@ -1,0 +1,23 @@
+.container {
+  margin-bottom: var(--kiwi-spacing-3);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface);
+  display: flex;
+  padding: var(--kiwi-spacing-2-5);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1-5);
+  align-self: stretch;
+}
+
+.title {
+  color: var(--kiwi-colors-surface-on-surface-low);
+
+  @include kiwi-typography-label-md;
+}
+
+.list {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+  width: 100%;
+}

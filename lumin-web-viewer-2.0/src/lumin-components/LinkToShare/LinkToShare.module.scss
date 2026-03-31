@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.linkChange {
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.btnRoot {
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+}

@@ -1,0 +1,16 @@
+.userTag {
+  cursor: default;
+
+  & > label {
+    cursor: default;
+  }
+
+  &::after {
+    content: none;
+  }
+}
+
+.closeChipIcon {
+  display: flex;
+  cursor: pointer;
+}

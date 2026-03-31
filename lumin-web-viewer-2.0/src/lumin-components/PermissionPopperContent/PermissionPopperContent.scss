@@ -1,0 +1,43 @@
+@import "../../constants/lumin-styles";
+
+.request-popper {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 266px;
+  font-size: 14px;
+  list-style: 20px;
+}
+.request-popper__title {
+  margin-top: 16px;
+  font-weight: 600;
+  @include themify() {
+    color: themed('requestPopperTitle');
+  }
+}
+.request-popper__description {
+  margin-top: 8px;
+  font-weight: 375;
+  text-align: center;
+  line-height: 20px;
+  @include themify() {
+    color: themed('trialBaseText');
+  }
+}
+.request-popper__button {
+  margin-top: 16px;
+  height: 40px;
+  width: 218px;
+  border: none;
+  font-weight: 600;
+  background: var(--color-secondary-50);
+  border-radius: 8px;
+  color: var(--color-white);
+  text-transform: none;
+  &:hover {
+    @include themify() {
+      background: themed('primaryButtonBgHover');
+    }
+  }
+}

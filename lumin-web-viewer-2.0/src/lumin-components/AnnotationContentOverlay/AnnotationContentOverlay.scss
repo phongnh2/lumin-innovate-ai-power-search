@@ -1,0 +1,37 @@
+@import "../../constants/lumin-styles";
+
+.AnnotationContainer {
+  transition: visibility 100ms cubic-bezier(.17,.67,.91,.45);
+  position: fixed;
+  z-index: 205;
+}
+
+.AnnotationContentOverlay {
+  border-radius: 8px;
+
+  @include themify {
+    background: themed("tooltipBg");
+  }
+
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+
+  .contents {
+    display: flex;
+    white-space: pre-wrap;
+    font-family: $font-stack-primary;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    @include themify {
+      color: themed("toolContent");
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+}

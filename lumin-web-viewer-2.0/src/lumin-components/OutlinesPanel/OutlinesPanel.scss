@@ -1,0 +1,28 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/panel";
+
+.OutlinesPanel {
+  padding-top: 8px;
+
+  .no-outlines {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 31px;
+
+    p {
+      margin-top: 24px;
+      font-weight: 375;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 20px;
+      font-family: $font-stack-primary;
+
+      @include themify {
+        color: themed("noOutlineTextColor");
+      }
+    }
+  }
+}

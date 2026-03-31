@@ -1,0 +1,33 @@
+@import "../../constants/styles";
+
+.SvgElement {
+  // pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &.auto-margin {
+    margin: 0 auto;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animation-skeleton-loading {
+  animation: skeleton-loading 1s linear infinite alternate;
+}

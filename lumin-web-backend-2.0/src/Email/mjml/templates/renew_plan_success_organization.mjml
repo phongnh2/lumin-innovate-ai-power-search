@@ -1,0 +1,34 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Success! The subscription for {{orgName}}'s {{orgWord}} has been renewed</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Your&nbsp;<b class="highlight">{{lower period}}&nbsp;</b>subscription for <b class="highlight">{{orgName}}'s {{orgWord}}&nbsp;</b> has been successfully renewed.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For information about your plan or to view your invoices, head to<br>
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-raw>
+            {{#if (eq period 'Monthly') }}
+          </mj-raw>
+            <mj-spacer height="32px" />
+            <mj-app-button href="{{baseUrl}}/{{paymentAnnualUrl}}">Go annual to receive less invoices</mj-app-button>
+          <mj-raw>
+            {{/if}}
+          </mj-raw>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

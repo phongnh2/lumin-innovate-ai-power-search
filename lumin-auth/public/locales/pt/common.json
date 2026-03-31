@@ -1,0 +1,271 @@
+{
+  "common": {
+    "signIn": "Iniciar sessão",
+    "signInToJoinOrganization": "Inicie sessão para se juntar a $t(terms:organization)",
+    "signUp": "Registar-se",
+    "logOut": "Terminar sessão",
+    "continue": "Continuar",
+    "openGmail": "Abrir Gmail",
+    "email": "E-mail",
+    "ok": "OK",
+    "name": "Nome",
+    "password": "Palavra-passe",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "yes": "Sim",
+    "signOut": "Terminar sessão",
+    "or": "ou",
+    "accept": "Aceitar",
+    "enable": "Habilitar"
+  },
+  "authPage": {
+    "orUseYourEmail": "OU USAR O SEU E-MAIL",
+    "footerDescription": "Uma conta para todos os produtos Lumin",
+    "newToLumin": "Novo(a) no Lumin?",
+    "signUpForFree": "Registe-se para o grátis",
+    "acceptAllTermsAndConditions": "Aceito todos os\u00a0<b>Termos de Serviço</b> e a <a>Política de Privacidade</a>",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "resendVerifyYourEmail": "O seu e-mail ainda não foi verificado. Não recebeu o código?",
+    "didNotReceiveAnEmail": "Reenviar Ligação de Verificação",
+    "hidePassword": "Ocultar palavra-passe",
+    "showPassword": "Mostrar palavra-passe",
+    "signUpWith": "Inscreva-se com",
+    "signInWith": "Faça login com",
+    "verifiedEmailHasBeenResent": "O e-mail de verificação foi reenviado",
+    "notHaveAccount": "Não tem uma conta?",
+    "signUpHere": "Inscreva-se aqui",
+    "signInWithAnotherAccount": "Iniciar sessão com outra conta",
+    "recommendWorkEmail": "Recomenda-se email de trabalho, mas não é obrigatório.",
+    "backToSavedProfile": "Voltar ao perfil salvo",
+    "continueWithEmail": "Continuar com e-mail",
+    "continueWithEmailAndPassword": "Continuar com e-mail e senha",
+    "accessDenied": "Acesso negado."
+  },
+  "signInPage": {
+    "forgotPassword": "Esqueceu-se da Palavra-passe?"
+  },
+  "placeholder": {
+    "yourEmail": "O seu E-mail",
+    "yourPassword": "A sua Palavra-passe",
+    "yourName": "O seu Nome",
+    "password": "Palavra-passe",
+    "confirmByTyping": "Confirme digitando"
+  },
+  "signOutModal": {
+    "title": "Tem a certeza de que quer sair?",
+    "message": "Vemo-nos em breve!"
+  },
+  "errorMessage": {
+    "incorrectEmailOrPassword": "E-mail ou palavra-passe incorretos.",
+    "emailExisted": "O e-mail já existe.",
+    "unknownError": "Ocorreu algo de errado.",
+    "forceLogoutTitle": "Já tem sessão iniciada no Lumin",
+    "avatarOversize": "A imagem que carregou é demasiado grande. Carregue um ficheiro de tamanho inferior a {{avatarSizeLimit}} MB.",
+    "alreadySignupByThirdParty": "Este endereço de e-mail já está sendo usado com Google, Dropbox ou Microsoft. Por favor, faça login com Google, Dropbox ou Microsoft.",
+    "alreadySignUpBy": "Este endereço de e-mail está atualmente a ser usado na {{loginService}}. Inicie sessão na {{loginService}}.",
+    "emailIsBanned": "Este e-mail está banido.",
+    "userNotFound": "Nenhuma conta foi criada com este e-mail.",
+    "verifyRecaptchaFailed": "A verificação recaptcha falhou. Tente novamente.",
+    "alreadySignedInAnotherMethod": "Já tem sessão iniciada através de outro método",
+    "unVerifyAccount": "Esta conta ainda não foi verificada",
+    "alreadyVerified": "A verificação deste e-mail foi bem-sucedida. Inicie sessão.",
+    "onlyOnFileAllowed": "Só é permitido um ficheiro",
+    "validFile": "O ficheiro deve ser jpeg, jpg or png",
+    "fileTypeNotExist": "Esse tipo de ficheiro não existe",
+    "similarPassword": "Não pode usar esta palavra-passe, já que ela é demasiado semelhante ao seu e-mail.",
+    "leakedPassword": "Não pode usar esta palavra-passe, já que ela foi encontrada em violações de segurança. Não deve voltar a usar esta palavra-passe",
+    "grpcError": "Ocorreu um problema quando o sistema chamou gRpc",
+    "passwordExpiredHasLink": "A sua palavra-passe Lumin expirou. Tente iniciar sessão com o Google ou <a>redefinir a sua palavra-passe</a>.",
+    "passwordExpired": "A sua palavra-passe Lumin expirou. Tente iniciar sessão com o Google ou redefinir a sua palavra-passe.",
+    "fieldRequired": "Este campo é obrigatório.",
+    "notContainUrl": "Esta campo não pode conter endereço(s) URL.",
+    "invalidField": "Este campo é inválido.",
+    "maxLengthMessage": "Este campo não pode ter mais do que {{length}} carateres.",
+    "minLengthMessage": "Este campo tem de ter mais do que {{length}} carateres.",
+    "fieldNonWhitespace": "Este campo não pode conter espaços em branco",
+    "unknownThirdParty": "Google, Dropbox ou Microsoft",
+    "email&password": "E-mail e Palavra-passe",
+    "passwordMustHaveAtLeastCharacters": "A palavra-passe tem de ter pelo menos {{length}} carateres.",
+    "passwordMustHaveNoMoreThanCharacters": "A palavra-passe não pode ter mais do que {{length}} carateres."
+  },
+  "expiredLink": {
+    "title": "A ligação foi expirada.",
+    "subtitle": "A ligação de convite que procura expirou",
+    "backBtn": "Regressar a documentos"
+  },
+  "invitationRegistration": {
+    "signUpToJoinCircle": "Registe-se e adira ao $t(terms:organization)",
+    "emailCanNotBeChanged": "O seu e-mail não pode ser alterado",
+    "signUpToAccessDocuments": "Registe-se para aceder aos documentos"
+  },
+  "forgotPassword": {
+    "forgotYourPassword": "Esqueceu-se da sua palavra-passe",
+    "forceLogoutTitle": "Já tem sessão iniciada no Lumin",
+    "forceLogoutMessage": "Antes de redefinir a palavra-passe, precisa de terminar a sessão.",
+    "externalLoginTitle": "Não é possível redefinir a palavra-passe",
+    "externalLoginMessage": "Este endereço de e-mail está atualmente a ser usado na Google Drive ou Dropbox. Neste caso, não há necessidade de uma palavra-passe.",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "title": "Esqueceu-se da sua palavra-passe?",
+    "emailSent": "E-mail enviado!",
+    "enterYourEmail": "Introduza o seu e-mail abaixo para receber as instruções de redefinição da sua palavra-passe.",
+    "yourEmail": "O seu E-mail",
+    "resetMyPassword": "Redefinir a Minha Palavra-passe",
+    "passwordResetEmailHasBeenSent": "Foi enviado um e-mail de redefinição de palavra-passe para o seu endereço de e-mail.",
+    "followThePromptsToReset": "Consulte-o e siga as indicações para redefinir a palavra-passe.",
+    "note": "Se você não vir nosso e-mail, provavelmente significa que você ainda não se inscreveu. Se for o caso, inscreva-se para continuar."
+  },
+  "verifyAccount": {
+    "verificationEmailHasBeenSent": "Foi enviado um e-mail de verificação",
+    "verifyYourEmail": "Precisamos de verificar o seu endereço de e-mail",
+    "messageVerifyYourEmail": "Acabamos de enviar um e-mail de verificação para <b>{{email}}</b>.",
+    "probablyAlreadySignedUp": "Se você não vir nosso e-mail, provavelmente significa que você já se inscreveu. Se for o caso, basta fazer login para continuar.",
+    "resendVerifyYourEmail": "Não recebeu um e-mail?",
+    "alreadyVerified": "A verificação deste e-mail foi bem-sucedida. <b>Inicie sessão</b>.",
+    "resendCount": "Reenviar {{count}}",
+    "niceWork": "Bom trabalho!",
+    "verificationFailed": "A verificação falhou!",
+    "verifiedSuccessfully": "O seu e-mail foi verificado com sucesso",
+    "verificationInvalid": "Este e-mail de verificação é inválido, ou então já foi usado ou expirou. Por favor, insira o seu endereço de e-mail para receber uma nova hiperligação de verificação!"
+  },
+  "pageTitle": {
+    "verifyAccount": "Verificar Conta",
+    "account": "Conta",
+    "forgotYourPassword": "Esqueceu-se da sua palavra-passe",
+    "profileSettings": "Definições de Perfil",
+    "createAnAccountLumin": "Criar uma conta",
+    "luminPDFEditor": "Lumin Editor de PDF",
+    "signInSSO": "Iniciar sessão com SSO"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "A página que procura parece não existir.",
+    "goToHomePage": "Ir para a Página Inicial"
+  },
+  "profileSettings": {
+    "profileInfo": "Informações do perfil",
+    "changeName": "Mudar nome",
+    "changePassword": "Alterar palavra-passe",
+    "newPassword": "Nova palavra-passe",
+    "accessApps": "Acessar aplicativos",
+    "agreementGenSlogan": "Seu assistente de redacção de contratos",
+    "luminSlogan": "Compartilhe, edite e colabore em PDFs",
+    "signSlogan": "Envie, assine e rastreie fluxos de trabalho",
+    "changePasswordSuccessfully": "Senha alterada com sucesso",
+    "changeNameSuccessfully": "Alteração de nome"
+  },
+  "profileAvatar": {
+    "uploadPhoto": "Carregar foto",
+    "editPhoto": "Editar foto",
+    "uploadAnotherUploadPhoto": "Carregar outra foto",
+    "removeThisUploadPhoto": "Remover esta foto",
+    "updateSuccessfully": "Atualização bem-sucedida",
+    "noteUploadAvatar": "Pode carregar: png, jpg. Tamanho máximo: {{size}} MB",
+    "removePhotoSuccessfully": "Foto removida"
+  },
+  "modalSessionExpired": {
+    "title": "Aviso de expiração da sessão",
+    "message": "A sessão da sua conta expirou. Inicie sessão novamente para continuar o seu trabalho."
+  },
+  "resetPassword": {
+    "message": "Por motivos de segurança, ao clicar em Sair, você será desconectado de todos os dispositivos e precisará fazer login novamente com a nova senha nesses dispositivos.",
+    "passwordChanged": "Palavra-passe alterada",
+    "stayLoggedIn": "Manter sessão iniciada",
+    "logOut": "Terminar sessão"
+  },
+  "expiredPermissionModal": {
+    "title": "Ups, a sua permissão de acesso expirou",
+    "message": "A sua conta foi eliminada. Para mais informações, <a>Contacte o Apoio</a>.",
+    "messageProvisioning": "A sua conta foi eliminada via provisioning da sua $t(terms:organization)."
+  },
+  "socialSignIn": {
+    "signInMethod": "Método de login",
+    "emailPasswordWarning": "Uma vez alterado o método de login, você não poderá mais entrar com seu e-mail e senha.",
+    "signInMethodTooltip": "Após alterar seu método de autenticação, você não poderá mais fazer login com as credenciais da conta {{method}}."
+  },
+  "requestMemberEnableSocialSignIn": {
+    "title": "Solicitação para habilitar login com {{provider}}",
+    "message": "Você deve alterar o método de login de <b>{{email}}</b> para {{provider}} para acessar este documento."
+  },
+  "enableSocialSignInFailed": {
+    "title": "Não é possível usar esta conta do {{provider}}",
+    "message": "Parece que você se inscreveu com outro e-mail. Torne o endereço <b>{{email}}</b> sua conta padrão do {{provider}} para fazer login em Lumin."
+  },
+  "linkAccountFailedModal": {
+    "title": "Não é possível usar esta conta do Google",
+    "message": "Parece que você se inscreveu com outro e-mail. Torne o endereço <b>{{email}}</b> sua conta padrão do Google para fazer login em Lumin."
+  },
+  "linkAccountModal": {
+    "title": "Vincule sua conta do Google",
+    "message": "Você se inscreveu com outro e-mail. Torne o endereço <b>{{email}}</b> sua conta padrão do Google para fazer login em Lumin."
+  },
+  "forceLogInAgain": {
+    "title": "Iniciar sessão novamente",
+    "message": "O seu método de autenticação foi alterado para {{provider}}.<br />Por favor, inicie sessão com a sua conta {{provider}} <b>{{email}}</b> para continuar.",
+    "logInAgain": "Iniciar Sessão Novamente"
+  },
+  "account": {
+    "title": "Conta",
+    "reactivate": "Reativar",
+    "deactivate": "Desativar",
+    "deleteMyAccount": "Excluir minha conta",
+    "yourAccountWillBeDeletedOn": "A sua conta será eliminada em {{time}}",
+    "noteDeleteAccount": "Ao excluir sua conta, você perderá imediatamente o acesso aos seus $t(terms:organizations), $t(terms:teams) e documentos. Esta ação não pode ser desfeita.",
+    "readHereForMoreInformation": "Leia mais informações aqui",
+    "accountHasBeenReactivated": "A conta foi reativada",
+    "deactivateYourAccount": "Desativar a sua conta?",
+    "messageDeactivateYourAccount": "Poderá aceder a esta conta até à sua eliminação permanente no prazo de 3 dias.",
+    "messageDeactivateYourAccount1": "Excluir sua conta excluirá todos os seus dados associados, como seus documentos, incluindo aqueles armazenados em outros produtos Lumin (como Lumin Sign). ",
+    "messageDeactivateYourAccount2": "Além disso, seus $t(terms:organizations) e $t(terms:teams) serão transferidos aleatoriamente para outros membros.",
+    "thisActionCannotBeUndone": "Esta ação não pode ser desfeita.",
+    "deleteAccount": "Excluir sua conta?",
+    "delete": "Excluir",
+    "deleteUserSuccessfully": "Usuário excluído com sucesso"
+  },
+  "reactivateAccount": {
+    "title": "Não é possível realizar esta ação",
+    "message": "Reative primeiro para executar esta ação."
+  },
+  "url": {
+    "saleSupport": {
+      "contactSupport": "/contactar-suporte"
+    }
+  },
+  "resendVerificationEmail": {
+    "haveSentANewEmail": "Enviamos um novo e-mail de verificação para <b>{{email}}</b>.",
+    "checkYourInbox": "Por favor, verifique sua caixa de entrada (e talvez sua pasta de spam, por precaução) para continuar usando o Lumin.",
+    "notSeeOurEmail": "Se você não vir nosso e-mail, provavelmente significa que você já está registrado ou ainda não se juntou a nós. Se for o caso, basta fazer login ou inscrever-se para continuar."
+  },
+  "changeEmailModal": {
+    "title": "Aviso de sessão expirada",
+    "sessionExpiredMessage": "A sessão da sua conta expirou. Faça login novamente para continuar seu trabalho.",
+    "accountChangeMessage": "Sua conta foi alterada para <b>{{email}}</b>. Por favor, faça login novamente para continuar seu trabalho."
+  },
+  "newPrivacyPolicyModal": {
+    "title": "Atualizações aos nossos Termos de Uso",
+    "description1": "Atualizamos nossos Termos de Uso para melhorar a clareza e refletir as mudanças recentes.",
+    "keyChanges": "Principais mudanças incluem:",
+    "keyChangesList": [
+      "Atualização de informações da empresa e legais.",
+      "Período de retenção mais curto para contas gratuitas.",
+      "Regras mais claras sobre o uso de contas e resolução de disputas.",
+      "Novas seções sobre responsabilidade, uso de IA e contas de empregador."
+    ],
+    "description2": "Para continuar usando nossa plataforma, por favor revise e aceite os <a>Termos\u00a0de\u00a0Uso</a>. Ao clicar em “Estou de acordo”, você confirma que leu e aceitou os novos termos.",
+    "accept": "Estou de acordo",
+    "logInAnotherAccount": "Entrar com outra conta"
+  },
+  "enableXeroSignInFailed": {
+    "title": "Não é possível usar esta conta do Xero",
+    "message": "Parece que você se inscreveu com outro e-mail. Por favor, visite <a>xero.com</a> para sair e fazer login novamente com sua conta de <b>{{email}} Xero</b>, então retorne aqui para tentar novamente."
+  },
+  "signInSSOPage": {
+    "title": "Iniciar sessão com SSO",
+    "description": "O administrador da sua $t(terms:organization) habilitou o início de sessão único. Continue com SSO para acessar sua conta Lumin.",
+    "signInWithoutSSO": "Iniciar sessão sem SSO",
+    "emailNotConfiguredForSSOMessage": "Este e-mail não está configurado para SAML SSO na sua $t(terms:organization). Por favor, contate o seu administrador."
+  },
+  "sso": {
+    "notAllowedChangeUserInfo": "Para alterar as informações do seu perfil, atualize seu diretório no <b>SSO Identity Provider</b>.",
+    "ssoSignInBannerContent": "As informações da sua conta são obtidas a partir do seu perfil SSO. Para alterar as informações do seu perfil, atualize seu diretório no <b>SSO Identity Provider</b>."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.alwaysShowStatus": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less",
+    "postcss",
+    "javascript",
+    "typescriptreact"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "sonarlint.connectedMode.project": {
+    "connectionId": "nitrolabs",
+    "projectKey": "nitrolabs_lumin-web-viewer-2.0"
+  },
+  "[nginx]": {
+    "editor.defaultFormatter": "raynigon.nginx-formatter"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "node_modules/lumin-ui/dist/design-tokens/kiwi/css/themes.css"
+  ],
+  "cssVariables.languages": [
+    "scss",
+    "css",
+  ],
+  "scss.scannerDepth": 10,
+  "scss.scannerRootPath": "node_modules/@lumin-ui/packages/design-tokens/dist",
+  "scss.scannerExclude": [
+    "**/.git",
+    "**/bower_components"
+  ],
+  "oxc.enable": true,
+}

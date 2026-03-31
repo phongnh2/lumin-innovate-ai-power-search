@@ -1,0 +1,258 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import 'reskin/scrollbar.scss';
+
+$top-height: calc(#{$header-height} + #{$toolbar-height} + #{$banner-viewer-height});
+
+.DocumentContainer {
+  @include scrollbar-reskin;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &.right-side-bar {
+    width: calc(100% - #{$left-panel-tabs-width} - var(--right-panel-width));
+  }
+
+  &.hidden {
+    display: none;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &.position-relative {
+    position: relative;
+  }
+
+  &.grid-view-open {
+    overflow-x: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &.right-panel {
+      width: calc(100% - #{$right-panel-width} - #{$left-panel-tabs-width} - 3px);
+    margin-right: $right-panel-width;
+
+    &.search-overlay {
+      width: calc(100% - #{$right-panel-width} - #{$left-panel-tabs-width});
+    }
+
+    @include mobile {
+      width: 100%;
+      visibility: hidden;
+    }
+
+    &.has-comment {
+      width: calc(100% - #{$left-panel-tabs-width});
+      padding-right: $right-panel-width;
+    }
+
+    &.right-side-bar {
+      &:not(&.has-comment) {
+        width: calc(100% - #{$right-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width) - 3px);
+      }
+
+      &.search-overlay {
+        width: calc(100% - #{$right-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width));
+      }
+
+      width: calc(100% - #{$left-panel-tabs-width} - var(--right-panel-width));
+    }
+  }
+
+  &.left-panel {
+    width: calc(100% - #{$left-panel-width} - #{$left-panel-tabs-width});
+    margin-left: $left-panel-width + $left-panel-tabs-width;
+
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+    }
+    &.right-side-bar {
+      width: calc(100% - #{$left-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width));
+      &.right-panel {
+        width: calc(100% - #{$left-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width) - #{$right-panel-width}) !important;
+      }
+    }
+  }
+
+  &.search-overlay {
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+      margin-top: $search-overlay-height-m;
+      height: calc(100% - #{$top-bar-height-m} - #{$search-overlay-height-m});
+    }
+  }
+
+  &.left-panel.right-panel {
+    width: calc(100% - #{$right-panel-width} - #{$left-panel-width} - #{$left-panel-tabs-width} - 3px);
+    margin-left: $left-panel-width + $left-panel-tabs-width;
+    &.search-overlay {
+      width: calc(100% - #{$right-panel-width} - #{$left-panel-width} - #{$left-panel-tabs-width});
+    }
+
+    &.right-side-bar {
+      width: calc(100% - #{$right-panel-width} - #{$left-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width) - 3px);
+      &.search-overlay {
+        width: calc(100% - #{$right-panel-width} - #{$left-panel-width} - #{$left-panel-tabs-width} - var(--right-panel-width));
+      }
+    }
+  }
+
+  &.page-edit-mode {
+    width: calc(100% - #{$left-panel-edit-mode-width})!important;
+    margin-left: $left-panel-edit-mode-width;
+  }
+
+  &.no-header {
+    height: 100%;
+  }
+  // NOTE: migrate this line when delete
+
+  .document {
+    margin: 0 auto;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+    .pageSection {
+      &[id*="pageSection"] {
+        box-shadow: none;
+      }
+
+      .pageContainer {
+        position: relative;
+
+        .auxiliary {
+          pointer-events: none;
+        }
+
+        span.link {
+          cursor: pointer;
+        }
+
+        &-blocked {
+          &::after {
+            content: "";
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #8093a7;
+            opacity: 0.7;
+            justify-content: center;
+            z-index: 100;
+            border: 1px solid var(--color-secondary-50);
+          }
+        }
+
+        // fix outline for input text form field
+        div.text {
+          input {
+            outline: none;
+          }
+        }
+      }
+
+      .bookmark-container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 4%;
+        max-width: 32px;
+        top: 7px;
+        z-index: 70;
+        right: 0;
+        cursor: pointer;
+
+        .bookmark-wrapper {
+          width: 100%;
+          height: 0;
+          padding-bottom: calc(100% * 40 / 32);
+          max-width: 27px;
+          min-width: 10px;
+
+          [id*="bookmark-image"] {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    textarea.freetext {
+      position: absolute;
+      z-index: 20;
+      border: 0;
+      padding: 0;
+      box-sizing: border-box;
+      resize: none;
+      outline: 1px solid transparent;
+
+      &:focus {
+        outline-color: $secondary;
+        outline-offset: 4px;
+      }
+    }
+  }
+
+  &.loading {
+    overflow: hidden;
+    position: relative;
+
+    .document {
+      visibility: hidden;
+    }
+  }
+  .choice {
+    border: 0;
+  }
+}
+
+.DocumentContainer__skeleton-container {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.DocumentContainer__skeleton {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 920px;
+  width: calc(100% - 30px);
+  height: 100vh;
+
+  @include skeletonStyled;
+}
+/* This class is used for set background color for widget annotation that have transparent background */
+.NoColorWidgetPlaceholder {
+  background-color: color-mix(in srgb, var(--kiwi-colors-add-on-primary-fixed) 70%, transparent ) !important;
+  transition: background-color ease 0.3s;
+  border: 1px solid var(--kiwi-colors-add-on-primary-fixed-dim) !important;
+  &:focus, &:focus-visible  {
+    background-color: transparent !important;
+    opacity: 1 !important;
+    border: 1px dashed var(--kiwi-colors-add-on-on-primary-fixed-variant) !important;
+    outline: none !important;
+  }
+
+  #print-widget-container & {
+    background-color: transparent !important;
+    border: none !important;
+  }
+}
+
+.DocumentContainer.show-request-signatures-banner {
+  padding-top: 60px;
+  position: relative;
+}

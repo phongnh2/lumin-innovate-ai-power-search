@@ -1,0 +1,99 @@
+@import "../../constants/lumin-styles.scss";
+@import "../../constants/styles";
+@import "../../constants/panel";
+
+.LeftPanelLumin {
+  @extend %left-panel;
+  border-left: none;
+  
+  &__top {
+    height: 40px;
+    @include themify() {
+      background-color: themed('bgPanelTop');
+    }
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;   
+    p {
+      font-family: $font-stack-primary;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      @include themify() {
+        color: themed('textColor');
+      }
+    }
+    span {
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.26px;
+      color: $secondary;
+    }
+    .close_btn_wrapper {
+      display: flex;
+      i {
+        @include themify() {
+          color: themed('iconColor');
+        }
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    @include themify() {
+      background-color: themed('dividerColor');
+    }
+  }
+
+  .left-panel-header {
+    display: flex;
+    align-items: center;
+    .close-btn {
+      cursor: pointer;
+      margin-right: 17px;
+    }
+
+    @include mobile {
+      margin: 0px;
+      padding: 13px 17px;
+      background-color: $white;
+      background-color: var(--primary-color);
+    }
+  }
+
+  .Panel {
+    @extend %sub-panel;
+  }
+
+  .resize-bar {
+    cursor: col-resize;
+    height: 100%;
+    margin-bottom: 0;
+    background-color: none;
+    position: absolute;
+    z-index: 100;
+
+    right: 0px;
+    margin-right: -20px;
+
+    &.active {
+      margin-left: -400px;
+      width: 800px;
+    }
+
+    &.non-active {
+      margin-left: -10px;
+      left: 327px;
+      width: 20px;
+    }
+  }
+}

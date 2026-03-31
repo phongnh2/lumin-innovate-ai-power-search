@@ -1,0 +1,46 @@
+@import 'reskin/screens.scss';
+
+.skeletonContainer {
+  padding: var(--kiwi-spacing-1);
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(220px, 1fr) 204px 120px 32px;
+  column-gap: var(--kiwi-spacing-0-5);
+
+  @include xl-screen {
+    grid-template-columns: minmax(220px, 1fr) 236px 128px 32px;
+    column-gap: var(--kiwi-spacing-2);
+  }
+}
+
+.personalRoute {
+  grid-template-columns: minmax(220px, 1fr) 120px 32px;
+
+  @include xl-screen {
+    grid-template-columns: minmax(220px, 1fr) 128px 32px;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+
+  .status {
+    display: grid;
+    grid-template-columns: 36px;
+    column-gap: var(--kiwi-spacing-0-5);
+
+    @include xl-screen {
+      grid-template-columns: 48px;
+    }
+  }
+}

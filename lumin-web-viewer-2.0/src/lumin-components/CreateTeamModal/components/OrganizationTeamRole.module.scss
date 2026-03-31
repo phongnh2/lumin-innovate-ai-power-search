@@ -1,0 +1,6 @@
+.adminText {
+  @include kiwi-typography-label-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+  opacity: var(--kiwi-opacity-disabled-on-container);
+}

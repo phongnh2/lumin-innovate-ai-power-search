@@ -1,0 +1,21 @@
+.container {
+  width: 432px;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline);
+  margin-bottom: var(--kiwi-spacing-1);
+  user-select: none;
+  background: var(--kiwi-colors-surface-surface-bright);
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.dragImage {
+  width: 12px;
+  height: 6px;
+}

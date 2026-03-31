@@ -1,0 +1,20 @@
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  cursor: pointer;
+  border-radius: var(--kiwi-border-radius-md);
+  min-width: 269px;
+  padding: var(--kiwi-spacing-0-5) 0;
+
+  &[data-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.menuItemLabel {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-label-md;
+}

@@ -1,0 +1,68 @@
+@import 'reskin/screens.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--kiwi-spacing-3);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.coverImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+
+    &.admin {
+      height: 110px;
+    }
+
+    @include md-screen {
+      height: 164px;
+
+      &.admin {
+        height: 148px;
+      }
+    }
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.listTools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+
+  .tool {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}

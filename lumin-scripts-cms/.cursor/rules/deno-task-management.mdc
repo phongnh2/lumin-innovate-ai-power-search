@@ -1,0 +1,302 @@
+---
+globs: *.ts,deno.json,run.ts
+description: Deno task management and execution patterns
+---
+
+# Deno Task Management & Execution
+
+## Task Configuration
+
+### Deno.json Tasks
+
+Tasks are defined in [deno.json](mdc:deno.json):
+
+```json
+{
+  "tasks": {
+    "dev": "deno run --allow-all --watch main.ts",
+    "run": "deno run --allow-read --allow-env --allow-ffi --allow-run run.ts",
+    "strapi": "deno task run strapi",
+    "prismic": "deno task run prismic",
+    "check": "deno check **/*.ts"
+  }
+}
+```
+
+### Task Execution Pattern
+
+Use [run.ts](mdc:run.ts) for module routing:
+
+```bash
+deno task run strapi previewTemplatesCSV
+deno task run prismic exportData
+```
+
+## Function Registry Pattern
+
+### Main.ts Function Registry
+
+Each module exports a function registry in [main.ts](mdc:strapi/main.ts):
+
+```typescript
+export const functions = {
+  previewTemplatesCSV: () => formService.previewTemplatesCSV(),
+  downloadPDFFromCSV: () => formService.downloadPDFFromCSV(),
+  uploadFormFromCSV: () => formService.uploadFormFromCSV(),
+  exportFormDataAsJSON: () => formService.exportFromDataAsJSON(),
+  // ... other functions
+};
+```
+
+### Function Configuration
+
+Configure function behavior with metadata:
+
+```typescript
+export const functionConfigs: Record<string, { heavy?: boolean; media?: boolean }> = {
+  previewTemplatesCSV: { heavy: true },
+  genThumbnailImages: { media: true },
+};
+```
+
+### CLI Interface
+
+```typescript
+if (import.meta.main) {
+  const functionName = Deno.args[0];
+
+  if (!functionName) {
+    console.log("❌ No function name provided");
+    console.log("📝 AVAILABLE FUNCTIONS:");
+    Object.keys(functions).forEach((fn) => console.log(`  🦴 ${fn}`));
+    Deno.exit(1);
+  }
+
+  const targetFunction = functions[functionName as keyof typeof functions];
+
+  if (!targetFunction) {
+    console.log(`❌ Function '${functionName}' not found`);
+    console.log("💡 Did you mean one of these?");
+    Object.keys(functions)
+      .filter((fn) => fn.toLowerCase().includes(functionName.toLowerCase()))
+      .forEach((fn) => console.log(`  🦴 ${fn}`));
+    Deno.exit(1);
+  }
+
+  try {
+    await load({ export: true });
+    console.log(`🚀 Executing: ${functionName}`);
+    logMemoryUsage("Before execution");
+    await targetFunction();
+    logMemoryUsage("After execution");
+    console.log(`✅ Completed: ${functionName}`);
+    Deno.exit(0);
+  } catch (error) {
+    console.error(`❌ Error executing '${functionName}':`, error);
+    Deno.exit(1);
+  }
+}
+```
+
+## Permission Management
+
+### Dynamic Permission Loading
+
+[run.ts](mdc:run.ts) handles dynamic permissions based on function configuration:
+
+```typescript
+const permissions = ["--allow-net", "--allow-read", "--allow-write", "--allow-env"];
+const v8Flags = [];
+
+if (config.media) {
+  permissions.push("--allow-ffi", "--allow-run");
+}
+
+if (config.heavy) {
+  v8Flags.push("--v8-flags=--max-old-space-size=8192");
+}
+```
+
+### Permission Categories
+
+- **Basic**: `--allow-net`, `--allow-read`, `--allow-write`, `--allow-env`
+- **Media**: `--allow-ffi`, `--allow-run` (for PDF processing)
+- **Heavy**: `--v8-flags=--max-old-space-size=8192` (for large datasets)
+
+## Environment Management
+
+### Environment Loading
+
+```typescript
+import { load } from "@std/dotenv";
+
+await load({ export: true });
+```
+
+### Environment Variables
+
+Required environment variables:
+
+- `STRAPI_ENDPOINT` - Strapi API endpoint
+- `STRAPI_API_TOKEN` - Strapi API token
+- `ENVIRONMENT` - Environment (production/staging)
+- `GOOGLE_ACCESS_TOKEN` - Google Drive access token
+
+## Import Map Configuration
+
+### Deno.json Imports
+
+```json
+{
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.0.6",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/csv": "jsr:@std/csv@^1.0.6",
+    "@strapi/": "./strapi/",
+    "@prismic/": "./prismic/",
+    "csv-writer": "npm:csv-writer@^1.6.0",
+    "moment": "npm:moment@^2.30.1"
+  }
+}
+```
+
+### Import Patterns
+
+- Use `@std/` for Deno standard library
+- Use `@strapi/` for strapi module imports
+- Use `@prismic/` for prismic module imports
+- Use npm: prefix for npm packages
+
+## Memory Management
+
+### Memory Monitoring
+
+```typescript
+import { logMemoryUsage } from "./utils/helpers.ts";
+
+logMemoryUsage("Before execution");
+await performOperation();
+logMemoryUsage("After execution");
+```
+
+### Memory Usage Pattern
+
+```typescript
+export function logMemoryUsage(label: string) {
+  const usage = Deno.memoryUsage();
+  console.log(`💾 Memory [${label}]:`);
+  console.log(`   RSS: ${(usage.rss / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`   Heap Used: ${(usage.heapUsed / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`   Heap Total: ${(usage.heapTotal / 1024 / 1024).toFixed(2)} MB`);
+}
+```
+
+## File System Operations
+
+### Directory Creation
+
+```typescript
+await Deno.mkdir(directoryPath, { recursive: true });
+```
+
+### File Operations
+
+```typescript
+// Read file
+const content = await Deno.readTextFile(filePath);
+
+// Write file
+await Deno.writeTextFile(filePath, content);
+
+// Check file exists
+try {
+  const stat = await Deno.stat(filePath);
+  return stat.isFile;
+} catch {
+  return false;
+}
+```
+
+### Directory Iteration
+
+```typescript
+for await (const entry of Deno.readDir(directoryPath)) {
+  if (entry.isFile && entry.name.endsWith(".pdf")) {
+    // Process file
+  }
+}
+```
+
+## Error Handling and Exit Codes
+
+### Exit Code Patterns
+
+```typescript
+// Success
+Deno.exit(0);
+
+// Error
+Deno.exit(1);
+```
+
+### Error Handling in Main
+
+```typescript
+try {
+  await targetFunction();
+  Deno.exit(0);
+} catch (error) {
+  console.error(`❌ Error executing '${functionName}':`, error);
+  Deno.exit(1);
+}
+```
+
+## Development Workflow
+
+### Development Mode
+
+```bash
+deno task dev
+```
+
+### Type Checking
+
+```bash
+deno task check
+```
+
+### Running Specific Functions
+
+```bash
+deno task strapi previewTemplatesCSV
+deno task strapi uploadFormFromCSV
+deno task prismic exportData
+```
+
+## Common Function Categories
+
+### Form Operations
+
+- `previewTemplatesCSV` - Validate CSV data
+- `uploadFormFromCSV` - Upload forms from CSV
+- `updateFormDataFromCSV` - Update existing forms
+- `exportFormDataAsJSON` - Export forms to JSON
+
+### Media Operations
+
+- `downloadPDFFromCSV` - Download PDFs from URLs
+- `genThumbnailImages` - Generate thumbnails
+- `uploadThumbnails` - Upload thumbnail images
+- `uploadPDFs` - Upload PDF files
+
+### Data Operations
+
+- `exportCategoryDataAsJSON` - Export categories
+- `exportSlugFormDataAsJSON` - Export form slugs
+- `verifyAfterImport` - Verify import results
+
+### Utility Operations
+
+- `findDuplicateReleaseId` - Find duplicate IDs
+- `checkThumbnailsSort` - Check thumbnail sorting
+- `reuploadFailedThumbnails` - Retry failed uploads

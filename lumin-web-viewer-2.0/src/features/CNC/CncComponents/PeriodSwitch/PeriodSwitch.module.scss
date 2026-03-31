@@ -1,0 +1,29 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.labelGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+}
+
+.discount {
+  cursor: pointer;
+  white-space: nowrap;
+}

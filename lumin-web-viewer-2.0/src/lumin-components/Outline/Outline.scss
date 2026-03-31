@@ -1,0 +1,46 @@
+@import "../../constants/lumin-styles.scss";
+
+.Outline {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 375;
+  line-height: 20px;
+  @include themify() {
+    color: themed('outlineTextColor');
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    padding: 10px 12px 10px 24px;
+    
+    &:hover {
+      @include themify() {
+        color: themed('outlineTextHover');
+        background-color: themed('outlineHoverBg');
+      } 
+      cursor: pointer;
+    }
+  }
+
+  &__container--child {
+    padding-left: 40px;
+    &.hidden {
+      display: none;
+    }
+  }
+  
+  &__arrow__wrapper{
+    transform: rotate(0);
+    transition: transform .1s ease;
+    margin-right: 10px;
+    &.expanded {
+      transform: rotate(90deg);
+    }
+  }
+}

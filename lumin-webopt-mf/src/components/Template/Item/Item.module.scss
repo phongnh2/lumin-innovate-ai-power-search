@@ -1,0 +1,111 @@
+.container {
+  position: relative;
+}
+
+.iconGroup {
+  z-index: 3;
+  position: absolute;
+  right: -18px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.thumbnailWrapper {
+  width: 100%;
+  height: 0;
+  padding-bottom: 141%;
+  position: relative;
+  border-radius: 8px;
+
+  @media (hover: hover) {
+    &:hover {
+      .thumbnailOverlay {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.thumbnailOverlay {
+  display: none;
+
+  @media (hover: hover) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+}
+
+.linkOnTouchDevice {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+
+  @media (hover: hover) {
+    display: none;
+  }
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 8px;
+}
+
+.thumbnailPlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--kiwi-colors-surface-container-low);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 8px;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  font-size: 14px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.title {
+  margin: 4px 0 0;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-body-sm;
+}
+
+.description {
+  margin: 4px 0 0;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+
+  @include kiwi-typography-label-sm;
+}

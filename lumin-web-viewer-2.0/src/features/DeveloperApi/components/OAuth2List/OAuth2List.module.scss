@@ -1,0 +1,68 @@
+.noOAuthClients {
+  @include kiwi-typography-body-md;
+
+  margin: var(--kiwi-spacing-2) 0;
+  opacity: var(--kiwi-opacity-alpha-60);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  text-align: center;
+  width: 100%;
+}
+
+.oauthClientList {
+  margin-top: var(--kiwi-spacing-2);
+  table-layout: fixed;
+  max-width: 100%;
+  width: 100%;
+}
+
+.oauthClientListHeader {
+  border-bottom: 1px solid var(--kiwi-colors-surface-surface-container-highest);
+}
+
+.cellHeader {
+  @include kiwi-typography-body-md;
+  
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2) var(--kiwi-spacing-1-5) 0;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cellContent {
+  @include kiwi-typography-body-md;
+
+  text-align: left;
+  vertical-align: middle;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2) var(--kiwi-spacing-1) 0;
+  color: var(--kiwi-colors-surface-on-surface);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clientId {
+  margin-right: var(--kiwi-spacing-0-5);
+}
+
+.cellActions {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--kiwi-spacing-1) 0;
+}
+
+.divider {
+  margin: var(--kiwi-spacing-0-5) 0;
+}
+
+.revokeMenuItem {
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,70 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.App-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  em {
+    font-style: italic;
+  }
+  &.theme-dark {
+    background: var(--color-other-5);
+  }
+
+  input[type="text"] {
+    appearance: none;
+    user-select: text !important;
+  }
+}
+
+.App--banner-show {
+  padding-top: var(--warning-banner-height);
+}
+
+.App-header {
+  position: relative;
+  z-index: 101;
+
+  @include themify {
+    box-shadow: themed("boxShadowHeader");
+  }
+
+  &--has-banner {
+    @include themify {
+      filter: themed("dropShadowHeader");
+    }
+  }
+}
+
+.WarningBanner__container {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+
+.freetext-editor {
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+}

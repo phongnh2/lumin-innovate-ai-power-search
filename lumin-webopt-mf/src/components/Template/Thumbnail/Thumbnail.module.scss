@@ -1,0 +1,25 @@
+.container {
+  border: 1px solid #000000;
+  border-radius: var(--border-radius-primary);
+  overflow: hidden;
+}
+
+.thumbnailContainer {
+  position: relative;
+  width: 100%;
+  --thumbnail-aspect: 268 / 384;
+
+  @include media-query-up(xs) {
+    --thumbnail-aspect: 382 / 540;
+  }
+
+  aspect-ratio: var(--thumbnail-aspect);
+}
+.thumbnailImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

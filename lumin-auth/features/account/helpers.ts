@@ -1,0 +1,1 @@
+export const RESEND_VERIFICATION_EMAIL_COUNTDOWN = 59; // seconds

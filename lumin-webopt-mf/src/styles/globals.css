@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ── Kiwi design tokens (single source of truth) ── */
+@import "./tokens/spacings.css";
+@import "./tokens/colors.css";
+@import "./tokens/misc.css";
+@import "./tokens/typographies.css";
+
+/* ── MF-only overrides not in the design-token package ── */
+@layer base {
+  :root {
+    --kiwi-shadow-modal: var(--kiwi-shadow-4);
+  }
+}
+
+
+/* ── Short aliases for backward compat with TSX class names ── */
+@layer utilities {
+  .kiwi-headline-lg {
+    font-family: var(--font-pp-agrandir), sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .kiwi-label-md {
+    font-family: var(--font-inter-variable), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .kiwi-title-md {
+    font-family: var(--font-inter-variable), sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+/* ── Keyframes ── */
+@keyframes kiwi-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes modalOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalOverlayOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+
+@keyframes stepFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

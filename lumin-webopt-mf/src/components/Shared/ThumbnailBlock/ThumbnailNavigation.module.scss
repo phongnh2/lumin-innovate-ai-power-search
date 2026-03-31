@@ -1,0 +1,48 @@
+.carouselViewport {
+  overflow: hidden;
+
+  @include media-query-down(md) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  @include media-query-down(md) {
+    display: none;
+  }
+}
+
+.arrowButtonLeft {
+  left: -32px;
+}
+
+.arrowButtonRight {
+  right: -32px;
+}
+
+.thumbnailItem {
+  width: 78px;
+
+  --thumbnail-ratio: calc(110 / 78);
+  --thumbnail-aspect: 78 / 110;
+
+  &:hover {
+    cursor: pointer;
+    border-color: var(--kiwi-colors-border-border-default);
+  }
+}
+
+.thumbnailItemActive {
+  border-color: var(--kiwi-colors-border-border-default);
+}

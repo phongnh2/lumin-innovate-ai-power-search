@@ -1,0 +1,124 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1) var(--kiwi-spacing-1-5) 0;
+  height: 48px;
+  gap: var(--kiwi-spacing-0-5);
+  @include md-down-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &[data-chatbot-opened='true'] {
+    @include xl-down-screen-webchatbot {
+      .lastOpened {
+        display: none;
+      }
+      .storage {
+        display: none;
+      }
+      .ownerTitle {
+        display: none;
+      }
+    }
+    @include xl-to-xxxl-screen-webchatbot {
+      .lastOpened {
+        display: none;
+      }
+    }
+    @include xxxl-screen-webchatbot {
+      .lastOpened {
+        &[data-display='true'] {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.wrapperWithOwnerName {
+  &[data-chatbot-opened='true'] {
+    @include xl-to-xxxl-screen-webchatbot {
+      .storage {
+        display: none;
+      }
+    }
+  }
+}
+
+.column {
+  @include kiwi-typography-body-md;
+  white-space: nowrap;
+  margin: 0;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  display: none;
+
+  @include md-screen {
+    &[data-display='true'] {
+      display: block;
+    }
+  }
+}
+
+.storage {
+  margin-left: var(--kiwi-spacing-1);
+}
+
+.title {
+  white-space: nowrap;
+  display: inline-block;
+  margin: 0;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-md;
+}
+
+.uploadedTitle {
+  @extend .title;
+  display: block;
+
+  @include md-screen {
+    display: none;
+  }
+
+  @include xl-screen {
+    display: block;
+  }
+}
+
+.ownerTitle {
+  @extend .title;
+  display: none;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+
+  @include md-screen {
+    display: flex;
+    align-items: center;
+
+    &[data-filterable='true'] {
+      cursor: pointer;
+    }
+  }
+}
+
+.mobileDisplay {
+  display: block;
+  @include md-screen {
+    display: none;
+  }
+}
+
+.displayTablet {
+  display: none;
+
+  @include md-screen {
+    display: block;
+  }
+
+  @include xl-screen {
+    display: none;
+  }
+}

@@ -1,0 +1,224 @@
+ForgotPasswordDTO:
+  type: object
+  required:
+    - email
+    - flow
+    - token
+  properties:
+    email:
+      type: string
+      format: email
+      example: "test@test.com"
+      maxLength: 100
+      transform:
+        - value.toLowerCase()
+      description: User's email address for password recovery
+    flow:
+      type: object
+      required:
+        - id
+      example: { id: "f8d1a3b2c4" }
+      properties:
+        id:
+          type: string
+          description: Recovery flow ID from Ory Kratos
+      description: Flow object containing recovery flow information
+    token:
+      type: string
+      example: "eyJhbGciOiJIUzI1NiJ9..."
+      description: Verification token for password recovery
+
+SignInDTO:
+  type: object
+  required:
+    - email
+    - password
+    - flow
+  properties:
+    email:
+      type: string
+      maxLength: 100
+      format: email
+      transform:
+        - value.toLowerCase()
+      example: "test@test.com"
+      description: User's email address
+    password:
+      type: string
+      format: password
+      example: "YourStr0ngP@ssword"
+      description: User's password
+    flow:
+      type: object
+      required:
+        - id
+      example: { id: "f8d1a3b2c4" }
+      properties:
+        id:
+          type: string
+          description: Login flow ID from Ory Kratos
+      description: Flow object containing login flow information
+    challenge:
+      type: string
+      description: Optional challenge ID for additional authentication steps
+      example: "chg_f8d1a3b2c4"
+
+SignUpInvitationDTO:
+  type: object
+  required:
+    - token
+    - name
+    - password
+    - flow
+  properties:
+    token:
+      type: string
+      description: Invitation token received via email
+      example: "inv_01H9X..."
+    name:
+      type: string
+      maxLength: 32
+      description: User's name
+      example: "John Doe"
+    password:
+      type: string
+      format: password
+      description: User's password
+      example: "SecureP@ssw0rd"
+    flow:
+      type: object
+      description: Flow object containing registration flow information
+      properties:
+        id:
+          type: string
+          description: Flow ID for registration process
+          example: "f8d1a3b2c4"
+
+SignUpDTO:
+  type: object
+  required:
+    - email
+    - name
+    - password
+    - flow
+  properties:
+    email:
+      type: string
+      format: email
+      maxLength: 100
+      transform:
+        - value.toLowerCase()
+      description: |
+        User's email address.
+        Will be transformed to lowercase before processing.
+      example: "user@example.com"
+    name:
+      type: string
+      maxLength: 32
+      description: User's name
+      example: "John Doe"
+    password:
+      type: string
+      format: password
+      description: User's password
+      example: "SecureP@ssw0rd"
+    flow:
+      type: object
+      required:
+        - id
+      description: Registration flow object from Ory Kratos
+      properties:
+        id:
+          type: string
+          description: Flow ID for registration process
+          example: "f8d1a3b2c4"
+
+ResendVerificationDTO:
+  type: object
+  required:
+    - email
+    - flow
+  properties:
+    email:
+      type: string
+      format: email
+      transform:
+        - value.toLowerCase()
+      description: User's email address
+      example: "test@test.com"
+    flow:
+      type: object
+      description: Flow object containing verification flow information
+      properties:
+        id:
+          type: string
+          description: Flow ID
+          example: "123"
+
+Exception:
+  type: object
+  properties:
+    message:
+      type: string
+    code:
+      type: string
+    meta:
+      type: object
+
+TooManyRequestsError:
+  type: object
+  properties:
+    code:
+      type: string
+      example: "TOO_MANY_REQUEST"
+    message:
+      type: string
+      example: "Your requests reached the limit. Try again later."
+
+E2ESignInDTO:
+  type: object
+  required:
+    - flow
+  properties:
+    flow:
+      type: object
+      description: Flow object containing login flow information
+      properties:
+        id:
+          type: string
+          description: Flow ID
+          example: "123"
+
+SignOutDTO:
+  type: object
+  required:
+    - token
+  properties:
+    token:
+      type: string
+      description: Session token
+    returnTo:
+      type: string
+      description: Optional return URL after sign out
+
+Identity:
+  type: object
+  properties:
+    id:
+      type: string
+      example: "id_01H9X..."
+      description: Unique identity identifier
+    traits:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          example: "test@test.com"
+        name:
+          type: string
+          example: "John Doe"
+      description: User profile information
+    metadata_public:
+      type: object
+      description: Public metadata about the user

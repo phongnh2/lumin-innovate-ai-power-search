@@ -1,0 +1,26 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/upgrade_personal_annual.png" />
+          <mj-spacer height="12px" />
+          <mj-text mj-class="text-large">Success! Your Lumin subscription has been upgraded</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Your&nbsp;<b class="highlight">{{fromPlan}}&nbsp;</b>plan has been upgraded to the <b class="highlight">{{toPlan}}&nbsp;</b>plan. From now on you will only be billed once annually for Lumin services at the discounted rate.</mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about this plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/setting/billing">
+              Settings - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

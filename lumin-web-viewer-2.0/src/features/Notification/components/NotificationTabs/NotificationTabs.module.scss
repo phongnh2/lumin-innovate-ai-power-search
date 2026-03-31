@@ -1,0 +1,6 @@
+.tabsList {
+  &::before {
+    border-width: var(--kiwi-spacing-0) var(--kiwi-spacing-0) var(--kiwi-spacing-0-125) var(--kiwi-spacing-0);
+    border-color: var(--kiwi-colors-surface-outline-variant);
+  }
+}

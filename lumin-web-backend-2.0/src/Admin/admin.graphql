@@ -1,0 +1,510 @@
+enum AdminRole {
+  OWNER
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
+}
+
+enum AdminStatus {
+  ACTIVE
+  PENDING
+}
+
+enum UserStatus {
+  DELETE
+  UNVERIFIED
+}
+
+enum AdminSetRole {
+  ADMIN
+  SUPER_ADMIN
+  MODERATOR
+}
+
+enum InvoiceStatus {
+  none
+  pending
+  expired
+}
+
+enum OrganizationType {
+  automatic
+  manual
+}
+
+enum OrganizationTypeFilter {
+  automatic
+  manual
+  converted
+}
+
+enum OrganizationPlan {
+  FREE
+  BUSINESS
+  ENTERPRISE
+  ORG_STARTER
+  ORG_PRO
+  ORG_BUSINESS
+}
+
+enum AvatarAction {
+  UPLOAD
+  REMOVE
+}
+
+enum CancelPlanTarget {
+  ORGANIZATION
+  PERSONAL
+}
+
+enum OrganizationSearchField {
+  NAME
+  DOMAIN
+  ASSOCIATED_DOMAIN
+  ADMIN_EMAIL
+  ORGANIZATION_ID
+}
+
+enum UserSearchField {
+  NAME
+  EMAIL
+  EMAIL_DOMAIN
+}
+
+enum CancelPlanTarget {
+  ORGANIZATION
+  PERSONAL
+}
+
+enum CommunityTemplateFilterStatus {
+  LIVE
+  UNPUBLISH
+}
+
+type OrganizationConnection {
+  edges: [OrganizationEdge]
+  total: Int
+  pageInfo: PageInfo
+}
+
+type OrganizationEdge {
+  organization: Organization
+}
+
+type OrganizationDetail {
+  invoiceStatus: InvoiceStatus
+  organization: Organization
+  upcommingInvoice: SubscriptionResponse
+  periodEnd: Int
+  currency: Currency
+  latestHubspotDeal: HubspotDeal
+  invoicePaymentLink: String
+}
+
+type Admin {
+  _id: String
+  name: String
+  email: String
+  role: AdminRole
+  timezoneOffset: Int
+  createdAt: Date
+  avatarRemoteId: String
+  status: AdminStatus
+}
+
+type UserBlacklist {
+  _id: String
+  email: String
+  createdAt: Date
+}
+
+type AdminPayload {
+  admin: Admin
+}
+
+type AdminsConnection {
+  edges: [AdminsEdge]!
+  total: Int!
+}
+
+type UserConnection {
+  edges: [UserEdge]!
+  total: Int!
+}
+
+type UserEdge {
+  node: User!
+}
+
+type AdminsEdge {
+  node: Admin!
+}
+
+type UserBlacklistConnection {
+  edges: [UserBlacklistEdge]!
+  total: Int!
+}
+type UserBlacklistEdge {
+  node: UserBlacklist
+}
+
+input GetAdminListInput {
+  searchKey: String
+  limit: Int! @Range(min: 0, max: 50)
+  offset: Int! @Range(min: 0)
+  sortOptions: AdminSortOptions
+  filterOptions: AdminFilterOptions
+}
+input BlacklistSortOptions {
+  createdAt: SortStrategy
+}
+
+input GetBlacklistInput {
+  searchKey: String
+  limit: Int! @Range(min: 0, max: 30)
+  offset: Int! @Range(min: 0)
+  sortOptions: BlacklistSortOptions
+}
+
+input AdminSortOptions {
+  createdAt: SortStrategy
+}
+
+input AdminFilterOptions {
+  role: AdminRole
+  status: AdminStatus
+}
+
+input GetUserListInput {
+  searchQuery: UserSearchQuery
+  limit: Int! @Range(min: 0, max: 50)
+  offset: Int! @Range(min: 0)
+  sortOptions: UserSortOptions
+  filterOptions: UserFilterOptions
+}
+
+input UserSearchQuery {
+  key: String
+  field: UserSearchField!
+}
+
+input UserSortOptions {
+  createdAt: SortStrategy
+}
+
+input UserFilterOptions {
+  status: UserStatus
+}
+
+input CreateAdminInput {
+  email: String! @IsEmail @Length(min: 1, max: 255)
+  role: AdminSetRole!
+}
+
+input SetAdminRoleInput {
+  adminId: ID! @MongoId
+  role: AdminSetRole!
+}
+
+
+input FilterOptions {
+  type: OrganizationTypeFilter
+  plan: OrganizationPlan
+  status: InvoiceStatus
+}
+
+input OrganizationSortOptions {
+  createdAt: SortStrategy
+}
+
+input GetOrganizationsInput {
+  searchQuery: OrganizationSearchQuery
+  limit: Int! @Range(min: 0, max: 30)
+  offset: Int! @Range(min: 0)
+  sortOptions: OrganizationSortOptions
+  filterOptions: FilterOptions
+}
+
+input OrganizationSearchQuery {
+  key: String @Length(max: 100)
+  field: OrganizationSearchField!
+}
+
+input CreatePaymentLinkInput {
+  orgId: ID! @MongoId(key: "orgId")
+  priceId: String!
+  quantity: Int! @Range(min: 1, max: 100000) # Max value is depend on Lumin requirement
+  billingEmail: String! @Length(min: 1, max: 255) @IsEmail
+  expireDays: Int! @Range(min: 1, max: 30)
+  couponCode: String
+}
+
+input PreviewUpcomingInvoiceInput {
+  priceId: String!
+  quantity: Int! @Range(min: 1, max: 100000)
+  couponCode: String
+  stripeAccountId: String
+}
+
+input CreateOrgByAdminInput {
+  name: String! @Length(min: 1, max: 100)
+  adminEmail: String! @IsEmail @Length(min: 1, max: 255)
+  type: OrganizationType
+  members: [InviteToOrganizationInput]
+  settings: OrganizationSettingInput!
+  purpose: OrganizationPurpose!
+  
+}
+input UpdateAdminProfileInput {
+  name: String! @Length(min: 1, max: 32),
+  avatarAction: AvatarAction
+}
+input ChangeAdminPasswordInput {
+  currentPassword: String! @Length(min: 8, max: 255) @PasswordStrength(level: "strong")
+  newPassword: String! @Length(min: 8, max: 255) @PasswordStrength(level: "strong")
+}
+
+type OrganizationBlacklistConnection {
+  edges: [OrganizationBlacklistEdge]!
+  total: Int!
+}
+
+type OrganizationBlacklistEdge {
+  node: OrganizationBlacklist
+}
+
+type OrganizationBlacklist {
+  _id: String!
+  domain: String!
+  createdAt: Date!
+}
+
+type AddEmailToUserBlacklistPayload {
+  statusCode: Int
+  message: String
+  email: String
+}
+
+type AddDomainToOrgBlacklistPayload {
+  statusCode: Int
+  message: String
+  domain: String
+}
+
+type UserDetailPayload {
+  user: User
+  upcommingInvoice: SubscriptionResponse
+  periodEnd: Int
+  totalOwnedDocuments: Int
+  changeEmailAbility: ChangeEmailAbility
+}
+
+type UpdateAdminPayload {
+  statusCode: Int
+  message: String
+  admin: Admin
+}
+
+type UpdateAdminPermissionPayload {
+  type: String
+  admin: Admin
+}
+
+type PreviewUpcomingInvoicePayload {
+  discount: Int
+  total: Int
+  subtotal: Int
+  nextBillingCycle: Date
+  currency: Currency
+  period: PaymentPeriod
+}
+
+enum SearchUserByAdminStatus {
+  USER_RESTRICTED
+}
+
+type FindUserByAdminPayload {
+  user: User
+  status: SearchUserByAdminStatus
+}
+
+input CancelPlanByAdminInput {
+  targetId: ID! @MongoId
+  targetType: CancelPlanTarget!
+  cancelStrategy: CancelStrategy!
+}
+input RemoveAssociateDomainInput {
+  orgId: ID! @MongoId
+  associateDomain: String!
+}
+
+input GetCommunityTemplatesInput {
+  searchQuery: CommunityTemplateSearchQuery
+  limit: Int! @Range(min: 0, max: 50)
+  offset: Int! @Range(min: 0)
+  sortOptions: CommunityTemplateSortOptions
+  type: CommunityTemplateType!
+  filterOptions: CommunityTemplateFilterOptions
+}
+
+input CommunityTemplateSearchQuery {
+  value: String
+  field: CommunityTemplateSearchField!
+}
+enum CommunityTemplateSearchField {
+  NAME
+}
+
+input CommunityTemplateSortOptions {
+  lastUpdate: SortStrategy
+  status: SortStrategy
+}
+
+input CommunityTemplateFilterOptions {
+  status: CommunityTemplateFilterStatus
+  hasDraft: Boolean
+  categoryId: ID @MongoId
+}
+
+input PreviewPaymentLinkInvoiceInput {
+  orgId: ID!
+  period: PaymentPeriod!
+  plan: DocStackPlan!
+  couponCode: String
+  quantity: Int! @Range(min: 1)
+  currency: Currency!
+}
+
+type PreviewPaymentLinkInvoicePayload {
+  plan: DocStackPlan
+  period: PaymentPeriod
+  docstack: Int
+  discount: Int
+  nextBillingCycle: String
+  nextBillingPrice: Int
+  total: Int
+  amountDue: Int
+  currency: Currency
+  remaining: Int
+}
+
+input CreateDocStackPaymentLinkInput {
+  orgId: ID!
+  period: PaymentPeriod!
+  plan: DocStackPlan!
+  couponCode: String
+  quantity: Int! @Range(min: 1)
+  billingEmail: String! @IsEmail @Length(min: 1, max: 255)
+  expireDays: Int! @Range(min: 1, max: 30)
+  currency: Currency!
+}
+
+type HubspotDeal {
+  dealName: String
+  dealUrl: String
+}
+
+input ChangeUserEmailInput {
+  currentEmail: String! @IsEmail
+  newEmail: String! @IsEmail
+  mergeOption: MergeAccountOptions!
+  mergeDestination: ID @MongoId
+}
+enum MergeAccountOptions {
+  REPLACE_EXISTING_EMAIL
+  REPLACE_NOT_EXISTING_EMAIL
+  MERGE_INTO_CURRENT_EMAIL
+  MERGE_INTO_NEW_EMAIL
+}
+
+type PaymentSubscription {
+  payment: Payment!
+  upcomingInvoice: SubscriptionResponse
+}
+
+type PreviewUserDataPayload {
+  user: User
+  subscriptions: [PaymentSubscription]
+  joinedOrgs: [Organization]
+  joinedTeams: [Team]
+  signSubscription: Payment
+}
+
+enum ChangeEmailAbility {
+  ELIGIBLE
+  DOMAIN_RESTRICTED
+  PREMIUM_REQUIRED
+}
+
+input VerifyEmailChangeDomainRulesInput {
+  currentEmail: String! @IsEmail
+  newEmail: String! @IsEmail
+}
+
+type VerifyEmailChangeDomainRulesData {
+  allowToChange: Boolean!
+  message: String
+}
+
+type Query {
+  getAdminList(input: GetAdminListInput!): AdminsConnection
+  getUserList(input: GetUserListInput!): UserConnection
+  getOrganizations(input: GetOrganizationsInput!): OrganizationConnection
+  getOrganizationDetail(orgId: ID! @MongoId(key: "orgId")): OrganizationDetail
+  findUserByAdmin(email: String! @IsEmail(key: "email") @Length(key: "email", min: 1, max: 255)): FindUserByAdminPayload
+  findUserInBlacklist(email: String! @IsEmail(key: "email") @Length(key: "email", min: 1, max: 255)): UserBlacklist
+  getUserBlacklist(input: GetBlacklistInput!): UserBlacklistConnection
+  getOrganizationBlacklist(input: GetBlacklistInput): OrganizationBlacklistConnection
+  getUserDetail(userId: ID! @MongoId(key: "userId")): UserDetailPayload
+  getOrgByDomainAdmin(domain: String!): Organization
+  getOrganizationMembers(input: GetMemberInput!): OrganizationMemberConnection
+  previewUpcomingInvoice(input: PreviewUpcomingInvoiceInput!): PreviewUpcomingInvoicePayload
+  getTemplateDetail(templateId: ID!): CommunityTemplate
+  getCommunityTemplates(input: GetCommunityTemplatesInput!): GetCommunityTemplatePayload
+  getCategoryTemplatesByAdmin(input: GetTemplateCategoryInput!): GetTemplateCategoryPayload
+  getTemplateCategoryDetail(categoryId: ID! @MongoId(key: "categoryId")): TemplateCategory
+  previewPaymentLinkInvoice(input: PreviewPaymentLinkInvoiceInput): PreviewPaymentLinkInvoicePayload
+  getCouponValueForAdmin(input: GetCouponValueInput!): CouponValueResponse
+  getCustomerInfo(input: CommonPaymentInput!): CustomerInfoResponse
+  previewUserDataForChangeEmail(email: String! @IsEmail(key: "email")): PreviewUserDataPayload
+  verifyEmailChangeDomainRules(input: VerifyEmailChangeDomainRulesInput!): VerifyEmailChangeDomainRulesData
+}
+
+type Mutation {
+  createAdmin(input: CreateAdminInput!): AdminPayload
+  deleteAdmin(adminId: ID! @MongoId(key: "adminId")): ID
+  setAdminRole(input: SetAdminRoleInput!): AdminPayload
+  resendAdminInvitation(email: String! @IsEmail(key: "email") @Length(key: "email", min: 1, max: 255)): AdminPayload
+  deleteOrganization(orgId: ID! @MongoId(key: "orgId"), addToBlacklist: Boolean): BasicResponse
+  createPaymentLink(input: CreatePaymentLinkInput!): BasicResponse
+  createOrganizationByAdmin(organization: CreateOrgByAdminInput!, file: Upload): CreateOrganizationPayload
+  addEmailToUserBlacklist(email: String! @IsEmail(key: "email") @Length(key: "email", min: 1, max: 255)): AddEmailToUserBlacklistPayload
+  removeUserBlacklist(email: String! @IsEmail(key: "email") @Length(key: "email", min: 1, max: 255)): BasicResponse
+  removeOrgBlacklist(domain: String!): BasicResponse
+  addDomainToOrgBlacklist(domain: String!): AddDomainToOrgBlacklistPayload
+  cancelPlanByAdmin(input: CancelPlanByAdminInput): BasicResponse
+  deleteUser(userId: ID! @MongoId(key: "userId"), addToBlacklist: Boolean): ID
+  convertToMainOrganization(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  convertToCustomOrganization(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  updateAdminProfile(input: UpdateAdminProfileInput!, file: Upload): UpdateAdminPayload
+  changeAdminPassword(input: ChangeAdminPasswordInput!): UpdateAdminPayload
+  removeAssociateDomainByAdmin(input: RemoveAssociateDomainInput!): Organization
+  editTemplateDetail(input: EditCommunityTemplateInput!, thumbnails: [Upload!] @Array(key: "thumbnails", min: 0, max: 3, unique: true, isOptional: true)): CommunityTemplate
+  deleteCommunityTemplate(templateId: ID! @MongoId(key: "templateId")): CommunityTemplate
+  unpublishCommunityTemplate(templateId: ID! @MongoId(key: "templateId")): CommunityTemplate
+  publishCommunityTemplate(templateId: ID! @MongoId(key: "templateId")): CommunityTemplate
+  adminUploadTemplate(input: AdminUploadTemplateInput!, template: Upload!, thumbnails: [Upload!] @Array(key: "thumbnails", min: 1, max: 3, unique: true)): BasicResponse
+  createTemplateCategory(name: String! @Length(key: "name", min: 1, max: 255) @NotIncludes(key: "name", patterns: ["html", "url"])): TemplateCategory
+  editTemplateCategory(input: EditTemplateCategoryInput!): TemplateCategory
+  deleteTemplateCategory(categoryId: ID! @MongoId(key: "categoryId")): BasicResponse
+  createDocStackPaymentLink(input: CreateDocStackPaymentLinkInput): BasicResponse
+  changeUserEmail(input: ChangeUserEmailInput!): BasicResponse
+  migrateOrgBusinessToNewPrice: BasicResponse
+  createOldBusinessPlan(email: String!, priceId: String!, isTrial: Boolean!): BasicResponse
+  migrateLegacyBusinessToNewBusiness(orgIds: [String!]): BasicResponse
+  syncHubspotWorkspace(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+}
+
+type Subscription {
+  updateAdminPermission: UpdateAdminPermissionPayload
+}

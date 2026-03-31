@@ -1,0 +1,34 @@
+.itemWrapper {
+  cursor: pointer;
+  margin-left: var(--kiwi-spacing-2);
+  margin-right: var(--kiwi-spacing-2);
+  margin-bottom: var(--kiwi-spacing-0-5);
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  height: 40px;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: var(--kiwi-opacity-state-layer-none);
+    border-radius: var(--kiwi-border-radius-md);
+    transition: var(--default-web-transition);
+    background-color: var(--kiwi-colors-surface-on-surface);
+  }
+
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  .tooltipWrapper {
+    min-width: 0;
+    z-index: 1;
+  }
+}

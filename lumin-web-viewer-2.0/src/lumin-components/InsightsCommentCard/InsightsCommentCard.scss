@@ -1,0 +1,19 @@
+@import '../../constants/lumin-styles.scss';
+
+.InsightComment__ChartContainer {
+  margin-top: 8px;
+}
+
+.InsightsComment__Container {
+  min-height: 280px;
+}
+.InsightsComment__Container--no-chart {
+  min-height: auto;
+}
+.InsightsComment__ChartContainer {
+  margin: 24px 0 12px;
+}
+.InsightsComment__Chart {
+  width: 100%;
+  height: 120px;
+}

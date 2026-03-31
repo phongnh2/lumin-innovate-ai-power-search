@@ -1,0 +1,80 @@
+.wrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.mirror {
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  border: 1px solid transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+
+  @include kiwi-typography-label-md;
+}
+
+.hiddenText {
+  visibility: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ghostText {
+  color: #b0b0b0;
+  pointer-events: none;
+}
+
+.textarea {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #000;
+  resize: none;
+  height: 100px;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  @include kiwi-typography-label-md;
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--kiwi-colors-support-purple-background-low);
+  }
+}
+
+.tabHint {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 8px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #888;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tabHintText {
+  font-size: 11px;
+  color: #aaa;
+}

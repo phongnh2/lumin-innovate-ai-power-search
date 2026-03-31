@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package layout;
+
+service LayoutDetectionService {
+  rpc BatchPredict (BatchPredictRequest) returns (BatchPredictResponse);
+}
+
+message BatchPredictRequest {
+  repeated bytes images = 1;  // each image is raw binary data
+  float confidence_threshold = 2;
+}
+
+message PredictionResult {
+  float l = 1;
+  float t = 2;
+  float r = 3;
+  float b = 4;
+  string label = 5;
+  float confidence = 6;
+}
+
+message BatchPrediction {
+  repeated PredictionResult predictions = 1;
+}
+
+message BatchPredictResponse {
+  repeated BatchPrediction results = 1; // one per input image
+}

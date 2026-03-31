@@ -1,0 +1,31 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/welcome-personal-professional.png" />
+          <mj-spacer height="32px" />
+          <mj-text mj-class="text-large">Welcome to Lumin Professional</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Your&nbsp;<b class="highlight">Professional {{period}}&nbsp;</b>subscription is now active. With Lumin Professional, you’ll have access to our extensive range of Premium features including more annotation tools, unlimited document uploads and much more!
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Click below to head to your dashboard and unlock even more features:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button href="{{baseUrl}}/documents" width="100%">Open Lumin</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;<a class="link" href="{{baseUrl}}/setting/billing">Settings - Billing</a>
+          </mj-text>
+        </mj-column>
+        <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

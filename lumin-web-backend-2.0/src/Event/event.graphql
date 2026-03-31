@@ -1,0 +1,162 @@
+enum EventScope {
+  PERSONAL
+  TEAM
+  ORGANIZATION
+  ADMIN
+  SYSTEM
+}
+
+enum AdminEventType {
+  PAYMENT
+  ORGANIZATION
+  ADMIN
+  USER
+  COMMUNITY_TEMPLATE
+  TEMPLATE_CATEGORY
+}
+
+type EventActorModification {
+  plan: String
+  planCharge: Int
+  adminRole: String
+}
+
+type EventUser {
+  _id: ID
+  name: String
+  email: String
+  avatarRemoteId: String
+  modification: EventActorModification
+}
+
+type EventPaymentModification {
+  plan: String
+  period: String
+  docStack: Int
+}
+
+type EventOrganization {
+  _id: ID
+  name: String
+  domain: String
+  planModification: EventPaymentModification
+}
+
+type EventTeamModification {
+  memberRole: String
+  plan: String
+  planCharge: Int
+}
+
+type EventTeam {
+  _id: ID
+  name: String
+  modification: EventTeamModification
+}
+
+type EventDocumentComment {
+  _id: ID
+  content: String
+}
+
+type EventDocument {
+  _id: ID
+  name: String
+  comment: EventDocumentComment
+}
+
+type EventCommunityTemplate {
+  _id: ID
+  name: String
+  type: String
+}
+
+type Event {
+  _id: String
+  eventName: String
+  eventTime: Date
+  actor: EventUser
+  target: EventUser
+  organization: EventOrganization
+  team: EventTeam
+  document: EventDocument
+  actorEventScope: [EventScope]
+  targetEventScope: [EventScope]
+}
+
+type ChangeEmailEventMetadata {
+  newEmail: String
+  userId: String
+}
+
+type AdminEventMetadata {
+  affectedOrg: EventOrganization
+  isBlacklisted: Boolean
+  associateDomain: String
+  emailChanged: ChangeEmailEventMetadata
+}
+
+type AdminEvent {
+  _id: String
+  eventName: String!
+  eventTime: Date!
+  actor: EventUser
+  target: EventUser
+  organization: EventOrganization
+  communityTemplate: EventCommunityTemplate
+  team: EventTeam
+  document: EventDocument
+  actorEventScope: [EventScope]
+  targetEventScope: [EventScope]
+  type: AdminEventType
+  metadata: AdminEventMetadata
+}
+
+type AdminEventsEdge {
+  node: AdminEvent!
+}
+
+type AdminEventsConnection {
+  edges: [AdminEventsEdge]!
+  total: Int!
+}
+
+input DateRangeFilter {
+  startDate: Date
+  endDate: Date
+}
+
+input TargetFilter {
+  orgId: String
+  adminId: String
+  userId: String
+}
+
+input EventFilterOptions {
+  createdDateRange: DateRangeFilter
+  type: AdminEventType
+  target: TargetFilter
+  actorId: String
+  isSystem: Boolean
+}
+
+input EventSortOptions {
+  createdAt: SortStrategy
+}
+
+input GetAdminEventsInput {
+  filterOptions: EventFilterOptions
+  sortOptions: EventSortOptions
+  offset: Int @Range(min: 0)
+  limit: Int @Range(min: 0, max: 100)
+}
+
+type Query {
+  getEventsByUserId(limit: Int @Range(key: "limit", min: 0, max: 100)): [Event]
+  getEventsByTeamId(teamId: ID! @MongoId(key: "teamId"), limit: Int @Range(key: "limit", min: 0, max: 100)): [Event]
+  getAdminEvents(input: GetAdminEventsInput!): AdminEventsConnection
+}
+
+type Mutation {
+  deletePersonalEvents: BasicResponse
+}

@@ -1,0 +1,16 @@
+.circleListContainer {
+  overflow-y: auto;
+  margin-bottom: 16px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container);
+  padding: var(--kiwi-spacing-3);
+}
+
+.buttonWrapper {
+  text-align: center;
+}

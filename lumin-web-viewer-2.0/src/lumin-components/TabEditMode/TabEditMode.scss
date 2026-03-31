@@ -1,0 +1,44 @@
+@import '../../constants/lumin-styles';
+
+.TabEditMode {
+  margin-bottom: 8px;
+  box-shadow: none;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    display: none;
+  }
+  
+  @include themify() {
+    background-color: themed('bgColor');
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    color: var(--color-neutral-80);
+  }
+
+  &--highlighted {
+    background-color: #E5F9FF !important;
+  }
+}
+
+.TabEditMode__Title {
+  font-family: $font-stack-primary;
+  font-size: 14px;
+  font-weight: 600;
+  @include themify() {
+    color: themed('textMenuItem');
+  }
+  .icon {
+    @include themify() {
+      color: themed('iconColor');
+    }
+  }
+}
+
+.TabEditMode_Details {
+  padding: 0 24px 8px 16px;
+}

@@ -1,0 +1,54 @@
+{
+  "moduleFileExtensions": ["ts", "tsx", "js", "json"],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/Auth/auth.service.ts",
+    "src/Document/document.service.ts",
+    "src/Document/document.controller.ts",
+    "src/Document/documentSync.service.ts",
+    "src/Document/documentOutline.service.ts",
+    "src/Organization/organization.service.ts",
+    "src/Organization/organization.docStack.service.ts",
+    "src/Organization/organization.inviteLink.service.ts",
+    "src/Organization/organization.payment.service.ts",
+    "src/OpenGoogle/OpenGoogle.controller.ts",
+    "src/OpenGoogle/OpenGoogle.service.ts",
+    "src/OpenOneDrive/OpenOneDrive.service.ts",
+    "src/OpenOneDrive/OpenOneDrive.controller.ts",
+    "src/Payment/payment.service.ts",
+    "src/Payment/payment.controller.ts",
+    "src/User/user.service.ts",
+    "src/User/user.controller.ts",
+    "src/Aws/aws.service.ts",
+    "src/Organization/organizationTeam.service.ts",
+    "src/OpenGoogle/EventTracking.service.ts",
+    "src/Slack/slack.service.ts",
+    "src/Folder/folder.service.ts",
+    "src/Braze/braze.service.ts",
+    "src/Hubspot/hubspot.service.ts",
+    "src/Hubspot/hubspot-workspace.service.ts",
+    "src/Hubspot/hubspot-client.provider.ts",
+    "src/Hubspot/custom-objects/custom-object.service.ts",
+    "src/Hubspot/custom-objects/custom-object.loader.ts"
+  ],
+  "coverageReporters": [
+    "json-summary",
+    "json",
+    "html",
+    "lcov"
+  ],
+  "moduleDirectories": [
+    "node_modules",
+    "<rootDir>src"
+  ],
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testRegex": "\\.test\\.ts$",
+  "testEnvironment": "node",
+  "coverageProvider": "babel",
+  "moduleNameMapper": {
+    "^eiows$": "<rootDir>/__mocks__/eiows.js"
+  }
+}
+

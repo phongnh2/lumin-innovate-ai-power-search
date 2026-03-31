@@ -1,0 +1,20 @@
+.container {
+    padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--kiwi-colors-semantic-error-container);
+    margin: var(--kiwi-spacing-1);
+    border-radius: var(--kiwi-border-radius-lg);
+}
+
+.description {
+    padding: var(--kiwi-spacing-1) 0 var(--kiwi-spacing-2);
+    @include kiwi-typography-body-sm;
+    color: var(--kiwi-colors-semantic-on-error-container);
+}
+
+.buttonConfirm {
+    background-color: var(--kiwi-colors-core-secondary);
+    padding: var(--kiwi-spacing-1-5);
+    border-radius: var(--kiwi-border-radius-md);
+}

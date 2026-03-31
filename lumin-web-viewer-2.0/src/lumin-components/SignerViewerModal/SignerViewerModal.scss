@@ -1,0 +1,520 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/variables";
+
+.SignerViewerModal {
+  .MuiDialog-paper {
+    border-radius: 8px;
+  }
+}
+.sign-modal {
+  z-index: 1303;
+}
+
+.sign-modal .MuiDialog-paperFullScreen {
+  background: #F9FAFB;
+}
+
+.SignerViewerModalContent {
+  background: #f7f6ec;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.SignerViewerModalContent__footer-content {
+  position: absolute;
+  bottom: 32px;
+  right: 35px;
+  display: flex;
+  align-items: center;
+  color: var(--color-primary-100);
+  font-family: MarkPro, $font-stack-primary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+
+  &-logo {
+    display: inline-block;
+
+    img {
+      margin-left: 8px;
+      margin-top: -1px;
+    }
+  }
+}
+
+.SignerViewerModalContent__main-button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.SignerViewerModalContent__main-button {
+  font-family: var(--font-secondary);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: none;
+  color: var(--color-lumin-sign-primary);
+  border-radius: 8px;
+  height: 48px;
+
+  &--warning-first {
+    border: 1.5px solid var(--color-primary-100);
+    background: var(--color-neutral-0);
+    border-color: var(--color-lumin-sign-outline);
+  }
+
+  &--warning-second {
+    color: var(--color-neutral-10);
+    background: var(--color-lumin-sign-primary);
+
+    &:hover {
+      background: var(--color-lumin-sign-primary);
+      opacity: 0.8;
+    }
+  }
+  &--disable#{&}--warning-second {
+    background: var(--color-lumin-sign-primary-disable);
+  }
+}
+
+.SignerViewerModalContent__user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 4px 11px 0;
+  width: 100%;
+
+  &-text {
+    font-family:var(--font-secondary);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    margin-left: 12px;
+
+    :nth-child(1) {
+      color: var(--color-lumin-sign-primary);
+    }
+
+    :nth-child(2) {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--color-lumin-sign-on-surface-variant);
+    }
+  }
+
+  &-avatar {
+    height: 32px;
+    width: 32px;
+    border-color: var(--color-lumin-sign-outline);
+
+    .MaterialAvatar__container {
+      background: var(--color-primary-100) !important; // override avatar background color
+      width: 28px!important;
+      height: 28px!important;
+    }
+  }
+
+  &.hover {
+    padding-left: 12px;
+    padding-right: 16px;
+
+    &:hover {
+      cursor: pointer;
+      background: var(--color-lumin-sign-small-btn-hover);
+
+      @include themify {
+        background: themed("popperItemHover");
+      }
+    }
+  }
+
+  &.forSearch {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  &.active {
+    background: var(--color-neutral-20);
+
+    &:hover {
+      background: var(--color-neutral-20);
+    }
+
+    @include themify {
+      background: themed("popperItemHover");
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &-delete-button-wrapper {
+    button {
+      color: var(--color-lumin-sign-primary);
+
+      &:hover {
+        background-color: var(--color-lumin-sign-small-btn-hover);
+      }
+    }
+  }
+
+  &-text--added {
+    color: var(--color-lumin-sign-error);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.SignerViewerModalContent__user {
+  width: 75%;
+
+  &-group {
+    overflow: scroll;
+    max-height: 250px;
+    border-bottom: solid 1px var(--color-other-6);
+    margin-bottom: 12px;
+
+    &-info {
+      padding: 0;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.SignerViewerWarningModal {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 24px;
+
+    p {
+      font-style: normal;
+      line-height: 24px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--color-lumin-sign-primary);
+      margin-top: 16px;
+      font-family: var(--font-sign-primary);
+    }
+
+    &-content {
+      font-size: 16px;
+      text-align: center;
+      color: var(--color-lumin-sign-on-surface-variant);
+      margin-top: 12px;
+      font-family: var(--font-secondary);
+      font-weight: 400;
+    }
+  }
+
+  &__button-group {
+    margin-top: 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 12px;
+    justify-content: center;
+  }
+
+  .MuiDialog-paper {
+    border-radius: 8px;
+  }
+}
+
+.SignerViewerAddUserModal {
+  .MuiDialog-paper {
+    border-radius: 8px;
+  }
+
+  &__container {
+    width: 528px;
+    padding: 24px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: var(--font-sign-primary);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--color-lumin-sign-primary);
+  }
+
+  &__input-container {
+    margin-top: 20px;
+    margin-bottom: 14px;
+    border: 2px solid var(--color-lumin-sign-outline);
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    &:focus-within {
+      border-color: var(--color-lumin-sign-primary);
+    }
+
+    input {
+      color: var(--color-lumin-sign-primary)!important;
+
+    }
+
+    fieldset {
+      border: none;
+    }
+  }
+
+  &__input-button--cancel {
+    color: var(--color-lumin-sign-primary);
+  }
+
+  &__input--search {
+    padding: 0;
+
+    .MuiInputBase-input {
+      font-family: var(--font-secondary);
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      color: var(--color-lumin-sign-primary);
+      height: 24px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      &::placeholder {
+        color: var(--color-lumin-sign-primary-disable);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__result {
+    padding: 12px 0;
+    min-height: 325px;
+    margin: 4px 0 7px;
+    border: 1px solid var(--color-other-6);
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px -4px rgb(73 106 132 / 12%), 0 8px 8px -4px rgb(73 106 132 / 8%);
+    border-radius: 4px;
+  }
+
+  &__no-result {
+    height: 325px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      color: var(--color-lumin-sign-on-surface-variant);
+
+      &:first-of-type {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-lumin-sign-primary) !important;
+        font-family: var(--font-sign-primary);
+      }
+
+      &:nth-of-type(2)  {
+        font-family: var(--font-secondary);
+      }
+    }
+
+  }
+
+  &__recent-contact-list {
+    min-height: 325px;
+    margin: 0 -24px;
+
+    &-title {
+      font-family: var(--font-sign-primary);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-lumin-sign-primary);
+      margin-bottom: 12px;
+      margin-left: 24px;
+    }
+  }
+
+  &__user-tag-list {
+    display: inline-flex;
+    color: var(--color-lumin-sign-btn-on-tonal);
+    background: var(--color-lumin-sign-btn-tonal);
+    // background: black;
+    font-size: 14px;
+    line-height: 20px;
+    height: 24px;
+    border-radius: 4px;
+    padding: 2px 8px;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &:not(:last-child) {
+      margin-right: 13px;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background: var(--color-lumin-sign-outline);
+  }
+}
+
+.SignerViewerModalHeader__progressBar-container {
+  width: 670px;
+  z-index: 15;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (max-width: #{$tablet-width}) {
+    width: 418px;
+  }
+}
+
+.SignerViewerModalHeader__progressBar-list {
+  li {
+    // content
+    list-style-type: none;
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: var(--color-lumin-sign-primary-disable);
+
+    &::before {
+      content: " ";
+      line-height: 30px;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px;
+      background: var(--color-lumin-sign-primary-disable);
+    }
+
+    // 2 lines
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: var(--color-lumin-sign-grey-100);
+      top: 4px;
+      left: -50%;
+      z-index: -1;
+    }
+
+    &:first-child::after {
+      content: none;
+    }
+
+    // active content
+    &.active {
+      color: var(--color-lumin-sign-primary);
+
+      span {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        right: 0;
+        text-wrap: nowrap;
+      }
+    }
+
+    &:not(:first-child) span {
+      position: absolute;
+      top: 25px;
+      text-align: center;
+      left: 0;
+      right: 0;
+      text-wrap: nowrap;
+    }
+
+    // active circle
+    &.active::before {
+      border: 9px solid var(--color-lumin-sign-process);
+      background: var(--color-neutral-0);
+      margin-top: -10px;
+      transform: scale(1);
+      animation: ani-bounce 2s infinite;
+      box-shadow: 0 0 0 0 #3180f1;
+      animation-delay: 0s, 1.5s;
+    }
+
+    &.active::after {
+      background: var(--color-lumin-sign-grey-100);
+    }
+  }
+}
+
+.mr-24 {
+  margin-right: 24px;
+}
+
+.mr-13 {
+  margin-right: 13px;
+}
+
+.ml-4 {
+  margin-left: 4px;
+}
+
+@keyframes ani-bounce {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgb(83 70 216 / 70%);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgb(83 70 216 / 0%);
+  }
+
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgb(83 70 216 / 0%);
+  }
+}

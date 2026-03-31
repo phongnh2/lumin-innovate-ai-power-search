@@ -1,0 +1,31 @@
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.memberListWrapper {
+  padding-top: var(--kiwi-spacing-1);
+  margin: 0 calc(-1 * var(--kiwi-spacing-3));
+}
+
+.memberListScrollRoot {
+  padding: 0 var(--kiwi-spacing-3);
+}
+
+.memberListScroll {
+  max-height: 200px;
+}
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

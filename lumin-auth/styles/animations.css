@@ -1,0 +1,9 @@
+@keyframes fadeout-bg {
+  from { background-color: var(--color-primary-20); }
+  to { background-color: transparent; }
+}
+
+@keyframes fadein-verticalBar {
+  from { opacity: 0; visibility: visible; }
+  to { opacity: 1; visibility: visible; }
+}

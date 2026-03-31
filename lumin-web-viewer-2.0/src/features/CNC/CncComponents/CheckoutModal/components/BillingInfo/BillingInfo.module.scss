@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1-75);
+  background-color: var(--kiwi-colors-surface-background);
+  border-radius: var(--kiwi-border-radius-md);
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+  width: 260px;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: var(--kiwi-spacing-2);
+}
+
+.image {
+  margin: 0 auto;
+  display: block;
+  width: 88px;
+  aspect-ratio: 11/10;
+}

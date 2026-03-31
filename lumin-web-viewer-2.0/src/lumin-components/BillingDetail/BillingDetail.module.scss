@@ -1,0 +1,9 @@
+@import 'reskin/screens.scss';
+
+.restrictedSection {
+  padding: var(--kiwi-spacing-3) 0;
+
+  @include md-screen {
+    padding: var(--kiwi-spacing-8) var(--kiwi-spacing-5);
+  }
+}

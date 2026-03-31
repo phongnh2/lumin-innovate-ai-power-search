@@ -1,0 +1,26 @@
+@import '../../constants/lumin-styles';
+
+.Crash {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.Crash__image {
+  width: 100%;
+  max-width: 500px;
+}
+
+.Crash__desc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: $font-stack-montserrat;
+  margin-bottom: 24px;
+}
+
+.Crash__button {
+  max-width: 200px;
+}

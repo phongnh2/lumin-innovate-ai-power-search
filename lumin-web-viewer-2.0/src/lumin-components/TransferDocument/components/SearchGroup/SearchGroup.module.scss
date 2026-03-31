@@ -1,0 +1,31 @@
+@import 'reskin/screens.scss';
+
+.searchInputWrapper {
+  width: 100%;
+  max-width: 220px;
+  transition: max-width 0.2s ease;
+
+  &:where([data-focusing='true']) {
+    max-width: 400px;
+  }
+}
+
+.workspaceWrapper {
+  max-width: 98px;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  border-radius: var(--kiwi-border-radius-sm);
+  padding: var(--kiwi-spacing-0-75) var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-container);
+
+  & p {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @include sm-screen {
+    max-width: 164px;
+  }
+}

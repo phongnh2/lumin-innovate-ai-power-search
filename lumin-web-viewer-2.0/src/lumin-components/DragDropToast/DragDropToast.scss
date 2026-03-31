@@ -1,0 +1,40 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.DragDropToastOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: rgba($color: $aliceblue, $alpha: 0.7);
+}
+.DragDropToast {
+  background-color: $dark-sky-blue;
+  z-index: 1000;
+  width: 300px;
+  border-radius: 4px;
+  position: fixed;
+  left: 50%;
+  top: 48px;
+  transform: translateX(-50%);
+  box-shadow: $container-shadow;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  .icon {
+    color: white;
+  }
+  span {
+    font-family: NunitoSans;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.02px;
+    color: white;
+    margin-left: 16px;
+  }
+}

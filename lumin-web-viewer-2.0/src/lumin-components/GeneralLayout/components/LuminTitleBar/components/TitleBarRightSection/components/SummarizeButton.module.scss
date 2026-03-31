@@ -1,0 +1,31 @@
+@import 'reskin/screens.scss';
+
+.button {
+  background: linear-gradient(to right, var(--kiwi-colors-custom-role-ai-button-container-gra1), var(--kiwi-colors-custom-role-ai-button-container-gra2), var(--kiwi-colors-custom-role-ai-button-container-gra1));
+  background-size: 200%;
+  background-position: left;
+  transition-property: background-position, box-shadow, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: .5s;
+  text-transform: unset;
+  color: var(--kiwi-colors-custom-role-ai-on-button-container);
+  border: none;
+
+  &:hover {
+    background-position: right;
+  }
+
+  &:disabled {
+    background: unset;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @include sm-down-screen {
+    display: none;
+  }
+}
+
+.icon {
+  color: var(--kiwi-colors-custom-role-ai-on-button-container);
+}

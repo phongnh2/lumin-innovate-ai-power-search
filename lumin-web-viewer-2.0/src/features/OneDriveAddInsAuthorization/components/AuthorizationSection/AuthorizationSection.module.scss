@@ -1,0 +1,21 @@
+@import 'reskin/screens.scss';
+
+.img {
+  width: 200px;
+  height: 150px;
+
+  @include md-screen {
+    width: 267px;
+    height: 200px;
+  }
+
+  &[data-reskin='false'] {
+    width: 291px;
+    height: 220px;
+
+    @include md-screen {
+      width: 424px;
+      height: 320px;
+    }
+  }
+}

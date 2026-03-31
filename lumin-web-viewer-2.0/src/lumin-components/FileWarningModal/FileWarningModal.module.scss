@@ -1,0 +1,48 @@
+.bodyContainer {
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+  margin-bottom: var(--kiwi-spacing-3);
+
+  img {
+    margin: auto;
+    max-height: 90px;
+  }
+}
+
+.documentName {
+  font-weight: 700;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.contactLink {
+  font-weight: 700;
+  color: var(--kiwi-colors-surface-on-surface);
+  text-decoration: underline;
+}
+
+.textContainer {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+}
+
+.textWrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-5);
+  padding: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.bottomButtonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-2);
+}
+
+.okButton {
+  min-width: 100px;
+}
+
+.headerWithDesc {
+  margin-bottom: var(--kiwi-spacing-0-5);
+}

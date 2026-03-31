@@ -1,0 +1,28 @@
+enum InviteTeamRole {
+  admin
+  moderator
+  member
+}
+
+type Membership {
+  role: String
+  user: User
+  isOwner: Boolean
+}
+
+input MembershipInput {
+  userId: ID @MongoId
+  userEmail: String @IsEmail @Length(min: 1, max: 100)
+  teamId: ID @MongoId
+  role: InviteTeamRole
+}
+
+input PendingInviteSortOptions {
+  email: SortStrategy
+}
+
+type Query {
+  membership(clientId: ID! @MongoId(key: "clientId"), teamId: ID! @MongoId(key: "teamId"), userId: ID! @MongoId(key: "userId")): Membership
+  memberships(clientId: ID! @MongoId(key: "clientId"), input: MembershipInput, options: QueryOptionsInput, userInput: UserQueryInput): [Membership]
+  membershipsCount(clientId: ID! @MongoId(key: "clientId"), input: MembershipInput, userInput: UserQueryInput): Int
+}

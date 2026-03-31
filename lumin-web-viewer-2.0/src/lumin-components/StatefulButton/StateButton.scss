@@ -1,0 +1,15 @@
+@import '../../constants/styles';
+@import '../../constants/lumin-styles.scss';
+
+.StatefulButton {
+  border-radius: 4px;
+  &.down-arrow {
+    min-width: 56px;
+    &.active:after {
+      border-top-color: $primary;
+    }
+    @include themify() {
+        border-top-color: themed('arrowPopperActive');
+    }
+  }
+}

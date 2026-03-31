@@ -1,0 +1,10 @@
+.wrapper {
+  color: var(--kiwi-colors-semantic-on-warning-container);
+  background-color: var(--kiwi-colors-semantic-warning-container);
+
+  display: flex;
+  width: 100%;
+  gap: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1);
+}

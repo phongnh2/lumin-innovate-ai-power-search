@@ -1,0 +1,109 @@
+.card {
+  margin-top: var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-outline-variant);
+  padding: var(--kiwi-spacing-3);
+}
+
+.cardContent {
+  margin-top: var(--kiwi-spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+}
+
+.cardContentItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.cardContentItemTitle {
+  @include kiwi-typography-title-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.errorMessage {
+  @include kiwi-typography-body-sm;
+
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.asterisk {
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.cardContentItemDescription {
+  @include kiwi-typography-title-sm;
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.cardContentItemNote {
+  @include kiwi-typography-body-sm;
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.optionLabel {
+  @include kiwi-typography-title-xs;
+
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.optionDescription {
+  @include kiwi-typography-body-sm;
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.scopeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  margin-left: var(--kiwi-spacing-2);
+}
+
+.scopeItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.scopeType {
+  @include kiwi-typography-headline-sm;
+
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.scopePermission {
+  display: flex;
+  flex-direction: row;
+  gap: var(--kiwi-spacing-1-25);
+  margin-left: var(--kiwi-spacing-2);
+}
+
+.permissionContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.permissionLabel {
+  @include kiwi-typography-label-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.permissionDescription {
+  @include kiwi-typography-body-md;
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.imgPreview {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--kiwi-border-radius-md);
+  object-fit: cover;
+}

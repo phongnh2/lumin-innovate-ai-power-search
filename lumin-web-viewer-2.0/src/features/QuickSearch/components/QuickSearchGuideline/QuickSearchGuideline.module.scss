@@ -1,0 +1,28 @@
+.guideline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  gap: var(--kiwi-spacing-0-5);
+  margin: var(--kiwi-spacing-1) 0 0;
+  padding: var(--kiwi-spacing-1);
+
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-semantic-information-container);
+}
+
+.head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-bottom: var(--kiwi-spacing-1);
+}
+
+.close {
+  position: absolute;
+  top: calc(var(--kiwi-spacing-0-5) * -1);
+  right: 0;
+}

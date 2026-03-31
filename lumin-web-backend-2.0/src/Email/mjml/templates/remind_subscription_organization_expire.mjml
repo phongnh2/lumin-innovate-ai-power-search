@@ -1,0 +1,54 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-raw>{{#if isOneDayRemaining}}</mj-raw>
+            <mj-text mj-class="text-large">The subscription for {{orgName}}'s {{orgWord}} will end in 24 hours</mj-text>
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-text mj-class="text-large">The subscription for {{orgName}}'s {{orgWord}} will end on {{expireDate}}</mj-text>
+          <mj-raw>
+            {{/if}}
+          </mj-raw>
+          <mj-spacer height="12px" />
+          <mj-text>
+            We noticed that you have not reactivated your subscription for&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>.
+            <mj-raw>{{#if isOneDayRemaining}}</mj-raw>
+              It will end in 24 hours -&nbsp;on&nbsp;
+            <mj-raw>
+              {{else}}
+            </mj-raw>
+              Sadly, this means your subscription will not be renewed at the end of your billing period on&nbsp;
+            <mj-raw>{{/if}}</mj-raw>
+            <b class="highlight">{{expireDate}}</b>
+            <mj-raw>{{#if isOneDayRemaining}}</mj-raw>
+              - which will affect all&nbsp;<b class="highlight">{{totalMembers}}</b>&nbsp;{{pluralize "member" "members" totalMembers}} in&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>.
+            <mj-raw>
+              {{else}}
+            </mj-raw>
+              . This will affect all&nbsp;<b class="highlight">{{totalMembers}}</b>&nbsp;{{pluralize "member" "members" totalMembers}} in&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>.
+            <mj-raw>{{/if}}</mj-raw>
+          </mj-text>
+          <mj-raw>{{#unless isOneDayRemaining}}</mj-raw>
+            <mj-text>Don’t worry, you still have time to reactivate it:</mj-text>
+          <mj-raw>{{/unless}}</mj-raw>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">Reactivate Subscription</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Without further action, your plan will be downgraded to the free version by <b class="highlight">{{expireDate}}</b>.
+            This change will affect all&nbsp;<b class="highlight">{{totalMembers}}</b>&nbsp;{{pluralize "member" "members" totalMembers}} of&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>.
+            People in this {{orgWord}} may experience the following limitations:
+          </mj-text>
+          <mj-app-product-restriction />
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

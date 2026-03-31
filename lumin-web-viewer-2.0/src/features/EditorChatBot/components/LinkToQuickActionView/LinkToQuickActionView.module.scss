@@ -1,0 +1,11 @@
+
+.link {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-core-secondary);
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}

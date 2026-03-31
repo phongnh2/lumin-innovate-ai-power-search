@@ -1,0 +1,31 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{inviteeName}} invited you to {{orgTeamName}}'s {{teamWord}} in {{orgName}}'s {{orgWord}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            As a member of the&nbsp;<b class="highlight">{{orgTeamName}}'s {{teamWord}}</b>,&nbsp;you will be able to access additional features in Lumin.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Explore the {{teamWord}} by clicking the button below:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left">
+            <mj-raw>
+              <a href="{{addMemberOrgTeamDeeplink}}" style="display:inline-block;background:#F2385A;color:#ffffff;font-family:Roboto, sans-serif;font-size:17px;font-weight:500;line-height:22px;margin:0;text-decoration:none;text-transform:none;border-radius:8px;" target="_blank" deeplink="true" >
+                Explore {{teamWord}}
+              </a>
+            </mj-raw>
+          </mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

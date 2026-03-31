@@ -1,0 +1,18 @@
+{
+  "LUMIN_BASEURL": "https://app-staging.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://app-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_SIGN_BACKEND_URL": "https://sign-staging.luminpdf.com/api/web",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://app-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://app-staging.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://app-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://app-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://staging-socket.luminpdf.com",
+  "LUMIN_ENV": "staging",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "903627406732",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "903627406732-bjrrmdmrirs8md7fqoja5qbf1d3dn8h6.apps.googleusercontent.com",
+  "LUMIN_MICROSOFT_AUTHORIZATION_URL": "https://login.microsoftonline.com/common",
+  "LUMIN_MICROSOFT_CLIENT_ID": "00694e93-9618-4f29-9da9-1772c9d2e616",
+  "LUMIN_CANNY_FEEDBACK_REDIRECT_URL": "https://lumin-staging.canny.io/feature-requests",
+  "LUMIN_WEB_CHAT_BOT_API_URL": "https://app-staging.luminpdf.com/api/web/webchatbot"
+}

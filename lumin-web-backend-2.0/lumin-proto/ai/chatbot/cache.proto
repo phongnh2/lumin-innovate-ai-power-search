@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+package cache;
+
+service CacheService {
+  rpc UploadDocument(DocumentIdRequest) returns (DocumentResponse);
+  rpc DeleteDocument(DocumentIdRequest) returns (BasicResponse);
+  rpc GetDocument(DocumentIdRequest) returns (DocumentResponse);
+  rpc GetListFiles(Empty) returns (DocumentListResponse);
+}
+
+message Empty {}
+
+message DocumentIdRequest {
+  string documentId = 1;
+}
+
+message BasicResponse {
+  string status = 1;
+  string documentId = 2;
+  string message = 3;
+}
+
+message DocumentResponse {
+  string status = 1;
+  string documentId = 2;
+  google.protobuf.Struct data = 3;
+  string message = 4;
+}
+
+message DocumentListResponse {
+  string status = 1;
+  repeated google.protobuf.Struct data = 2;
+  string message = 3;
+}

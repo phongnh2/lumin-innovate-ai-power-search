@@ -1,0 +1,45 @@
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-lg;
+}
+
+.description {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-title-sm;
+}
+
+.wrapContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+  align-self: stretch;
+}
+
+.content {
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-0-5);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.subTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-title-sm;
+}
+
+.subContent {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-sm;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}

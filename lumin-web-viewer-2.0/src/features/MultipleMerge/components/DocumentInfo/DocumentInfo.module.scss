@@ -1,0 +1,91 @@
+.documentInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: var(--kiwi-sizing-icon-lg);
+  height: var(--kiwi-sizing-icon-lg);
+  border-radius: var(--kiwi-border-radius-sm);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  object-fit: cover;
+}
+
+.failedThumbnail {
+  width: var(--kiwi-sizing-icon-lg);
+  height: var(--kiwi-sizing-icon-lg);
+}
+
+.documentNameAndSize {
+  overflow: hidden;
+  flex: 1;
+}
+
+.name {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uploadFailedName {
+  opacity: var(--kiwi-opacity-disabled-on-container);
+}
+
+.uploadingName {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.extraInfo {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.uploadFailedExtraInfo {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.uploadingExtraInfo {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  white-space: nowrap;
+}
+
+.extraInfoContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.progressBar {
+  height: 4px;
+  background-color: var(--kiwi-colors-core-primary-container);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.progressBarValue {
+  width: 100%;
+  height: 100%;
+  background-color: var(--kiwi-colors-core-primary);
+  animation: indeterminate-animation 1s infinite linear;
+  transform-origin: 0% 50%;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+@keyframes indeterminate-animation {
+  0% {
+    transform:  translateX(0) scaleX(0);
+  }
+  40% {
+    transform:  translateX(0) scaleX(0.4);
+  }
+  100% {
+    transform:  translateX(100%) scaleX(0.5);
+  }
+}

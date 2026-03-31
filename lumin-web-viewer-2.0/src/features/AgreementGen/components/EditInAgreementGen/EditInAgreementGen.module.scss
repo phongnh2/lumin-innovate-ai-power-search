@@ -1,0 +1,79 @@
+.modal {
+  background: linear-gradient(180deg, #F7F2FF 0%, #FFF8F7 100%);
+}
+
+.modalDark {
+  background: transparent;
+}
+
+.closeIconWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--kiwi-spacing-0-5);
+}
+
+.closeIcon {
+  background-color: var(--kiwi-colors-surface-on-surface);
+  border-radius: 83.333px;
+  width: var(--kiwi-sizing-icon-md);
+  height: var(--kiwi-sizing-icon-md);
+  padding: var(--kiwi-spacing-0);
+  min-height: var(--kiwi-sizing-icon-md);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-3);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.titleText {
+  @include kiwi-typography-display-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.logo {
+  height: 40px;
+}
+
+.logoWrapper {
+  mask: url('assets/lumin-svgs/agreement-gen-logo.svg') no-repeat center center;
+  background-color: var(--kiwi-colors-surface-on-surface);
+  width: 304px;
+  height: 40px;
+}
+
+.description {
+  @include kiwi-typography-title-md;
+  text-align: center;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.image {
+  width: 592px;
+  height: 333px;
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.learnMoreButton {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.learnMoreButtonText {
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}

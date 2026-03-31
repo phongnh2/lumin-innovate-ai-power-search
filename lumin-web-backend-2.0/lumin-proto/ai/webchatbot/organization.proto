@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+package webchatbot;
+
+service OrganizationService {
+  rpc GetAccessibleOrganizations(GetAccessibleOrganizationsRequest) returns (GetAccessibleOrganizationsResponse) {};
+  rpc GetAccessibleTeams(GetAccessibleTeamsRequest) returns (GetAccessibleTeamsResponse) {};
+  rpc GetOrganizationDetails(GetOrganizationDetailsRequest) returns (GetOrganizationDetailsResponse) {};
+  rpc GetTeamDetails(GetTeamDetailsRequest) returns (GetTeamDetailsResponse) {};
+  rpc GetOrganizationMembers(GetMembersRequest) returns (GetMembersResponse) {};
+  rpc GetTeamMembers(GetMembersRequest) returns (GetMembersResponse) {};
+}
+
+message OwnerInfo {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message GetAccessibleOrganizationsRequest {
+  string userId = 1;
+  string cursor = 2;
+  int32 limit = 3;
+}
+
+message OrganizationInfo {
+  string id = 1;
+  string name = 2;
+  OwnerInfo owner = 3;
+  string userRole = 4;
+  int64 createdAt = 5;
+}
+
+message GetAccessibleOrganizationsResponse {
+  bool hasNextPage = 1;
+  string cursor = 2;
+  repeated OrganizationInfo data = 3;
+}
+
+message GetAccessibleTeamsRequest {
+  string userId = 1;
+  string organizationId = 2;
+  string cursor = 3;
+  int32 limit = 4;
+}
+
+message TeamInfo {
+  string id = 1;
+  string name = 2;
+  string belongsTo = 3;
+  OwnerInfo owner = 4;
+  string userRole = 5;
+  int64 createdAt = 6;
+}
+
+message GetAccessibleTeamsResponse {
+  bool hasNextPage = 1;
+  string cursor = 2;
+  repeated TeamInfo data = 3; 
+}
+
+message SubscriptionItem {
+  string id = 1;
+  string planRemoteId = 2;
+  string period = 3;
+  string currency = 4;
+  string paymentType = 5;
+  string paymentStatus = 6;
+  int32 quantity = 7;
+  string productName = 8;
+}
+
+message TrialInfo {
+  string highestTrial = 1;
+  int64 endTrial = 2;
+}
+
+message OrganizationPayment {
+  string type = 1;
+  int32 quantity = 2;
+  string planRemoteId = 3;
+  string customerRemoteId = 4;
+  string subscriptionRemoteId = 5;
+  string status = 6;
+  string period = 7;
+  string currency = 8;
+  repeated SubscriptionItem subscriptionItems = 9;
+  TrialInfo trialInfo = 10;
+  string stripeAccountId = 11;
+}
+
+message GetOrganizationDetailsRequest {
+  string userId = 1;
+  string organizationId = 2;
+}
+
+message GetOrganizationDetailsResponse {
+  string id = 1;
+  string name = 2;
+  OwnerInfo owner = 3;
+  OrganizationPayment payment = 4;
+  string billingEmail = 5;
+  string domain = 6;
+  repeated string associateDomains = 7;
+  string userRole = 8;
+  int64 createdAt = 9;
+  int32 totalMembers = 10;
+}
+
+message GetTeamDetailsRequest {
+  string userId = 1;
+  string teamId = 2;
+}
+
+message GetTeamDetailsResponse {
+  string id = 1;
+  string name = 2;
+  string belongsTo = 3;
+  OwnerInfo owner = 4;
+  string userRole = 5;
+  int64 createdAt = 6;
+  int32 totalMembers = 7;
+}
+
+message MemberInfo {
+  string id = 1;
+  string name = 2;
+  string role = 3;
+  string email = 4;
+  int64 joinedAt = 5;
+}
+
+message GetMembersRequest {
+  string targetId = 1;
+  string userId = 2;
+  string cursor = 3;
+  int32 limit = 4;
+}
+
+message GetMembersResponse {
+  bool hasNextPage = 1;
+  string cursor = 2;
+  repeated MemberInfo data = 3;
+}

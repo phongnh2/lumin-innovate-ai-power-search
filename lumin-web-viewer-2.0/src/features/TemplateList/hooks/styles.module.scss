@@ -1,0 +1,6 @@
+.link {
+  text-decoration: underline;
+  @include kiwi-typography-body-md;
+  font-weight: 700;
+  color: var(--kiwi-colors-surface-on-surface);
+}

@@ -1,0 +1,21 @@
+set shell := ["zsh", "-cu"]
+
+# List recipes
+default:
+    @just --list
+
+# Install dependencies (npm — see package.json engines)
+[group('setup')]
+install:
+    npm install
+
+# NestJS dev: webpack watch + graphql codegen watch
+[group('development')]
+run:
+    npm run dev
+
+# Init, sync, and fetch all git submodules
+[group('git')]
+submodule:
+    git submodule sync --recursive
+    git submodule update --init --recursive

@@ -1,0 +1,12 @@
+.link {
+  color: var(--kiwi-colors-semantic-information);
+}
+
+.ownerLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-bottom: 24px;
+
+  @include kiwi-typography-label-md;
+}

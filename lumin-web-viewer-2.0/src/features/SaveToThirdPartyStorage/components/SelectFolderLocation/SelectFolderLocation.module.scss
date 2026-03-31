@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: var(--kiwi-spacing-3);
+}
+
+.locationContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-25);
+  overflow: hidden;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.locationLabel {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  font-weight: 500;
+  width: 68px;
+  margin-right: var(--kiwi-spacing-1);
+}
+
+.divider {
+  width: 1px;
+  height: 8px;
+  margin: var(--kiwi-spacing-0) var(--kiwi-spacing-0-5);
+  background: var(--kiwi-colors-surface-outline-variant);
+}
+
+.locationName {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

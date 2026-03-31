@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-75);
+  overflow-y: auto;
+  height: 400px;
+  overflow-x: hidden;
+  margin: 0 calc(-1 * var(--kiwi-spacing-2-5));
+  padding: 0 var(--kiwi-spacing-2-5);
+}
+
+.paymentInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.paymentInfoItem {
+  display: flex;
+  flex-direction: row;
+  gap: var(--kiwi-spacing-1);
+  align-items: center;
+}

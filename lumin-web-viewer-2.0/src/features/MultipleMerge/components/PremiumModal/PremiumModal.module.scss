@@ -1,0 +1,36 @@
+.premiumModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.premiumImage {
+  width: 64px;
+  height: 64px;
+  padding: var(--kiwi-spacing-1);
+  margin-bottom: var(--kiwi-spacing-1-5);
+}
+
+.premiumTitle {
+  @include kiwi-typography-title-md;
+}
+
+.premiumMessage {
+  @include kiwi-typography-body-md;
+  text-align: center;
+}
+
+.premiumFooter {
+  display: flex;
+  justify-content: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.premiumButtonRoot {
+  height: 40px;
+}
+
+.premiumButtonLabel {
+  white-space: normal;
+}

@@ -1,0 +1,16 @@
+.editButtonContainer {
+  &:not(.isReply, .isCommentPopup) {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.customIcon {
+  margin-right: var(--kiwi-space-1);
+}
+
+.popperContainer {
+  min-width: 200px;
+  padding: var(--kiwi-spacing-1);
+
+}

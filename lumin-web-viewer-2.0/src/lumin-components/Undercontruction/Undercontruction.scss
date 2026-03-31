@@ -1,0 +1,22 @@
+@import '../../constants/lumin-styles';
+
+.Undercontruction__wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.Undercontruction_img {
+  margin-top: 32px;
+  max-width: 100%;
+}
+.Undercontruction__text {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.34px;
+  color: $secondary;
+}

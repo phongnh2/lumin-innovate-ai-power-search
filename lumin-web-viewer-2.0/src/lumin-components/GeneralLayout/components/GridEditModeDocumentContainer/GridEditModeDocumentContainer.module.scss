@@ -1,0 +1,10 @@
+@import 'reskin/scrollbar.scss';
+
+.scrollContainer {
+  // override overflow-x auto from AutoSizer
+  overflow-x: hidden !important;
+}
+
+.gridContainer {
+  @include scrollbar-reskin;
+}

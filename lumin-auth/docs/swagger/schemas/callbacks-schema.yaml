@@ -1,0 +1,101 @@
+KratosIdentityTraits:
+  type: object
+  properties:
+    email:
+      type: string
+      format: email
+    loginService:
+      type: string
+      enum: [EMAIL_PASSWORD]
+
+KratosIdentity:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+      description: Identity UUID (optional for social login)
+    created_at:
+      type: string
+      format: date-time
+    updated_at:
+      type: string
+      format: date-time
+    is_verified:
+      type: boolean
+    traits:
+      $ref: '#/components/schemas/KratosIdentityTraits'
+
+KratosFlowTransientPayload:
+  type: object
+  properties:
+    loginChallenge:
+      type: string
+    password:
+      type: string
+
+KratosFlow:
+  type: object
+  properties:
+    id:
+      type: string
+    transient_payload:
+      $ref: '#/components/schemas/KratosFlowTransientPayload'
+
+RegistrationRequest:
+  type: object
+  required:
+    - identity
+    - flow
+  properties:
+    identity:
+      $ref: '#/components/schemas/KratosIdentity'
+    flow:
+      $ref: '#/components/schemas/KratosFlow'
+
+RegistrationError:
+  type: object
+  properties:
+    message:
+      type: string
+      description: Error message describing the registration failure
+
+IdentityCredentialsOidcProvider:
+  type: object
+  properties:
+    provider:
+      type: string
+      description: OAuth provider identifier
+
+UiSettings:
+  type: object
+  description: UI settings configuration
+
+SyncUpSettingsRequest:
+  type: object
+  required:
+    - identity
+    - flow
+  properties:
+    identity:
+      $ref: '#/components/schemas/KratosIdentity'
+    flow:
+      type: object
+      properties:
+        ui:
+          $ref: '#/components/schemas/UiSettings'
+
+AfterLoginRequest:
+  type: object
+  required:
+    - identity
+  properties:
+    identity:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The user's identity UUID

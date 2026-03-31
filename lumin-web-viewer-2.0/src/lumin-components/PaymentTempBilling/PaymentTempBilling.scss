@@ -1,0 +1,166 @@
+@import "../../constants/lumin-styles";
+.TempBilling {
+  $self: &;
+    &__container {
+      background: $white;
+      padding: 16px;
+      box-shadow: $container-shadow;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      #{$self}__content {
+        padding: 16px 16px 24px 16px;
+        border: 1px dashed $cloudyblue;
+        .title {
+          margin-bottom: 16px;
+          font-size: 18px;
+          @include mobile {
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: normal;
+            text-align: left;
+            line-height: 1.5;
+            letter-spacing: 0.34px;
+            font-weight: 600;
+          }
+        }
+        @include mobile {
+          padding: 12px;
+        }
+        #{$self}__info {
+          border-bottom: 1px dashed $cloudyblue;
+          #{$self}__plan {
+            &-name {
+              font-size: 16px;
+              font-weight: 600;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: 0.4px;
+              color: $royalblue;
+              text-transform: capitalize !important;
+              margin-bottom: 8px;
+              @include mobile {
+                font-size: 14px;
+              }
+            }
+            &-detail {
+              font-size: 14px;
+              font-weight: 400;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: 0.4px;
+              color: $primary;
+              margin-bottom: 24px;
+              &.secondary {
+                color: $secondary;
+              }
+              span {
+                color: $royalblue;
+              }
+            }
+            &-note {
+              margin-bottom: 24px;
+              p {
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: 0.3px;
+                color: $secondary;
+                margin-bottom: 4px;
+              }
+              span {
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: 0.3px;
+                color: $royalblue;
+                text-decoration: underline;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        
+        #{$self}__bill {
+          margin-top: 16px;
+          &-container {
+            padding-bottom: 16px;
+          }
+          &-containerBorder {
+            padding-bottom: 16px;
+            &:last-child {
+              border-bottom: 1px dashed $cloudyblue;
+            }
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: $font-stack-primary;
+            line-height: 1.43;
+            letter-spacing: 0.3px;
+            color: $secondary;
+            &.primary {
+              font-size: 18px;
+              font-weight: 600;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: -0.4px;
+              color: $primary;
+            }
+          }
+          &-amount {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0.5px;
+            color: $primary;
+            &.primary {
+              font-size: 28px;
+              font-weight: 600;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: -0.6px;
+              color: $royalblue;
+            }
+            &.decrease {
+              color: $accent;
+            }
+          }
+        }
+        #{$self}__feature { 
+          margin-top: 16px;
+          padding: 16px;
+          background-color: $aliceblue;
+          margin-bottom: 16px;
+          border-radius: 4px;
+        &-item {
+          display: flex;
+          color: $primary;
+          font-size: 14px;
+          margin-bottom: 16px;
+          align-items: center;
+          font-weight: 400;
+          letter-spacing: 0.34px;
+          &:last-child {
+            margin-bottom: 0px;
+          }
+          i {
+            margin-right: 8px;
+          }
+          @include mobile {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

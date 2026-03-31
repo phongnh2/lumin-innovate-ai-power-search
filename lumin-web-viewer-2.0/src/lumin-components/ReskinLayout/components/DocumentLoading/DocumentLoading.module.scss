@@ -1,0 +1,40 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1);
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  align-items: center;
+  border-bottom: var(--kiwi-colors-surface-surface-container-high);
+
+  grid-template-columns: 1fr 120px 86px 120px 32px;
+
+  @include xl-screen {
+    grid-template-columns: 1fr 180px 150px 130px 32px;
+  }
+}
+
+.containerWithoutOwner {
+  grid-template-columns: 1fr 86px 120px 32px;
+
+  @include xl-screen {
+    grid-template-columns: 1fr 150px 130px 32px;
+  }
+}
+
+.commonInfoWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: var(--kiwi-spacing-1);
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.starItem {
+  margin: auto;
+}

@@ -1,0 +1,10 @@
+<mj-section padding="0 16px">
+  <mj-column css-class="wrapper-child">
+    <mj-spacer height="32px" />
+    <mj-divider border-color="#DAE4EC" border-width="1px" width="40px" padding="0" align="left" />
+    <mj-spacer height="24px" />
+    <mj-text color="#667085">Cheers,</mj-text>
+    <mj-spacer height="8px" />
+    <mj-text font-weight="500">The Lumin Team</mj-text>
+  </mj-column>
+</mj-section>

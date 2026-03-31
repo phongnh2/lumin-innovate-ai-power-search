@@ -1,0 +1,18 @@
+@import "../../constants/popup";
+
+.TextPopup {
+  @extend %popup;
+
+  @include themify {
+    border: 1px solid themed("bgColor");
+    box-shadow: themed("boxShadowNote");
+  }
+
+  position: fixed;
+  border-radius: 8px;
+  padding: 7px 16px;
+
+  span:first-child {
+    margin-left: 0;
+  }
+}

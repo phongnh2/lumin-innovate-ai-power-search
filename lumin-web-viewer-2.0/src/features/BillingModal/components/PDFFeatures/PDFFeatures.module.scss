@@ -1,0 +1,31 @@
+.featuresWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-on-surface-low);
+}
+
+.featuresText {
+  @include kiwi-typography-body-md-semibold;
+}
+
+.featuresList {
+  display: flex;
+  gap: var(--kiwi-spacing-4);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.featureItemIcon {
+  background-color: var(--kiwi-colors-support-dark-blue-background-highest);
+  border-radius: var(--kiwi-border-radius-sm);
+  padding: var(--kiwi-spacing-0-5);
+  line-height: 1;
+  color: var(--kiwi-colors-support-dark-blue-foreground-high);
+  height: 24px;
+  width: 24px;
+}

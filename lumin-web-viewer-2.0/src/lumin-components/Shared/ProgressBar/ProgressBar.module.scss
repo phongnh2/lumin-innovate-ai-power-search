@@ -1,0 +1,13 @@
+
+.progressContainer {
+  height: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--kiwi-colors-core-primary-container);
+}
+
+.completed {
+  height: 100%;
+  transition: all var(--editor-transition);
+  background-color: var(--kiwi-colors-core-primary);
+}

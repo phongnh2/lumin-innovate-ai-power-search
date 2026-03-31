@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 14px;
+  line-height: 1.4286;
+  color: var(--color-neutral-100);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--kiwi-colors-surface-surface-bright);
+
+  font-family: var(--font-primary);
+
+  /* overscroll-behavior-y: contain; */
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Fix this issue (https://lumin.atlassian.net/browse/LP-5236) cause of iframe */
+iframe {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: unset;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+input {
+  background-color: var(--kiwi-colors-surface-surface-bright);
+}

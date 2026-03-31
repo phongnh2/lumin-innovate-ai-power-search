@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.headerTitle {
+  padding-bottom: var(--kiwi-spacing-2);
+}
+
+.dividerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-2);
+  background-color: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-border-radius-md);
+  padding: var(--kiwi-spacing-1-5);
+  position: relative;
+}
+
+.uploadButton {
+  flex-shrink: 0;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.newBadge {
+  padding: var(--kiwi-spacing-0-25) var(--kiwi-spacing-0-5);
+  position: absolute;
+  top: var(--kiwi-spacing-0-75);
+  right: var(--kiwi-spacing-0-75);
+}
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1-5);
+  background-color: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-border-radius-md);
+  padding: var(--kiwi-spacing-1-5);
+}
+
+.ctaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.errorMessage {
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-semantic-error-container);
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+  position: relative;
+}
+
+.errorMessage::before {
+  content: "";
+  position: absolute;
+  border-radius: 0 var(--kiwi-border-radius-sm) var(--kiwi-border-radius-sm) 0;
+  left: 0;
+  top: var(--kiwi-spacing-1);
+  bottom: var(--kiwi-spacing-1);
+  width: var(--kiwi-spacing-0-5);
+  background: var(--kiwi-colors-semantic-error);
+}
+
+.avatarLoadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 56px;
+  border-radius: var(--kiwi-border-radius-rounded);
+  border: 1px solid var(--kiwi-colors-surface-outline);
+}

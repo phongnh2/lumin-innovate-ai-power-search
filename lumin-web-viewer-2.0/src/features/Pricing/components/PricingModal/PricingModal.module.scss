@@ -1,0 +1,90 @@
+.title {
+  @include kiwi_typography_headline_lg;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.content {
+  display: flex;
+  border: solid var(--kiwi-colors-surface-outline-variant);
+  border-width: 1px 0;
+  margin-bottom: var(--kiwi-spacing-3);
+}
+
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background-color: var(--kiwi-colors-surface-outline-variant);
+}
+
+.leftBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-3) 0;
+}
+
+.rightBlock {
+  flex: 1;
+  margin: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-3) var(--kiwi-spacing-4);
+}
+
+.planInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.planText {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.badge {
+  @include kiwi-typography-label-sm;
+  width: fit-content;
+  height: 24px;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-core-on-primary-container);
+  border-radius: var(--kiwi-border-radius-rounded);
+  background: var(--kiwi-colors-custom-role-web-surface-blue-activated);
+}
+
+.planDescription {
+  @include kiwi-typography-label-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-top: var(--kiwi-spacing-0-75);
+}
+
+.planFeatures {
+  margin: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-3) 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-25);
+}
+
+.planFeature {
+  display: flex;
+  align-items: start;
+  gap: var(--kiwi-spacing-1);
+}
+
+.iconContainer {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planFeatureText {
+  @include kiwi-typography-body-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

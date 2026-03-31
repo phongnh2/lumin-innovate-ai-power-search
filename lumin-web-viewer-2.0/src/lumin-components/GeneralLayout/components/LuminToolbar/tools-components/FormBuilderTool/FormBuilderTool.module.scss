@@ -1,0 +1,33 @@
+.menuItemContainer {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  align-items: center;
+}
+
+.betaTag {
+  @include kiwi-typography-label-sm;
+  background-color: var(--kiwi-colors-custom-brand-lumin-lumin);
+  color: var(--kiwi-colors-custom-brand-lumin-on-lumin);
+  border-radius: var(--kiwi-border-radius-sm);
+  padding: 0 var(--kiwi-spacing-0-5);
+  height: 16px;
+}
+
+.popoverWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--kiwi-spacing-1);
+
+  hr {
+    position: absolute;
+    top: 0;
+    left: calc(var(--kiwi-spacing-1) * -1);
+    width: calc(100% + var(--kiwi-spacing-2));
+  }
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1) var(--kiwi-spacing-1);
+}

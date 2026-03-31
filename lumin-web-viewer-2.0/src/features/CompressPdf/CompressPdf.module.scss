@@ -1,0 +1,10 @@
+.compress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radioGroup {
+  width: 100%;
+  margin-top: var(--kiwi-spacing-1);
+}

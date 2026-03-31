@@ -1,0 +1,13 @@
+.item {
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+}

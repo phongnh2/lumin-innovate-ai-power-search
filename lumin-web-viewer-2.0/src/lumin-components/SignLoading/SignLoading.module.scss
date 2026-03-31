@@ -1,0 +1,9 @@
+.container {
+  position: absolute;
+  z-index: var(--zindex-kiwi-modal-highest);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

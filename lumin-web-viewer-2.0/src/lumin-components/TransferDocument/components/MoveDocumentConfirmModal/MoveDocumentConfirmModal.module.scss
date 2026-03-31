@@ -1,0 +1,10 @@
+.notifyWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-1-25);
+  padding-top: var(--kiwi-spacing-2);
+}
+
+.targetText {
+  font-weight: 700;
+  color: var(--kiwi-colors-surface-on-surface);
+}

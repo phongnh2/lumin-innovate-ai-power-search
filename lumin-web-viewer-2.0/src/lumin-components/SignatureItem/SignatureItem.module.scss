@@ -1,0 +1,23 @@
+.iconContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  gap: 8px;
+  top: 8px;
+  right: 8px;
+}
+
+.syncIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

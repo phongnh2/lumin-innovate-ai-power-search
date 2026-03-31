@@ -1,0 +1,7 @@
+[submodule "font-icomoon"]
+	path = font-icomoon
+	url = git@bitbucket.org:nitrolabs/font-icomoon.git
+[submodule "lumin-proto"]
+	path = lumin-proto
+	url = git@bitbucket.org:nitrolabs/lumin-proto.git
+	branch = master

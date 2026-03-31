@@ -1,0 +1,13 @@
+.confirmButton {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-4);
+}
+
+.link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.buttonElevatedWithoutShadow {
+  box-shadow: none;
+}

@@ -1,0 +1,124 @@
+@import "../../constants/lumin-styles.scss";
+
+.NoteInput__container{
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 12px;
+
+  .MaterialAvatar{
+    padding-right: 10px;
+  }
+}
+
+.NoteInput {
+  $self: &;
+
+  &__popper {
+    max-width: 260px;
+    width: 100%;
+    z-index: 203;
+    top: -6px !important;
+    &.reply {
+      width: calc(100% - 30px);
+    }
+    .Popper__styleContent {
+      filter: none;
+      @include themify {
+        box-shadow: themed('boxShadowNote');
+      }
+    }
+    #{$self}__popper-container {
+      position: relative;
+      #{$self}__user-list {
+        max-height: 250px;
+        overflow-y: auto;
+        #{$self}__user-item {
+          height: auto;
+          &:not(.__info){
+            &:hover, &:focus {
+              @include themify {
+                background-color: themed('userTagHoverBg');
+              }
+            }
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      #{$self}__user-empty {
+        padding: 16px 0 16px 16px;
+        font-size: 14px;
+        color: $secondary;
+        font-style: italic;
+      }
+      .comment-avatar {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  &__input--scroll {
+    overflow-y: scroll !important;
+  }
+}
+
+.mentions__suggestions__list {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 10pt;
+}
+
+.NoteInput__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.NoteInput__user-list--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.NoteInput__user-item {
+  &.__info {
+    display: flex;
+    flex-direction: column;
+    font-weight: 375;
+    font-style: normal;
+    font-stretch: normal;
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: normal;
+      @include themify {
+        color: themed('textColor');
+      }
+    }
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.6px;
+      @include themify {
+        color: themed('secondaryColor');
+      }
+    }
+  }
+
+  height: auto;
+  &:not(.__info){
+    &.isFocusing, &:hover, &:focus {
+      @include themify {
+        background-color: themed('userTagHoverBg');
+      }
+    }
+  }
+}

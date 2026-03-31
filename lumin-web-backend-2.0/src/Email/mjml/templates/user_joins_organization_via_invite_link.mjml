@@ -1,0 +1,23 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">
+            {{actorName}} joined {{orgName}}'s {{orgWord}} via an invite link
+          </mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            <b class="highlight">{{actorName}}</b> joined as {{roleText}} of the <b class="highlight">{{orgName}}'s {{orgWord}}</b> via an invite link.&nbsp;</b>
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/people?email={{encodedActorEmail}}">Review</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

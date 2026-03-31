@@ -1,0 +1,86 @@
+@import '../../constants/lumin-styles';
+
+.ColorPickerBtn {
+  border-radius: 50%;
+  @include themify() {
+    color: themed('squareButtonColor');
+  }
+  i {
+    margin: 5px;
+    width: initial;
+  }
+
+  &:hover {
+    border-radius: 50%;
+  }
+}
+
+.ColorPickerPopper {
+  width: 221px;
+
+  &__container {
+    padding: 16px;
+  }
+  .divider {
+    margin: 0 0 16px 0 !important;
+  }
+  &__actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    align-items: center;
+  }
+  &.active-picker {
+    left: -16px !important;
+  }
+  &.active-right-panel {
+    left: -61px !important;
+  }
+}
+// // should not be used this class elsewhere
+.ChromePicker {
+  @include themify() {
+    background-color: themed('bgColor') !important;
+  }
+  label {
+    @include themify() {
+      background-color: themed('bgColor') !important;
+      color: themed('colorPickerUpdownFill') !important;
+      font-family: $font-stack-primary;
+      font-size: 12px !important;
+    }
+  }
+  input {
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+    font-family: var(--font-secondary) !important;
+    @include themify() {
+      background-color: themed('bgColor') !important;
+      color: themed('textColor') !important;
+      border: 1px solid themed('borderInput') !important;
+    }
+  }
+  input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 1.2px var(--color-primary-30) !important;
+    @include themify() {
+      border: 1px solid themed('borderInputSelected') !important;
+    }
+  }
+  svg {
+    @include themify() {
+      fill: themed('colorPickerUpdownFill') !important;
+    }
+    &:hover {
+      @include themify() {
+        background: themed('colorPickerUpdownBg') !important;
+      }
+    }
+  }
+}
+
+.ColorPickerPopper__scrollbar.Popper__contentScroll {
+  padding-top: 0;
+  padding-bottom: 0;
+}

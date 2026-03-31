@@ -1,0 +1,35 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  gap: var(--kiwi-spacing-1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.leftSection {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  overflow: auto;
+  padding-right: var(--kiwi-spacing-0-5);
+}
+
+.settingContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.chatbotOpened {
+
+  .leftSection {
+    padding-right: 0;
+  }
+
+  @include lg-screen {
+    &.container {
+      width: 100%;
+    }
+  }
+}

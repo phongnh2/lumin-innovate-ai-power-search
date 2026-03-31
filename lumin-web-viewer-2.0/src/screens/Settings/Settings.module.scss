@@ -1,0 +1,46 @@
+@import 'reskin/screens.scss';
+
+.main {
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+  @include lg-screen {
+    max-width: 1040px;
+    margin: 0px auto;
+    padding: var(--kiwi-spacing-3) 0 var(--kiwi-spacing-3);
+  }
+}
+
+.titleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--kiwi-spacing-0-5);
+  }
+}
+
+.orgListContainer {
+  width: 100%;
+  display: grid;
+  gap: var(--kiwi-spacing-2);
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+
+  @include md-screen {
+    gap: var(--kiwi-spacing-3);
+  }
+
+  @include xl-screen {
+    gap: var(--kiwi-spacing-2);
+    grid-template-columns: repeat(4, minmax(258px, 1fr));
+  }
+}

@@ -1,0 +1,20 @@
+.appInfoLabel {
+  @include kiwi-typography-title-md;
+
+  margin-top: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.appInfoValue {
+  @include kiwi-typography-body-md;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-1);
+  margin-top: var(--kiwi-spacing-0-5);
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-border-radius-sm);
+  color: var(--kiwi-colors-surface-on-surface);
+}

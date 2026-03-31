@@ -1,0 +1,20 @@
+@import 'reskin/screens.scss';
+
+.text {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-body-md;
+
+  i {
+    vertical-align: bottom;
+  }
+
+  @include md-screen {
+    @include kiwi-typography-body-lg;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding-right: var(--kiwi-spacing-0-5);
+  color: var(--kiwi-colors-semantic-information);
+}

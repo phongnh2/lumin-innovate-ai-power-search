@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package converter;
+
+// ----------------------------
+// Converter service
+// ----------------------------
+service ConverterService {
+  rpc Convert (ConvertRequest) returns (ConvertResponse);
+}
+
+enum StorageService {
+  S3 = 0;
+  LOCAL = 1;
+  GOOGLE_DRIVE = 2;
+}
+
+// ----------------------------
+// Request message
+// ----------------------------
+message ConvertRequest {
+  string file_id = 1;
+  StorageService storage_service = 2;
+  string access_token = 3;
+  string s3_bucket_name = 4;
+  int32 max_size = 5;
+  int32 timeout = 6;
+}
+
+// ----------------------------
+// Response message
+// ----------------------------
+message ConvertResponse {
+  bool success = 1;
+  LuminDoc document = 2;   // Only set if success = true
+  string error = 3;        // Error message if failed
+}
+
+// ----------------------------
+// LuminDoc model
+// ----------------------------
+message LuminDoc {
+  string source_uri = 1;
+  string content = 2;
+  repeated LuminChunk chunks = 3;
+  int32 num_pages = 4;
+  int32 num_picture_pages = 5;
+  int32 num_tables = 6;
+  int32 num_images = 7;
+  int32 num_icons = 8;
+  int32 num_forms = 9;
+  map<string, string> metadata = 10;
+}
+
+// ----------------------------
+// LuminChunk model
+// ----------------------------
+message LuminChunk {
+  int32 chunk_order = 1;
+  string content = 2;
+  LuminLoc loc = 3;
+  int32 chunk_size = 4;
+  map<string, string> metadata = 5;
+  repeated LuminMediaElement media_elements = 6;
+}
+
+// ----------------------------
+// LuminLoc model
+// ----------------------------
+message LuminLoc {
+  int32 from_page = 1;
+  int32 to_page = 2;
+}
+
+// ----------------------------
+// LuminMediaElement model
+// ----------------------------
+message LuminMediaElement {
+  LuminMediaElementType type = 1;
+  string name = 2;
+  int32 page_no = 3;
+  float left = 4;
+  float top = 5;
+  float width = 6;
+  float height = 7;
+  string mime_type = 8;
+  string uri = 9;
+  string caption = 10;
+  map<string, string> metadata = 11;
+}
+
+// ----------------------------
+// Enum for LuminMediaElementType
+// ----------------------------
+enum LuminMediaElementType {
+  IMAGE = 0;
+  TABLE = 1;
+  FORM = 2;
+  ICON = 3;
+  FORMULA = 4;
+}

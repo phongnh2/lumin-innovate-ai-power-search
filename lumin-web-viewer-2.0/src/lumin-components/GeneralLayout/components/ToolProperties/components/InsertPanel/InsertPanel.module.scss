@@ -1,0 +1,4 @@
+.fieldLabel {
+  @include kiwi-typography-label-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}

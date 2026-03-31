@@ -1,0 +1,35 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItem {
+  position: relative;
+  width: 100%;
+}
+
+.menuItemHovered {
+  &::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+}
+
+.menuItemBottom {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  right: var(--kiwi-spacing-0-5);
+  transform: translateY(-50%);
+  z-index: 10;
+
+  hr {
+    margin: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  }
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: var(--kiwi-spacing-0-5);
+}

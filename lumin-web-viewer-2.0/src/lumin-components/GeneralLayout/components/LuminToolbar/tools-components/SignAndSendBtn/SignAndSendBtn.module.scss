@@ -1,0 +1,30 @@
+.menuItemWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--kiwi-spacing-1);
+  margin-top: var(--kiwi-spacing-1);
+
+  hr {
+    position: absolute;
+    top: 0;
+    left: calc(var(--kiwi-spacing-1) * -1);
+    width: calc(100% + var(--kiwi-spacing-2));
+  }
+
+  div,
+  button {
+    width: 100%;
+  }
+
+  p {
+    padding: var(--kiwi-spacing-1) 0;
+  }
+}
+
+// custom following by https://lumin.atlassian.net/browse/LMV-5534
+// we will update to the kiwi design token after the design is approved
+.signAndSendBtn {
+  background-color: var(--kiwi-colors-custom-brand-sign-sign-surface-container);
+  color: var(--kiwi-colors-custom-brand-sign-on-sign-container);
+}

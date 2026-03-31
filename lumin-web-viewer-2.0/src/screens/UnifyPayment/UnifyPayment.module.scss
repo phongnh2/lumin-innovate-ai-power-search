@@ -1,0 +1,8 @@
+@import 'reskin/screens.scss';
+.container {
+  height: calc(100% - 48px); // 48px (header)
+
+  @include md-screen {
+    height: calc(100% - 56px); // 56px (header)
+  }
+}

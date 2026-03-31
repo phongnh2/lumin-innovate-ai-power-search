@@ -1,0 +1,62 @@
+@import '../../constants/lumin-styles';
+
+.SliderMaterial {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3px;
+  width: 153px;
+  margin-right: 12px;
+
+  @include themify() {
+    background-color: themed('zoomDivider');
+  }
+}
+
+.SliderMaterial__thumb {
+  width: 16px;
+  height: 16px;
+
+  @include themify() {
+    border: 1px solid themed('pointerBorder');
+    box-shadow: themed('pointerBoxShadow');
+  }
+  background-color: var(--color-neutral-100);
+
+  &:focus,&:hover,&.active {
+    box-shadow: none;
+    // Reset on touch devices, it doesn't add specificity
+    @media (hover: none) {
+      box-shadow: none;
+    }
+  }
+}
+
+.SliderMaterial__active {
+  cursor: grabbing;
+}
+
+// Line before circle:
+.SliderMaterial__track {
+  height: 3px;
+
+  @include themify() {
+    background: themed('sliderTrack');
+  }
+  opacity: 1;
+  border-radius: 12px;
+
+  @include themify() {
+    background-color: themed('secondaryColor');
+  }
+}
+
+// Line after circle:
+.SliderMaterial__rail {
+  @include themify() {
+    background: themed('sliderRail');
+  }
+  opacity: 1;
+  height: 3px;
+  border-radius: 12px;
+}
+

@@ -1,0 +1,88 @@
+.categorySection {
+  margin-bottom: var(--kiwi-spacing-3);
+}
+
+.sectionTitle {
+  color: var(--kiwi-colors-surface-on-surface-low);
+  margin-bottom: var(--kiwi-spacing-1-5);
+
+  @include kiwi-typography-label-md;
+}
+
+.carouselContainer {
+  position: relative;
+}
+
+.categoryCarousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.blurOverlayLeft,
+.blurOverlayRight {
+  position: absolute;
+  top: 0;
+  bottom: 8px;
+  width: 120px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blurOverlayLeft {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--kiwi-colors-surface-background) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.blurOverlayRight {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--kiwi-colors-surface-background) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 100%;
+  background-color: var(--kiwi-colors-surface-background);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s ease;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  &:hover {
+    background-color: white !important;
+    box-shadow: var(--kiwi-shadow-1);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+}
+
+.arrowLeft {
+  left: 16px;
+}
+
+.arrowRight {
+  right: 16px;
+}

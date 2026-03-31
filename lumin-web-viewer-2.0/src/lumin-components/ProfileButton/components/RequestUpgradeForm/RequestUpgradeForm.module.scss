@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+
+  &--loading {
+    pointer-events: none;
+  }
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.input {
+  @include kiwi-typography-body-md;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: var(--kiwi-spacing-2);
+  gap: var(--kiwi-spacing-2);
+}

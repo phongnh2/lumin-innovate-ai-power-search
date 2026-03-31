@@ -1,0 +1,9 @@
+.link {
+  color: var(--kiwi-colors-semantic-information);
+  text-decoration: underline;
+}
+
+.convertPdfButton{
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-core-on-secondary);
+}

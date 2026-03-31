@@ -1,0 +1,170 @@
+@import 'reskin/screens.scss';
+
+@mixin hidden-element {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 100ms ease, visibility 0ms ease;
+  pointer-events: none;
+}
+
+@mixin visible-element {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 100ms ease, visibility 0ms ease;
+  pointer-events: unset;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 49px;
+  padding: var(--kiwi-spacing-1);
+  border-bottom: 1px solid var(--kiwi-colors-surface-surface-container-high);
+  column-gap: var(--kiwi-spacing-0-5);
+  position: relative;
+  cursor: pointer;
+
+  @include xl-screen {
+    column-gap: var(--kiwi-spacing-2);
+  }
+
+  & > * {
+    z-index: 2;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+    opacity: var(--kiwi-opacity-state-layer-none);
+    transition: var(--default-web-transition);
+  }
+
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &:focus::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &:active::after {
+    opacity: var(--kiwi-opacity-state-layer-pressed);
+  }
+
+  @include xl-down-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      & .quickActionsWrapper {
+        display: none;
+      }
+    }
+  }
+
+  @include xl-to-xxxl-screen-webchatbot {
+    &[data-chatbot-opened='true'] {
+      & .moreActionsWrapper {
+        @include hidden-element;
+      }
+      & .quickActionsWrapper {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    @include xl-screen {
+      & .quickActionsWrapper {
+        & .visibleWrapper {
+          @include hidden-element;
+        }
+        & .hiddenWrapper {
+          @include visible-element;
+        }
+      }
+
+      & .moreActionsWrapper {
+        @include visible-element;
+      }
+    }
+
+    @include xl-to-xxxl-screen-webchatbot {
+      &[data-chatbot-opened='true'] {
+        & .moreActionsWrapper {
+          @include visible-element;
+        }
+        & .quickActionsWrapper {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &.selected {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue);
+    & .moreActionsWrapper {
+      @include visible-element;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.quickActionsWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  .visibleWrapper {
+    max-width: 100%;
+    @include xl-screen {
+      @include visible-element;
+    }
+  }
+
+  .hiddenWrapper {
+    display: flex;
+    justify-content: center;
+    gap: var(--kiwi-spacing-2);
+
+    @include xl-screen {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include hidden-element;
+    }
+
+    & > :not(.moreActionsElement) {
+      display: none;
+
+      @include xl-screen {
+        display: block;
+      }
+    }
+  }
+}
+
+.moreActionsWrapper {
+  @include visible-element;
+
+  @include xl-screen {
+    @include hidden-element;
+
+    &.activated {
+      @include visible-element;
+    }
+  }
+}

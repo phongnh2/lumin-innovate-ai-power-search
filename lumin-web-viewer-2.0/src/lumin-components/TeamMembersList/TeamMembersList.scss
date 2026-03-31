@@ -1,0 +1,200 @@
+@import "../../constants/lumin-styles";
+
+.TeamMembersList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+  .MuiList-padding {
+    padding: 0;
+  }
+
+  &__header {
+    width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    padding: 0 16px;
+    color: var(--color-neutral-50);
+    border-bottom: 1px solid var(--color-neutral-20);
+    @include mobile {
+      padding: 0 8px;
+    }
+
+    &__role {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      @include mobile {
+        display: inline-flex;
+      }
+      &-content {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__no-result {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include mobile {
+      margin-top: 24px;
+    }
+  }
+}
+
+.FilterPopper {
+  &__item {
+    width: 232px;
+    padding: 8px 16px;
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    &--custom {
+      width: 232px;
+      height: 40px;
+    }
+
+    span {
+      padding-right: 16px;
+      font-size: 14px;
+      line-height: 1.36;
+      letter-spacing: 0.3px;
+      color: var(--color-neutral-80);
+    }
+
+    & > i {
+      margin-right: 0;
+    }
+
+    &.active {
+      font-weight: 600;
+    }
+  }
+}
+
+%style-text {
+  font-family: $font-stack-primary;
+  font-size: 12px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.29px;
+}
+
+.icon-question:before {
+  color: var(--color-neutral-60);
+}
+
+.TeamMembersList__role-filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.TeamMembersList__member-name {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  padding-bottom: 8px;
+}
+
+.TeamMembersList__email {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.TeamMembersList__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  padding-top: 24px;
+  color: var(--color-neutral-60);
+  font-weight: 400;
+  flex-wrap: wrap;
+
+  @include mobile {
+    padding-top: 20px;
+  }
+}
+
+.TeamMembersList__limit {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  order: 1;
+  @include mobile {
+    width: 40%;
+  }
+}
+
+.TeamMembersList__limit-text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-neutral-60);
+}
+
+.TeamMembersList__page-number {
+  width: 40%;
+  order: 2;
+  @include mobile {
+    order: 3;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.TeamMembersList__page-info {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  order: 3;
+
+  @include mobile {
+    font-size: 12px;
+    order: 2;
+    width: 60%;
+    line-height: 1.33;
+    letter-spacing: normal;
+  }
+}
+
+.TeamMembersList__no-result-image {
+  max-width: 176px;
+  margin-bottom: 24px;
+
+  @include mobile {
+    max-width: 140px;
+  }
+}
+
+.TeamMembersList__no-result-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.34px;
+  color: var(--color-neutral-80);
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
+
+.TeamMembersList__select-input {
+  span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

@@ -1,0 +1,1127 @@
+{
+  "policies": {
+    "plans": {
+      "free": {
+        "description": "Organization Free plan.",
+        "features": {
+          "passwordProtection": false,
+          "docStack": 3,
+          "maxDocStack": 13,
+          "signatures": 2,
+          "signedDoc": 9999,
+          "formBuilder": false,
+          "autoSync": true,
+          "editPDFContent": false,
+          "splitPage": false,
+          "mergePage": true,
+          "rotatePage":true,
+          "deletePage":true,
+          "movePage":true,
+          "insertPage":true,
+          "cropPage":true,
+          "highlight": true,
+          "freeHand": true,
+          "freeText": true,
+          "redaction": false,
+          "watermark": false,
+          "shape":true,
+          "stamp":true,
+          "rubberStamp":false,
+          "textTool": true,
+          "comment":true,
+          "eraser": true,
+          "docSize": 20,
+          "restoreOriginal": false,
+          "ocr": false,
+          "maximumMergeSize": 20,
+          "dotStamp": true,
+          "crossStamp": true,
+          "tickStamp": true,
+          "documentVersioning": {
+            "quantity": 5,
+            "maximumSaveTime": 7,
+            "maximumSaveTimeUnit": "days"
+          },
+          "documentSummarization": {
+            "enabled": false,
+            "maxPages": 0
+          },
+          "visibilitySetting": {
+            "inviteOnly": true,
+            "visibleAutoApprove": true,
+            "visibleNeedApprove": false
+          },
+          "inviteSetting": {
+            "administratorsCanInvite": false,
+            "allMembersCanInvite": true
+          },
+          "externalSync": {
+            "oneDrive": false
+          },
+          "multipleMerge": false,
+          "compressPdf": {
+            "enabled": true,
+            "fileSizeLimitInMB": 20,
+            "availableCompressQuality": [
+              "STANDARD"
+            ]
+          },
+          "aiChatbot": {
+            "daily": 0,
+            "attachedFilesSizeLimitInMB": 20
+          },
+          "organizationTeamLimit": 2,
+          "autoDetection": {
+            "priority": 1
+          }
+        }
+      },
+      "userPersonal": {
+        "description": "User Personal plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": false,
+              "visibleAutoApprove": false,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "rubberStamp":false,
+            "stamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": false,
+              "visibleAutoApprove": false,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "userProfessional": {
+        "description": "User Professional plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": false,
+              "visibleAutoApprove": false,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": false,
+              "visibleAutoApprove": false,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "orgOldBusiness": {
+        "description": "Organization Old Business plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "orgStarter": {
+        "description": "Organization Starter plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 10,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": false,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": false,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 200,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": false,
+            "autoSync": true,
+            "editPDFContent": false,
+            "splitPage": false,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": false,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":false,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": false,
+            "ocr": false,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 5,
+              "maximumSaveTime": 7,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": false,
+              "maxPages": 0
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": false,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 0,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "orgProfessional": {
+        "description": "Organization Professional plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 30,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": false,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": false,
+            "docStack": 200,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": false,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": false,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": false
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": false,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": false
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 20,
+              "availableCompressQuality": [
+                "STANDARD"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "orgBusiness": {
+        "description": "Organization Business plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": true,
+            "docStack": 200,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": true,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": true
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 500,
+              "availableCompressQuality": [
+                "STANDARD",
+                "MAXIMUM"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": true,
+            "docStack": 200,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": true,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": true
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 500,
+              "availableCompressQuality": [
+                "STANDARD",
+                "MAXIMUM"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      },
+      "orgOldEnterprise": {
+        "description": "Organization Old Enterprise plan.",
+        "monthly": {
+          "features": {
+            "passwordProtection": true,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": true,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": true
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 500,
+              "availableCompressQuality": [
+                "STANDARD",
+                "MAXIMUM"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          },
+          "externalSync": {
+            "oneDrive": true
+          }
+        },
+        "annual": {
+          "features": {
+            "passwordProtection": true,
+            "docStack": 9999,
+            "signatures": 100,
+            "signedDoc": 9999,
+            "formBuilder": true,
+            "autoSync": true,
+            "editPDFContent": true,
+            "splitPage": true,
+            "mergePage": true,
+            "rotatePage":true,
+            "deletePage":true,
+            "movePage":true,
+            "insertPage":true,
+            "cropPage":true,
+            "highlight": true,
+            "freeHand": true,
+            "freeText": true,
+            "redaction": true,
+            "watermark": true,
+            "shape":true,
+            "stamp":true,
+            "rubberStamp":true,
+            "textTool": true,
+            "comment":true,
+            "eraser": true,
+            "docSize": 200,
+            "restoreOriginal": true,
+            "ocr": true,
+            "maximumMergeSize": 200,
+            "dotStamp": true,
+            "crossStamp": true,
+            "tickStamp": true,
+            "documentVersioning": {
+              "quantity": 50,
+              "maximumSaveTime": 30,
+              "maximumSaveTimeUnit": "days"
+            },
+            "documentSummarization": {
+              "enabled": true,
+              "maxPages": 15
+            },
+            "visibilitySetting": {
+              "inviteOnly": true,
+              "visibleAutoApprove": true,
+              "visibleNeedApprove": true
+            },
+            "inviteSetting": {
+              "administratorsCanInvite": true,
+              "allMembersCanInvite": true
+            },
+            "externalSync": {
+              "oneDrive": true
+            },
+            "multipleMerge": true,
+            "compressPdf": {
+              "enabled": true,
+              "fileSizeLimitInMB": 500,
+              "availableCompressQuality": [
+                "STANDARD",
+                "MAXIMUM"
+              ]
+            },
+            "aiChatbot": {
+              "daily": 200,
+              "attachedFilesSizeLimitInMB": 200
+            },
+            "organizationTeamLimit": 200,
+            "autoDetection": {
+              "priority": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

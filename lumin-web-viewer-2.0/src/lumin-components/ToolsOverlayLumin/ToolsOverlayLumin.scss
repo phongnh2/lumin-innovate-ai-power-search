@@ -1,0 +1,124 @@
+@import "../../constants/lumin-styles";
+
+.ToolsOverlayLumin {
+  $self: &;
+
+  i {
+    margin: 0;
+    width: unset;
+  }
+
+  .StylePalette {
+    position: unset;  
+    width: unset;
+  }
+
+  &__tools-flex-end {
+    justify-content: space-around;
+  }
+
+  &__tools-container {
+    max-width: 288px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 16px 0;
+    #{$self}__tools {
+      float: right;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px 10px;
+      padding-bottom: 16px;
+      flex-grow: 1;
+
+      button {
+        max-width: 28px;
+        max-height: 28px;
+        margin-left: 10px;
+        padding: 2px;
+        border-radius: 4px;
+
+        &.active {
+          @include themify {
+            background: themed("toolOverlayButtonActiveBg");
+          }
+        }
+
+        &:hover {
+          @include themify {
+            background: themed("toolOverlayButtonActiveHover");
+          }
+        }
+      }
+
+      span:nth-last-child(5n+0){
+        button {
+          margin-left: 0;
+        }
+      }
+
+      &.ToolsOverlayLumin__tools--flex-end {
+        justify-content: flex-end;
+
+        > span {
+          margin: 0 2px;
+        }
+      }
+    }
+    #{$self}__label {
+      display: flex;
+      font-family: $font-stack-primary;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: 0.34px;
+
+      @include themify {
+        color: themed("textColor");
+      }
+
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      padding-bottom: 16px;
+    }
+  }
+
+  .divider {
+    margin: 0 16px;
+  }
+
+  .cell {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+
+    &.bordered {
+      border: 1px solid $cloudyblue;
+    }
+  }
+}
+
+.ToolsOverlayLumin__button {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.divider {
+  height: 28px;
+  width: 1px;
+  margin: 0 8px;
+  @include themify {
+    background: themed("sliderLineEmpty");
+  }
+}
+
+
+.highlightToolStylePoppper {
+  margin-left: 10px;
+  overflow: visible;
+}

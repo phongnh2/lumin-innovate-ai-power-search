@@ -1,0 +1,15 @@
+export { hexToColor } from './hexToColor';
+export { redact } from './redact';
+export { textDecoration } from './textDecoration';
+export { deletePage } from './deletePage';
+export { insertBlankPage } from './insertBlankPage';
+export { movePage } from './movePage';
+export { rotatePage } from './rotatePage';
+export { getTextCoordinates } from './getTextCoordinates';
+export { createShapeAnnot } from './createShapeAnnot';
+export { printPdf } from './printPdf';
+export { downloadFile } from './downloadFile';
+export { editText } from './editText';
+export { highlightText } from './highlight';
+export { insertOutlines } from './insertOutlines';
+export { addComments } from './addComments';

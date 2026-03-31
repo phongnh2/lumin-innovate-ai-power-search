@@ -1,0 +1,92 @@
+@import "../../constants/lumin-styles.scss";
+
+.Bookmark {
+  @include themify() {
+    color: themed('textColor');
+  }
+  &.visible {
+    display: flex;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  flex-shrink: 0;
+  align-items: flex-start;
+
+  .padding {
+    flex-shrink: 0;
+    flex-basis: 19px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 5px;
+
+    .arrow {
+      transition: transform .1s ease;
+
+      &.expanded {
+        transform: rotate(90deg);
+      }
+
+      &.collapsed {
+        transform: none;
+      }
+
+      .Icon {
+        width: 19px;
+        height: 19px;
+      }
+    }
+
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+    padding: 8px;
+
+    .title {
+      cursor: pointer;
+
+      span {
+        display: block;
+        font-family: $font-stack-primary;
+        font-style: normal;
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      &--page {
+        font-weight: 600;
+        @include themify() {
+          color: themed('textColorLighter');
+        }
+      }
+
+      &--content {
+        font-weight: 375;
+        @include themify() {
+          color: themed('textColor');
+        }
+        word-break: break-word;
+      }
+
+      &--bold {
+       color: #273d57; 
+      }
+    }
+  }
+
+  .content:hover {
+    @include themify() {
+      background-color: themed('textFrameHover');
+    }
+  }
+}

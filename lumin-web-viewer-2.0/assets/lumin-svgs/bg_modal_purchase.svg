@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" 
+	xmlns="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 504 300" style="enable-background:new 0 0 504 300;" xml:space="preserve">
+	<style type="text/css">
+	.purchase0{fill:none;stroke:#FFFFFF;stroke-width:3.6;}
+	.purchase1{fill:none;stroke:#FFFFFF;stroke-width:2.7;}
+	.purchase2{fill:none;stroke:#FF5F69;stroke-width:3.6;}
+	.purchase3{fill:#FFFFFF;}
+	.purchase4{fill:#78ABFF;}
+	.purchase5{fill:#FF5F69;}
+	.purchase6{fill:none;stroke:#78ABFF;stroke-width:3.6;}
+	.purchase7{fill:none;stroke:#FF5F69;stroke-width:4.32;stroke-linecap:square;}
+	.purchase8{fill:none;stroke:#78ABFF;stroke-width:3.6;stroke-linecap:square;}
+	</style>
+	<ellipse id="a1" class="purchase0" cx="470.5" cy="146.3" rx="12" ry="12"/>
+	<ellipse id="a2" class="purchase1" cx="43.3" cy="282.3" rx="9.3" ry="9.3"/>
+	<ellipse id="a3" class="purchase1" cx="264.3" cy="17.3" rx="5.3" ry="5.3"/>
+	<ellipse id="a4" class="purchase2" cx="220.3" cy="51.5" rx="4.6" ry="4.6"/>
+	<ellipse id="a5" class="purchase3" cx="106.8" cy="38.7" rx="4.5" ry="4.5"/>
+	<ellipse id="a6" class="purchase3" cx="457.5" cy="245.5" rx="4.5" ry="4.5"/>
+	<ellipse id="a7" class="purchase4" cx="464.8" cy="97.3" rx="5.4" ry="5.4"/>
+	<ellipse id="a8" class="purchase4" cx="48.7" cy="119" rx="4.5" ry="4.5"/>
+	<ellipse id="a9" class="purchase5" cx="54.4" cy="213.6" rx="5.4" ry="5.4"/>
+	<path id="p1" class="purchase6" d="M297.2,37.7c13.5-0.5,24.4-8.3,32.8-23.6"/>
+	<path id="p2" class="purchase2" d="M378.5,6.3c0.7,13.5,8.8,24.3,24.1,32.4"/>
+	<path id="p3" class="purchase2" d="M466,206.5c13.3,2.3,25.6-3.1,37-16.2"/>
+	<polyline id="p4" class="purchase6" points="155.5,10 160.3,20.4 172.8,17.1 176,28.2 189.1,23.7 "/>
+	<polyline id="p5" class="purchase6" points="463.9,276.1 470,285.8 482,281 486.5,291.6 498.9,285.6 "/>
+	<path id="l1" class="purchase7" d="M47.4,60.1l13-13"/>
+	<path id="l2" class="purchase8" d="M0,233l16.4,8.3"/>
+	<polyline id="p6" class="purchase0" points="441.4,56.4 452.2,60.4 458.7,49.2 468.8,54.8 474.9,42.4 "/>
+	<polyline id="p7" class="purchase0" points="2.9,170.9 13.7,174.8 20.2,163.7 30.3,169.2 36.4,156.8 "/>
+</svg>

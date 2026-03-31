@@ -1,0 +1,18 @@
+.container {
+  padding: $kiwi-spacing-0-5 $kiwi-spacing-1;
+  display: flex;
+  align-items: center;
+  gap: $kiwi-spacing-0-5;
+  height: var(--lumin-mobile-title-bar-height);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}
+
+.documentName {
+  @include kiwi-typography-title-sm;
+  flex: 1;
+  margin-left: $kiwi-spacing-0-5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--kiwi-colors-surface-on-surface);
+}

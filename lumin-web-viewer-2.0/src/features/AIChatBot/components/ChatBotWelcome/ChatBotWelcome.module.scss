@@ -1,0 +1,32 @@
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1-5);
+
+  .welcomeTitle {
+    @include kiwi-typography-title-xl;
+    background: linear-gradient(90deg, #7370FF 0%, #FF858D 42.29%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .welcomeDescription {
+    @include kiwi-typography-body-sm;
+    color: var(--kiwi-colors-surface-on-surface-variant);
+  }
+
+  .welcomeCommands {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--kiwi-spacing-1);
+    & > * {
+      width: fit-content;
+    }
+    [data-grey-text] {
+      color: var(--kiwi-colors-surface-on-surface-variant);
+    }
+  }
+}

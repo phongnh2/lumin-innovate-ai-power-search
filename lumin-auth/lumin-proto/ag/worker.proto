@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package ag.worker;
+
+service WorkerService {
+  rpc migrateDocumentWorkspace(google.protobuf.Empty) returns (migrateDocumentWorkspaceResponse) {}
+}
+
+message migrateDocumentWorkspaceResponse {
+  bool success = 1;
+}

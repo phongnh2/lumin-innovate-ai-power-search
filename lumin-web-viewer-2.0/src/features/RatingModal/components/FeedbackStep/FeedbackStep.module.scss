@@ -1,0 +1,53 @@
+@keyframes shake {
+  0% {
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+  10% {
+    transform: rotate(-25deg) scale(1.2) skew(1deg);
+  }
+  20% {
+    transform: rotate(25deg) scale(1.5) skew(1deg);
+  }
+  30% {
+    transform: rotate(-25deg) scale(1.5) skew(1deg);
+  }
+  40% {
+    transform: rotate(25deg) scale(1.5) skew(1deg);
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+}
+
+.feedbackWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.feedbackDescriptionWrapper {
+  margin-top: 4px;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.feedbackLink {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--kiwi-colors-semantic-on-information-container);
+}
+
+.feedbackLogoWrapper {
+  animation: 1.6s ease-out 1s forwards shake;
+}
+
+.closeIcon {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}

@@ -1,0 +1,49 @@
+@mixin woff2font(
+  $font-family,
+  $font-weight,
+  $font-file,
+  $is-variable-font: false,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: $font-family;
+
+    @if $is-variable-font {
+      src:
+        url($font-file + ".woff2") format("woff2 supports variations"),
+        url($font-file + ".woff2") format("woff2-variations");
+    } @else {
+      src: url($font-file + ".woff2") format("woff2");
+    }
+
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+
+@include woff2font(
+  "PPAgrandir",
+  500,
+  "../assets/fonts/PPAgrandir/PPAgrandir-Medium"
+);
+@include woff2font(
+  "PPAgrandir",
+  700,
+  "../assets/fonts/PPAgrandir/PPAgrandir-Bold"
+);
+
+@supports not (font-variation-settings: normal) {
+  @include woff2font("Inter", 400, "../assets/fonts/Inter/Inter-Regular");
+  @include woff2font("Inter", 500, "../assets/fonts/Inter/Inter-Medium");
+  @include woff2font("Inter", 600, "../assets/fonts/Inter/Inter-SemiBold");
+}
+
+@supports (font-variation-settings: normal) {
+  @include woff2font(
+    "Inter",
+    400 700,
+    "../assets/fonts/Inter/Inter-VariableFont",
+    true
+  );
+}

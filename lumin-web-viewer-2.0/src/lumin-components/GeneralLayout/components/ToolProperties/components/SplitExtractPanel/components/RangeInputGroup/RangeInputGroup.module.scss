@@ -1,0 +1,15 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.inputContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--kiwi-spacing-1);
+}
+
+.deleteButton {
+  flex-shrink: 0;
+} 

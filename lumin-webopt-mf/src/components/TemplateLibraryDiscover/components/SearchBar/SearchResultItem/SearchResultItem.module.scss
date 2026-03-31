@@ -1,0 +1,38 @@
+.container {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 2px var(--kiwi-spacing-0-5);
+
+  &:hover {
+    background-color: var(--kiwi-colors-surface-surface-container-low);
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.text {
+  margin: 0;
+  @include kiwi-typography-body-md;
+  font-weight: 400;
+  color: var(--kiwi-colors-surface-on-surface);
+  line-height: 1.4;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  :global(b) {
+    font-weight: 600;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}

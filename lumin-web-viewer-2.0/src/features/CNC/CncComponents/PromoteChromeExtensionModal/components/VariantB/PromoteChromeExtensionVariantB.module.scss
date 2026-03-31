@@ -1,0 +1,40 @@
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-lg;
+}
+
+.description {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-title-sm;
+}
+
+.wrapContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+  align-self: stretch;
+}
+
+.content {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  align-items: flex-start;
+}
+
+.subTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-title-sm;
+}
+
+.subContent {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-md;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+}

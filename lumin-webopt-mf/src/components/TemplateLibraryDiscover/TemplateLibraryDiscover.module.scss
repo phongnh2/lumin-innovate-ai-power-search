@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: var(--kiwi-spacing-5);
+  background-color: var(--kiwi-colors-surface-background);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.header {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 32px;
+  overflow: hidden;
+  color: var(--kiwi-colors-surface-on-surface);
+  text-overflow: ellipsis;
+
+  @include kiwi-typography-display-md;
+}
+
+.vector {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 40px;
+}

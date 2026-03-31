@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "paths": {
+      "*": ["*"]
+    },
+    "lib": [
+      "dom",
+      "es7",
+      "esnext"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "index.d.ts",
+    ".eslintrc.js"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./node_modules/**/*",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}

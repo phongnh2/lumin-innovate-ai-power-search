@@ -1,0 +1,17 @@
+.header {
+  border-radius: 12px 12px 0 0;
+  background-color: var(--kiwi-colors-surface-surface-container);
+  padding: var(--kiwi-spacing-1-25) var(--kiwi-spacing-2-5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include kiwi-typography-headline-md;
+  color: var(--kiwi-colors-surface-on-surface);
+  position: sticky;
+}
+
+.actionWrapper {
+  position: absolute;
+  right: calc(var(--kiwi-spacing-2-5) - var(--kiwi-spacing-0-75));
+  top: var(--kiwi-spacing-0-75);
+}

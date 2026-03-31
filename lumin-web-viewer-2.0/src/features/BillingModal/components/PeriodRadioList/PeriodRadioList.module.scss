@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+  align-items: center;
+}
+
+.itemWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  cursor: pointer;
+
+  &[data-disabled] {
+    opacity: var(--kiwi-opacity-disabled-on-container-variant);
+    cursor: not-allowed;
+  }
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.discount {
+  pointer-events: none;
+}

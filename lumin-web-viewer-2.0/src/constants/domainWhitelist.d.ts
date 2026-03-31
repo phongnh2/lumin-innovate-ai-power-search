@@ -1,0 +1,5 @@
+interface IDOMAIN_WHITE_LIST {
+  CONVERT_TO_DOCX: string[];
+}
+
+export const DOMAIN_WHITE_LIST: IDOMAIN_WHITE_LIST;

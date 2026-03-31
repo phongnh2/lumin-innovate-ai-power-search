@@ -1,0 +1,30 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Confirm Your Email Address</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Click the button below to confirm your email address. If you didn't create an account with&nbsp;<b style="color: #F2385A; letter-spacing: 0.1px; line-height: 0.1">Lumin</b>, you can safely delete this email.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{verifyLink}}">Confirm Email</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text color="#667085">
+            If that doesn't work, you can access the following link:
+          </mj-text>
+          <mj-text mj-class="link">
+            <mj-button href="{{verifyLink}}">
+              {{verifyLink}}
+            </mj-button>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

@@ -1,0 +1,63 @@
+.closeButton {
+  position: absolute;
+  right: var(--kiwi-spacing-1);
+  top: var(--kiwi-spacing-2);
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 528px;
+}
+
+.headerTitle {
+  width: 100%;
+  padding: var(--kiwi-spacing-2-5) var(--kiwi-spacing-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepperContainer {
+  min-width: 220px;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-3) var(--kiwi-spacing-4) var(--kiwi-spacing-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.divider {
+  margin-bottom: var(--kiwi-spacing-1-5);
+}
+
+.helpCenterContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+}
+
+.helpCenterLink {
+  justify-content: left;
+}
+
+.rightContainer {
+  width: 100%;
+  padding: var(--kiwi-spacing-2-5);
+  background-color: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-border-radius-lg) 0 0 0;
+}
+
+.dialogContent {
+  min-height: 600px;
+}
+
+.loadingModal {
+  // Modal height / 2  - CircularLoading height / 2  - current CircularLoading padding top
+  padding-top: calc(600px / 2 - 32px / 2 - 120px);
+}
+
+.headerTitleText {
+  min-height: 32px;
+  align-content: center;
+}

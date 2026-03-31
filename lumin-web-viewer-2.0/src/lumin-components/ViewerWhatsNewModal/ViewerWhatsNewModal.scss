@@ -1,0 +1,73 @@
+@import '../../constants/styles';
+@import '../../constants/lumin-styles.scss';
+@import '../../constants/modal';
+
+
+.ViewerWhatsNewModal {
+  @extend %modal;
+  .ViewerWhatsNewModal-container {
+    @extend %modal-shared-container-style;
+    width: 400px;
+    height: 256px;
+    padding: 24px;
+    .ViewerWhatsNewModal-header {
+      display: grid;
+      justify-content: center;
+      justify-items: center;
+      img {
+        width: 71px;
+        height: 48px;
+      }
+      .text-header {
+        margin-top: 24px;
+        /* stylelint-disable */
+        font-family: NunitoSans;
+        /* stylelint-enable */
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 0.34px;
+        text-align: center;
+        @include themify() {
+          color: themed('textColor');
+        }
+      }
+    }
+    .ViewerWhatsNewModal-content {
+      display: grid;
+      margin-top: 8px;
+      .text-content {
+        /* stylelint-disable */
+        font-family: NunitoSans;
+        /* stylelint-enable */
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: 0.34px;
+        text-align: center;
+        color: #8093a7;
+      }
+    }
+    .ViewerWhatsNewModal-footer {
+      display: flex;
+      margin-top: 24px;
+      button{
+        min-height: 40px;
+        padding: 2px 20px;
+        text-transform: inherit;
+        &:first-child {
+          margin-right: 16px;
+          @include themify() {
+            color: themed('squareButtonColor');
+            background-color: themed('commentHrBg');
+            border: 2px solid themed('commentHrBg');
+          }
+        }
+      }
+    }
+  }
+}

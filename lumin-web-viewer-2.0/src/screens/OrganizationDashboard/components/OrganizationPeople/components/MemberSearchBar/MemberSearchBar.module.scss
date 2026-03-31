@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  align-items: center;
+  white-space: nowrap;
+  column-gap: var(--kiwi-spacing-2);
+  grid-template-columns: min-content minmax(0px, 1fr);
+  padding: var(--kiwi-spacing-3) 0;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+  justify-content: flex-end;
+
+  button {
+    min-width: fit-content;
+  }
+}
+
+.searchInputWrapper {
+  width: 100%;
+  max-width: 420px;
+}

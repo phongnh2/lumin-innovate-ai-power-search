@@ -1,0 +1,151 @@
+image: cimg/node:22.15.0
+
+clone:
+  depth: full
+
+definitions:
+  services:
+    docker:
+      memory: 6144
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &run-lint
+        name: Run eslint
+        size: 2x
+        caches:
+          - node
+        script:
+          - ./scripts/run-lint.sh
+    - step: &run-test
+        name: Run tests
+        size: 2x
+        caches:
+          - node
+        script:
+          - npm rebuild bcrypt --update-binary
+          - ./scripts/run-test.sh
+    - step: &run-test-and-upload-badge
+        name: Run tests and upload badge
+        size: 4x
+        caches:
+          - node
+        script:
+          - npm rebuild bcrypt --update-binary
+          - ./scripts/run-test.sh
+          - pipe: atlassian/bitbucket-upload-file:0.7.4
+            variables:
+              BITBUCKET_ACCESS_TOKEN: $BITBUCKET_ACCESS_TOKEN
+              FILENAME: 'badges/*.svg'
+    - step: &scan-secret
+        name: Scan secrets
+        size: 2x
+        script:
+          - pipe: atlassian/git-secrets-scan:0.5.1
+    - step: &scan-sonarcloud
+        name: Scan SonarCloud
+        size: 2x
+        caches:
+          - sonar
+        script:
+          - pipe: sonarsource/sonarcloud-scan:2.0.0
+            variables:
+              EXTRA_ARGS: -Dsonar.projectDescription=\"Project with sonarcloud-scan pipe\" -Dsonar.eslint.reportPaths=\"report.json\"
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.6
+    - step: &build-and-push-image-arm
+        name: Build and push image arm
+        size: 2x
+        image: atlassian/default-image:4
+        runtime:
+          cloud:
+            arch: arm
+        services:
+          - docker
+        script:
+          - export TAG="$BITBUCKET_BRANCH-$BITBUCKET_BUILD_NUMBER"
+          - ./scripts/build.sh
+          - pipe: atlassian/aws-ecr-push-image:2.5.0
+            variables:
+              IMAGE_NAME: $PROJECT_NAME
+              TAGS: "$TAG"
+    - step: &update-k8s-manifest
+        name: Update k8s manifest
+        image: line/kubectl-kustomize:latest
+        size: 2x
+        script:
+          - apk add bash git openssh
+          - ./scripts/update-k8s-manifest.sh
+
+pipelines:
+  pull-requests:
+    "**":
+      - parallel:
+          - step: *run-lint
+          - step: *run-test
+          - step: *scan-secret
+          # - step: *scan-sonarcloud
+
+  branches:
+    viewer:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: viewer
+    develop:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: develop
+    workspace:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: develop
+    pnb:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: pnb
+    cnc:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: cnc
+    master:
+      - parallel:
+          - step:
+              <<: *run-test-and-upload-badge
+          - step:
+              <<: *build-and-push-image-arm
+              deployment: staging
+      - step:
+          <<: *update-k8s-manifest
+    viewer-staging:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: viewer-staging
+    viewer-testing:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: viewer-testing
+    sandbox:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: sandbox
+    production:
+      - step:
+          <<: *build-and-push-image-arm
+      - step:
+          <<: *update-k8s-manifest
+          deployment: production

@@ -1,0 +1,19 @@
+.wrapper {
+  z-index: 2;
+  width: fit-content;
+  height: fit-content;
+}
+
+.withButtons {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-2);
+
+  button {
+    min-width: fit-content;
+  }
+}
+
+.noActions {
+  pointer-events: none;
+}

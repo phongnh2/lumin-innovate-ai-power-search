@@ -1,0 +1,21 @@
+type DeviceTracking {
+  deviceId: String
+  userIds: [String]
+  platform: String
+  deviceModel: String
+  apiLevel: Int
+  isRooted: Boolean
+}
+
+input CreateDeviceTrackingInput {
+  deviceId: String!
+  userId: String
+  platform: String!
+  deviceModel: String!
+  apiLevel: Int!
+  isRooted: Boolean!
+}
+
+type Mutation {
+  createDeviceTracking(input: CreateDeviceTrackingInput!): BasicResponse
+}

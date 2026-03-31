@@ -1,0 +1,39 @@
+@import "../../constants/lumin-styles";
+
+.PageModeButton {
+  &__btn {
+    padding: 0 20px;
+    min-height: 32px;
+    margin: 0 16px;
+    border-radius: 5px;
+    border: 2px solid $cloudyblue;
+    text-transform: capitalize;
+    color: $secondary;
+    transition: all 0.25s;
+    &:hover {
+      background-color: $smoke;
+    }
+    &.active {
+      border-color: $primary;
+      color: $primary;
+      i::before {
+        color: $primary;
+      }
+    }
+    &_container {
+      min-width: 120px;
+      > div {
+        padding: 0;
+      }
+    }
+    &_value {
+      font-size: 14px;
+      padding-top: 8px;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+    i::before {
+      color: $secondary;
+    }
+  }
+}

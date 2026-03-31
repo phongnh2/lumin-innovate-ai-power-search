@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+import "common.proto";
+import "../common/common.proto";
+
+package user;
+
+service UserService {
+  rpc UpdateProfileAvatar (UpdateProfileAvatarRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveProfileAvatar (IdentityRequest) returns (google.protobuf.Empty) {}
+  rpc GetCurrentUser (IdentityRequest) returns (CurrentUserResponse) {}
+  rpc DeleteAccount (IdentityRequest) returns (DeleteAccountResponse) {}
+  rpc GetTeamAndOrganizationOwner (IdentityRequest) returns (TeamAndOrganizationResponse) {}
+  rpc ReactivateAccount (IdentityRequest) returns (CurrentUserResponse) {}
+  rpc GetUserByEmail (GetUserByEmailRequest) returns (GetUserByEmailResponse) {}
+  rpc VerifyRecaptcha (VerifyRecaptchaRequest) returns (VerifyRecaptchaResponse) {}
+  rpc UpdateUserProperties (UpdateUserPropertiesRequest) returns (google.protobuf.Empty) {}
+  rpc AddSyncOidcAvatarTask (AddSyncOidcAvatarTaskRequest) returns (google.protobuf.Empty) {}
+  rpc GetTeamMembershipOfUserByOrg (GetTeamMembershipOfUserByOrgRequest) returns (GetTeamMembershipOfUserByOrgResponse) {}
+  rpc ChangeUserEmail (ChangeUserEmailRequest) returns (google.protobuf.Empty) {}
+  rpc GetSignUserPayment (GetSignUserPaymentRequest) returns (GetSignUserPaymentResponse) {}
+}
+
+message UpdateProfileAvatarRequest {
+  string avatarRemoteId = 1;
+  string identityId = 2;
+}
+
+message IdentityRequest {
+  string identityId = 1;
+}
+
+message CurrentUserResponse {
+  string _id = 1;
+  string deletedAt = 2;
+  string avatarRemoteId = 3;
+  string name = 4;
+  bool isTermsOfUseVersionChanged = 5;
+  UserMetadata metadata = 6;
+  bool isPopularDomain = 7;
+}
+
+message Organization {
+  string _id = 1;
+  string name = 2;
+  string createdAt = 3;
+  string avatarRemoteId = 4;
+  string url = 5;
+  string domain = 6;
+}
+
+message BelongsToData {
+  string targetId = 1;
+  Organization detail = 2;
+  string type = 3;
+}
+
+message Team {
+  string _id = 1;
+  string name = 2;
+  string avatarRemoteId = 3;
+  Organization belongsTo = 4;
+  string createdAt = 5;
+}
+
+message TeamAndOrganizationResponse {
+  repeated Organization organizationOwner = 1;
+  repeated Team teamOwner = 2;
+  Error error = 3;
+}
+
+message DeleteAccountResponse {
+  Error error = 1;
+  CurrentUserResponse user = 2;
+}
+
+message GetUserByEmailRequest {
+  string email = 2;
+}
+
+message GetUserByEmailResponse {
+  User user = 1;
+  Error error = 2;
+}
+
+message VerifyRecaptchaRequest {
+  string responseKey = 1;
+  string action = 2;
+}
+
+message VerifyRecaptchaResponse {
+  bool isSuccess = 1;
+  Error error = 2;
+}
+
+message UpdateUserPropertiesRequest {
+  string identityId = 1;
+  string email = 2;
+}
+
+message AddSyncOidcAvatarTaskRequest {
+  string email = 1;
+}
+
+message GetTeamMembershipOfUserByOrgRequest {
+  string userId = 1;
+  string orgId = 2;
+}
+
+message GetTeamMembershipOfUserByOrgResponse {
+  repeated string teamIds = 1;
+}
+
+enum MergeAccountOptions {
+  REPLACE_EXISTING_EMAIL = 0;
+  REPLACE_NOT_EXISTING_EMAIL = 1;
+  MERGE_INTO_CURRENT_EMAIL = 2;
+  MERGE_INTO_NEW_EMAIL = 3;
+}
+
+message ChangeUserEmailRequest {
+  string currentEmail = 1;
+  string newEmail = 2;
+  MergeAccountOptions mergeOption = 3;
+  optional string mergeDestination = 4;
+}
+
+message GetSignUserPaymentRequest {
+  string userId = 1;
+}
+
+message GetSignUserPaymentResponse {
+  common.Payment payment = 1;
+}

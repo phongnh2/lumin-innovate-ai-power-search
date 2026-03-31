@@ -1,0 +1,60 @@
+type PresignedFields {
+  key: String
+  versionId: String
+}
+
+
+type ISignedUrl {
+  url: String
+  fields: PresignedFields
+}
+
+type GetPresignedUrlForUploadDocPayload {
+  document: ISignedUrl
+  thumbnail: ISignedUrl
+  encodedUploadData: String
+}
+
+type GetPresignedUrlForUploadThumbnailPayload {
+  thumbnail: ISignedUrl
+  encodedUploadData: String
+}
+
+type GetPresignedUrlForLuminSignIntegrationPayload {
+  document: ISignedUrl
+}
+
+enum PresignedTargetType {
+  User
+  Organization
+  Team
+}
+
+enum UploadDocFrom {
+  EditPdf
+}
+
+input GetPresignedUrlForUploadDocInput {
+  documentMimeType: String!
+  thumbnailMimeType: String
+  documentKey: String
+  thumbnailKey: String
+  documentId: String
+  uploadDocFrom: UploadDocFrom
+}
+
+input GetPresignedUrlForLuminSignIntegrationInput {
+  documentMimeType: String!
+  documentKey: String
+}
+
+input GetPresignedUrlForUploadThumbnailInput {
+  thumbnailMimeType: String!
+  thumbnailKey: String
+}
+
+type Query {
+  getPresignedUrlForUploadDoc(input: GetPresignedUrlForUploadDocInput!): GetPresignedUrlForUploadDocPayload
+  getPresignedUrlForLuminSignIntegration(input: GetPresignedUrlForLuminSignIntegrationInput!): GetPresignedUrlForLuminSignIntegrationPayload
+  getPresignedUrlForUploadThumbnail(input: GetPresignedUrlForUploadThumbnailInput!): GetPresignedUrlForUploadThumbnailPayload
+}

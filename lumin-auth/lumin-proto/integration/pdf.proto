@@ -1,0 +1,171 @@
+syntax = "proto3";
+
+package lumin.pdf.v1;
+
+import "common/common.proto";
+
+import "google/protobuf/empty.proto";
+
+service PdfService {
+  rpc UploadPersonalDocument (UploadPersonalDocumentMessage) returns (UploadPersonalDocumentResponse) {}
+  rpc GetLimitPersonalFileSize (GetLimitPersonalFileSizeMessage) returns (GetLimitPersonalFileSizeResponse) {}
+  rpc GetOrganizationsOfUser (GetOrganizationsOfUserMessage) returns (GetOrganizationsOfUserResponse) {}
+  rpc GetDocumentInfo (GetDocumentInfoMessage) returns (GetDocumentInfoResponse) {}
+  rpc GetAccessibleDocumentTemplateList (GetAccessibleDocumentTemplateListRequest) returns (GetAccessibleDocumentTemplateListResponse) {}
+  rpc GetOrganizationInfo (GetOrganizationInfoRequest) returns (GetOrganizationInfoResponse) {}
+  rpc GetOrganizationMembers (GetOrganizationMembersRequest) returns (GetOrganizationMembersResponse) {}
+  rpc UploadDocument (UploadDocumentRequest) returns (UploadDocumentResponse) {}
+  rpc NotifyXeroConnectStatus(NotifyXeroConnectStatusMessage) returns (google.protobuf.Empty) {}
+}
+
+message GetLimitPersonalFileSizeMessage {
+  string caller = 1;
+}
+
+message GetLimitPersonalFileSizeResponse {
+  int64 limit = 1;
+}
+message UploadPersonalDocumentMessage {
+  string file_remote_id = 1;
+  string file_name = 2;
+  string caller = 3;
+  optional string circle_id = 4;
+}
+
+message DocumentMessage {
+  string document_id = 1;
+  string owner_id = 2;
+  string last_modified_by = 3;
+  string file_name = 4;
+  int64 size = 5;
+  string service = 6;
+  string file_remote_id = 7;
+  string mime_type = 8;
+  bool is_personal = 9;
+  string thumbnail = 10;
+  bool enable_google_sync = 11;
+  int64 created_at = 12;
+  int64 last_modify = 13;
+  int64 last_access = 14;
+  int64 version = 15;
+  string temporary_remote_id = 16;
+  string from_source = 17;
+}
+
+message UploadPersonalDocumentResponse {
+  DocumentMessage data = 1;
+}
+
+message GetOrganizationsOfUserMessage {
+  string caller = 1;
+}
+
+message GetOrganizationsOfUserResponse {
+  repeated common.Organization organizations = 1;
+}
+
+message GetDocumentInfoMessage {
+  string document_id = 1;
+  string caller = 2;
+}
+
+message GetDocumentInfoResponse {
+  DocumentMessage data = 1;
+  Owner owner = 2;
+}
+
+message Owner {
+  string owner_id = 1;
+  string owner_name = 2;
+  string owner_avater_remoteId = 3;
+}
+
+message GetAccessibleDocumentTemplateListRequest {
+  string user_id = 1;
+  string workspace_id = 2;
+}
+
+message DocumentTemplate {
+  string template_id = 1;
+  string name = 2;
+  string type = 3;
+  int64 created_at = 4;
+  int64 updated_at = 5;
+}
+
+message GetAccessibleDocumentTemplateListResponse {
+  int64 total_count = 1;
+  repeated DocumentTemplate data = 2;
+}
+
+message OrganizationMember {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  string role = 4;
+  int64 joined_at = 5;
+  int64 last_active_at = 6;
+}
+
+message GetOrganizationInfoRequest {
+  string workspace_id = 1;
+  string user_id = 2;
+}
+
+message GetOrganizationInfoResponse {
+  string id = 1;
+  string name = 2;
+  string owner = 3;
+  string user_role = 4;
+  int64 total_members = 5;
+  int64 total_spaces = 6;
+  int64 created_at = 7;
+}
+
+message GetOrganizationMembersRequest {
+  string workspace_id = 1;
+  string user_id = 2;
+  int64 page = 3;
+  int64 limit = 4;
+}
+
+message GetOrganizationMembersResponse {
+  int64 total_count = 1;
+  int64 limit = 2;
+  int64 page = 3;
+  int64 total_members = 4;
+  repeated OrganizationMember members = 5;
+}
+
+message UploadDocumentRequest {
+  string workspace_id = 1;
+  string user_id = 2;
+  string file_remote_id = 3;
+  string file_name = 4;
+  string space_id = 5;
+  string folder_id = 6;
+  string upload_location = 7;
+}
+
+message DocumentLocation {
+  string type = 1;
+  string workspace_id = 2;
+  string space_id = 3;
+  string folder_id = 4;
+}
+
+message UploadDocumentResponse {
+  string id = 1;
+  string name = 2;
+  int64 size = 3;
+  string mime_type = 4;
+  DocumentLocation location = 5;
+  string preview_url = 6;
+  int64 created_at = 7;
+  int64 updated_at = 8;
+}
+
+message NotifyXeroConnectStatusMessage {
+  string user_id = 1;
+  string workspace_id = 2;
+}

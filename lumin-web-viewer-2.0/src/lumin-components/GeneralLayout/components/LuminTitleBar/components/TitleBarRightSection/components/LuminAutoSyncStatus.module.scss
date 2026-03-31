@@ -1,0 +1,22 @@
+.popoverContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.popoverTitle {
+  @include kiwi-typography-title-sm;
+}
+
+.popoverContent {
+  @include kiwi-typography-body-sm;
+}
+
+.popoverDetail {
+  @include kiwi-typography-body-sm;
+}
+
+.dropdown {
+  border-radius: var(--kiwi-border-radius-md);
+}

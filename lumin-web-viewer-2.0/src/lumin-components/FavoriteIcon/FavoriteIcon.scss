@@ -1,0 +1,24 @@
+.FavoriteIcon {
+  font-size: 0;
+
+  button {
+    border: none;
+
+    /* need refactor this selector later */
+    &:hover {
+      background: none;
+    }
+
+    span {
+      line-height: 1;
+    }
+  }
+}
+
+.FavoriteIcon--disabled {
+  opacity: 0.5;
+}
+
+.FavoriteIcon__button--disabled {
+  cursor: not-allowed;
+}

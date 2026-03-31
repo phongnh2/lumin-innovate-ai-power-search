@@ -1,0 +1,35 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Welcome to Lumin Sign Pro</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text><b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;now has <b class="highlight">{{numberSeat}}</b> Lumin Sign Pro {{pluralize "seat" "seats" numberSeat}}. {{orgWord}} member with a Pro seat can send up to 100 agreements for signatures per month, and they’ll have access to premium Lumin Sign features including:</mj-text>
+          <mj-text>
+            <ul class="list">
+              <li style="margin-bottom: 4px">Reusable signing templates</li>
+              <li style="margin-bottom: 4px">Certificate of completion</li>
+              <li style="margin-bottom: 4px">Plus much more</li>
+            </ul>
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>Start by assigning Pro seats to your {{orgWord}} members and get your agreements signed in minutes, not days.</mj-text>
+          <mj-spacer height="24px" />
+          <mj-button width="167px" line-height="24px" align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/people">Assign Pro seats</mj-button>
+          <mj-spacer height="24px" />
+          <mj-text>
+            For more information about this plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

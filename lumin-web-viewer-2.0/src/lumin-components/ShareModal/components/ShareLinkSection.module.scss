@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.linkChange {
+  cursor: pointer;
+}
+
+.backButton {
+  margin-left: -10px;
+  margin-top: -6px;
+}

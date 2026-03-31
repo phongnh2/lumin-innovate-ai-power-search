@@ -1,0 +1,167 @@
+@import "../../constants/lumin-styles";
+
+.TeamMembersRow {
+  width: 100%;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  height: 64px;
+  box-sizing: border-box;
+  background: white;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid var(--color-neutral-20);
+  @include mobile {
+    padding: 0 8px;
+    &--members {
+      height: 72px;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &.Popper {
+      i {
+        margin-right: 12px;
+      }
+
+      li {
+        padding: 0 16px;
+        height: 40px;
+        color: var(--color-neutral-80);
+      }
+    }
+  }
+}
+
+.TeamMembersRow__pendingUserAvatar {
+  width: 40px;
+  height: 40px;
+}
+
+.TeamMembersRow__indentity-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding: 0 12px;
+  width: calc(100% - 40px);
+  overflow: hidden;
+}
+
+.TeamMembersRow__indentity, .TeamMembersRow__email {
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--color-neutral-80);
+  margin-top: 4px;
+  @include tablet-up {
+    margin-top: 0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.TeamMembersRow__email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.TeamMembersRow__date {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.34px;
+}
+
+.TeamMembersRow__name {
+  color: var(--color-neutral-100);
+  max-width: calc(100% - 60px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  @include tablet-up {
+    font-size: 14px;
+    max-width: 100%;
+    line-height: 20px;
+  }
+}
+
+.TeamMembersRow__role {
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: var(--color-neutral-80);
+  &.owner {
+    color: var(--color-secondary-50);
+  }
+  &.team_admin {
+    color: var(--color-secondary-50);
+  }
+  @include tablet-up {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 0;
+  }
+}
+
+.TeamMembersRow__button {
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.TeamMembersRow__requestContainer {
+  display: flex;
+}
+
+.TeamMembersRow__requestBtn {
+  font-family: $font-stack-primary;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: 0.34px;
+  color: $dark-sky-blue ;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+  &:hover {
+    color: $dark-sky-blue-hover;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.TeamMembersRow__requestBtn--reject {
+  color: $red;
+  &:hover{
+    color: $accent-hover;
+  }
+}
+
+.TeamMembersRow__requestBtn--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.TeamMembersRow__option {
+  justify-content: flex-end;
+}
+.TeamMebersRow__yourself {
+  font-weight: 600;
+  color: var(--color-neutral-100);
+  @include tablet-up {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

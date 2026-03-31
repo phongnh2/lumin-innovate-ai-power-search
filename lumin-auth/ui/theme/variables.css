@@ -1,0 +1,144 @@
+:root {
+  /* fonts */
+  --font-primary: "Axiforma", arial, sans-serif;
+  --font-secondary: "Inter", arial, sans-serif;
+
+  /* colors */
+  --color-primary-10: #f4fcff;
+  --color-primary-20: #e6f9ff;
+  --color-primary-30: #d4f5ff;
+  --color-primary-40: #b2ecfc;
+  --color-primary-50: #8edef4;
+  --color-primary-60: #77c2d7;
+  --color-primary-70: #67a4ba;
+  --color-primary-80: #4690a4;
+  --color-primary-90: #035970;
+  --color-primary-100: #0c395b;
+  --color-primary-110: #003847;
+  --color-secondary-10: #ffecef;
+  --color-secondary-20: #fcd7de;
+  --color-secondary-30: #faafbd;
+  --color-secondary-40: #ff768f;
+  --color-secondary-50: #f2385a;
+  --color-secondary-60: #ce2846;
+  --color-secondary-70: #b80c2b;
+  --color-secondary-80: #8a0c23;
+  --color-secondary-90: #680416;
+  --color-neutral-0: #fff;
+  --color-neutral-5: #f7f9fb;
+  --color-neutral-10: #f1f5f8;
+  --color-neutral-20: #dae4ec;
+  --color-neutral-30: #bccfdc;
+  --color-neutral-40: #9eb6c7;
+  --color-neutral-50: #829db0;
+  --color-neutral-60: #618298;
+  --color-neutral-70: #48687f;
+  --color-neutral-80: #325167;
+  --color-neutral-90: #233f52;
+  --color-neutral-100: #102d42;
+  --color-success-10: #e0ffee;
+  --color-success-50: #20c9ad;
+  --color-success-60: #1da38e;
+  --color-success-90: #035970;
+  --color-warning-10: #fff1cc;
+  --color-warning-40: #fae200;
+  --color-warning-50: #f2be38;
+  --color-warning-60: #d18f0b;
+  --color-other-1: #fcf0ee;
+  --color-other-2: #fab1a5;
+  --color-other-3: #da6668;
+  --color-other-4: #ebeff2;
+  --color-other-5: #0c2333;
+  --color-other-6: #e1e1e1;
+  --color-other-7: #f04a4a;
+  --color-other-8: #6e8699;
+  --color-other-9: #979797;
+  --color-other-10: #eaf3ff;
+  --color-other-11: #8e979f;
+  --color-other-12: #dddbdd;
+  --color-other-13: #e7f7d7;
+  --color-other-14: #dadaff;
+  --color-other-15: #ffe0bc;
+  --color-other-16: #5c7148;
+  --color-other-17: #edf3ff;
+  --color-other-18: #3885f8;
+  --color-other-19: #6d6dff;
+  --color-other-20: #ffa031;
+  --color-other-22: #C9F1FF;
+  --color-persian-pink: #f178b6;
+  --color-roman: #da6668;
+  --color-white: #fff;
+  --color-gray: #f1f5f9;
+  --color-blue: #3180f1;
+  --color-black: #000000;
+
+  --color-scrollbar: rgb(32 33 36 / 20%);
+  --color-scrollbar-hover: rgb(32 33 36 / 38%);
+  /* layout */
+  --auth-header-height: 72px;
+  --app-container-width: 1040px;
+  --left-sidebar-width: 240px;
+
+  /* input height */
+  --input-height-tiny: 32px;
+  --input-height-small: 40px;
+  --input-height-medium: 44px;
+  --input-height-large: 48px;
+
+  --header-height: 56px;
+  --toolbar-height: 48px;
+  --tablet-bar: 44px;
+  --notification-width: 370px;
+  --banner-viewer-height: 48px;
+  --banner-cookies-height: 64px;
+
+  /* shadow */
+  --shadow-xl: 0 8px 28px -6px rgb(12 90 112 / 12%), 0 18px 88px -4px rgb(12 90 112 / 14%);
+  --shadow-xl-dark: 0 1px 48px rgb(255 255 255 / 20%), 0 1px 16px 4px rgb(255 255 255 / 16%);
+  --shadow-s: 0 6px 8px -6px rgb(12 90 112 / 12%), 0 8px 16px -6px rgb(12 90 112 / 8%);
+  --shadow-s-dark: 0px 1px 24px rgba(255 255 255 / 20%), 0px 1px 4px 1px rgba(255 255 255 / 16%);
+  --shadow-md:
+    0 8px 28px -6px rgb(12 90 112 / 12%),
+    0 18px 88px -4px rgb(12 90 112 / 14%);
+  --shadow-m:
+    0 6px 14px -6px rgb(12 90 112 / 12%),
+    0 10px 32px -4px rgb(12 90 112 / 10%);
+  --shadow-m-dark:
+    0 1px 32px rgb(255 255 255 / 20%),
+    0 1px 6px 2px rgb(255 255 255 / 16%);
+  --shadow-xs:
+    0 2px 4px -2px rgb(12 90 112 / 12%),
+    0 2px 4px -2px rgb(12 90 112 / 8%);
+  --shadow-xs-dark: 0 1px 3px 1px rgb(255 255 255 / 16%);
+  --drop-shadow-xs-dark: drop-shadow(0 1px 16px rgb(255 255 255 / 20%));
+  --shadow-input: 0 0 0 1.2px var(--color-primary-30);
+  --shadow-input-dark: 0 0 0 1.2px var(--color-primary-80);
+
+  /* modal */
+  --modal-container-width-xl: 900px;
+  --modal-container-width-lg: 720px;
+  --modal-container-width-mdx: 640px;
+  --modal-container-width-md: 528px;
+  --modal-container-width-sm: 400px;
+  --zindex-modal-low: 1200;
+  --zindex-modal-medium: 1300;
+  --zindex-modal-high: 1400;  
+
+  /* index */
+  --rating-modal: 1302;
+  --zindex-popover: 1301;
+  --zindex-notification-messages: 1100;
+  --zindex-upload-modal: 1000;
+  --zindex-widget-notification-icon: 201;
+  --zindex-right-side-bar: 72;
+  --zindex-book-mark: 70;
+
+  /* container */
+  --container-primary: 1200px;
+
+  /* border */
+  --border-radius-primary: 8px;
+  --border-radius-dense: 4px;
+  --border-primary: 1px solid var(--color-neutral-30);
+  --border-secondary: 1px solid var(--color-neutral-20);
+}

@@ -1,0 +1,57 @@
+import { AGREEMENT_GEN_KEYWORDS, AGREEMENT_GEN_TOOLS } from './agreementGen';
+import { ANNOTATE_KEYWORDS, ANNOTATE_TOOLS } from './annotate';
+import { CHATBOT_COMMAND_KEYWORDS, CHATBOT_COMMAND_TOOLS } from './chatbotCommand';
+import { EDIT_PDF_KEYWORDS, EDIT_PDF_TOOLS } from './editPdf';
+import { FILE_MENU_TOOLS, FILE_MENU_TOOLS_KEYWORDS } from './fileMenuTools';
+import { FILL_AND_SIGN_KEYWORDS, FILL_AND_SIGN_TOOLS } from './fillAndSign';
+import { HELP_CENTER_TOOLS, HELP_CENTER_TOOLS_KEYWORDS } from './helpCenterTools';
+import { LEFT_TOOLBAR_TOOLS, LEFT_TOOLBAR_TOOLS_KEYWORDS } from './leftToolbarTools';
+import { PAGE_TOOLS_KEYWORDS, PAGE_TOOLS_TOOLS } from './pageTools';
+import { REMAINING_TOOLS, REMAINING_TOOLS_KEYWORDS } from './remainingTools';
+import { RIGHT_SIDE_BAR_TOOLS, RIGHT_SIDE_BAR_TOOLS_KEYWORDS } from './rightSideBarTools';
+import { SECURITY_KEYWORDS, SECURITY_TOOLS } from './security';
+
+export const QUICK_SEARCH_GROUP_KEY = {
+  AGREEMENT_GEN: 'agreementGen',
+  LUMIN_AI: 'luminAi',
+  ANNOTATE: 'annotate',
+  SECURITY: 'security',
+  FILL_AND_SIGN: 'fillAndSign',
+  EDIT_PDF: 'editPdf',
+  PAGE_TOOLS: 'pageTools',
+  FILE_MENU_TOOLS: 'fileMenuTools',
+  RIGHT_SIDE_BAR_TOOLS: 'rightSideBarTools',
+  HELP_CENTER_TOOLS: 'helpCenterTools',
+  LEFT_TOOLBAR_TOOLS: 'leftToolbarTools',
+  REMAINING_TOOLS: 'remainingTools',
+};
+
+export const QUICK_SEARCH_TOOLS = {
+  ...AGREEMENT_GEN_TOOLS,
+  ...CHATBOT_COMMAND_TOOLS,
+  ...ANNOTATE_TOOLS,
+  ...SECURITY_TOOLS,
+  ...FILL_AND_SIGN_TOOLS,
+  ...EDIT_PDF_TOOLS,
+  ...PAGE_TOOLS_TOOLS,
+  ...FILE_MENU_TOOLS,
+  ...RIGHT_SIDE_BAR_TOOLS,
+  ...HELP_CENTER_TOOLS,
+  ...LEFT_TOOLBAR_TOOLS,
+  ...REMAINING_TOOLS,
+};
+
+export const QUICK_SEARCH_KEYWORDS = {
+  ...AGREEMENT_GEN_KEYWORDS,
+  ...CHATBOT_COMMAND_KEYWORDS,
+  ...ANNOTATE_KEYWORDS,
+  ...SECURITY_KEYWORDS,
+  ...FILL_AND_SIGN_KEYWORDS,
+  ...EDIT_PDF_KEYWORDS,
+  ...PAGE_TOOLS_KEYWORDS,
+  ...FILE_MENU_TOOLS_KEYWORDS,
+  ...RIGHT_SIDE_BAR_TOOLS_KEYWORDS,
+  ...HELP_CENTER_TOOLS_KEYWORDS,
+  ...LEFT_TOOLBAR_TOOLS_KEYWORDS,
+  ...REMAINING_TOOLS_KEYWORDS,
+};

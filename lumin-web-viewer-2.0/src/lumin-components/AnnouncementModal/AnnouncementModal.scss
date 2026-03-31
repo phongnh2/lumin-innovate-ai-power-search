@@ -1,0 +1,41 @@
+@import "../../constants/lumin-styles";
+
+.AnnouncementModal {
+  $self: &;
+  &__container {
+    text-align: center;
+    padding: 40px 100px;
+    #{$self}__image {
+      width: 100%;
+      max-width: 435px;
+    }
+    #{$self}__title {
+      font-size: 18px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: -0.4px;
+      text-align: center;
+      color: $primary;
+      margin-bottom: 8px;
+    }
+    #{$self}__message {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: 0.3px;
+      text-align: center;
+      color: $secondary;
+      margin-bottom: 40px;
+      span {
+        color: $royalblue;
+      }
+    }
+    button {
+      max-width: 170px;
+    }
+  }
+}

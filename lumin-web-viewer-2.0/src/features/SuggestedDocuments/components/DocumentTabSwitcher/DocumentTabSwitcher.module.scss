@@ -1,0 +1,35 @@
+.tabsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1-5) 0;
+  flex-wrap: wrap;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.tabsWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-2);
+}
+
+.tab {
+  background-color: var(--kiwi-colors-surface-surface-container);
+  &[data-activated='true'] {
+    background-color: var(--kiwi-colors-custom-role-web-surface-blue-activated);
+  }
+}
+
+.teamSelectorWrapper {
+  width: fit-content;
+  &[data-hidden='true'] {
+    visibility: hidden;
+  }
+}
+
+.tabInner {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-25);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.tabInnerActivated {
+  color: var(--kiwi-colors-core-on-primary-container);
+}

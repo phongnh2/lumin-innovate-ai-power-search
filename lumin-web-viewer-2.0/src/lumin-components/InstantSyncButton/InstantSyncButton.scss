@@ -1,0 +1,38 @@
+@import '../../constants/lumin-styles.scss';
+
+.InstantSyncButton {
+  margin: 0 8px;
+  border: none;
+  min-width: 85px;
+  @include themify() {
+    background: themed('toolbarHover');
+  }
+  border-radius: 8px;
+  &__sync-btn {
+    padding: 8px 16px;
+  }
+  &__sync-btn-loading {
+    padding: 0 10px;
+  }
+  &__btn-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    @include themify() {
+      color: themed('tertiaryButtonColor');
+    }
+    .SvgElement {
+      margin-right: 8px;
+    }
+  }
+  &:hover {
+    @include themify() {
+      background: themed('tertiaryButtonBgHover');
+    }
+  }
+}

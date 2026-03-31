@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-3);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-2);
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.paper {
+  width: var(--kiwi-sizing-dialogs-sm);
+  max-width: var(--kiwi-sizing-dialogs-sm);
+  padding: var(--kiwi-spacing-3);
+}

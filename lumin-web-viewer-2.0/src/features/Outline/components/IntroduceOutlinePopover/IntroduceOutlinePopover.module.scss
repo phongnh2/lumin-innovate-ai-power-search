@@ -1,0 +1,23 @@
+.title {
+  @include kiwi-typography-title-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-1);
+}
+
+.description {
+  @include kiwi-typography-body-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+
+  a {
+    color: var(--kiwi-colors-core-primary);
+    text-decoration: underline;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}

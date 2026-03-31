@@ -1,0 +1,27 @@
+.titleWrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.inviteFromGoogleButton {
+  border-color: var(--kiwi-colors-surface-outline-variant);
+}
+
+.memberListWrapper {
+  padding-top: var(--kiwi-spacing-1);
+}
+
+.inviteMemberText {
+  padding: var(--kiwi-spacing-2) 0 var(--kiwi-spacing-0-75);
+}
+
+.viewport {
+  max-height: 100%;
+}
+
+.descriptionWrapper {
+  margin-top: var(--kiwi-spacing-0-5);
+}

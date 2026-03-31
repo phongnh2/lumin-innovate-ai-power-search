@@ -1,0 +1,20 @@
+# Develop domain rules
+tenants:
+  lumin-vn.com:
+    policy: strictBank
+    organization:
+      domainOrgId: "6704baba557e9f16b7cb3812"
+      orgAccessScope: all
+    ui:
+      hidePromptDriveUsersBanner: false
+  
+  lumin-nz.com:
+    policy: driveOnly
+
+  lumin-ph.com:
+    policy: driveOnly
+  
+  lumin-sg.com:
+    policy: governmentExport
+    organization:
+      domainOrgId: "68c9215feaaac45d7c512187"

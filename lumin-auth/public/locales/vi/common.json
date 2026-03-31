@@ -1,0 +1,271 @@
+{
+  "common": {
+    "signIn": "Đăng nhập",
+    "signInToJoinOrganization": "Đăng nhập để tham gia $t(terms:organization)",
+    "signUp": "Đăng ký",
+    "logOut": "Đăng xuất",
+    "openGmail": "Mở Gmail",
+    "continue": "Tiếp tục",
+    "email": "Email",
+    "ok": "OK",
+    "name": "Tên",
+    "password": "Mật khẩu",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "yes": "Có",
+    "signOut": "Đăng xuất",
+    "or": "hoặc",
+    "accept": "Đồng ý",
+    "enable": "Kích hoạt"
+  },
+  "authPage": {
+    "orUseYourEmail": "HOẶC SỬ DỤNG ĐỊA CHỈ EMAIL CỦA BẠN",
+    "footerDescription": "Một tài khoản cho tất cả các sản phẩm của Lumin",
+    "newToLumin": "Bạn mới sử dụng Lumin?",
+    "signUpForFree": "Đăng ký miễn phí",
+    "acceptAllTermsAndConditions": "Tôi chấp nhận tất cả\u00a0<b>Điều khoản Dịch vụ</b> và <a>Chính sách Quyền riêng tư</a>",
+    "alreadyHaveAccount": "Bạn đã có tài khoản?",
+    "resendVerifyYourEmail": "Địa chỉ email của bạn chưa được xác minh. Bạn không nhận được mã?",
+    "didNotReceiveAnEmail": "Gửi lại liên kết xác minh",
+    "hidePassword": "Ẩn mật khẩu",
+    "showPassword": "Hiển thị mật khẩu",
+    "signUpWith": "Đăng ký với",
+    "signInWith": "Đăng nhập với",
+    "verifiedEmailHasBeenResent": "Đã gửi lại email xác minh",
+    "notHaveAccount": "Bạn chưa có tài khoản?",
+    "signUpHere": "Đăng ký tại đây",
+    "signInWithAnotherAccount": "Đăng nhập bằng tài khoản khác",
+    "recommendWorkEmail": "Khuyến nghị sử dụng email công việc nhưng không bắt buộc.",
+    "backToSavedProfile": "Quay lại hồ sơ đã lưu",
+    "continueWithEmail": "Tiếp tục với email",
+    "continueWithEmailAndPassword": "Tiếp tục với email và mật khẩu",
+    "accessDenied": "Quyền truy cập bị từ chối."
+  },
+  "signInPage": {
+    "forgotPassword": "Bạn đã quên mật khẩu?"
+  },
+  "placeholder": {
+    "yourEmail": "Địa chỉ email của bạn",
+    "yourPassword": "Mật khẩu của bạn",
+    "yourName": "Tên của bạn",
+    "password": "Mật khẩu",
+    "confirmByTyping": "Xác nhận bằng cách gõ"
+  },
+  "signOutModal": {
+    "title": "Bạn có chắc chắn muốn thoát không?",
+    "message": "Mong rằng sẽ sớm gặp lại bạn!"
+  },
+  "errorMessage": {
+    "incorrectEmailOrPassword": "Địa chỉ email hoặc mật khẩu không chính xác.",
+    "emailExisted": "Địa chỉ email đã tồn tại.",
+    "unknownError": "Đã xảy ra lỗi.",
+    "forceLogoutTitle": "Bạn đã đăng nhập vào Lumin",
+    "avatarOversize": "Hình ảnh bạn tải lên quá lớn. Vui lòng tải lên tệp bên dưới {{avatarSizeLimit}}MB.",
+    "alreadySignupByThirdParty": "Địa chỉ email này hiện đang được sử dụng với Google, Dropbox hoặc Microsoft. Vui lòng đăng nhập bằng Google, Dropbox hoặc Microsoft.",
+    "alreadySignUpBy": "Địa chỉ email này hiện đang được sử dụng với {{loginService}}. Vui lòng <b>đăng nhập</b> bằng {{loginService}}.",
+    "emailIsBanned": "Email này đã bị cấm.",
+    "userNotFound": "Chưa có tài khoản nào được đăng ký với email này.",
+    "verifyRecaptchaFailed": "Xác minh recaptcha không thành công. Xin vui lòng thử lại.",
+    "alreadySignedInAnotherMethod": "Bạn đã đăng nhập bằng phương thức khác",
+    "unVerifyAccount": "Tài khoản này chưa được xác minh",
+    "alreadyVerified": "Email này đã được xác minh thành công. Xin vui lòng đăng nhập.",
+    "onlyOnFileAllowed": "Chỉ cho phép một tệp",
+    "validFile": "Tệp phải thuộc loại jpeg, jpg hoặc png",
+    "fileTypeNotExist": "Loại tệp không tồn tại",
+    "similarPassword": "Không thể sử dụng mật khẩu này vì mật khẩu quá giống với email của bạn.",
+    "leakedPassword": "Không thể sử dụng mật khẩu này vì mật khẩu đã từng được phát hiện trong các vụ rò rỉ dữ liệu và không còn được sử dụng nữa.",
+    "grpcError": "Đã xảy ra lỗi với lời gọi hệ thống gRpc",
+    "passwordExpired": "Mật khẩu Lumin của bạn đã hết hạn. Hãy thử đăng nhập bằng Google hoặc cài đặt lại mật khẩu của bạn.",
+    "passwordExpiredHasLink": "Mật khẩu Lumin của bạn đã hết hạn. Hãy thử đăng nhập bằng Google hoặc <a>cài đặt lại mật khẩu của bạn</a>.",
+    "notContainUrl": "Trường dữ liệu này không được chứa URL.",
+    "fieldRequired": "Đây là trường dữ liệu bắt buộc.",
+    "invalidField": "Trường dữ liệu này không hợp lệ.",
+    "maxLengthMessage": "Trường dữ liệu này không được có nhiều hơn {{length}} ký tự.",
+    "minLengthMessage": "Trường dữ liệu này phải nhiều hơn {{length}} ký tự.",
+    "tnc": "Vui lòng đồng ý với Điều khoản & Điều kiện để đăng ký.",
+    "unknownThirdParty": "Google, Dropbox hoặc Microsoft",
+    "email&password": "email & mật khẩu",
+    "passwordMustHaveAtLeastCharacters": "Mật khẩu phải có ít nhất {{length}} ký tự.",
+    "passwordMustHaveNoMoreThanCharacters": "Mật khẩu không được có quá {{length}} ký tự."
+  },
+  "expiredLink": {
+    "title": "Liên kết đã hết hạn.",
+    "subtitle": "Liên kết mời mà bạn đang tìm kiếm đã hết hạn",
+    "backBtn": "Quay lại tài liệu"
+  },
+  "invitationRegistration": {
+    "signUpToJoinCircle": "Đăng ký để tham gia $t(terms:organization)",
+    "emailCanNotBeChanged": "Không thể thay đổi địa chỉ email của bạn",
+    "signUpToAccessDocuments": "Đăng ký để truy cập tài liệu"
+  },
+  "forgotPassword": {
+    "forgotYourPassword": "Bạn đã quên mật khẩu của mình",
+    "forceLogoutTitle": "Bạn đã đăng nhập vào Lumin",
+    "forceLogoutMessage": "Bạn cần đăng xuất trước khi đặt lại mật khẩu.",
+    "externalLoginTitle": "Không thể đặt lại mật khẩu",
+    "externalLoginMessage": "Địa chỉ email này hiện đang được sử dụng với Google Drive hoặc Dropbox. Không cần mật khẩu ở đây.",
+    "alreadyHaveAccount": "Bạn đã có tài khoản?",
+    "title": "Bạn đã quên mật khẩu của mình?",
+    "emailSent": "Đã gửi email!",
+    "enterYourEmail": "Nhập địa chỉ email của bạn bên dưới để nhận hướng dẫn đặt lại mật khẩu.",
+    "yourEmail": "Địa chỉ email của bạn",
+    "resetMyPassword": "Đặt lại mật khẩu của tôi",
+    "passwordResetEmailHasBeenSent": "Đã gửi email đặt lại mật khẩu đến địa chỉ email của bạn.",
+    "followThePromptsToReset": "Vui lòng xem email đó và làm theo hướng dẫn để đặt lại mật khẩu.",
+    "note": "Nếu bạn không thấy email của chúng tôi, có thể là do bạn chưa đăng ký. Nếu vậy, hãy đăng ký để tiếp tục."
+  },
+  "verifyAccount": {
+    "verificationEmailHasBeenSent": "Đã gửi email xác minh",
+    "verifyYourEmail": "Chúng tôi cần xác minh địa chỉ email\u00a0của bạn",
+    "messageVerifyYourEmail": "Chúng tôi vừa gửi một email xác minh đến <b>{{email}}</b>.",
+    "probablyAlreadySignedUp": "Nếu bạn không thấy email của chúng tôi, có thể nghĩa là bạn đã đăng ký. Nếu vậy, hãy đăng nhập để tiếp tục.",
+    "resendVerifyYourEmail": "Bạn không nhận được email?",
+    "alreadyVerified": "Email này đã được xác minh thành công. Xin vui lòng <b>đăng nhập</b>.",
+    "resendCount": "Gửi lại {{count}}",
+    "niceWork": "Tốt lắm!",
+    "verificationFailed": "Xác minh không thành công!",
+    "verifiedSuccessfully": "Bạn đã xác minh email của mình thành công",
+    "verificationInvalid": "Email xác minh này không hợp lệ, đã được sử dụng hoặc hết hạn. Vui lòng nhập địa chỉ email của bạn để nhận đường liên kết xác minh mới!"
+  },
+  "pageTitle": {
+    "verifyAccount": "Xác minh Tài khoản",
+    "account": "Tài khoản",
+    "forgotYourPassword": "Bạn đã quên mật khẩu của mình",
+    "profileSettings": "Cài đặt hồ sơ",
+    "createAnAccountLumin": "Tạo một tài khoản",
+    "luminPDFEditor": "Trình chỉnh sửa Lumin PDF",
+    "signInSSO": "Đăng nhập với SSO"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Trang bạn đang tìm kiếm dường như không tồn tại.",
+    "goToHomePage": "Tới Trang Chủ"
+  },
+  "profileSettings": {
+    "profileInfo": "Thông tin hồ sơ",
+    "changeName": "Đổi tên",
+    "changePassword": "Thay đổi mật khẩu",
+    "newPassword": "Mật khẩu mới",
+    "accessApps": "Truy cập ứng dụng",
+    "agreementGenSlogan": "Trợ lý soạn thảo hợp đồng của bạn",
+    "luminSlogan": "Chia sẻ, chỉnh sửa và cộng tác trên PDF",
+    "signSlogan": "Gửi, ký và theo dõi quy trình làm việc",
+    "changePasswordSuccessfully": "Đổi mật khẩu thành công",
+    "changeNameSuccessfully": "Đổi tên thành công"
+  },
+  "profileAvatar": {
+    "uploadPhoto": "Tải lên ảnh",
+    "editPhoto": "Chỉnh sửa ảnh",
+    "uploadAnotherUploadPhoto": "Tải lên ảnh khác",
+    "removeThisUploadPhoto": "Xóa ảnh này",
+    "updateSuccessfully": "Cập nhật thành công",
+    "noteUploadAvatar": "Bạn có thể tải lên: png, jpg. Kích thước tối đa: {{size}}MB",
+    "removePhotoSuccessfully": "Xóa ảnh thành công"
+  },
+  "modalSessionExpired": {
+    "title": "Phiên đăng nhập hết hạn",
+    "message": "Phiên đăng nhập của bạn đã hết hạn. Hãy đăng nhập lại để tiếp tục công việc của bạn."
+  },
+  "resetPassword": {
+    "message": "Vì lý do bảo mật, khi nhấp vào Đăng xuất, bạn sẽ đăng xuất khỏi mọi thiết bị và bạn cần đăng nhập lại bằng mật khẩu mới trên những thiết bị đó.",
+    "passwordChanged": "Mật khẩu đã thay đổi",
+    "stayLoggedIn": "Duy trì trạng thái đăng nhập",
+    "logOut": "Đăng xuất"
+  },
+  "expiredPermissionModal": {
+    "title": "Rất tiếc, quyền truy cập của bạn đã hết hạn",
+    "message": "Tài khoản của bạn đã bị xóa. Để biết thông tin chi tiết, hãy <a>Liên hệ với bộ phận Hỗ trợ</a>.",
+    "messageProvisioning": "Tài khoản của bạn đã bị xóa thông qua cung cấp từ $t(terms:organization) của bạn."
+  },
+  "socialSignIn": {
+    "signInMethod": "Phương thức đăng nhập",
+    "emailPasswordWarning": "Khi phương thức đăng nhập thay đổi, bạn không thể đăng nhập bằng email & mật khẩu.",
+    "signInMethodTooltip": "Sau khi thay đổi phương thức xác thực, bạn không thể đăng nhập bằng tài khoản {{method}} nữa."
+  },
+  "requestMemberEnableSocialSignIn": {
+    "title": "Yêu cầu bật đăng nhập bằng {{provider}}",
+    "message": "Bạn phải thay đổi phương thức đăng nhập của <b>{{email}}</b> sang {{provider}} để truy cập tài liệu này."
+  },
+  "enableSocialSignInFailed": {
+    "title": "Không thể sử dụng tài khoản {{provider}} này",
+    "message": "Có vẻ bạn đã đăng ký bằng email khác. Vui lòng đặt <b>{{email}}</b> thành tài khoản {{provider}} mặc định của bạn để đăng nhập vào Lumin."
+  },
+  "linkAccountFailedModal": {
+    "title": "Không thể truy cập tài khoản Google này",
+    "message": "Có vẻ bạn đã đăng ký bằng email khác. Vui lòng đặt <b>{{email}}</b> thành tài khoản Google mặc định của bạn để đăng nhập vào Lumin."
+  },
+  "linkAccountModal": {
+    "title": "Liên kết tài khoản Google của bạn",
+    "message": "Bạn đã đăng ký bằng email khác. Vui lòng đặt <b>{{email}}</b> thành tài khoản Google mặc định của bạn để đăng nhập vào Lumin."
+  },
+  "forceLogInAgain": {
+    "title": "Đăng nhập lại",
+    "message": "Phương thức xác thực của bạn đã được thay đổi thành {{provider}}.<br />Vui lòng đăng nhập bằng tài khoản {{provider}} <b>{{email}}</b> để tiếp tục.",
+    "logInAgain": "Đăng Nhập Lại"
+  },
+  "account": {
+    "title": "Tài khoản",
+    "reactivate": "Kích hoạt lại",
+    "deactivate": "Hủy kích hoạt",
+    "deleteMyAccount": "Xóa tài khoản",
+    "yourAccountWillBeDeletedOn": "Tài khoản của bạn sẽ bị xóa vào {{time}}",
+    "noteDeleteAccount": "Bằng cách xóa tài khoản của bạn, bạn sẽ ngay lập tức mất quyền truy cập vào các $t(terms:organization), $t(terms:team) và tài liệu của mình. Hành động này không thể hoàn tác.",
+    "readHereForMoreInformation": "Nhấp vào đây để biết thêm thông tin",
+    "accountHasBeenReactivated": "Tài khoản đã được kích hoạt lại",
+    "deactivateYourAccount": "Hủy kích hoạt tài khoản của bạn?",
+    "messageDeactivateYourAccount": "Bạn có thể truy cập vào tài khoản này cho đến khi tài khoản bị xóa vĩnh viễn sau 3 ngày.",
+    "messageDeactivateYourAccount1": "Việc xóa tài khoản của bạn sẽ tương đương với việc xóa tất cả dữ liệu liên quan chẳng hạn như tài liệu của bạn, gồm cả những dữ liệu được lưu trữ trên các sản phẩm Lumin khác (như Lumin Sign).",
+    "messageDeactivateYourAccount2": "Ngoài ra, các $t(terms:organization) và $t(terms:team) của bạn sẽ được chuyển ngẫu nhiên cho các thành viên khác.",
+    "thisActionCannotBeUndone": "Hành động này không thể hoàn tác.",
+    "deleteAccount": "Xóa tài khoản của bạn?",
+    "delete": "Xóa",
+    "deleteUserSuccessfully": "Xóa người dùng thành công"
+  },
+  "reactivateAccount": {
+    "title": "Không thể thực hiện hành động này",
+    "message": "Kích hoạt lại tài khoản trước để thực hiện hành động này."
+  },
+  "url": {
+    "saleSupport": {
+      "contactSupport": "/lien-he-ho-tro"
+    }
+  },
+  "resendVerificationEmail": {
+    "haveSentANewEmail": "Chúng tôi đã gửi một email xác minh mới đến <b>{{email}}</b>.",
+    "checkYourInbox": "Vui lòng kiểm tra hộp thư đến của bạn (và có thể là thư mục spam, để chắc chắn) để tiếp tục sử dụng Lumin.",
+    "notSeeOurEmail": "Nếu bạn không thấy email của chúng tôi, có thể là do bạn đã đăng ký hoặc chưa tham gia với chúng tôi. Nếu vậy, hãy đăng nhập hoặc đăng ký để tiếp tục."
+  },
+  "changeEmailModal": {
+    "title": "Cảnh báo phiên đã hết hạn",
+    "sessionExpiredMessage": "Phiên tài khoản của bạn đã hết hạn. Đăng nhập lại để tiếp tục công việc của bạn.",
+    "accountChangeMessage": "Tài khoản của bạn đã được thay đổi thành <b>{{email}}</b>. Vui lòng đăng nhập lại để tiếp tục công việc của bạn."
+  },
+  "newPrivacyPolicyModal": {
+    "title": "Cập nhật Điều khoản Sử dụng",
+    "description1": "Chúng tôi đã cập nhật Điều khoản Sử dụng để cải thiện tính rõ ràng và phản ánh các thay đổi gần đây.",
+    "keyChanges": "Các thay đổi chính bao gồm:",
+    "keyChangesList": [
+      "Cập nhật thông tin công ty và pháp lý.",
+      "Thời gian lưu trữ ngắn hơn cho tài khoản miễn phí.",
+      "Quy tắc rõ ràng hơn về sử dụng tài khoản và giải quyết tranh chấp.",
+      "Mới thêm các mục về trách nhiệm, sử dụng AI và tài khoản doanh nghiệp."
+    ],
+    "description2": "Để tiếp tục sử dụng nền tảng của chúng tôi, vui lòng xem và chấp nhận <a>Điều\u00a0khoản\u00a0sử\u00a0dụng</a> đã cập nhật. Bằng cách nhấp vào “Tôi đồng ý”, bạn xác nhận rằng bạn đã đọc và đồng ý với các điều khoản mới.",
+    "accept": "Tôi đồng ý",
+    "logInAnotherAccount": "Đăng nhập với tài khoản khác"
+  },
+  "enableXeroSignInFailed": {
+    "title": "Không thể sử dụng tài khoản Xero này",
+    "message": "Có vẻ bạn đã đăng ký bằng email khác. Vui lòng truy cập <a>xero.com</a> để đăng xuất và đăng nhập lại với tài khoản <b>Xero {{email}}</b>, sau đó trở lại đây để thử lại."
+  },
+  "signInSSOPage": {
+    "title": "Đăng nhập với SSO",
+    "description": "Quản trị viên của $t(terms:organization) của bạn đã bật đăng nhập đơn. Tiếp tục với SSO để truy cập tài khoản Lumin của bạn.",
+    "signInWithoutSSO": "Đăng nhập không sử dụng SSO",
+    "emailNotConfiguredForSSOMessage": "Địa chỉ email này không được cấu hình để SSO SAML cho $t(terms:organization) này. Vui lòng liên hệ quản trị viên của bạn."
+  },
+  "sso": {
+    "notAllowedChangeUserInfo": "Để thay đổi thông tin hồ sơ của bạn, hãy cập nhật thư mục của bạn trong <b>SSO Identity Provider</b>.",
+    "ssoSignInBannerContent": "Thông tin tài khoản của bạn được lấy từ hồ sơ SSO của bạn. Để thay đổi thông tin hồ sơ của bạn, hãy cập nhật thư mục của bạn trong <b>SSO Identity Provider</b>."
+  }
+}

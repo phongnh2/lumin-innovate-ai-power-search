@@ -1,0 +1,74 @@
+@import 'reskin/scrollbar.scss';
+
+.defaultRightSectionWrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 200ms;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rightSectionWithSearchable {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.rotate180Deg {
+  transform: rotate(180deg);
+}
+
+.rotateZeroDeg {
+  transform: rotate(0deg);
+}
+
+.viewport {
+  padding-right: var(--kiwi-spacing-2);
+}
+
+.scrollbar {
+  width: var(--kiwi-spacing-1-25);
+  background: transparent;
+}
+
+.thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: var(--kiwi-border-radius-lg);
+  border: var(--kiwi-spacing-0-25) solid transparent;
+  background-clip: padding-box;
+}
+
+.dropdown {
+  padding-top: var(--kiwi-spacing-1);
+  padding-bottom: var(--kiwi-spacing-1);
+  padding-left: var(--kiwi-spacing-2);
+  padding-right: var(--kiwi-spacing-2);
+
+  // 1px is width of border of wrapper
+  margin-left: -1px;
+
+  &:has([data-mantine-scrollbar]) {
+    padding-right: 0;
+  }
+}
+
+.option {
+  padding-top: var(--kiwi-spacing-1);
+  padding-bottom: var(--kiwi-spacing-1);
+  padding-left: var(--kiwi-spacing-1);
+  padding-right: var(--kiwi-spacing-1);
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.input {
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  // 2px is width of border of wrapper
+  width: calc(100% + 2px);
+}

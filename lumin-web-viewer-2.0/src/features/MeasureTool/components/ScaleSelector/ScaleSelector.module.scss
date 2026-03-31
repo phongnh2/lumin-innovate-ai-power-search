@@ -1,0 +1,80 @@
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.menuItems {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.targetButton {
+  width: 146px;
+  padding-right: var(--kiwi-spacing-0-5);
+
+  /* TODO: Remove this once when system design is ready */
+  border: 1px solid var(--kiwi-colors-surface-outline);
+
+  &[data-expanded] {
+    border-color: var(--kiwi-colors-core-primary);
+  }
+}
+
+.targetButtonInner {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.addNewScale {
+  padding: 10px;
+  width: 100%;
+}
+
+.rootMenuItem {
+  position: relative;
+  min-width: 254px;
+  &:hover {
+    .menuItemActions {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuItemActions {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  transition: var(--editor-transition);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  padding: 0 var(--kiwi-spacing-1);
+  transform: translateY(-50%);
+  background: linear-gradient(to right, transparent 0%, var(--kiwi-colors-surface-surface-bright) 10%);
+}
+
+.divider {
+  width: 100%;
+}
+
+.trashButton {
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.button {
+  width: 100%;
+}

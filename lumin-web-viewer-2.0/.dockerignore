@@ -1,0 +1,13 @@
+# I ignore the .git because I want to use git metadata in docker build process.
+# .git
+.gitignore
+build
+node_modules
+npm-debug.log
+README.md
+CONTRIBUTING.md
+Dockerfile
+bitbucket-pipeline.yml
+Makefile
+Dockerfile
+.swc

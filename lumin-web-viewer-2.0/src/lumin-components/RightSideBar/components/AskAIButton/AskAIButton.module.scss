@@ -1,0 +1,15 @@
+.buttonWrapper {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  padding: var(--kiwi-spacing-1);
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--kiwi-border-radius-md);
+
+  &:active,
+  &[data-activated="true"] {
+    background-color: #ECE6FE;
+  }
+}

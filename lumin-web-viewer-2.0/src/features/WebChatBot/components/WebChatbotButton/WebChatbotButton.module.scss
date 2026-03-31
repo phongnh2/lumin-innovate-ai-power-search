@@ -1,0 +1,102 @@
+.wrapper {
+  border: none;
+  background: transparent;
+  padding: var(--kiwi-spacing-0-75) var(--kiwi-spacing-1-5);
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--kiwi-border-radius-md);
+  overflow: hidden;
+  color: #6113E7;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(257deg, #834DFF 31.79%, #FFD5DC 91.37%);
+    transition: opacity 0.5s, background-position 1s, background-size 1s ease-in-out;
+    background-size: 200%;
+    background-position: 100%;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    background-position: 0;
+    background-size: 100%;
+  }
+
+  .sparkle {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    
+    .path {
+      transform-origin: center;
+      
+      &:nth-child(1) {
+        --scale-path-1: 1.2;
+      }
+      
+      &:nth-child(2) {
+        --scale-path-2: 1.1;
+      }
+      
+      &:nth-child(3) {
+        --scale-path-3: 1.2;
+      }
+    }
+  }
+
+  &:hover {
+    color: var(--kiwi-colors-surface-surface-container-lowest);
+    .path {
+      fill: var(--kiwi-colors-surface-surface-container-lowest);
+    }
+  }
+  
+  &:hover .sparkle .path {
+    animation: path 1.5s linear 0.8s infinite;
+  }
+
+  &:active,
+  &[data-activated="true"] {
+    background-color: #ECE6FE;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes path {
+  0%,
+  34%,
+  71%,
+  100% {
+    transform: scale(1);
+  }
+  17% {
+    transform: scale(var(--scale-path-1, 1));
+  }
+  49% {
+    transform: scale(var(--scale-path-2, 1));
+  }
+  83% {
+    transform: scale(var(--scale-path-3, 1));
+  }
+}

@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+import "common.proto";
+
+package kratos;
+
+service KratosService {
+  rpc VerifyNewUserInvitationToken (InvitationTokenRequest) returns (InvitationTokenResponse) {}
+  rpc VerifyRegisterAccount (RegisterAccountRequest) returns (RegisterAccountResponse) {}
+  rpc KratosRegistrationFlow (KratosCallbackRequest) returns (google.protobuf.Empty) {}
+  rpc KratosVerificationFlow (KratosCallbackRequest) returns (google.protobuf.Empty) {}
+  rpc KratosSyncUpSettingsData (KratosCallbackRequest) returns (google.protobuf.Empty) {}
+  rpc SignOut (SignOutRequest) returns (google.protobuf.Empty) {}
+  rpc VerifyFirstSignInWithOry(VerifyFirstSignInWithOryRequest) returns (VerifyFirstSignInWithOryResponse) {}
+  rpc ForceLogout(ForceLogoutRequest) returns (google.protobuf.Empty) {}
+  rpc GetSession(GetSessionRequest) returns (GetSessionResponse) {}
+  rpc KratosRegistrationFlowV2 (KratosCallbackRequest) returns (RegisterAccountResponse) {}
+  rpc AfterSignUpInvitation (AfterSignUpInvitationRequest) returns (google.protobuf.Empty) {}
+  rpc LinkSamlLoginService (LinkSamlLoginServiceRequest) returns (google.protobuf.Empty) {}
+  rpc VerifyAfterSamlLoginFlow (VerifyAfterSamlLoginFlowRequest) returns (VerifyAfterSamlLoginFlowResponse) {}
+}
+
+message InvitationTokenRequest {
+  string token = 1;
+}
+
+message InvitationTokenMetadata {
+  optional string orgId = 1;
+  optional string orgUrl = 2;
+  optional string documentId = 3;
+  optional InvitedUser user = 4;
+}
+
+message InvitedUser {
+  string _id = 1;
+  string identityId = 2;
+  bool isVerified = 3;
+}
+
+message InvitationTokenData {
+  string email = 1;
+  string type = 2;
+  InvitationTokenMetadata metadata = 3;
+}
+
+message InvitationTokenResponse {
+  InvitationTokenData data = 1;
+  string status = 2;
+  Error error = 3;
+  bool isSignedUp = 4;
+}
+
+message RegisterAccountRequest {
+  string email = 1;
+}
+
+message RegisterAccountResponse {
+  Error error = 1;
+  bool isAccept = 2;
+}
+
+message Traits {
+  string email = 1;
+  string name = 2;
+  string avatarRemoteId = 3;
+  string loginService = 4;
+  string sub = 5;
+}
+
+message Identity {
+  optional string id = 1;
+  string createdAt = 2;
+  string updatedAt = 3;
+  bool isVerified = 4;
+  Traits traits = 5;
+}
+
+message TransientPayload {
+  optional string platform = 1;
+  optional string userAgent = 2;
+  optional string anonymousUserId = 3;
+}
+
+message KratosCallbackRequest {
+  Identity identity = 1;
+  optional TransientPayload transientPayload = 2;
+}
+
+message SignOutRequest {
+  string id = 1;
+}
+
+message ForceLogoutRequest {
+  string id = 1;
+}
+
+message VerifyFirstSignInWithOryRequest {
+  string email = 1;
+}
+
+message VerifyFirstSignInWithOryResponse {
+  Error error = 1;
+  bool isAccept = 2;
+}
+
+message GetSessionRequest {
+  string token = 1;
+}
+
+message GetSessionResponse {
+  bool active = 1;
+  Identity identity = 2;
+  string id = 3;
+}
+
+message AfterSignUpInvitationRequest {
+  string email = 1;
+  string token = 2;
+}
+
+message LinkSamlLoginServiceRequest {
+  string identityId = 1;
+}
+
+message VerifyAfterSamlLoginFlowRequest {
+  string ssoOrganizationId = 1;
+}
+
+message VerifyAfterSamlLoginFlowResponse {
+  Error error = 1;
+}

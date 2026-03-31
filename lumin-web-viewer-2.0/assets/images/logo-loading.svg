@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="300px" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Lumin</title>
+    <g id="Lumin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="#ED3D48" cx="150" cy="150" r="150"></circle>
+        <g id="Group-72" transform="translate(73.000000, 79.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Fill-9" points="60.05181 99 40 65.1707779 79.8087014 0 120 0.00506653019"></polygon>
+            <polygon id="Fill-10" points="80.1212507 133 59 99 134.78146 99 155 133"></polygon>
+            <polygon id="Fill-11" points="23.359219 94 47 133 0 133 22.9994453 94"></polygon>
+        </g>
+    </g>
+</svg>

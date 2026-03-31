@@ -1,0 +1,99 @@
+@import "../../constants/lumin-styles";
+@import "../../constants/styles";
+@import "../../constants/panel";
+
+.RightPanelLumin {
+  @extend %right-panel;
+  transition: background-color 0.3s ease;
+  z-index: 79;
+  width: 362px;
+
+  &__top {
+    width: 100%;
+    height: 40px;
+    transition: background-color 0.3s ease;
+
+    @include themify {
+      background-color: themed("commentHeaderPanelBg");
+    }
+
+    text-align: left;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    i {
+      color: $secondary;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 16px;
+      letter-spacing: -0.02px;
+
+      @include themify {
+        color: themed("commentHighlightText");
+      }
+    }
+
+    span {
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.26px;
+      color: $secondary;
+    }
+  }
+
+  .Panel {
+    @extend %sub-panel;
+  }
+
+  &.comment-list {
+    .Panel {
+      transition: background-color .3s ease;
+      @include themify {
+        background-color: themed("bgCommentListColor");
+      }
+    }
+  }
+
+  .resize-bar {
+    cursor: col-resize;
+    height: 100%;
+    margin-bottom: 0;
+    background-color: none;
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    margin-right: -20px;
+
+    &.active {
+      margin-left: -400px;
+      width: 800px;
+    }
+
+    &.non-active {
+      margin-left: -10px;
+      left: 327px;
+      width: 20px;
+    }
+  }
+
+  .title-divider {
+    margin: 0;
+
+    @include themify {
+      background-color: themed("dividerColor");
+    }
+
+    height: 1px;
+    border: 0;
+  }
+}

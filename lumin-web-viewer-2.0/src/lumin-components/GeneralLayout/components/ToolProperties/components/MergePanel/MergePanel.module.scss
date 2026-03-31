@@ -1,0 +1,72 @@
+.mergeDragBackground {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-core-primary-container);
+  opacity: var(--kiwi-opacity-disabled-on-container);
+  border: 1px dashed var(--kiwi-colors-core-primary);
+  border-radius: var(--kiwi-border-radius-md);
+  pointer-events: none;
+}
+
+.mergeDragContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.mergeDragOverlay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 28px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mergeDragOverlayContent{
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-core-secondary);
+
+}
+.title{
+  color: var(--kiwi-colors-core-on-secondary);
+  text-align: center;
+  @include kiwi-typography-body-md;
+}
+
+.mergePanelContainer {
+  position: relative;
+  padding-top: 12px;
+
+  &.dragActive {
+    height: 100%;
+  }
+}

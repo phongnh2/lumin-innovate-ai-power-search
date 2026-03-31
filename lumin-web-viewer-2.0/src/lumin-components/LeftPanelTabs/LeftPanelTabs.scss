@@ -1,0 +1,59 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import "../../constants/panel";
+
+$top: calc(#{$header-height} + #{$toolbar-height} + #{$banner-viewer-height} + #{$tablet-bar} );
+
+.LeftPanelTabs__overlay {
+  @extend %left-panel-tabs;
+  position: absolute;
+  cursor: not-allowed;
+  left: 0;
+  width: 47px;
+  height: 100%;
+  z-index: 70;
+
+  @include themify {
+    background-color: themed("leftPanelTabsBg");
+  }
+}
+
+.LeftPanelTabs {
+  @extend %left-panel-tabs;
+
+  @include themify {
+    background-color: themed("leftPanelTabsBg");
+    border-right: 1px solid themed("dividerColor");
+  }
+
+  button {
+    border-radius: 0;
+
+    i {
+      @include themify {
+        color: themed("iconColor");
+      }
+    }
+
+    &.active {
+      @include themify {
+        background-color: themed("buttonActiveColor");
+        border-left: 2px solid themed("leftPanelTabActive");
+      }
+
+      i {
+        @include themify {
+          color: themed("leftPanelTabActive");
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      @include themify {
+        background: themed("leftPanelTabsBgHover");
+      }
+    }
+  }
+}

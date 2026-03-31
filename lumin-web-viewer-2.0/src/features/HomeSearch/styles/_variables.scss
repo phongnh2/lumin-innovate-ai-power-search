@@ -1,0 +1,10 @@
+$document-grid-cols: minmax(220px, 1fr) 120px 88px 120px 32px;
+$document-grid-cols-xl: minmax(220px, 1fr) 172px 136px 120px 32px;
+
+$document-header-grid-cols: minmax(220px, 1fr) 120px 88px 156px;
+$document-header-grid-cols-xl: minmax(220px, 1fr) 172px 136px 168px;
+
+// chatbot
+$document-grid-cols-xl-down-chatbot: minmax(220px, 1fr) 32px;
+$document-grid-cols-xl-to-xxxl-chatbot: minmax(220px, 1fr) 172px 32px;
+$document-header-grid-cols-xl-to-xxxl-chatbot: minmax(220px, 1fr) 172px 32px;

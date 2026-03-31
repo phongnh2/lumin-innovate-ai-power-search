@@ -1,0 +1,76 @@
+cut-csv file start end:
+    deno run --allow-read --allow-write scripts/cut_csv.ts {{file}} {{start}} {{end}}
+
+# Complete form import workflow
+import-forms-test:
+    @echo "📊 Step 2: Check new time-sensitive forms"
+    @if deno task strapi checkNewTimeSensitiveForms | grep -q "New time-sensitive forms detected"; then \
+        echo "⚠️  Creating new time-sensitive forms..."; \
+        deno task strapi createTimeSensitiveFormsFromCSV; \
+        echo "✅ New time-sensitive forms created"; \
+    else \
+        echo "ℹ️  No new time-sensitive forms needed"; \
+    fi
+    
+    @echo "📊 Step 3: Validate CSV"
+    deno task strapi previewTemplatesCSV
+    @echo "✅ Validation completed"
+    
+    @echo "📊 Step 4: Upload forms"
+    deno task strapi uploadFormFromCSV
+    @echo "✅ Upload completed"
+    
+    @echo "🎉 Import workflow completed!"
+
+# Complete form import workflow
+import-forms:
+    @echo "🚀 Starting form import workflow..."
+    @echo "📊 Step 1: Export existing data"
+    deno task strapi exportSlugFormDataAsJSON
+    deno task strapi exportTimeSensitiveFormDataAsJSON
+    @echo "✅ Export completed"
+    
+    @echo "📊 Step 2: Check new time-sensitive forms"
+    @if deno task strapi checkNewTimeSensitiveForms | grep -q "New time-sensitive forms detected"; then \
+        echo "⚠️  Creating new time-sensitive forms..."; \
+        deno task strapi createTimeSensitiveFormsFromCSV; \
+        echo "✅ New time-sensitive forms created"; \
+    else \
+        echo "ℹ️  No new time-sensitive forms needed"; \
+    fi
+    
+    @echo "📊 Step 3: Validate CSV"
+    deno task strapi previewTemplatesCSV
+    @echo "✅ Validation completed"
+    
+    @echo "📊 Step 4: Upload forms"
+    deno task strapi uploadFormFromCSV
+    @echo "✅ Upload completed"
+    
+    @echo "📊 Step 5: Link time-sensitive groups"
+    @if deno task strapi checkTimeSensitiveLinking | grep -q "Found time-sensitive groupings"; then \
+        echo "🔗 Linking forms to time-sensitive groups..."; \
+        deno task strapi linkFormsToTimeSensitiveGroups; \
+        echo "✅ Time-sensitive linking completed"; \
+    else \
+        echo "ℹ️  No time-sensitive linking needed"; \
+    fi
+    
+    @echo "🎉 Import workflow completed!"
+
+# Publish uploaded forms and update outdated status
+publish-forms:
+	@echo "📝 Publishing forms and updating outdated status..."
+	deno task strapi publishFormsAndUpdateOutdated
+	@echo "✅ Publish completed!"
+
+# Link uploaded forms to time-sensitive groups
+link-time-sensitive:
+	@echo "🔗 Linking forms to time-sensitive groups..."
+	deno task strapi linkFormsToTimeSensitiveGroups
+	@echo "✅ Linking completed!"
+
+# Check workflow status
+check-workflow:
+	@echo "🔍 Checking workflow status..."
+	deno task strapi getWorkflowStatus

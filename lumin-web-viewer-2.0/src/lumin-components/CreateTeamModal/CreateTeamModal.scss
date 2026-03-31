@@ -1,0 +1,146 @@
+@import "../../constants/lumin-styles";
+
+.CreateTeamModal {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.CreateTeamModal__container {
+  @include low-mobile {
+    max-width: calc(100vw - 32px);
+    min-width: auto;
+  }
+}
+
+.CreateTeamModal__title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.34px;
+  color: var(--color-neutral-100);
+  margin-bottom: 16px;
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.CreateTeamModal__error {
+  margin-bottom: 16px;
+}
+
+.CreateTeamModal__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.CreateTeamModal__addMemberStatus {
+  font-family: $font-stack-primary;
+  font-size: 14px;
+  font-weight: normal;
+  color: $accent;
+  text-align: right;
+}
+
+.CreateTeamModal__labelWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.CreateTeamModal__label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.34px;
+  color: var(--color-neutral-80);
+  margin-bottom: 4px;
+}
+
+.CreateTeamModal__label--noMargin {
+  margin-bottom: 0;
+}
+
+.CreateTeamModal__contentItem {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.CreateTeamModal__contentItem--team-name {
+  @include mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.CreateTeamModal__contentItem--add-member {
+  margin-bottom: 16px;
+}
+
+.CreateTeamModal__avatar-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 12px;
+
+  @include mobile {
+    margin-top: 8px;
+  }
+}
+
+.CreateTeamModal__avatar-container--emptyTeamName .MaterialAvatar__container {
+  background: unset;
+}
+
+.CreateTeamModal__members {
+  border-bottom: 1px solid var(--color-neutral-20);
+}
+
+.CreateTeamModal__memberItem {
+  padding: 12px 12px 12px 0;
+
+  @include mobile {
+    padding: 16px 8px 0 0;
+
+    &:last-child {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.CreateTeamModal__footer {
+  margin-top: 16px;
+}
+
+.CreateTeamModal__btn {
+  height: 40px;
+}
+
+.CreateTeamModal__popperInput.AutoInput__popper {
+  max-width: 452px;
+
+  @include low-mobile {
+    max-width: calc(100% - 64px);
+  }
+}
+
+.CreateTeamModal__inputAddMember {
+  .AutoInput__popper_invited {
+    padding: 0 20px;
+  }
+}
+
+.CreateTeamModal__create-loading {
+  margin-right: 10px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.CreateTeamModal__memberTitle {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-neutral-60);
+}

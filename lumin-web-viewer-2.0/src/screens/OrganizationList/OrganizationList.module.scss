@@ -1,0 +1,50 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-4);
+  width: 100%;
+  max-width: 1080px;
+  margin: 0px auto;
+  padding: var(--kiwi-spacing-2);
+  
+  @include md-screen {
+    padding: var(--kiwi-spacing-3);
+  }
+
+  @include xl-screen {
+    padding: var(--kiwi-spacing-4) 0;
+  }
+}
+
+.titleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--kiwi-spacing-0-5);
+  }
+}
+
+.orgListContainer {
+  width: 100%;
+  display: grid;
+  gap: var(--kiwi-spacing-2);
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+
+  @include md-screen {
+    gap: var(--kiwi-spacing-3);
+  }
+
+  @include xl-screen {
+    gap: var(--kiwi-spacing-2);
+    grid-template-columns: repeat(4, minmax(258px, 1fr));
+  }
+}

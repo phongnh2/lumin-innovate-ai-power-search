@@ -1,0 +1,34 @@
+@import "../../constants/lumin-styles";
+
+.withRemoveUserAccount__CustomModal {
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 400px;
+
+  .Container__Content--message {
+    min-width: unset;
+    max-width: unset;
+    margin-bottom: 24px;
+  }
+
+  .Container__Content--title {
+    margin-bottom: 8px;
+    font-weight: 600;
+    margin-top: 24px;
+  }
+
+  .Container__Content--link {
+    display: inline-block;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .Container__Content--button .ButtonMaterial {
+    height: 40px;
+  }
+
+  .Container__image {
+    width: 61px;
+    margin: 0 auto;
+  }
+}

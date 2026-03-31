@@ -1,0 +1,6 @@
+.title {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  margin-bottom: var(--kiwi-spacing-0-25);
+}

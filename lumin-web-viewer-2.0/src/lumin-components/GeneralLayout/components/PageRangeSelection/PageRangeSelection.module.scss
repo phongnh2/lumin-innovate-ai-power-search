@@ -1,0 +1,9 @@
+.radioItem {
+  &:not(:last-child) {
+    margin-bottom: var(--kiwi-spacing-1);
+  }
+}
+
+.radioLabel {
+  color: var(--kiwi-colors-surface-on-surface);
+}

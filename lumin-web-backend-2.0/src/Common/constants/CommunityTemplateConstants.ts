@@ -1,0 +1,8 @@
+export const MAX_CATEGORY_OF_TEMPLATE = 3;
+
+export const MIN_THUMBNAIL_OF_TEMPLATE = 1;
+export const MAX_THUMBNAIL_OF_TEMPLATE = 3;
+export const RELATED_COMMUNITY_TEMPLATE_NUMBER = 3;
+
+export const MAX_KEYWORD_LENGTH = 255;
+export const MAX_TOTAL_KEYWORDS = 100;

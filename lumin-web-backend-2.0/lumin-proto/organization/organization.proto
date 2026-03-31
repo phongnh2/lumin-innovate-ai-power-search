@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "common/common.proto";
+
+package organization;
+
+service OrganizationService {
+  rpc GetDestinationWorkspaceToMigrate (GetDestinationWorkspaceToMigrateRequest) returns (GetDestinationWorkspaceToMigrateResponse) {}
+  rpc GetMembersByOrganizationId (GetMembersByOrganizationIdRequest) returns (GetMembersByOrganizationIdResponse) {}
+  rpc GetOrganizationsByUserId (GetOrganizationsByUserIdRequest) returns (GetOrganizationsByUserIdResponse) {}
+  rpc GetOrganizationById (GetOrganizationByIdRequest) returns (GetOrganizationByIdResponse) {}
+  rpc GetOrganizationByUrl (GetOrganizationByUrlRequest) returns (GetOrganizationByUrlResponse) {}
+  rpc GetOrganizationByIdAndUserId (GetOrganizationByIdAndUserIdRequest) returns (GetOrganizationByIdAndUserIdResponse) {}
+  rpc GetDestinationWorkspaceToUpload (GetDestinationWorkspaceToUploadRequest) returns (GetDestinationWorkspaceToUploadResponse) {}
+  rpc DeleteDataInWorkspace (DeleteDataInWorkspaceRequest) returns (google.protobuf.Empty) {}
+  rpc TransferAgreementsToAnotherOrg (TransferAgreementsToAnotherOrgRequest) returns (TransferAgreementsToAnotherOrgResponse) {}
+  rpc TransferAgreementGenDocumentsToAnotherOrg (TransferAgreementGenDocumentsToAnotherOrgRequest) returns (TransferAgreementGenDocumentsToAnotherOrgResponse) {}
+  rpc PublishUpdateOrganization (PublishUpdateOrganizationRequest) returns (google.protobuf.Empty) {}
+  rpc GetContractStackInfo (GetContractStackInfoRequest) returns (GetContractStackInfoResponse) {}
+}
+
+message GetMembersByOrganizationIdRequest {
+  string organizationId = 1;
+}
+
+message GetMembersByOrganizationIdResponse {
+  string ownerId = 1;
+  repeated string billingModeratorIds = 2;
+  repeated string memberIds = 3;
+}
+
+message GetDestinationWorkspaceToMigrateRequest {
+  string userId = 1;
+}
+
+message GetDestinationWorkspaceToMigrateResponse {
+  common.Organization organization = 1;
+}
+
+message GetOrganizationsByUserIdRequest {
+  string userId = 1;
+  optional string product = 2;
+}
+
+message GetOrganizationsByUserIdResponse {
+  repeated common.Organization organizations = 1;
+}
+
+message GetOrganizationByIdRequest {
+  string organizationId = 1;
+}
+
+message GetOrganizationByIdResponse {
+  common.Organization organization = 1;
+}
+
+message GetOrganizationByUrlRequest {
+  string url = 1;
+  string userId = 2;
+  optional string product = 3;
+}
+
+message GetOrganizationByUrlResponse {
+  common.Organization organization = 1;
+}
+
+message GetOrganizationByIdAndUserIdRequest {
+  string organizationId = 1;
+  string userId = 2;
+  optional string product = 3;
+}
+
+message GetOrganizationByIdAndUserIdResponse {
+  common.Organization organization = 1;
+}
+
+message GetDestinationWorkspaceToUploadRequest {
+  string userId = 1;
+  optional string product = 2;
+}
+
+message GetDestinationWorkspaceToUploadResponse {
+  common.Organization organization = 1;
+}
+
+message DeleteDataInWorkspaceRequest {
+  common.Organization organization = 1;
+  string userId = 2;
+  string action = 3;
+}
+
+message TransferAgreementsToAnotherOrgRequest {
+  string userId = 1;
+  common.Organization organization = 2;
+  string destinationOrgId = 3;
+  string actionType = 4;
+}
+
+message TransferAgreementsToAnotherOrgResponse {
+  bool existAgreement = 1;
+}
+
+message PublishUpdateOrganizationRequest {
+  common.Organization organization = 1;
+  repeated string receiverIds = 2;
+}
+
+message TransferAgreementGenDocumentsToAnotherOrgRequest {
+  string userId = 1;
+  common.Organization organization = 2;
+  string destinationOrgId = 3;
+  string actionType = 4;
+}
+
+message TransferAgreementGenDocumentsToAnotherOrgResponse {
+  bool existAgreementGenDocuments = 1;
+}
+
+message GetContractStackInfoRequest {
+  string userId = 1;
+  string organizationId = 2;
+}
+
+message GetContractStackInfoResponse {
+  common.ContractStackInfo data = 1;
+}

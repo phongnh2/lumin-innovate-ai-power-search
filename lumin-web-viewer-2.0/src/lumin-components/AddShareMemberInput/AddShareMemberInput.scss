@@ -1,0 +1,333 @@
+@import "../../constants/lumin-styles";
+
+.ACInput {
+  position: relative;
+
+  &__permission {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 8px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary-80);
+    cursor: pointer;
+
+    span {
+      padding-right: 8px;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    min-height: var(--input-height-small);
+    border-radius: var(--border-radius-primary);
+    outline: none;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 20px;
+    appearance: none;
+    border: var(--border-primary);
+    background-color: $white;
+    color: var(--color-neutral-100);
+    overflow: hidden;
+
+    @include themify {
+      border-color: themed("textFrameHover");
+      background-color: themed("bgColor");
+      color: themed("textColor");
+    }
+
+    &.error {
+      border-color: var(--color-secondary-50) !important;
+    }
+
+    @include desktop {
+      min-width: 300px;
+    }
+
+    .icon-search {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: var(--color-neutral-60);
+      position: absolute;
+      left: 16px;
+      bottom: 20px;
+      margin-bottom: -8px;
+
+      @include themify {
+        color: themed("squareButtonColor");
+      }
+    }
+
+    &:focus-within {
+      border: 1px solid var(--color-primary-50);
+
+      @include themify {
+        box-shadow: 0 0 0 1.2px themed("textFrameSelected");
+      }
+
+      & + .icon-search {
+        color: var(--color-neutral-100);
+
+        @include themify {
+          color: themed("textColor");
+        }
+      }
+    }
+  }
+
+  &__input {
+    padding: 4px 0 4px 40px;
+    color: var(--color-neutral-100);
+    font-size: 14px;
+    font-weight: 400;
+    height: auto;
+    box-sizing: border-box;
+
+    @include themify {
+      color: themed("textColor");
+    }
+
+    &::placeholder {
+      color: var(--color-neutral-40);
+      opacity: 0.3;
+      font-size: 14px;
+      font-weight: 400;
+
+      @include themify {
+        color: themed("textColorPlaceHolder");
+      }
+    }
+  }
+
+  &__root {
+    height: 100%;
+    display: flex;
+    flex-flow: column-reverse wrap;
+    overflow: hidden;
+  }
+
+  &__chip {
+    margin: 4px;
+    border-radius: var(--border-radius-dense);
+    background-color: var(--color-primary-10);
+    display: inline-flex;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 4px;
+    height: 24px;
+    letter-spacing: normal;
+    font-weight: 400;
+    align-items: center;
+    color: var(--color-neutral-100);
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 16px;
+      height: 32px;
+      margin: 2px;
+    }
+
+    @include themify {
+      background: themed("userTagBg");
+      color: themed("textColor");
+    }
+
+    span:first-child {
+      max-width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include mobile {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__delete-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--color-neutral-60);
+    border-radius: var(--border-radius-dense);
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: var(--color-primary-30);
+    }
+  }
+}
+
+.ACInput__popper__scroll {
+  overflow-x: hidden !important; // fix scroll on Firefox, cannot use normal css
+  & > div {
+    overflow-x: hidden !important; // fix scroll on Firefox, cannot use normal css
+    margin-bottom: 0 !important; // fix on iMac only for modal render margin-bottom: -15px inline
+  }
+}
+
+.ACInput__pending-user {
+  color: var(--color-secondary-50);
+  margin-left: 4px;
+}
+
+.ACInput__searchContainer {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.ACInput__chipContainer {
+  text-align: left;
+}
+
+.ACInput__chipWrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  max-height: 144px;
+  overflow: auto;
+  padding: 4px;
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 2px;
+  }
+}
+
+.ACInput__chipWrapper--border {
+  border-bottom: 1px solid var(--color-neutral-20);
+
+  @include themify {
+    border-bottom: 1px solid themed("dividerColor");
+  }
+}
+
+.ShareModal__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ACInput__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-neutral-80);
+
+  @include themify {
+    color: themed("textColorLighter");
+  }
+}
+
+.ACInput__permission-container {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.ACInput__permission-popper {
+  width: 180px;
+  padding: 0;
+}
+
+.ACInput__item-status {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--color-secondary-50);
+}
+
+.ACInputReskin {
+  &.ACInput__select {
+    border-radius: var(--kiwi-border-radius-md);
+    border: none;
+    overflow: unset;
+    background-color: transparent;
+  }
+  
+  .ACInput__root {
+    overflow: unset;
+
+    div[data-position="left"] {
+      color: var(--kiwi-colors-surface-on-surface-variant);
+    }
+  
+    &[data-input-has-value="true"],
+    &[data-focused-input="true"] {
+      div[data-position="left"] {
+        color: var(--kiwi-colors-surface-on-surface);
+      }
+    }
+  }
+
+  .ACInput__searchContainer {
+    overflow: unset;
+  }
+
+  .ACInput__chipWrapper {
+    gap: var(--kiwi-spacing-0-5);
+    padding: var(--kiwi-spacing-1);
+  }
+
+  .ACInput__chipWrapper--border {
+    border-color: var(--kiwi-colors-surface-outline-variant);
+    margin-bottom: -1px;
+  }
+
+  &.ACInput__options {
+    display: flex;
+    padding: var(--kiwi-spacing-1) var(--kiwi-spacing-2);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--kiwi-spacing-0);
+    align-self: stretch;
+  }
+
+  &.noEmptyTagList {
+    &.ACInput__select {
+      box-shadow: 0 0 0 1px var(--kiwi-colors-surface-outline-variant);
+
+      &:focus-within {
+        box-shadow: 0 0 0 2px var(--kiwi-colors-core-secondary-container);
+      }
+    }
+
+    .ACInput__root {
+      & div[data-with-left-section='true'] {
+        border: none !important;
+        box-shadow: none !important;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.ACInput__popper__scroll {
+    opacity: 1;
+    pointer-events: all;
+
+    &.searching {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &.ACInput__permission-container {
+    display: flex;
+    align-items: center;
+    margin-top: var(--kiwi-spacing-1);
+    gap: var(--kiwi-spacing-0-25);
+  }
+}

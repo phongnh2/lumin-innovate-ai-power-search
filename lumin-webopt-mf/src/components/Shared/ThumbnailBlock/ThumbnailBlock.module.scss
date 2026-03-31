@@ -1,0 +1,12 @@
+.thumbnailListContainer {
+  --layout-gap: 16px;
+
+  padding: 16px 32px 0;
+
+  @include media-query-down(md) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: calc(-1 * var(--layout-gap));
+    margin-right: calc(-1 * var(--layout-gap));
+  }
+}

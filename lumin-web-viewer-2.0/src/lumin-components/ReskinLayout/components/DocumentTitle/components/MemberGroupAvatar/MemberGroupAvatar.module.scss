@@ -1,0 +1,21 @@
+.membersContainer {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  padding-left: var(--kiwi-spacing-1);
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  margin-top: var(--kiwi-spacing-1);
+  &:hover,
+  &:active {
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+
+.skeletonContainer {
+  padding-left: var(--kiwi-spacing-1);
+  display: flex;
+  align-items: center;
+}

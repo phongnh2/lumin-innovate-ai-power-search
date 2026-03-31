@@ -1,0 +1,25 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--kiwi-spacing-5);
+
+  @include md-screen {
+    min-width: 712px;
+    margin: 0 auto;
+  }
+
+  @include xl-screen {
+    max-width: none;
+    width: auto;
+    grid-template-columns: 712px 448px;
+    justify-content: center;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}

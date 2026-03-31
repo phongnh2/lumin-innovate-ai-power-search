@@ -1,0 +1,115 @@
+@import '../../constants/lumin-styles';
+
+.TeamInfoModal {
+  * {
+    box-sizing: border-box;
+  }
+  &__title {
+    text-align: center;
+    width: 100%;
+    color: var(--color-neutral-100);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.34;
+    margin-bottom: 24px;
+  }
+  &__content {
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--color-neutral-100);
+    &-title {
+      font-weight: 600;
+      color: var(--color-neutral-100);
+      line-height: 1.43;
+    }
+    &-detail {
+      color: var(--color-neutral-80);
+      font-weight: 400;
+      margin-bottom: 8px;
+      &--name {
+        word-break: break-word;
+      }
+      span.premium {
+        color: var(--color-secondary-50);
+      }
+      span.free {
+        color: var(--color-neutral-50);
+      }
+    }
+    &-member__avt {
+      float: left;
+      margin-right: 8px;
+      @include mobile {
+        margin-right: 6px;
+      }
+    }
+    &-members {
+      margin: 0;
+      height: 24px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__storage {
+    display: flex;
+    flex-direction: column;
+
+    &__bar {
+      width: 100%;
+      height: 4px;
+      border-radius: 1px;
+      position: relative;
+      margin-bottom: 8px;
+
+      &__used {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 1px;
+        height: 3px;
+        transition: all 0.25s;
+      }
+    }
+    &__info {
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      font-weight: 400;
+    }
+  }
+  &__upgrade-btn {
+    margin-left: -6px;
+    padding: 6px !important;
+    letter-spacing: 0.3px;
+  }
+  &__close-btn {
+    margin-top: 24px;
+    align-self: center;
+    height: 40px;
+    text-transform: uppercase;
+
+    @include mobile {
+      margin-top: 16px;
+    }
+  }
+  hr {
+    margin: 16px 0;
+    background: var(--color-neutral-20);
+  }
+  &__InvitedAvatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    margin: 0px 5px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.TeamInfoModal__remaining {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-neutral-60);
+}

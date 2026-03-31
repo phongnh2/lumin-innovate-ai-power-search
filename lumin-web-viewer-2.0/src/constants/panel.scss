@@ -1,0 +1,202 @@
+@import "./styles";
+@import "./lumin-styles";
+
+%panel {
+  display: flex;
+  bottom: 0;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  width: 100%;
+
+  --panel-has-warning-banner: 0px;
+  --panel-has-top-bar: 0px;
+  --panel-has-toolbar: 0px;
+  --panel-has-banner: 0px;
+  --panel-is-in-content-edit-mode: 0px;
+  --panel-top-value: calc(var(--panel-has-warning-banner) + var(--panel-has-top-bar) + var(--panel-has-toolbar) + var(--panel-has-banner) + var(--panel-is-in-content-edit-mode));
+  top: var(--panel-top-value);
+
+  @include themify {
+    border: 1px solid themed("bgPanelBorder");
+    background-color: themed("bgPanel");
+  }
+
+  &.has-warning-banner {
+    --panel-has-warning-banner: #{$header-height};
+  }
+
+  &.has-top-bar {
+    --panel-has-top-bar: #{$header-height};
+  }
+
+  &.has-toolbar {
+    --panel-has-toolbar: calc(#{$toolbar-height} + #{$tablet-bar});
+    @include small-desktop-up() {
+      --panel-has-toolbar: #{$toolbar-height};
+    }
+  }
+
+  &.has-banner {
+    --panel-has-banner: #{$banner-viewer-height};
+  }
+
+  &.is-in-content-edit-mode {
+    --panel-is-in-content-edit-mode: #{$toolbar-height};
+  }
+
+  &.open {
+    transform: none;
+    visibility: visible;
+  }
+}
+
+@mixin closed($translate) {
+  &.closed {
+    visibility: hidden;
+    transform: $translate;
+
+    @include mobile {
+      transform: translateY(100%);
+    }
+  }
+}
+
+%right-panel {
+  @extend %panel;
+  @include closed(translateX(100%));
+
+  position: absolute;
+  width: $right-panel-width;
+  right: 0;
+
+  &.open-right-toolbar {
+    right: var(--right-panel-width);
+  }
+
+  &.comment-list {
+    @include themify {
+      border-left: 1px solid themed("borderCommentElement");
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    border-left: none;
+  }
+}
+
+%right-panel-comment {
+  @extend %panel;
+  @include closed(translateX(300%));
+
+  width: 300px;
+  position: absolute;
+
+  @include mobile {
+    width: 100%;
+    border-left: none;
+  }
+}
+
+%left-panel {
+  @extend %panel;
+  @include closed(translateX(-100%));
+
+  position: absolute;
+  z-index: 65;
+  width: $left-panel-width;
+  left: $left-panel-tabs-width;
+  border: 1px solid;
+
+  @include themify {
+    border-color: themed("dividerColor");
+  }
+
+  @include mobile {
+    z-index: 100; // Need to be above search overlay
+    width: 100%;
+    border-right: none;
+  }
+}
+
+%left-panel-tabs {
+  @extend %panel;
+
+  position: absolute;
+  z-index: 65;
+  width: $left-panel-tabs-width;
+  left: 0;
+
+  @include mobile {
+    z-index: 100; // Need to be above search overlay
+    width: $left-panel-tabs-width;
+    border-right: none;
+  }
+}
+
+%sub-panel {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  flex-direction: column;
+
+  &.virtualizedList {
+    padding-right: 0;
+    overflow: hidden;
+  }
+}
+
+%center-of-panel {
+  margin: auto 0;
+  align-self: center;
+}
+
+%form-build-panel {
+  @extend %panel;
+
+  position: absolute;
+  top: calc(var(--panel-top-value) + #{$form-build-margin-top});
+  right: $form-build-margin-right;
+  bottom: $form-build-margin-right;
+
+  @include closed(translateX(100%));
+
+  @include themify {
+    border: 1px solid themed("bgPanelBorder");
+    background-color: themed("formBuildPanelBg");
+  }
+
+  &.open-right-toolbar {
+    right: calc(var(--right-panel-width) + $form-build-margin-right);
+  }
+
+  &.open {
+    transform: none;
+    visibility: visible;
+  }
+}
+
+%content-edit-panel {
+  @extend %panel;
+
+  width: var(--content-edit-panel-width);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include closed(translateX(100%));
+
+  @include themify {
+    border: 1px solid themed("bgPanelBorder");
+    background-color: themed("formBuildPanelBg");
+  }
+
+  &.open-right-toolbar {
+    right: calc(var(--right-panel-width) - 1px);
+  }
+
+  &.open {
+    transform: none;
+    visibility: visible;
+  }
+}

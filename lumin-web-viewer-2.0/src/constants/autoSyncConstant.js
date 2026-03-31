@@ -1,0 +1,47 @@
+export const AUTO_SYNC_STATUS = {
+  NOT_SYNCED: 'NOT_SYNCED',
+  SYNCING: 'SYNCING',
+  SAVED: 'SAVED',
+  FAILED: 'FAILED',
+};
+
+export const AUTO_SYNC_CHANGE_TYPE = {
+  ANNOTATION_CHANGE: 'ANNOTATION_CHANGE',
+  CONTENT_CHANGE: 'CONTENT_CHANGE',
+  RESTORE_ORIGINAL_VERSION: 'RESTORE_ORIGINAL_VERSION',
+  EDIT_PDF: 'EDIT_PDF',
+  REDACTION: 'REDACTION',
+  SYNC_FROM_S3: 'SYNC_FROM_S3',
+  TOGGLE_AUTO_SYNC: 'TOGGLE_AUTO_SYNC',
+  OCR: 'OCR',
+  OUTLINE: 'OUTLINE',
+};
+
+export const AUTO_SYNC_STORAGE = {
+  DRIVE: 'DRIVE',
+  S3: 'S3',
+};
+
+export const AUTO_SYNC_DEBOUNCE = 3000;
+
+export const SHOW_AUTO_SYNC_STATUS_TIME = 5000;
+
+export const AUTO_SAVE_PAGE_TOOLS_TIME = 5000;
+
+export const SYNCING_TIMEOUT = 90000;
+
+export const SYNC_RESULT = {
+  SUCCESS: 'success',
+  FAIL: 'fail',
+};
+
+export const AUTO_SYNC_ERROR = {
+  NOT_FOUND: 'notFound',
+  NO_PERMISSION: 'insufficientFilePermissions',
+  CANCEL_SYNC_REQUEST: 'cancelSyncRequest',
+  STORAGE_QUOTA_EXCEEDED: 'storageQuotaExceeded',
+};
+
+export const UPDATE_ENABLE_GOOGLE_SYNC_REASON = {
+  HIT_DOC_STACK_LIMIT: 'hitDocStackLimit',
+};

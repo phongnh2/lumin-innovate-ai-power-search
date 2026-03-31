@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--kiwi-spacing-layout-md);
+}
+
+.faqTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-title-xl;
+}
+
+.faqItemTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: var(--kiwi-spacing-layout-sx);
+}
+
+.faqItemTitleText {
+  @include kiwi-typography-title-sm;
+
+  color: var(--kiwi-colors-surface-on-primary-container);
+}
+
+.faqItemDesc {
+  @include kiwi-typography-body-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include media-query-down(md) {
+    @include kiwi-typography-body-sm;
+  }
+}

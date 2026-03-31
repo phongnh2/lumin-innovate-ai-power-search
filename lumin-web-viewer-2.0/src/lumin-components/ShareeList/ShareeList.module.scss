@@ -1,0 +1,16 @@
+.container {
+  padding: var(--kiwi-spacing-1) 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.title {
+  @include kiwi-typography-body-md;
+  margin: 0;
+  color: var(--kiwi-colors-surface-on-surface-low);
+  padding: var(--kiwi-spacing-1) 0;
+}

@@ -1,0 +1,224 @@
+@import "../../../../constants/lumin-styles.scss";
+
+$fonts: (
+    helvetica: Helvetica,
+    times-new-roman: Times New Roman,
+    roboto: Roboto,
+    lora: Lora,
+    merriweather: Merriweather,
+    dancingscript: DancingScript,
+    aladin: Aladin,
+    allura: Allura,
+    cookie: Cookie,
+    courgette: Courgette,
+    gillsans: GillSans,
+    italianno: Italianno,
+);
+
+.rubber-stamp-modal-content {
+    font-family: Axiforma;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 375;
+    padding: 24px;
+    border-radius: var(--border-radius-primary);
+    width: 400px;
+    @include themify {
+      color: themed("selectedTabColor");
+    }
+
+    @include themify {
+        background-color: themed("openRubberStampModalBtnColor");
+    }
+
+    &--base-input {
+        border-radius: 4px !important;
+        &-error {
+          border-color: var(--color-secondary-50) !important;
+          box-shadow: none !important;
+        }
+    }
+
+    &--header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        >span {
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+    }
+
+    &--footer {
+        display: flex;
+        justify-content: flex-end;
+
+        >button:first-child {
+            margin-right: 16px;
+        }
+    }
+
+    &--checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .rubber-stamp-preview {
+        border-radius: 8px;
+        margin-bottom: 12px;
+
+        @include themify {
+            border: 1px solid themed("previewStampBorder");
+        }
+
+        &--body {
+            border-radius: 8px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include themify {
+                background-color: themed("previewStampBg");
+            }
+        }
+
+        &--head {
+            height: 32px;
+            padding: 0 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &--title {
+                @include themify {
+                    color: themed("selectedTabColor");
+                }
+                font-weight: 500;
+                line-height: 16px;
+            }
+        }
+    }
+
+    .date-time-form-item {
+        display: flex;
+
+        >:first-child {
+            margin-right: 8px;
+        }
+    }
+
+    .form-item-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .rubber-stamp-text-style {
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+
+        &--font-select {
+
+            @each $font-family,
+            $value in $fonts {
+                [class*="font-#{$font-family}"] {
+                    font-family: $value;
+                }
+            }
+
+            height: 32px !important;
+            border-radius: 4px !important;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            flex-grow: 1;
+            max-width: 132px;
+        }
+
+        &--btns {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: stretch;
+            >button {
+                border: var(--border-primary);
+                border-radius: var(--border-radius-primary);
+                height: 32px;
+                width: 32px;
+                min-width: 32px;
+
+                &.active-style {
+                    background-color: red;
+                }
+            }
+
+            &--text-color-holder {
+                height: 20px;
+                width: 20px;
+                border-radius: 9999px;
+
+                @include themify {
+                    border: 1px solid themed("stampColorBlockHolderBorder");
+                }
+            }
+
+            .ColorPaletteLumin {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin: 8px 16px;
+                row-gap: 8px;
+                column-gap: 8px;
+            }
+        }
+    }
+
+    .rubber-stamp-text-style--btns--anchor {
+      padding: 0;
+    }
+
+    .ColorPaletteLumin {
+        margin: 0;
+        grid-template-columns: repeat(8, 1fr);
+
+        .color-cell:not(.active:last-child) {
+            @include themify {
+                border: 1px solid themed("stampColorBlockBorder");
+            }
+        }
+
+        .color-cell:not(:last-child) {
+            margin-right: 6px;
+        }
+    }
+
+    &--divider {
+        position: relative;
+        margin-bottom: 12px;
+
+        @include themify {
+            border-bottom: 1px solid themed("previewStampBorder");
+        }
+    }
+
+    .should-show-author-section {
+        display: flex;
+        margin-bottom: 8px;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+            margin-bottom: 0px;
+        }
+    }
+
+    .error-message {
+      line-height: 16px;
+      margin-top: 4px;
+      color: var(--color-secondary-50);
+    }
+}

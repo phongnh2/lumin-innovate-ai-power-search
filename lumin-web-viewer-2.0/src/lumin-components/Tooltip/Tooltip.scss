@@ -1,0 +1,92 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+%tooltip {
+  position: absolute;
+  z-index: 9000;
+  background: var(--color-neutral-100);
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-primary);
+  transition: opacity 0.3s ease-out;
+  backface-visibility: hidden;
+}
+
+.tooltip__content {
+  background: var(--color-neutral-100);
+  color: #fff;
+  font-size: 12px;
+}
+
+.tooltip--top {
+  @extend %tooltip;
+
+  margin-top: -10px;
+  transform: translate(-50%, -100%);
+}
+
+.tooltip--bottom {
+  @extend %tooltip;
+
+  margin-top: 10px;
+  transform: translateX(-50%);
+}
+
+.tooltip--left {
+  @extend %tooltip;
+
+  margin-left: -10px;
+  white-space: nowrap;
+  transform: translate(-100%, -50%);
+}
+
+.tooltip--right {
+  @extend %tooltip;
+
+  margin-left: 10px;
+  white-space: nowrap;
+  transform: translate(0, -50%);
+}
+
+.tooltip--bottom-end {
+  @extend %tooltip;
+
+  margin-top: 10px;
+}
+
+.tooltip__shortcut {
+  margin-left: 6px;
+  font-family: $font-stack-primary;
+  font-style: normal;
+  font-weight: 375;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tooltip--bottom-right {
+  transform: translateX(-30%);
+}
+
+.tooltip--mid-right {
+  transform: translateX(-15%);
+  transform: translateY(-300%);
+}
+
+.tooltip__hyperlink {
+  white-space: normal;
+  max-width: 270px;
+
+  .tooltip__content {
+    max-width: 239px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+
+    // Addition lines for 2 line or multiline ellipsis
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+}

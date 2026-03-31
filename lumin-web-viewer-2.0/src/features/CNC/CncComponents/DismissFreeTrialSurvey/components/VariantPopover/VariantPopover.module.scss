@@ -1,0 +1,13 @@
+.container {
+  width: 360px;
+  padding: 16px;
+  border-radius: var(--border-radius-primary);
+  box-shadow: var(--shadow-md);
+  background-color: white;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

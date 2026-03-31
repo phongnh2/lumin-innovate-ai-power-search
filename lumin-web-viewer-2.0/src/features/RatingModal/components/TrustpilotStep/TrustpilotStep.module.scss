@@ -1,0 +1,29 @@
+.trustpilotWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.trustpilotContent {
+  display: flex;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2) 0 var(--kiwi-spacing-2);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  margin-top: var(--kiwi-spacing-1);
+}
+
+.trustpilotDescription {
+  margin-bottom: var(--kiwi-spacing-1);
+  max-width: 360px;
+  text-align: center;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.closeIcon {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}

@@ -1,0 +1,46 @@
+syntax = "proto3";
+package lumin.annotationService.v1;
+
+service AnnotationService {
+  rpc GetAnnotationData (GetAnnotationDataRequest) returns (GetAnnotationDataResponse) {};
+  rpc FillFormTemplate(FillFormTemplateRequest) returns (FillFormTemplateResponse) {};  
+}
+
+message FillFormTemplateRequest {
+  string template_id = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+  bool should_fill_form = 4;
+  map<string, string> fields = 5;
+  string template_remote_id = 6;
+  string environment = 7;
+}
+
+message FilledField {
+  string name = 1;
+  string type = 2;
+  bool is_required = 3;
+  string assigned_role = 4;
+}
+
+message FillFormTemplateResponse {
+  string remote_id = 1;
+  repeated FilledField filled_fields = 2;
+}
+
+message GetAnnotationDataRequest {
+  string documentId = 1;
+}
+
+message Annotation {
+  string xfdf = 1;
+  string annotationId = 2;
+  string documentId = 3;
+  string createdAt = 4;
+  int32 order = 5;
+  bool isDeleted = 6;
+}
+
+message GetAnnotationDataResponse {
+  repeated Annotation annotations = 3;
+}

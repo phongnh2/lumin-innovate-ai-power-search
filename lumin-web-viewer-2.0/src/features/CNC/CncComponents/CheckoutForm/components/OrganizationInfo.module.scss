@@ -1,0 +1,21 @@
+@import 'reskin/screens.scss';
+
+.container {
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.inputWrapper {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  &[data-show-quantity='true'] {
+    @include md-screen {
+      grid-template-columns: 1fr 156px;
+      gap: var(--kiwi-spacing-1-5);
+    }
+  }
+}
+
+.orgInfoTitle {
+  margin-bottom: var(--kiwi-spacing-1-5);
+}
+

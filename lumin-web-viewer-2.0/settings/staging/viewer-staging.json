@@ -1,0 +1,16 @@
+{
+  "LUMIN_BASEURL": "https://viewer-staging.luminpdf.com",
+  "LUMIN_GRAPHQL_API": "https://viewer-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_GRAPHQL_WEBSOCKET_API": "wss://viewer-staging.luminpdf.com/api/web/graphql",
+  "LUMIN_AXIOS_BASEURL": "https://viewer-staging.luminpdf.com/api/web",
+  "LUMIN_DROPBOX_REDIRECT_URL": "https://viewer-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://viewer-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_DROPBOX_AUTHORIZE_DOWNLOAD_API": "https://www.dropbox.com/oauth2/authorize?client_id=mfqviac8elz7fhb&response_type=token&redirect_uri=https://viewer-staging.luminpdf.com/authentication/verify-dropbox?close=true",
+  "LUMIN_SOCKET_IO_URL": "https://viewer-staging-socket.luminpdf.com",
+  "LUMIN_ENV": "viewer-staging",
+  "LUMIN_GOOGLE_PICKER_APP_ID": "92884233329",
+  "LUMIN_GOOGLE_PICKER_CLIENTID": "92884233329-lf0rd31a64tlgsoc17k1fls4aau2al7d.apps.googleusercontent.com",
+  "LUMIN_IDLE_TIME": 60000,
+  "LUMIN_STRIPE_NZ_ACCOUNT_ID": "acct_1K645mJ8XiPdkv6a",
+  "LUMIN_STRIPE_US_ACCOUNT_ID": "acct_1P0ZafAukyqEl0aK"
+}

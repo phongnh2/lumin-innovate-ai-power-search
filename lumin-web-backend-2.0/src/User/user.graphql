@@ -1,0 +1,531 @@
+enum EntitySearchType {
+  DOCUMENT
+  ORGANIZATION
+  ORGANIZATION_TEAM
+  ORGANIZATION_CREATION
+  ORGANIZATION_TEAM_CREATION
+  ORGANIZATION_GRANT_BILLING
+}
+
+enum LoginService {
+  GOOGLE
+  DROPBOX
+  APPLE
+  EMAIL_PASSWORD
+  MICROSOFT
+  XERO
+}
+
+enum RatingModalStatus {
+  NEVER_INTERACT
+  OPEN
+  HIDE
+}
+
+enum UserMetadataEnums {
+  hasShownTourGuide
+  hasShownAutoSyncModal
+  hasShownEditFileOfflinePopover
+  hasShownContentEditPopover
+  hasShownAutoSyncDefault
+  introduceNewLayout
+  isHiddenSuggestedOrganization
+  isUsingNewLayout
+  isUsingNewInAppLayout
+  introduceNewInAppLayout
+  hasShowOnboardingFlowFromOpenGoogle
+  isAgreementTourGuideVisible
+  hasShownEditInAgreementGenModal
+  hasShownSharePrompt
+  hasClosedQuickSearchGuideline
+}
+
+enum ExploredFeatureKeys {
+  EDIT_PDF
+  FORM_BUILDER
+  SPLIT_PDF
+  OCR
+  SUMMARIZATION
+  PROTECT_PDF
+  REDACT_PDF
+}
+
+type ExploredFeatures {
+  editPdf: Int
+  formBuilder: Int
+  splitPdf: Int
+  ocr: Int
+  summarization: Int
+  protectPdf: Int
+  redactPdf: Int
+}
+
+type Oauth2Token {
+  accessToken: String
+  scope: String
+  email: String
+  expireAt: String
+}
+
+type Signature {
+  remoteId: String
+  presignedUrl: String
+}
+
+type ToolUsage {
+  usage: Int
+  blockTime: Int
+  isExceeded: Boolean
+}
+
+type ToolQuota {
+  autoDetection: ToolUsage
+  formFieldDetection: ToolUsage
+}
+
+type User {
+  _id: String
+  email: String
+  isNotify: Boolean
+  name: String
+  avatarRemoteId: String
+  roleInTeam(teamId: ID!): String
+  payment: Payment
+  setting: Setting
+  addedInTeam(teamId: ID!): Boolean
+  lastLogin: Date
+  billingEmail: String
+  signatures: [String]
+  createdAt: Date
+  isUsingPassword: Boolean
+  endTrial: Date
+  type: String
+  metadata: UserMetadata
+  deletedAt: Date
+  lastAccessedOrgUrl: String
+  isVerified: Boolean
+  lastAccess: Date
+  loginService: LoginService
+  timezoneOffset: Int
+  hasNewVersion: Boolean
+  reachUploadDocLimit: Boolean
+  notificationStatus: NewNotificationsData
+  isPopularDomain: Boolean
+  hasJoinedOrg: Boolean
+  migratedOrgUrl: String
+  identity: String
+  redirectUrl: String
+  oauth2Token: Oauth2Token
+  emailDomain: String
+  isOneDriveAddInsWhitelisted: Boolean
+  isOneDriveFilePickerWhitelisted: Boolean
+  toolQuota: ToolQuota
+  isTermsOfUseVersionChanged: Boolean
+  isSignProSeat: Boolean
+  allTenantConfigurations: [TenantConfigurationWithDomain]
+  isSeatRequest: Boolean
+  hashedIpAddress: String
+}
+
+type UserMetadata {
+  hasShownTourGuide: Boolean
+  hasShownBananaBanner: Boolean
+  hasShownAutoSyncModal: Boolean
+  hasShownMobileFreeToolsBanner: Boolean
+  rating: UserRating
+  folderColors: [String]
+  numberCreatedOrg: Int
+  hasInformedMyDocumentUpload: Boolean
+  ratedApp: Boolean
+  hasShownEditFileOfflinePopover: Boolean
+  hasShownContentEditPopover: Boolean
+  hasShownAutoSyncDefault: Boolean
+  introduceNewLayout: Boolean
+  isUsingNewLayout: Boolean
+  docSummarizationConsentGranted: Boolean
+  formFieldDetectionConsentGranted: Boolean
+  isHiddenSuggestedOrganization: Boolean
+  exploredFeatures: ExploredFeatures
+  isUsingNewInAppLayout: Boolean
+  introduceNewInAppLayout: Boolean
+  hasShowOnboardingFlowFromOpenGoogle: Boolean
+  chatbotFreeRequests: Int
+  hasShownEditInAgreementGenModal: Boolean
+  hasShownSharePrompt: Boolean
+  hasClosedQuickSearchGuideline: Boolean
+  acceptedTermsOfUseVersion: String
+  aiChatbotConsentGranted: Boolean
+}
+
+type UserRating {
+  googleModalStatus: RatingModalStatus
+  mobileFeedbackModalStatus: MobileFeedbackModalStatus
+}
+
+type MemberUserInfo {
+  _id: String
+  name: String
+  avatarRemoteId: String
+}
+
+type SuggestedOrganizationList {
+  _id: String
+  name: String
+  url: String
+  createdAt: Date
+  avatarRemoteId: String
+  domain: String
+  isMainOrgOfUser: Boolean
+  totalMember: Int
+  settings: OrganizationSettings
+  status: JoinOrganizationStatus
+  members(options: QueryOptionsInput): [MemberUserInfo]
+  payment: Payment
+  hashedIpAddresses: [String]
+}
+
+input UserQueryInput {
+  notUserId: ID
+  searchText: String
+}
+
+input ChangePasswordInput {
+  refreshToken: String!
+  currentPassword: String! @Length(min: 6, max: 255)
+  newPassword: String! @Length(min: 8, max: 255) @PasswordStrength
+}
+
+input EditUserInput {
+  name: String @NotIncludes(patterns: ["html", "url"]) @Length(min: 1, max: 32)
+  avatarRemoteId: String
+}
+
+input UpdateSettingInput {
+  marketingEmail: Boolean!
+  subscriptionEmail: Boolean!
+  otherEmail: Boolean!
+  featureUpdateEmail: Boolean!
+  dataCollection: Boolean!
+  documentEmail: DocumentEmailInput!
+  organizationEmail: OrganizationEmailInput!
+}
+
+input IncreaseExploredFeatureUsageInput {
+  key: ExploredFeatureKeys!
+}
+
+input DocumentEmailInput {
+  shareDocument: Boolean!
+  commentDocument: Boolean!
+  replyCommentDocument: Boolean!
+  mentionCommentDocument: Boolean!
+  requestAccessDocument: Boolean!
+}
+
+input OrganizationEmailInput {
+  inviteToOrganization: Boolean!
+  inviteToOrganizationTeam: Boolean!
+}
+
+input UnsubscribeEmailMarketingInput {
+  token: String!
+}
+
+input ConfirmUpdatingAnnotInput {
+  documentId: String!
+  remoteId: String
+  authorEmails: [String] @IsEmail
+  action: String
+}
+
+input HubspotPropertiesInput {
+  key: String!
+  value: String!
+}
+
+input UserMetadataInput {
+  key: UserMetadataEnums!
+  value: Boolean!
+}
+
+enum GuideType {
+  ORGANIZATION_FEATURE
+}
+
+type TeamStatusPayload {
+  teamId: ID!
+  teamName: String!
+  teamStatus: String!
+}
+
+type TeamAndOrganizationOwnerPayload {
+  teamOwner: [Team]
+  organizationOwner: [Organization]
+}
+
+type UpdateUserGuidePayload {
+  user: User,
+  message: String!
+  statusCode: Int!
+}
+
+type DeleteAccountSubscriptionPayload {
+  user: User
+  fromProvisioning: Boolean
+}
+
+type UpdateUserSubscriptionMetadata {
+  migratedOrg: Organization
+}
+
+type UpdateUserSubscriptionPayload {
+  type: String!
+  user: User!
+  # Currently, `metadata` field is only came with subscription `subscription_migrating_user_success`
+  metadata: UpdateUserSubscriptionMetadata
+}
+
+type GetUserLocationPayload {
+  currency: String
+}
+
+input FindUserInput {
+  searchKey: String @MaxLength(max: 255, isOptional: true)
+  targetType: EntitySearchType!
+  targetId: ID
+  excludeUserIds: [ID]
+}
+
+enum SearchUserStatus {
+  USER_ADDED
+  USER_VALID
+  USER_NOT_BELONG_TO_ORG
+  USER_DELETING
+  USER_UNALLOWED
+  USER_EXTERNAL_ORG
+  USER_RESTRICTED
+}
+
+type FindUserPayload {
+  _id: String
+  name: String
+  remoteName: String
+  email: String
+  avatarRemoteId: String
+  status: SearchUserStatus
+  grantedPermission: Boolean
+}
+
+input FindLocationInput {
+  searchKey: String! @Length(min: 1, max: 255)
+  orgId: ID @MongoId(isOptional: true)
+  context: LocationType!
+  cursor: String
+}
+
+input MobileFeedbackModalStatusInput {
+  status: RatingModalStatus!
+  isRateLater: Boolean
+}
+
+type MobileFeedbackModalStatus {
+  status: RatingModalStatus
+  nextModalAppearanceTime: String
+}
+
+type FindLocationPath {
+  name: String
+  _id: String!
+  path: FindLocationPath
+}
+
+input GetSignedUrlSignaturesInput {
+  limit: Int!  @Range(min: 1, max: 10)
+  offset: Int! @Range(min: 0, max: 99)
+}
+
+input UpdateSignaturePositionInput {
+  signatureRemoteId: String!
+  toPosition: Int! @Range(min: 0, max: 100)
+}
+
+type FindLocationData {
+  _id: String!
+  name: String!
+  avatarRemoteId: String
+  path: FindLocationPath
+}
+
+type FindLocationPayload {
+  data: [FindLocationData]!
+  cursor: String!
+  hasNextPage: Boolean!
+}
+
+type Signature {
+  remoteId: String
+  presignedUrl: String
+}
+
+type GetSignedUrlSignaturesPayload {
+  signatures: [Signature],
+  hasNext:  Boolean!,
+  offset: Int!,
+  limit: Int!,
+  total: Int!
+}
+
+type SuggestedPremiumOrganization {
+  _id: String
+  name: String
+  url: String
+  avatarRemoteId: String
+  domainVisibility: String
+  paymentStatus: String
+  paymentType: PaymentPlanSubscription
+  paymentPeriod: PaymentPeriod
+  joinStatus: JoinOrganizationStatus
+  members: [MemberUserInfo]
+  totalMember: Int
+  owner: User
+  createdAt: Date
+}
+
+
+enum GetGoogleContactsContext {
+  ONBOARDING_FLOW
+  INVITE_ORG_MEMBER
+}
+
+input RatedAppInput {
+  ratedScore: Int! @Range(min: 1, max: 10)
+}
+
+input GetGoogleContactInput {
+  action: GetGoogleContactsContext
+  orgId: ID @MongoId(key: "orgId", isOptional: true)
+  googleAuthorizationEmail: String! @Length(min: 1, max: 255) @IsEmail
+}
+
+type OneDriveTokenResponse {
+  accessToken: String
+  email: String
+  expiredAt: Date
+  oid: String
+}
+
+type VerifyOrganizationInviteLinkPayload {
+  _id: String!
+  orgId: String!
+  role: String!
+  isAlreadyMember: Boolean!
+  orgUrl: String!
+  isExpired: Boolean!
+}
+
+input AcceptNewTermsOfUseInput {
+  orgId: ID! @MongoId
+  teamId: ID @MongoId
+}
+
+type Query {
+  findUser(input: FindUserInput): [FindUserPayload]
+  getCurrentUser: User
+  getGoogleContacts(accessToken: String!, input: GetGoogleContactInput): [FindUserPayload]
+  getUsersSameDomain: [FindUserPayload]
+  getSuggestedOrgListOfUser: [SuggestedOrganizationList]
+  getUserCurrency: GetUserLocationPayload
+  findAvailableLocation(input: FindLocationInput!): FindLocationPayload
+  getUserSignatureSignedUrls: [Signature]
+  getUserSignatureSignedUrlsInRange(input: GetSignedUrlSignaturesInput!): GetSignedUrlSignaturesPayload
+  getSuggestedPremiumOrgListOfUser: [SuggestedPremiumOrganization]
+  getOnedriveToken: OneDriveTokenResponse
+}
+
+type TenantConfiguration {
+  organization: OrganizationTenantRules
+  files: FileTenantRules
+  collaboration: CollaborationTenantRules
+  external: ExternalTenantRules
+  ui: UITenantRules
+  user: UserTenantRules
+}
+
+type TenantConfigurationWithDomain {
+  domain: String
+  configuration: TenantConfiguration
+}
+
+type OrganizationTenantRules {
+  requireDomainMembership: Boolean
+  autoJoinDomainOrg: Boolean
+  membershipScope: String
+  allowOrgCreation: Boolean
+  orgAccessScope: String
+  domainOrgId: String
+}
+
+type FileTenantRules {
+  service: String
+  scope: String
+  allowIndexing: Boolean
+  templateManagementEnabled: Boolean
+}
+
+type CollaborationTenantRules {
+  inviteScope: String
+  searchScope: String
+}
+
+type ExternalTenantRules {
+  canSearch: Boolean
+  canInvite: Boolean
+  canShare: Boolean
+  canJoinOrg: Boolean
+  canRequestDocs: Boolean
+}
+
+type UITenantRules {
+  hidePromptDriveUsersBanner: Boolean
+  hideAiChatbot: Boolean
+}
+
+type UserTenantRules {
+  allowChangeEmail: Boolean
+}
+
+type Mutation {
+  editUser(input: EditUserInput!): User
+  updateSetting(input: UpdateSettingInput!): User
+  seenNewNotificationsTab(tab: NotificationTab!): User
+  removeAvatar: User
+  changePassword(input: ChangePasswordInput!): BasicResponse
+  unsubscribeEmailMarketing(input: UnsubscribeEmailMarketingInput!): BasicResponse
+  deleteAccount: User
+  addNewSignature(xfdf: String!): User
+  deleteSignatureByIndex(index: Int!): User
+  deleteSignatureByRemoteId(signatureRemoteId: String!): User
+  updateUserMetadata(input: UserMetadataInput!): UpdateUserGuidePayload
+  saveAutoSyncTrial: BasicResponse
+  saveAbSignatureHubspot: BasicResponse
+  reactivateUser: User
+  hideRatingModal: User
+  reactivateUser: User
+  seenNewVersion: User
+  confirmUpdatingAnnotOfAnother(input: ConfirmUpdatingAnnotInput): BasicResponse
+  trackDownloadClickedEvent: BasicResponse
+  updateUserMobileFreeToolsBanner: User
+  saveHubspotProperties(input: HubspotPropertiesInput!): BasicResponse
+  updateDefaultWorkspace(orgId: ID! @MongoId(key: "orgId")): User
+  ratedApp(input: RatedAppInput): BasicResponse
+  updateMobileFeedbackModalStatus(input: MobileFeedbackModalStatusInput!): UserRating
+  updateSignaturePosition(input: UpdateSignaturePositionInput!): BasicResponse
+  increaseExploredFeatureUsage(input: IncreaseExploredFeatureUsageInput!): BasicResponse
+  verifyOrganizationInviteLink(inviteLinkId: String! @UUID(key: "inviteLinkId")): VerifyOrganizationInviteLinkPayload
+  acceptNewTermsOfUse(input: AcceptNewTermsOfUseInput): UpdateUserGuidePayload
+}
+
+type Subscription {
+  deleteAccountSubscription: DeleteAccountSubscriptionPayload
+  updateUserSubscription: UpdateUserSubscriptionPayload
+}

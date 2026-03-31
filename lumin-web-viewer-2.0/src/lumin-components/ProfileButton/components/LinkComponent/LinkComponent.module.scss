@@ -1,0 +1,14 @@
+.menuItem {
+  svg {
+    opacity: 0;
+  }
+  &:hover {
+    svg {
+      opacity: 1;
+      position: absolute;
+      right: var(--kiwi-spacing-1);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

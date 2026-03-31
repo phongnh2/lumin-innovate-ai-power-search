@@ -1,0 +1,10 @@
+.popoverDropdown {
+  border-radius: 12px 12px var(--kiwi-border-radius-lg) var(--kiwi-border-radius-lg);
+  width: 420px !important;
+  height: calc(100vh - 250px);
+  max-height: 640px;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

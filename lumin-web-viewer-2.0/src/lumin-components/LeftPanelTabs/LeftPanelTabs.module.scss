@@ -1,0 +1,30 @@
+@import 'constants/lumin-styles.scss';
+
+.leftPanelTabs {
+  --panel-tab-height-has-topbar: 0px;
+  --panel-tab-height-has-banner: 0px;
+  --panel-tab-height-has-toolbar: 0px;
+  --panel-tab-height-has-warning-banner: 0px;
+  &.leftPanelTabs {
+    top: calc(var(--panel-tab-height-has-warning-banner) + var(--panel-tab-height-has-banner) + var(--panel-tab-height-has-topbar) + var(--panel-tab-height-has-toolbar));
+  }
+}
+
+.hasTopBar {
+  --panel-tab-height-has-topbar: var(--header-height);
+}
+
+.hasBanner {
+  --panel-tab-height-has-banner: var(--banner-viewer-height);
+}
+
+.hasToolbar {
+  --panel-tab-height-has-toolbar: calc(var(--toolbar-height) + var(--tablet-bar));
+  @include small-desktop-up() {
+    --panel-tab-height-has-toolbar: var(--toolbar-height);
+  }
+}
+
+.hasWarningBanner {
+  --panel-tab-height-has-warning-banner: var(--header-height);
+}

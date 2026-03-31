@@ -1,0 +1,95 @@
+@import "../../constants/panel";
+@import "../../constants/lumin-styles";
+
+.NotesPanel {
+  padding: 8px;
+  font-family: $font-stack-primary;
+  text-align: center;
+
+  .no-annotations {
+    padding-top: 31px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    i {
+      color: $cloudyblue;
+    }
+
+    p {
+      margin-top: 24px;
+      font-weight: 375;
+      font-size: 14px;
+
+      @include themify {
+        color: themed("panelNoItemText");
+      }
+
+      line-height: 20px;
+      font-style: normal;
+      font-family: $font-stack-primary;
+    }
+  }
+
+  .header {
+    flex: 0 0 24px;
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      width: 150px;
+      margin-left: 15px;
+      outline: none;
+      border: 1px solid $gray12;
+      border-radius: 4px;
+      appearance: none;
+    }
+  }
+
+  .no-results {
+    @extend %center-of-panel;
+
+    &.visible {
+      display: block;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .note-wrapper {
+    width: 100%;
+
+    &.visible {
+      display: block;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .ReactVirtualized__List {
+    overflow: auto !important;
+  }
+}
+
+.virtualized-notes-container {
+  margin-top: 10px;
+  flex: 1;
+  height: 100%;
+}
+
+.commentColorPalette {
+  .StylePalette {
+    min-width: unset;
+
+    .ColorPaletteLumin {
+      grid-template-columns: repeat(4, 1fr);
+      display: grid;
+      margin: 0;
+    }
+  }
+}

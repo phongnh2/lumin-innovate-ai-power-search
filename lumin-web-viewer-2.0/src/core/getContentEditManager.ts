@@ -1,0 +1,1 @@
+export default (docViewer: Core.DocumentViewer): Core.ContentEditManager => docViewer.getContentEditManager();

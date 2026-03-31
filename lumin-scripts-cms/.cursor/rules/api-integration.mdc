@@ -1,0 +1,409 @@
+---
+globs: **/services/**/*.ts
+description: API integration patterns and best practices
+---
+
+# API Integration Patterns
+
+## Strapi API Integration
+
+### Base Service Configuration
+
+All services extend [StrapiService](mdc:strapi/services/strapi/strapi.service.ts) for API access:
+
+```typescript
+export class StrapiService {
+  private strapiEndpoint: string | null = null;
+  private apiToken: string | null = null;
+
+  constructor() {
+    this.strapiEndpoint = Deno.env.get("STRAPI_ENDPOINT") || null;
+    this.apiToken = Deno.env.get("STRAPI_API_TOKEN") || null;
+  }
+
+  public get getStrapiEndpoint(): string {
+    return this.strapiEndpoint || "";
+  }
+
+  public get getStrapiApiToken(): string {
+    return this.apiToken || "";
+  }
+}
+```
+
+### HTTP Request Patterns
+
+#### Standard Fetch Pattern
+
+```typescript
+const response = await fetch(`${this.getStrapiEndpoint}/api/endpoint`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: this.getStrapiApiToken,
+  },
+  body: JSON.stringify(payload),
+});
+
+const result = await response.json();
+
+if (!response.ok || result.error) {
+  const errorMessage = result.error?.message ||
+    `HTTP ${response.status}: ${response.statusText}`;
+  throw new Error(errorMessage);
+}
+
+return result;
+```
+
+#### Error Handling Pattern
+
+```typescript
+try {
+  const response = await fetch(endpoint, options);
+  const result = await response.json();
+
+  if (!response.ok || result.error) {
+    const errorMessage = result.error?.message ||
+      `HTTP ${response.status}: ${response.statusText}`;
+    console.error(`❌ API call failed:`, errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return result;
+} catch (error) {
+  const errorMessage = error instanceof Error ? error.message : String(error);
+  console.error(`❌ Network error:`, errorMessage);
+  throw error;
+}
+```
+
+## CRUD Operations
+
+### Create Operations
+
+```typescript
+public async createForm(formData: IForm): Promise<IStrapiResponse> {
+  const response = await fetch(`${this.getStrapiEndpoint}/api/forms`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: this.getStrapiApiToken,
+    },
+    body: JSON.stringify({
+      data: omit(formData, "id"),
+    }),
+  });
+
+  const result: IStrapiResponse = await response.json();
+  
+  if (!response.ok || result.error) {
+    const errorMessage = result.error?.message || 
+      `HTTP ${response.status}: ${response.statusText}`;
+    throw new Error(errorMessage);
+  }
+  
+  return result;
+}
+```
+
+### Update Operations
+
+```typescript
+public async updateForm(
+  id: number,
+  body: { data: IUpdatePayload }
+): Promise<IStrapiResponse> {
+  const updateEndpoint = `${this.getStrapiEndpoint}/api/forms/${id}`;
+  
+  if (!id || !body) {
+    throw new Error("ID and body are required");
+  }
+
+  const response = await fetch(updateEndpoint, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: this.getStrapiApiToken,
+    },
+    body: JSON.stringify({
+      data: {
+        isScripting: true,
+        ...body.data,
+      },
+    }),
+  });
+
+  const result = await response.json();
+  
+  if (!response.ok || result.error) {
+    const errorMessage = result.error?.message || 
+      `HTTP ${response.status}: ${response.statusText}`;
+    throw new Error(errorMessage);
+  }
+  
+  return result;
+}
+```
+
+### Read Operations with Pagination
+
+```typescript
+private async handleGetForms(
+  callback: (result: IStrapiApiResponse<IStrapiForm>) => void,
+): Promise<void> {
+  let page = 1;
+  let totalPage = 1;
+  const itemsPerPage = 100;
+  
+  do {
+    const baseUrl = `${this.getStrapiEndpoint}/api/forms`;
+    const queryParams = qs.stringify({
+      "populate[0]": "categories",
+      "populate[1]": "categories.parent",
+      "populate[2]": "relatedForms",
+      "populate[3]": "file",
+      "populate[4]": "thumbnails",
+      "pagination[page]": page,
+      "pagination[pageSize]": itemsPerPage,
+      "publicationState": "preview",
+      "sort[0]": "id",
+    });
+
+    const endpoint = `${baseUrl}?${queryParams}`;
+    const response = await fetch(endpoint, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: this.getStrapiApiToken,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const result = await response.json() as IStrapiApiResponse<IStrapiForm>;
+    totalPage = result?.meta?.pagination?.pageCount || 1;
+    console.log(`> Exporting page ${page}/${totalPage}`);
+
+    callback(result);
+    page = result?.meta?.pagination?.page + 1;
+  } while (page <= totalPage);
+}
+```
+
+## Query Parameter Patterns
+
+### Strapi Query Building
+
+```typescript
+import * as qs from "querystringify";
+
+const queryParams = qs.stringify({
+  "populate[0]": "categories",
+  "populate[1]": "categories.parent",
+  "populate[2]": "file",
+  "populate[3]": "thumbnails",
+  "pagination[page]": page,
+  "pagination[pageSize]": pageSize,
+  "publicationState": "preview",
+  "sort[0]": "id",
+  "filters[field][$eq]": value,
+});
+```
+
+### Field Selection
+
+```typescript
+// Select specific fields only
+const queryParams = qs.stringify({
+  "fields[0]": "slug",
+  "fields[1]": "title",
+  "pagination[page]": page,
+  "pagination[pageSize]": pageSize,
+});
+```
+
+## Data Export Integration
+
+### Export Service Pattern
+
+```typescript
+public async exportData<T>(
+  dataType: string,
+  options: ExportOptions
+): Promise<T[]> {
+  const { slug } = options;
+  const exportEndpoint = `${this.strapiEndpoint}/api/import-export-entries/content/export/contentTypes`;
+  
+  console.log(`🚀 Exporting ${dataType} data - operation started ⏳`);
+  
+  try {
+    const response = await fetch(exportEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: this.getStrapiApiToken,
+      },
+      body: JSON.stringify({
+        exportFormat: "json-v2",
+        ...options,
+      }),
+    });
+    
+    const responseJson = await response.json();
+    const rawResults = JSON.parse(responseJson.data)["data"][slug];
+    const results = Object.values(rawResults) as T[];
+    
+    await writeJsonFile(results, `strapi/data/${dataType}.json`);
+    
+    console.log(`✅ Export completed - Total ${dataType} records: ${results.length}`);
+    return results;
+  } catch (error) {
+    console.log(`❌ Export data operation failed for ${dataType}: ${error}`);
+    throw error;
+  }
+}
+```
+
+## Authentication Patterns
+
+### Token Management
+
+```typescript
+// Get token from environment
+private get getStrapiApiToken(): string {
+  return this.apiToken || "";
+}
+
+// Use in headers
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: this.getStrapiApiToken,
+};
+```
+
+### Google Drive API Integration
+
+```typescript
+const requestOptions = {
+  headers: {
+    Authorization: `Bearer ${CONFIGURATION.GOOGLE_ACCESS_TOKEN}`,
+    "User-Agent": "Deno/1.0",
+  },
+};
+
+const response = await fetch(url, requestOptions);
+```
+
+## Error Response Handling
+
+### Strapi Error Response Structure
+
+```typescript
+interface IStrapiResponse {
+  ok: boolean;
+  status: number;
+  error: {
+    message: string;
+  };
+  data: {
+    id: number;
+  } | null;
+}
+```
+
+### Error Logging for API Calls
+
+```typescript
+if (!response.ok || result.error) {
+  const errorMessage = result.error?.message ||
+    `HTTP ${response.status}: ${response.statusText}`;
+
+  // Log to CSV file
+  await writeDataToCSV(
+    `"${id}","${errorMessage.replace(/"/g, '""')}"`,
+    `strapi/logs/error-api-${this.currentTime}.csv`,
+  );
+
+  console.error(`❌ API call failed:`, errorMessage);
+  throw new Error(errorMessage);
+}
+```
+
+## Rate Limiting and Performance
+
+### Chunked API Operations
+
+```typescript
+const chunkSize = 1; // Small chunks for API operations
+for (let i = 0; i < data.length; i += chunkSize) {
+  const chunk = data.slice(i, i + chunkSize);
+  const promises = chunk.map((item) => this.apiCall(item));
+
+  await Promise.all(promises);
+
+  // Add delay between chunks
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+}
+```
+
+### Retry Logic for API Calls
+
+```typescript
+public async apiCallWithRetry(
+  operation: () => Promise<any>,
+  maxRetries = 3
+): Promise<any> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (attempt === maxRetries) {
+        throw error;
+      }
+      
+      console.log(`⚠️ API call failed, retrying... (${attempt}/${maxRetries})`);
+      await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
+    }
+  }
+}
+```
+
+## Response Data Transformation
+
+### Strapi Response Processing
+
+```typescript
+// Transform Strapi response to internal format
+const transformedData = result.data.map((item: IStrapiForm) => {
+  const { attributes } = item;
+
+  return {
+    id: item.id,
+    title: attributes.title,
+    slug: attributes.slug,
+    categories: attributes.categories.data.map((cat) => ({
+      id: cat.id,
+      ...cat.attributes,
+      parent: cat.attributes.parent?.data?.id,
+    })),
+    // ... other transformations
+  };
+});
+```
+
+### Nested Data Handling
+
+```typescript
+// Handle Strapi's nested data structure
+const categoriesData = categories.data.map(({ id, attributes }) => {
+  const { parent } = attributes;
+  return {
+    id,
+    ...attributes,
+    parent: parent?.data?.id,
+  };
+});
+```

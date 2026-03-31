@@ -1,0 +1,32 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-2);
+  text-align: center;
+  padding: var(--kiwi-spacing-5) var(--kiwi-spacing-3);
+
+  @include md-screen {
+    padding: var(--kiwi-spacing-10) var(--kiwi-spacing-5);
+  }
+
+  img {
+    margin: 0 auto;
+    width: 171px;
+    height: 160px;
+
+    @include md-screen {
+      width: 203px;
+      height: 190px;
+    }
+  }
+
+  p {
+    color: var(--kiwi-colors-surface-on-surface);
+    @include kiwi-typography-body-md;
+
+    @include md-screen {
+      @include kiwi-typography-body-lg;
+    }
+  }
+}

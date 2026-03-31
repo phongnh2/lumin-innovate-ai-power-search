@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+@import 'reskin/screens.scss';
+
+.trendingDocSkeletonContainer {
+  padding: var(--kiwi-spacing-1);
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: $document-grid-cols;
+  column-gap: var(--kiwi-spacing-0-5);
+
+  @include xl-screen {
+    grid-template-columns: $document-grid-cols-xl;
+    column-gap: var(--kiwi-spacing-2);
+  }
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: var(--kiwi-spacing-1);
+  }
+
+  .status {
+    display: grid;
+    grid-template-columns: 36px;
+    column-gap: var(--kiwi-spacing-0-5);
+
+    @include xl-screen {
+      grid-template-columns: 48px;
+    }
+  }
+}
+
+.storageCol {
+  margin-left: var(--kiwi-spacing-3);
+}
+
+.moreActions {
+  display: none;
+}
+
+.chatbotOpened {
+  &.trendingDocSkeletonContainer {
+    grid-template-columns: minmax(220px, 1fr) 32px;
+  }
+
+  .ownerCol,
+  .storageCol,
+  .lastOpenedCol {
+    display: none;
+  }
+
+  .moreActions {
+    display: block;
+  }
+
+  @include lgr-screen {
+    &.trendingDocSkeletonContainer {
+      grid-template-columns: minmax(220px, 1fr) 120px 88px 132px;
+    }
+
+    .ownerCol,
+    .storageCol,
+    .lastOpenedCol {
+      display: block;
+    }
+
+    .moreActions {
+      display: none;
+    }
+  }
+
+  @include xlr-screen {
+    &.trendingDocSkeletonContainer {
+      grid-template-columns: $document-grid-cols-xl;
+    }
+  }
+}

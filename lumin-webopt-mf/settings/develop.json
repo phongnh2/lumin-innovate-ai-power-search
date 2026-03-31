@@ -1,0 +1,8 @@
+{
+  "LUMIN_BASE_URL": "https://webopt-dev.luminpdf.com",
+  "LUMIN_PDF_BACKEND_URL": "https://app-dev.luminpdf.com/api/web",
+  "LUMIN_PDF_APP_URL": "https://app-dev.luminpdf.com",
+  "LUMIN_KRATOS_URL": "https://auth-dev.luminpdf.com",
+  "LUMIN_AUTH_SERVICE_URL": "https://account-dev.luminpdf.com",
+  "LUMIN_STATIC_PAGE_URL": "https://dev.luminpdf.com"
+}

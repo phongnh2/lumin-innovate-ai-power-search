@@ -1,0 +1,12 @@
+.NoteCommentBox {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  &.with-transition {
+    transition: top 0.5s ease;
+  }
+  .NoteLumin {
+    margin: 0;
+  }
+}

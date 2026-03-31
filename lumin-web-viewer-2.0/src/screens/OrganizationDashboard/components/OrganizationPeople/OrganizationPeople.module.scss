@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+}

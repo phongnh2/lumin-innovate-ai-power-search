@@ -1,0 +1,49 @@
+# Production domain rules
+tenants:
+  mebanking.com:
+    policy: strictBank
+    organization:
+      domainOrgId: "64374cb7ec089d295eeddea3"
+  
+  gofm.bank:
+    policy: strictBank
+    organization:
+      domainOrgId: "64374cb7ec089d295eeddea3"
+  
+  lumin-vn.com:
+    policy: strictBank
+    organization:
+      domainOrgId: "6704b9e8470951edcbd70cf9"
+  
+  aeis.com:
+    policy: strictBank
+    organization:
+      domainOrgId: "67290ecff786212e311eecc7"
+  
+  lumin-ph.com:
+    policy: driveOnly
+  
+  biotabhealthcare.com:
+    policy: driveOnly
+    files:
+      uploadableServices: ['googleDrive']
+
+  ndtatlas.com:
+    policy: driveOnly
+    files:
+      uploadableServices: ['googleDrive']
+  
+  lumin-nz.com:
+    policy: driveOnly
+
+  lumin-sg.com:
+    policy: governmentExport
+    organization:
+      domainOrgId: "6704b9e8470951edcbd70cf9"
+  
+  nzte.govt.nz:
+    policy: governmentExport
+    organization:
+      domainOrgId: "68fad6c72425a43680ee4521"
+    files:
+      uploadableServices: ['googleDrive']

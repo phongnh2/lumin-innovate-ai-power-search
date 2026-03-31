@@ -1,0 +1,25 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{inviteeName}} invited you to join {{orgName}}'s {{orgWord}} in Lumin</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            As a member of the&nbsp;<b class="highlight">{{orgName}}'s {{orgWord}}</b>, you will gain access to more advanced features in&nbsp;<b class="highlight">Lumin</b>.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Accept the invitation by clicking the button below:&nbsp;
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{invitationLink}}">Accept Invitation</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

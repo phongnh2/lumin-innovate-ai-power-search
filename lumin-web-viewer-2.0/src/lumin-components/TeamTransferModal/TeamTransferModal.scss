@@ -1,0 +1,99 @@
+@import "../../constants/lumin-styles";
+
+.TeamTransferModalWrapper > div:nth-child(2) > div {
+  overflow: unset;
+}
+
+.TeamTransferModal {
+  * {
+    box-sizing: border-box;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 12px;
+    color: var(--color-neutral-100);
+  }
+  &__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-neutral-80);
+    margin-bottom: 28px;
+    strong {
+      font-weight: 600;
+      color: var(--color-neutral-100);
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    &__error {
+      display: flex;
+      padding: 12px 16px;
+      align-items: center;
+      border-radius: 4px;
+      background: var(--color-secondary-10);
+      span {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: var(--color-secondary-50);
+      }
+    }
+    &__label {
+      display: flex;
+      flex-direction: row;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--color-neutral-60);
+    }
+    &__search {
+      position: relative;
+    }
+    &__members {
+      padding: 10px 0;
+      border-top: 1px solid var(--color-neutral-20);
+      border-bottom: 1px solid var(--color-neutral-20);
+      margin: 12px 0 16px 0;
+      &__item {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+        width: 100%;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @include mobile {
+      flex-direction: column-reverse;
+      .cancel {
+        margin-right: 0;
+        margin-top: 12px;
+      }
+    }
+    .button {
+      min-width: auto !important;
+      height: 40px;
+    }
+  }
+}
+
+.TeamTransferModal__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  color: $secondary;
+}

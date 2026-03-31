@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-0-5) 0;
+  min-height: 36px;
+  flex-wrap: wrap;
+}
+
+.label {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  white-space: nowrap;
+
+  @include kiwi-typography-label-md;
+}
+
+.chipList {
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--kiwi-colors-support-purple-background-low);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    opacity 0.15s;
+
+  @include kiwi-typography-label-md;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.loadingRow {
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.shimmerChip {
+  display: inline-block;
+  width: 80px;
+  height: 28px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

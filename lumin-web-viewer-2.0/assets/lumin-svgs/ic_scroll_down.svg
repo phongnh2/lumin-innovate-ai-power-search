@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="68" height="68" viewBox="0 0 68 68">
+    <defs>
+        <linearGradient id="c" x1="132.658%" x2="0%" y1="-24.892%" y2="100%">
+            <stop offset="0%" stop-color="#FA2B56"/>
+            <stop offset="100%" stop-color="#ED3D48"/>
+        </linearGradient>
+        <rect id="b" width="48" height="48" rx="24"/>
+        <filter id="a" width="183.3%" height="183.3%" x="-41.7%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" radius="2" result="shadowSpreadOuter1"/>
+            <feOffset dy="10" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.941176471 0 0 0 0 0.223529412 0 0 0 0 0.294117647 0 0 0 0.554574275 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(10)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="url(#c)" xlink:href="#b"/>
+        </g>
+        <g fill="#FFF" fill-rule="nonzero">
+            <path d="M33.81 32.216l-6.018-6.034a.984.984 0 0 1 0-1.39.978.978 0 0 1 1.386 0l5.324 5.34 5.325-5.34a.978.978 0 0 1 1.386 0 .985.985 0 0 1 0 1.39l-6.018 6.035a.975.975 0 0 1-1.385 0z"/>
+            <path d="M33.81 23.216l-6.018-6.034a.984.984 0 0 1 0-1.39.978.978 0 0 1 1.386 0l5.324 5.34 5.325-5.34a.978.978 0 0 1 1.386 0 .985.985 0 0 1 0 1.39l-6.018 6.035a.975.975 0 0 1-1.385 0z" opacity=".5"/>
+        </g>
+    </g>
+</svg>

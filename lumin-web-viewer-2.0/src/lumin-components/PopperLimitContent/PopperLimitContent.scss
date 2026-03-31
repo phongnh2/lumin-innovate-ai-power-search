@@ -1,0 +1,20 @@
+@import '../../constants/free-plan.scss';
+
+.PopperLimit {
+  &__title {
+    @extend %title;
+  }
+  &__message {
+    @extend %message;
+  }
+  &__popper {
+    @extend %popper;
+  }
+
+  &__btn-group {
+    @extend %btn-group;
+    button {
+      white-space: break-spaces;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 232 104" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<linearGradient id="d" x1="50%" x2="50%" y2="100%">
+<stop stop-color="#FFF" offset="0"/>
+<stop stop-color="#FFF" stop-opacity="0" offset="1"/>
+</linearGradient>
+<linearGradient id="c" x1="100%" x2="0%" y1="50%" y2="50%">
+<stop stop-color="#FFF" offset="0"/>
+<stop stop-color="#FFF" stop-opacity="0" offset="1"/>
+</linearGradient>
+<rect id="b" width="232" height="104" rx="4"/>
+</defs>
+<g fill="none" fill-rule="evenodd">
+<g>
+<mask id="a" fill="#fff">
+<use xlink:href="#b"/>
+</mask>
+<path d="m87.082 112.4c-81.11-82.054 26.208-179.39 116.01-204.67s201.05-73.463 267.86-172.04c66.81-98.575 295.68 108.48 170.71 265.41s-201.92-44.329-291.06 29.239c-89.14 73.567-182.41 164.11-263.52 82.055z" fill="url(#d)" mask="url(#a)" opacity=".5"/>
+<path d="m85.451 168.55c-85.998-87 27.788-190.2 123-217s213.17-77.89 284-182.41c70.835-104.52 313.5 115.02 181 281.41-132.5 166.39-214.09-47-308.6 31-94.51 78-193.4 174-279.4 87z" fill="url(#c)" mask="url(#a)"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,8 @@
+input UpdateDocumentActionPermissionSettingsInput {
+  documentId: ID! @MongoId
+  principles: [String!]! @Regex(pattern: "^(ANYONE|SHARER|EDITOR|VIEWER)$") @Array(min: 1, max: 10)
+}
+
+type Mutation {
+  updateDocumentActionPermissionSettings(input: UpdateDocumentActionPermissionSettingsInput!): DocumentCapabilities
+}

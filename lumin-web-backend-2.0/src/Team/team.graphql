@@ -1,0 +1,83 @@
+type Team {
+  _id: ID
+  name: String
+  avatarRemoteId: String
+  members(input: UserQueryInput, options: QueryOptionsInput): [User]
+  membersCount(input: UserQueryInput): Int
+  totalActiveMembers: Int
+  totalMembers: Int
+  roleOfUser(userId: ID): String
+  belongsTo(options: GetBelongsToOptions): BelongsToData
+  createdAt: Date
+  owner: User
+  payment: Payment
+  endTrial: Date
+  folders: [Folder]
+  settings: TeamSettings
+}
+
+input GetBelongsToOptions {
+  detail: Boolean
+}
+
+type TeamSettings {
+  templateWorkspace: String
+}
+
+type BelongsToData {
+  targetId: ID
+  detail: Organization
+  type: String
+}
+
+input MembershipSortInput {
+  roleValue: SortStrategy
+  isOwner: SortStrategy
+  _id: SortStrategy
+  email: SortStrategy
+  name: SortStrategy
+}
+
+input QueryOptionsInput {
+  sort: MembershipSortInput
+  offset: Int
+  limit: Int
+  cursor: ID
+}
+
+input TeamInput {
+  name: String @NotIncludes(patterns: ["html", "url"])  @Length(min: 1, max: 100)
+  avatarRemoteId: String
+  ownerId: ID @MongoId
+}
+
+input UpdateTeamsInput {
+  clientId: ID! @MongoId
+}
+
+input UpdateTeamSettingsInput {
+  templateWorkspace: TeamTemplateWorkspace
+}
+
+type UpdateTeamsPayload {
+  team: Team!  
+  type: String!
+  statusCode: Int!
+  clientId: ID!
+}
+
+type DeleteTeamPayload {
+  team: Team
+  documents: [String]
+  members: [String]
+}
+
+
+type Query {
+  teamsOfUser(clientId: ID! @MongoId(key: "clientId")): [Team]
+  team(teamId: ID! @MongoId(key: "teamId")): Team
+}
+
+type Subscription {
+  updateTeams(input: UpdateTeamsInput!): UpdateTeamsPayload
+}

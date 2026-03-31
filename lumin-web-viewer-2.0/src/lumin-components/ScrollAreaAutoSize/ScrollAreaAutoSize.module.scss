@@ -1,0 +1,10 @@
+.wrapperParent {
+  display: flex;
+  overflow: auto;
+}
+
+.wrapperChild {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

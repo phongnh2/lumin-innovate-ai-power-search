@@ -1,0 +1,28 @@
+@import 'reskin/screens.scss';
+
+.scrollArea {
+  height: 100%;
+
+  .scrollViewport > div {
+    height: 100%;
+  }
+}
+
+.contentContainer {
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  @include xl-screen {
+    padding: 0;
+  }
+  &[data-offline="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.contentWrapperFlex {
+  display: flex;
+}

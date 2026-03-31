@@ -1,0 +1,117 @@
+@import 'reskin/screens.scss';
+
+.apiKeyList {
+  width: 100%;
+  margin-top: var(--kiwi-spacing-2);
+}
+
+.header {
+  padding: var(--kiwi-spacing-1-5) 0;
+
+  p {
+    @include kiwi-typography-body-md;
+    color: var(--kiwi-colors-surface-on-surface-variant);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.rowWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: var(--kiwi-spacing-2);
+  & > :nth-of-type(1) {
+    flex: 0.8;
+    @include xl-screen {
+      width: 160px;
+      flex: none;
+    }
+    @include xxl-screen {
+      width: 240px;
+      flex: none;
+    }
+  }
+  & > :nth-of-type(2) {
+    flex: 2;
+    @include xl-screen {
+      flex: 1;
+    }
+    @include xxl-screen {
+      flex: 2;
+    }
+  }
+  & > :nth-of-type(3) {
+    flex: 1.4;
+    @include xl-screen {
+      width: 140px;
+      flex: none;
+    }
+    @include xxl-screen {
+      flex: 1.4;
+    }
+  }
+  & > :nth-of-type(4) {
+    flex: 1;
+    @include xl-screen {
+      width: 100px;
+      flex: none;
+    }
+    @include xxl-screen {
+      flex: 1;
+    }
+  }
+  & > :nth-of-type(5) {
+    flex: 0.8;
+    @include xl-screen {
+      width: 80px;
+      flex: none;
+    }
+    @include xxl-screen {
+      flex: 0.8;
+    }
+  }
+  & > :nth-of-type(6) {
+    width: 32px;
+  }
+}
+
+.row {
+  padding: var(--kiwi-spacing-1) 0;
+  border-top: 1px solid var(--kiwi-colors-surface-outline-variant);
+
+  p {
+    @include kiwi-typography-body-md;
+    color: var(--kiwi-colors-surface-on-surface);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.valueColumn {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+
+  i {
+    cursor: pointer;
+    color: var(--kiwi-colors-surface-on-surface-variant);
+  }
+}
+
+.divider {
+  margin: var(--kiwi-spacing-1);
+}
+
+.noApiKey {
+  @include kiwi-typography-body-md;
+
+  margin: var(--kiwi-spacing-2) 0;
+  opacity: var(--kiwi-opacity-alpha-60);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  text-align: center;
+  width: 100%;
+}

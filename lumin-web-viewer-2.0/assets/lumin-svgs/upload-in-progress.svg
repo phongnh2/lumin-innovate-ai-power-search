@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/16/Upload-Inprogress-16-Grey </title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/16/Upload-Inprogress-16-Grey-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill-rule="nonzero">
+            <path d="M3.33333333,6 L8,0 L12.6666667,6 L8.66666667,6 L8.66666667,11.3333333 C8.66666667,11.702 8.36866667,12 8,12 C7.63133333,12 7.33333333,11.702 7.33333333,11.3333333 L7.33333333,6 L3.33333333,6 Z" id="Fill-302" fill="#8093A7"></path>
+            <g id="Group-2" transform="translate(0.000000, 14.000000)">
+                <path d="M15.3333333,2 L0.666666667,2 C0.298666667,2 0,1.70133333 0,1.33333333 C0,0.965333333 0.298666667,0.666666667 0.666666667,0.666666667 L15.3333333,0.666666667 C15.7013333,0.666666667 16,0.965333333 16,1.33333333 C16,1.70133333 15.7013333,2 15.3333333,2 Z" id="Fill-301" fill="#8093A7"></path>
+                <path d="M7.66666667,2 L0.333333333,2 C0.149333333,2 0,1.70133333 0,1.33333333 C0,0.965333333 0.149333333,0.666666667 0.333333333,0.666666667 L7.66666667,0.666666667 C7.85066667,0.666666667 8,0.965333333 8,1.33333333 C8,1.70133333 7.85066667,2 7.66666667,2 Z" id="Fill-301-Copy" fill="#ED3D48"></path>
+            </g>
+        </g>
+    </g>
+</svg>

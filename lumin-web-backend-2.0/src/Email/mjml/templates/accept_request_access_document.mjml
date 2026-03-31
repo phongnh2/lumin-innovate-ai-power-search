@@ -1,0 +1,36 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-raw>
+      {{setVar "documentUrl" (concat baseUrl "/viewer/" documentId)}}
+    </mj-raw>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Your request for {{role}} permission on {{documentName}} document has been accepted</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            You can access this document now by clicking the button below:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-raw>
+            <table style="border-collapse:separate;line-height:100%">
+              <tbody>
+                <tr>
+                  <td style="border:none;border-radius:8px;height:48px;text-align:center;background:#f2385a">
+                    <a href="{{documentDeeplink}}" style="display:inline-block;background:#f2385a;color:#ffffff;font-family:Roboto,sans-serif;font-size:17px;font-weight:500;line-height:22px;margin:0;text-decoration:none;text-transform:none;padding:12px 16px;border-radius:8px" target="_blank" deeplink="true" >
+                      Open Document
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mj-raw>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

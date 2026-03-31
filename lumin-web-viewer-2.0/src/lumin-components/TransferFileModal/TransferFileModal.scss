@@ -1,0 +1,37 @@
+@import '../../constants/styles';
+@import '../../constants/lumin-styles';
+
+.TransferFileModal {
+  &__container {
+    padding: 30px 40px;
+    max-width: 320px;
+  }
+  &__icon {
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__title {
+    color: $primary;
+    font-size: 18px;
+    letter-spacing: -0.4px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3px;
+  }
+  &__message {
+    color: $secondary;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+    span {
+      font-weight: 600;
+    }
+  }
+  button {
+    @include mobile {
+      min-width: unset !important;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export default function convertToOfficeFile(convertType: string): Promise<ArrayBuffer>;

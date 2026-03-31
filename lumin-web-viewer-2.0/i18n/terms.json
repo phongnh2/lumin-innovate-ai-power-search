@@ -1,0 +1,17 @@
+{
+  "organization_old": "Circle",
+  "team_old": "Team",
+  "teams_old": "Teams",
+  "organization": "Workspace",
+  "organizations": "Workspaces",
+  "team": "Space",
+  "teams": "Spaces",
+  "aiBeta": "AI beta",
+  "seat": "seat",
+  "seats": "seats",
+  "seat_label": "Seat",
+  "seats_label": "Seats",
+  "pluralSeat_zero": "seat",
+  "pluralSeat_one": "seat",
+  "pluralSeat_other": "seats"
+}

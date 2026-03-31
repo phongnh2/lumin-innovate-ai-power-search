@@ -1,0 +1,37 @@
+.documentInfoIcon {
+	max-width: var(--kiwi-spacing-5);
+}
+
+.blockWrapper {
+	display: flex;
+	padding: var(--kiwi-spacing-2);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--kiwi-spacing-1-5);
+	align-self: stretch;
+	border-radius: var(--kiwi-border-radius-md);
+	border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-surface-container-highest);
+	background: var(--kiwi-colors-surface-surface-bright);
+}
+
+.itemWrapper {
+	display: grid;
+	grid-template-columns: 136px 1fr;
+	gap: var(--kiwi-spacing-1-5);
+}
+
+.textValue {
+	overflow: hidden;
+	margin: calc(var(--kiwi-spacing-0-125) * -1);
+	padding: var(--kiwi-spacing-0-125);
+}
+
+.membersSize {
+	display: flex;
+	align-items: center;
+	gap: var(--kiwi-spacing-1);
+}
+
+.buttonConfirm {
+	padding: var(--kiwi-spacing-1) var(--kiwi-spacing-4);
+}

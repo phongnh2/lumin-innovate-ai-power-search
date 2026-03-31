@@ -1,0 +1,58 @@
+.paper {
+  padding: 16px;
+  border-radius: var(--kiwi-border-radius-lg);
+  box-shadow: var(--kiwi-shadow-4);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+
+  @media screen and (width >= 768px) {
+    padding: 24px;
+  }
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.description {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.detailContainer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-row-gap: var(--kiwi-spacing-1-5);
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+}
+
+.icomoon {
+  color: var(--kiwi-colors-semantic-success);
+}
+
+.detailMessage {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-left: var(--kiwi-spacing-1);
+}
+
+.button {
+  @include kiwi-typography-label-lg;
+  margin-top: var(--kiwi-spacing-3);
+}
+
+.closeIcon {
+  top: 16px;
+  right: 16px;
+
+  @media screen and (width >= 768px) {
+    top: 24px;
+    right: 24px;
+  }
+}

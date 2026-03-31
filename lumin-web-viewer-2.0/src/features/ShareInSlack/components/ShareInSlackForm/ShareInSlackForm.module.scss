@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+}
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.optionInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.option {
+  &:where([data-combobox-active]) {
+    background-color: unset;
+  }
+}
+
+.dropdown {
+  padding-right: var(--kiwi-spacing-1);
+  padding-left: var(--kiwi-spacing-1);
+  &:has([data-mantine-scrollbar]) {
+    padding-right: 0;
+  }
+}
+
+.viewport {
+  padding-right: var(--kiwi-spacing-1);
+}
+
+.nothingFoundMessage {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.channelIcon {
+  padding: var(--kiwi-spacing-0-25);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.optionLabel {
+  margin-left: var(--kiwi-spacing-0-5);
+}
+
+.groupLabel {
+  @include kiwi-typography-headline-xs;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1-5);
+  &::after {
+    display: none;
+  }
+}
+
+.shareButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kiwi-spacing-2);
+}
+
+.shareButton {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-4);
+}
+
+.addMessageLabelContainer {
+  width: 100%;
+}
+
+.addMessageLabelWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  justify-content: space-between;
+}
+
+.addMessageLabel {
+  display: flex;
+  align-items: center;
+}
+
+.optionalText {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.addMessageInput {
+  @include kiwi-typography-body-md;
+}
+
+.privateChannelWarning {
+  margin-top: calc(var(--kiwi-spacing-1) * -1);
+}

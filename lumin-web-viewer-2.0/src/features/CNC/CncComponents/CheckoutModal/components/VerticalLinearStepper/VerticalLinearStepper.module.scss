@@ -1,0 +1,19 @@
+.separator {
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  inset-inline-start: 0;
+  top: 30px;
+  left: 50%;
+}
+
+.separator:where([data-active]) {
+  border-color: var(--kiwi-colors-core-primary);
+}
+
+.stepIcon:where([data-progress]) {
+  border: 2px solid var(--kiwi-colors-core-primary);
+}
+
+.stepBody {
+  margin-inline-start: var(--kiwi-spacing-0-5);
+  margin-top: var(--kiwi-spacing-0-25);
+}

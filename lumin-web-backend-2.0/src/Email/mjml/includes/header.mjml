@@ -1,0 +1,162 @@
+
+<mj-font name="Roboto" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500" />
+<mj-html-attributes>
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+</mj-html-attributes>
+<mj-style inline="inline">
+  body {
+    background-color: #FDF7F6;
+    max-width: none;
+    width: 100%;
+  }
+
+  .wrapper-child {
+    max-width: 536px;
+    margin: 0 auto;
+  }
+
+  .welcome-pager {
+    background-color: #fff;
+    border-radius: 4px;
+    max-width: 506px;
+    margin: 0 auto;
+  }
+
+  .link {
+    color: #F2385A;
+    text-decoration: underline;
+  }
+
+  .link-secondary {
+    color: #101828;
+    text-decoration: underline;
+  }
+
+  .text-secondary {
+    color: #667085;
+  }
+
+  .text-highlight, .highlight {
+    color: #F2385A;
+  }
+
+  .text-small {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  .text-large {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+  .new-badge {
+    padding: 2px 8px;
+    background: #F2385A;
+    border-radius: 65px;
+    display: inline-block!important;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 8px !important;
+    color: #fff; 
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .link-not-underline {
+    color: #F2385A;
+    text-decoration: none;
+  }
+  .text-bold {
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+  .format-time {
+     margin: 0 0 0 8px;
+     color: #667085;
+  }
+  .list {
+    padding-left: 8px;
+    margin: 22px 0 0;
+  }
+</mj-style>
+<mj-style>
+  @media only screen and (min-width: 480px) {
+    .download > table > tbody > tr > td {
+      padding: 24px !important;
+      text-align: left !important;
+      display: flex;
+      height: 44px;
+    }
+    .download-text-wrapper {
+      padding-right: 24px;
+      width: 185px!important;
+      }
+    .download-text-wrapper > table > tbody > tr > td {
+      padding-right: 24px;
+      width: 185px!important;
+      }
+    .download-text {
+      padding-bottom: 0px!important;
+    }
+    .social > table > tbody > tr > td {
+      display: flex;
+      padding: 8px 0px !important;
+    }
+    .address-text-wrapper > table > tbody > tr > td {
+      	padding-top: 6px !important;
+      }
+    .address-text {
+      padding: 0px!important;
+    }
+    .social-logo {
+      width: 192px!important;
+    }
+    .download-logo {
+      padding-top: 2px !important;
+    }
+    .logo-item {
+      padding-right: 24px !important;
+      width: 24px !important;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .mj-main-pager {
+      max-width: calc(100% - 16px) !important;
+    }
+    .social-logo {
+      width: 224px!important;
+      padding: 8px 0px !important;
+      align-items: flex-start !important;
+      display: flex !important;
+    }
+    .download-logo {
+      width: 272px!important;
+      align-items: flex-start !important;
+      display: flex !important;
+    }
+    .download-ios > table > tbody > tr > td {
+      padding-right: 16px !important;
+    }
+    .footer-wrapper {
+      padding: 0px 8px !important;
+    }
+    .logo-item {
+      padding-right: 16px !important;
+      width: 24px !important;
+    }
+  }
+</mj-style>
+<mj-attributes>
+  <mj-text padding="0" font-size="15px" line-height="22px" color="#101828" font-weight="400" />
+  <mj-button padding="0" inner-padding="12px 16px" font-size="17px" line-height="22px" color="#fff" font-weight="500" border-radius="8px" text-decoration="none" background-color="#102D42" font-family="Roboto, sans-serif" text-align="center" height="48px" />
+  <mj-section padding="0" />
+  <mj-column padding="0" width="100%" />
+  <mj-all font-family="Roboto, sans-serif" />
+  <mj-class name="link" color="#F2385A" text-decoration="underline" />
+  <mj-class name="bold" font-weight="500" />
+  <mj-class name="text-small" font-size="12px" line-height="16px" />
+  <mj-class name="text-large" font-size="22px" line-height="28px" font-weight="500" />
+  <mj-class name="text-highlight" color="#F2385A" />
+  <mj-class name="text-secondary" color="#667085" />
+</mj-attributes>

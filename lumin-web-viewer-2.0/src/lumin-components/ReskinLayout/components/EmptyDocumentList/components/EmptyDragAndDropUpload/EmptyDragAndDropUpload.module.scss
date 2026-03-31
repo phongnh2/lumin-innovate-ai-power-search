@@ -1,0 +1,116 @@
+.uploadFromMyDeviceInput {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+}
+
+.dragAndDropSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  height: 64%;
+  min-height: 380px;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--kiwi-border-radius-md);
+  cursor: pointer;
+  transition: var(--default-web-transition);
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: inherit;
+    transition: var(--default-web-transition);
+    background-color: transparent;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:active {
+    &::after {
+      background-color: var(--kiwi-colors-custom-role-web-thumbnail-blue-1);
+      opacity: var(--kiwi-opacity-state-layer-hovered);
+    }
+
+    .dragAndDropSectionBackgroundBorder {
+      stroke: var(--kiwi-colors-core-primary);
+    }
+  }
+
+  &:active {
+    &::after {
+      opacity: var(--kiwi-opacity-state-layer-pressed);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: var(--kiwi-opacity-disabled-on-container);
+    &::before {
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.dragAndDropSectionBackground {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  padding: 1px;
+}
+
+.dragAndDropSectionBackgroundBorder {
+  stroke-width: 1;
+  rx: var(--kiwi-border-radius-md);
+  stroke: var(--kiwi-colors-surface-outline);
+  transition: stroke var(--default-web-transition-duration) ease-in-out;
+
+  &.dragging {
+    stroke: var(--kiwi-colors-core-primary);
+  }
+}
+
+.dropping {
+  background-color: var(--kiwi-colors-custom-role-web-surface-blue);
+}
+
+.dragAndDrop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dragAndDropImage {
+  max-width: 180px;
+  margin-bottom: var(--kiwi-spacing-0-5);
+}
+
+.dragAndDropIcon {
+  font-size: 40px;
+}
+
+.dragAndDropDescription {
+  margin-top: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+  text-align: center;
+}
+
+.agreementSectionOpen {
+  height: 44%;
+}

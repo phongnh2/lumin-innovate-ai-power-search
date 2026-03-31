@@ -1,0 +1,91 @@
+@import "../../constants/lumin-styles";
+
+.ToolButtonGroupArrowDropdown {
+  display: flex;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  position: relative;
+
+  &.active {
+    .ToolButtonGroupArrowDropdown__button,
+    .ToolGroupButton {
+      background-color: var(--color-neutral-20);
+      @include themify {
+        background-color: themed("selectedPopperButton");
+      }
+    }
+    .icon {
+      color: var(--color-primary-90);
+      @include themify {
+        color: themed("selectedPopperButtonIcon");
+      }
+    }
+  }
+
+  &:hover {
+    @include themify {
+      border: 1px solid themed("borderToolButtonArrowDropdown");
+    }
+  }
+
+  &--active {
+    @include themify {
+      border: 1px solid themed("borderToolButtonArrowDropdown");
+    }
+  }
+
+  .ToolGroupButton {
+    border-radius: 3px 0 0 3px;
+    min-height: 26px;
+    min-width: 26px;
+    height: 26px;
+    width: 26px;
+
+    &:active {
+      @include themify {
+        background: themed("buttonArrowFocusBg");
+        color: themed("buttonArrowFocusText");
+      }
+    }
+  }
+
+  .ToolButtonGroupArrowDropdown__button {
+    display: flex;
+    align-content: center;
+    min-width: 4px;
+    padding: 0 2px;
+    color: var(--color-neutral-60);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 3px;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    border-bottom-right-radius: 3px;
+
+    @include themify {
+      &:hover {
+        background: themed("buttonArrowHoverBg");
+      }
+
+      &:active {
+        background: themed("buttonArrowFocusBg");
+        color: themed("buttonArrowFocusText");
+      }
+
+      &--active {
+        background: themed("buttonArrowActiveBg");
+      }
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+
+    &.disabled--offline {
+      pointer-events: none;
+    }
+  }
+}
+
+.ToolButtonArrowDropdown--has-margin {
+  margin-right: 6px;
+}

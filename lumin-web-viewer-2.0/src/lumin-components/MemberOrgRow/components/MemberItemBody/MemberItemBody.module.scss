@@ -1,0 +1,29 @@
+
+.container {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+
+  .memberInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kiwi-spacing-0-25);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .name {
+      @include kiwi-typography-title-sm;
+      color: var(--kiwi-colors-surface-on-surface);
+
+      span {
+        color: var(--kiwi-colors-semantic-error)
+      }
+    }
+
+    .email {
+      @include kiwi-typography-body-sm;
+      color: var(--kiwi-colors-surface-on-surface-variant);
+    }
+  }
+}

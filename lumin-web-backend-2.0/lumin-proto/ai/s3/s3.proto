@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package s3;
+
+service s3Service {
+  rpc GenerateGetObjectUrl(GenerateGetObjectUrlRequest) returns (GenerateGetObjectUrlResponse) {};
+  rpc GeneratePutObjectUrl(GeneratePutObjectUrlRequest) returns (GeneratePutObjectUrlResponse) {};
+  rpc GetObjectMetadata(GetObjectMetadataRequest) returns (GetObjectMetadataResponse) {};
+}
+
+message GenerateGetObjectUrlRequest {
+  string key = 1;
+  string bucketName = 2;
+  string versionId = 3;
+}
+
+message GenerateGetObjectUrlResponse {
+  string presignedUrl = 1;
+}
+
+message GeneratePutObjectUrlRequest {
+  string key = 1;
+  string bucketName = 2;
+}
+
+message GeneratePutObjectUrlResponse {
+  string presignedUrl = 1;
+}
+
+message GetObjectMetadataRequest {
+  string key = 1;
+  string bucketName = 2;
+  string versionId = 3;
+}
+
+message GetObjectMetadataResponse {
+  string ETag = 1;
+}

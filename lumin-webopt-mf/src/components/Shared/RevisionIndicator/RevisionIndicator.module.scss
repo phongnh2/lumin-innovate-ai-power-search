@@ -1,0 +1,63 @@
+.container {
+  height: 48px;
+  display: flex;
+  padding: var(--kiwi-spacing-1-75) var(--kiwi-spacing-2)
+    var(--kiwi-spacing-1-75) var(--kiwi-spacing-1-25);
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--kiwi-colors-support-blue-background-highest);
+  margin-bottom: 24px;
+}
+
+.latestRevision {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 0 0;
+}
+
+.latestRevisionText {
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-label-sm;
+
+  @include media-query-up(md) {
+    @include kiwi-typography-label-md;
+  }
+}
+
+.latestRevisionIcon {
+  --icon-size: 16px;
+
+  font-size: var(--icon-size);
+
+  @include media-query-up(md) {
+    --icon-size: 20px;
+  }
+}
+
+.viewOtherRevisions {
+  display: flex;
+  padding: var(--kiwi-spacing-0);
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-25);
+  color: var(--kiwi-colors-surface-on-surface);
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+
+  @include kiwi-typography-label-md;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    background-color: transparent;
+  }
+}

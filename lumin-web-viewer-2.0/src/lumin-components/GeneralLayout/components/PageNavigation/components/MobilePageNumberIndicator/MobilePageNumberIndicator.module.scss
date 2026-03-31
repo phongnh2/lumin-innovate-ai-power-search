@@ -1,0 +1,17 @@
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: $kiwi-spacing-2;
+  z-index: var(--zindex-page-navigation);
+  padding: $kiwi-spacing-1-25 $kiwi-spacing-1-5;
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-bright);
+  opacity: var(--kiwi-opacity-scrim-darker);
+}
+
+.pageNumber {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+  padding: $kiwi-spacing-0-5;
+}

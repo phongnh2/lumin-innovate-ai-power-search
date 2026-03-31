@@ -1,0 +1,21 @@
+version: '3'
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    volumes:
+      - "/Users/Shared/lumin-dev:/data/db"
+    ports:
+      - 27017:27017
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.17.1
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node

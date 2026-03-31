@@ -1,0 +1,46 @@
+@import 'reskin/screens.scss';
+
+$header-height: 56px;
+$header-mobile-height: 40px;
+
+.wrapper {
+  width: 100%;
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.header {
+  height: $header-mobile-height;
+  padding: var(--kiwi-spacing-1) 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  position: sticky;
+  top: 0;
+  z-index: calc(var(--zindex-popover) + 1);
+  @include md-screen {
+    padding: var(--kiwi-spacing-1) var(--kiwi-spacing-3);
+    height: $header-height;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-2) var(--kiwi-spacing-5);
+  min-height: calc(100vh - $header-mobile-height);
+
+  @include md-screen {
+    min-height: calc(100vh - $header-height);
+    padding: var(--kiwi-spacing-3) 0 var(--kiwi-spacing-7);
+    gap: var(--kiwi-spacing-3);
+    max-width: 688px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include xl-screen {
+    max-width: none;
+  }
+}

@@ -1,0 +1,19 @@
+.container {
+  width: min(480px, calc(100vw - var(--kiwi-spacing-4) * 2));
+  overflow: hidden;
+  position: fixed;
+  bottom: var(--kiwi-spacing-2);
+  right: var(--kiwi-spacing-4);
+  margin-left: var(--kiwi-spacing-4);
+  z-index: var(--zindex-kiwi-modal-low);
+  visibility: visible;
+  opacity: 1;
+  transition-property: visibility, opacity;
+  transition-duration: var(--default-web-transition-duration);
+  transition-behavior: linear;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

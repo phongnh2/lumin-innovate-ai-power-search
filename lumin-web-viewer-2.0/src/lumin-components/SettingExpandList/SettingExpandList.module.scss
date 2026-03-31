@@ -1,0 +1,64 @@
+.container {
+  margin-top: var(--kiwi-spacing-2-5);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-surface-container-highest);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.iconWrapper {
+  height: 100%;
+  transition: var(--default-transition);
+}
+
+.rotate180Deg {
+  transform: rotate(-180deg);
+}
+
+.rotate0Deg {
+  transform: rotate(0deg);
+}
+
+.buttonWrapper {
+  padding-top: var(--kiwi-spacing-1-5);
+}
+
+.listDomain {
+  padding-top: var(--kiwi-spacing-0-5);
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-0-5) 0;
+  border-bottom: 1px solid var(--kiwi-colors-surface-outline-variant);
+}
+
+.domainText {
+  @include kiwi-typography-body-lg;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.listIconWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+}

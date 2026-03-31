@@ -1,0 +1,16 @@
+@import '../../../../constants/lumin-styles';
+
+.DocumentMemberRolePopper__item {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-neutral-80);
+  @include themify() {
+    color: themed('textMenuItem');
+  }
+  height: 40px;
+}
+
+.DocumentMemberRolePopper__itemIcon {
+  margin-right: 12px;
+}

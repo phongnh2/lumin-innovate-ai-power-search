@@ -1,0 +1,71 @@
+$info-bg-color: var(--kiwi-colors-semantic-information-container);
+$warning-bg-color: var(--kiwi-colors-semantic-warning-container);
+$critical-bg-color: var(--kiwi-colors-semantic-error-container);
+
+$info-btn-color: var(--kiwi-colors-semantic-information);
+$warning-btn-color: var(--kiwi-colors-semantic-on-warning-container);
+$critical-btn-color: var(--kiwi-colors-semantic-error);
+
+.container {
+  width: 100%;
+  height: fit-content;
+  padding: var(--kiwi-spacing-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kiwi-spacing-2);
+
+  &[data-type='info'] {
+    background-color: $info-bg-color;
+  }
+
+  &[data-type='warning'] {
+    background-color: $warning-bg-color;
+  }
+
+  &[data-type='critical'] {
+    background-color: $critical-bg-color;
+  }
+}
+
+.contentWrapper {
+  word-break: break-word;
+  padding: var(--kiwi-spacing-0-5) 0;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.actionButtons {
+  min-width: fit-content;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.button {
+  &[data-type='info'] {
+    color: $info-btn-color;
+    border-color: $info-btn-color;
+  }
+  &[data-type='warning'] {
+    color: $warning-btn-color;
+    border-color: $warning-btn-color;
+  }
+  &[data-type='critical'] {
+    color: $critical-btn-color;
+    border-color: $critical-btn-color;
+  }
+}
+
+.leftIconWrapper {
+  flex-shrink: 0;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

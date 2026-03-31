@@ -1,0 +1,69 @@
+.switcherInfoContainer {
+  display: inline-flex;
+  padding: var(--kiwi-spacing-2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  width: 100%;
+  position: relative;
+}
+
+.workspaceInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-25);
+  align-self: stretch;
+  text-align: center;
+}
+
+.orgName {
+  @include kiwi-typography-headline-xs;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspacePlan {
+  color: var(--kiwi-colors-custom-role-web-surface-var-subtext);
+}
+
+.workspaceActionWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.workspaceSetting {
+  background: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.createWorkspaceWrapper {
+  position: absolute;
+  right: var(--kiwi-spacing-1);
+  top: var(--kiwi-spacing-1);
+}
+
+.uploadLogoBtnWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-semantic-information-container);
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  position: relative;
+}
+
+.uploadLogoBtnWrapper::before {
+  content: "";
+  position: absolute;
+  border-radius: 0 var(--kiwi-border-radius-sm) var(--kiwi-border-radius-sm) 0;
+  left: 0;
+  top: var(--kiwi-spacing-1);
+  bottom: var(--kiwi-spacing-1);
+  width: var(--kiwi-spacing-0-25);
+  background: var(--kiwi-colors-semantic-information);
+}

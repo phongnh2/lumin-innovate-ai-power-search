@@ -1,0 +1,69 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.Thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 28px;
+  cursor: pointer;
+  min-height: 200px;
+  min-width: 147px;
+  @include tablet-and-mobile {
+    min-height: 200px;
+    min-width: 154px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+
+  .container {
+    opacity: 0.6;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+    .page-image {
+      border: 1px solid var(--color-neutral-20);
+      box-shadow: 0 8px 16px 0 rgba(39, 61, 87, 0.15);
+      border-radius: 5px;
+    }
+
+    .annotation-image {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .page-label {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 375;
+    font-family: $font-stack-primary;
+    @include themify() {
+      color: themed('textColorLighter');
+    }
+  }
+
+  &.active {
+    .container {
+      opacity: 1;
+    }
+    .page-image {
+      border: 1px solid var(--color-other-2);
+      box-shadow: none;
+      box-sizing: content-box;
+    }
+    .page-label {
+      font-weight: 600;
+    }
+  }
+}

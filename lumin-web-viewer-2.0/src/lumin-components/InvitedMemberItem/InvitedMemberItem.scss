@@ -1,0 +1,43 @@
+@import "../../constants/lumin-styles";
+.InvitedMemberItem {
+  padding: 8px 0;
+  align-items: center;
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-left: 8px;
+      width: 160px;
+      @media screen and (max-width: 320px) {
+        width: 120px;
+      }
+    }
+    &__avatar {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+  }
+  &__text {
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: $red;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @include themify() {
+      color: themed('textColor');
+    }
+    &--secondary {
+      color: $secondary;
+      font-weight: 400;
+      @include themify() {
+        color: themed('squareButtonColor');
+      }
+    }
+  }
+}

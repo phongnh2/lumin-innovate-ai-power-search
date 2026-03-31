@@ -1,0 +1,26 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/cancel_free_trial.png" />
+          <mj-spacer height="24px" />
+          <mj-text mj-class="text-large">Your free trial has been canceled</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Thanks for trying out Lumin {{plan}}! We hope you enjoyed gaining access to our Premium range of features. 
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Otherwise, you’ll still have access to your free account. 
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>
+

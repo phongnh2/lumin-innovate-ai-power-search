@@ -1,0 +1,33 @@
+.container {
+  padding: 0 6px;
+  background-color: var(--color-warning-50);
+  border-radius: var(--border-radius-dense);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-neutral-0);
+  display: flex;
+  gap: 2px;
+  border: none;
+  align-items: center;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+  &:active,
+  &:hover {
+    background-color: var(--color-warning-60);
+  }
+}
+
+.text {
+  padding: 2.5px 0 1.5px;
+}
+
+.chip {
+  color: var(--kiwi-colors-custom-brand-tools-on-esign-container);
+  background-color: var(--kiwi-colors-custom-brand-tools-esign-container);
+}
+
+.businessLabelWrapper {
+  display: flex;
+}

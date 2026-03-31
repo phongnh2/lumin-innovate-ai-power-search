@@ -1,0 +1,45 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Professional subscription canceled</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            We hope Lumin has made your life easier over the last&nbsp;<b class="highlight">{{numberDaysUsePremium}}&nbsp;</b>days.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Your Lumin plan has been downgraded to the Free plan, which has the following limitations:
+          </mj-text>
+          <mj-text>
+            <ul>
+              <li style="margin-bottom: 4px">Documents are only stored for one year</li>
+              <li style="margin-bottom: 4px">Doc stack is limited to 3 documents per month</li>
+              <li style="margin-bottom: 4px">E-signature and commenting features are disabled</li>
+            </ul>
+          </mj-text>
+          <mj-text>
+            If you'd like to renew your Professional subscription at any time, click the following button
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/payment/individual/annual">Renew Subscription</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Whether you renew your Professional subscription or stick with the Free version, we're grateful to have you on board.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            If you had any issues using Lumin Professional or have questions, you can contact our friendly support team at <a href="mailto:support@luminpdf.com" class="link">
+              support@luminpdf.com
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

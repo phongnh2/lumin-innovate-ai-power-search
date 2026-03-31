@@ -1,0 +1,30 @@
+.container {
+  padding-left: var(--kiwi-spacing-1-5);
+  padding-right: var(--kiwi-spacing-1-5);
+  
+  &[data-navigation-expanded="true"] {
+    width: var(--lumin-left-side-bar-width-expanded);
+    padding-left: 0;
+    flex-shrink: 0;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+  justify-content: space-between;
+}
+
+.innerBackButton {
+  width: 100%;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.closeButton {
+  flex-shrink: 0;
+}

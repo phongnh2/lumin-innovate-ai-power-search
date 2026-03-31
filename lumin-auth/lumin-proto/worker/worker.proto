@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package worker;
+
+service WorkerService {
+  rpc RemoveDeletedOrganizations (RemoveDeletedOrganizationsRequest) returns (google.protobuf.Empty) {}
+  rpc CreateOldPlanSubscription (CreateOldPlanRequest) returns (google.protobuf.Empty) {}
+  rpc LogPricingUserMigration (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc GetUserExtraInfoByEmail (GetUserExtraInfoByEmailRequest) returns (GetUserExtraInfoByEmailResponse) {}
+  rpc ChangeUsersLoginService (ChangeUsersLoginServiceRequest) returns (google.protobuf.Empty) {}
+  rpc CreateUsersByEmails (CreateUsersByEmailsRequest) returns (CreateUsersByEmailsResponse) {}
+  rpc UpdateCustomerMetadata (UpdateCustomerMetadataRequest) returns (google.protobuf.Empty) {}
+  rpc BulkInviteMembersFromCsv (BulkInviteMembersFromCsvRequest) returns (google.protobuf.Empty) {}
+  rpc MigrateUsersPassword (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc MigrateDocumentDriveMetadataSharer (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc MigrateNewTermsOfUseForKeyCustomers (MigrateNewTermsOfUseForKeyCustomersRequest) returns (google.protobuf.Empty) {}
+  rpc IndexHistoricalDocuments (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+}
+
+message RemoveDeletedOrganizationsRequest {
+  repeated string orgIds = 1;
+}
+
+message MigrationDocumentError {
+  string userId = 1;
+  string error = 2;
+}
+
+message CreateOldPlanRequest {
+  string email = 1;
+  string plan = 2;
+  string period = 3;
+  string currency = 4;
+  int32 quantity = 5;
+  string orgId = 6;
+  string priceVersion = 7;
+}
+
+message GetUserExtraInfoByEmailRequest {
+  string email = 1;
+}
+
+message GetUserExtraInfoByEmailResponse {
+  bool hasFinishOnboardingFlow = 1;
+}
+
+message ChangeUsersLoginServiceRequest {
+  repeated ChangeIndividualLoginServiceRequest individual = 1; 
+  ChangeDomainLoginServiceRequest domain = 2;
+  ChangeGroupLoginServiceRequest group = 3;
+}
+
+message ChangeIndividualLoginServiceRequest {
+  string email = 1;
+  string loginService = 2;
+}
+
+message ChangeDomainLoginServiceRequest {
+  string name = 1;
+  string loginService = 2;
+}
+
+message ChangeGroupLoginServiceRequest {
+  string csvPath = 1;
+  string loginService = 2;
+}
+
+message CreateUsersByEmailsRequest {
+  repeated string emails = 1;
+}
+
+message CreateUsersByEmailsResponse {
+  repeated CreateUsersByEmailsData createdUsers = 1;
+}
+
+message CreateUsersByEmailsData {
+  string userId = 1;
+  string email = 2;
+  string error = 3;
+}
+
+message UpdateCustomerMetadataRequest {
+  int32 limit = 1;
+  int32 chunkSize = 2;
+}
+
+message BulkInviteMembersFromCsvRequest {
+  string orgId = 1;
+  string inviterId = 2;
+  string csvPath = 3;
+  string role = 4;
+}
+
+message MigrateNewTermsOfUseForKeyCustomersRequest {
+  repeated string orgIds = 1;
+}

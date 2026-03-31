@@ -1,0 +1,81 @@
+@import '../../constants/lumin-styles.scss';
+
+.InsightsPlanCard__Img-Container {
+  display: flex;
+  justify-content: center;
+}
+.InsightsPlanCard__Container {
+  min-height: auto;
+  @include tablet-up {
+    min-height: 366px;
+  }
+  @include small-desktop-up {
+    min-height: auto;
+  }
+}
+.InsightsPlanCard__Img {
+  display: block;
+  height: 100%;
+  margin: 12px 0 32px;
+  @include mobile() {
+    margin: 20px 0 16px;
+  }
+  @include small-desktop-up {
+    margin: 0 0 16px;
+  }
+}
+
+.InsightsPlanCard__Img--team {
+  margin: 0 0 24px;
+  height: 150px;
+}
+.InsightsPlanCard__Img--organization {
+  margin: 17px 0 16px;
+  @include desktop() {
+    height: 165px;
+    margin: 5px 0 12px;
+  }
+}
+.InsightsPlanCard__Text {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--color-neutral-100);
+}
+
+.InsightsPlanCard__Text--left {
+  text-align: left;
+}
+
+.InsightsPlanCard__Button {
+  margin: 32px auto 0;
+  text-transform: none;
+  @include mobile() {
+    margin-top: 24px;
+  }
+  @include small-desktop-up() {
+    max-width: 288px;
+    margin-top: 16px;
+  }
+}
+.InsightsPlanCard__Button--organization {
+  margin: 16px auto 8px;
+}
+
+.InsightsPlanCard__RightEl {
+  padding: 16px 0;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.InsightsPlanCard__RightEl img {
+  display: block;
+  width: 100%;
+}
+

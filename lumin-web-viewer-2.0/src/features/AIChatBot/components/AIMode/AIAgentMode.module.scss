@@ -1,0 +1,57 @@
+.menuItem {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+}
+
+
+.menuItemLabel {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-label-md;
+}
+
+.menuItemDescription {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  @include kiwi-typography-body-sm;
+}
+
+.menuItemContent{
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.menuContainer{
+  left: 50%;
+  position: relative;
+}
+
+.settingsButton {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  position: relative;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-75);
+
+    
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-core-on-primary-container);
+    border-radius: var(--kiwi-border-radius-md);
+    opacity: 0;
+    transition: all var(--editor-transition);
+  }
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+}
+
+.settingsLabel {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}

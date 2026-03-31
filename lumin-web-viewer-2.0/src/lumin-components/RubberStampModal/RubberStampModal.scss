@@ -1,0 +1,8 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import "../../constants/modal";
+
+.rubber-stamp-modal {
+    @extend %modal;
+
+}

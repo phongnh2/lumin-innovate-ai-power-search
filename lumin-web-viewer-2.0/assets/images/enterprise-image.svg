@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g>
+                <g transform="translate(-1141 -433) translate(935 393) translate(206 40)">
+                    <rect width="120" height="120" fill="#A4DE53" fill-opacity=".198" rx="4"/>
+                    <path fill="#A4DE53" fill-opacity=".2" d="M60 0h56c2.21 0 4 1.79 4 4v56H60V0zM0 60h60v60H4c-2.21 0-4-1.79-4-4V60z"/>
+                    <g>
+                        <path fill="#A4DE53" d="M57.768 20.367L57.768 0.379 23.972 0.379 23.972 20.367 7.86 20.367 7.86 49.712 73.881 49.712 73.881 20.367z" transform="translate(19 32)"/>
+                        <g fill="#BCFF5F">
+                            <path d="M.402.123H21.402V2.123H.402zM.402 10.123H21.402V12.123H.402zM.402 19.123H21.402V21.123H.402z" transform="translate(19 32) translate(30.598 6.877)"/>
+                        </g>
+                        <path fill="#78A638" d="M24.085 39.094V9.055h-3.023V36.07c0 1.67 1.353 3.024 3.023 3.024z" transform="translate(19 32)"/>
+                        <g>
+                            <path fill="#BCFF5F" d="M0.113 0.123H13.202V2.024H0.113z" transform="translate(19 32) translate(7.86 25.544)"/>
+                            <path fill="#A0D951" d="M13.202 0.123H14.714V2.024H13.202z" transform="translate(19 32) translate(7.86 25.544)"/>
+                        </g>
+                        <path fill="#78A638" d="M.059 52.573H81.907V55.858000000000004H.059zM7.991 47.048H73.975V49.715H7.991z" transform="translate(19 32)"/>
+                        <g>
+                            <path fill="#BCFF5F" d="M0.393 0.856H28.393V10.189H0.393z" transform="translate(19 32) translate(26.274 40.144)"/>
+                            <path fill="#78A638" d="M13.726 0.856H15.059000000000001V10.189H13.726z" transform="translate(19 32) translate(26.274 40.144) matrix(-1 0 0 1 28.786 0)"/>
+                        </g>
+                        <path fill="#A4DE53" d="M3.828 49.715H78.14V52.573H3.828z" transform="translate(19 32)"/>
+                        <path fill="#78A638" d="M57.821 39.094V9.055h3.023V36.07c0 1.67-1.353 3.024-3.023 3.024z" transform="translate(19 32)"/>
+                        <g>
+                            <path fill="#BCFF5F" d="M1.701 0.123H14.790000000000001V2.024H1.701z" transform="translate(19 32) translate(59.144 25.544) rotate(-180 8.245 1.073)"/>
+                            <path fill="#A0D951" d="M0.189 0.123H1.701V2.024H0.189z" transform="translate(19 32) translate(59.144 25.544) rotate(-180 .945 1.073)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

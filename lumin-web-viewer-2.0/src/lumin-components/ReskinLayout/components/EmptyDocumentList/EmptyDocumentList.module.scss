@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  height: 100%;
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  padding-top: var(--kiwi-spacing-2);
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyImage {
+  max-width: 288px;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+.emptyDescription {
+  color: var(--kiwi-colors-surface-on-surface);
+  text-align: center;
+}

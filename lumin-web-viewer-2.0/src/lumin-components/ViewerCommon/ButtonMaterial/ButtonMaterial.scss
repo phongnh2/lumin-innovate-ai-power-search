@@ -1,0 +1,142 @@
+@import "../../../constants/lumin-styles";
+
+.ViewerButtonMaterial {
+  width: 100%;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  font-family: $font-stack-primary;
+  padding: 8px 12px;
+  box-shadow: none;
+  cursor: pointer;
+  border-radius: var(--border-radius-primary);
+  color: $primary;
+  line-height: 1;
+  min-height: 40px;
+  min-width: 28px;
+  
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+
+  &.small {
+    min-height: unset;
+    height: 32px;
+  }
+
+  &.font-montserrat span {
+    font-family: $font-stack-montserrat;
+  }
+
+  &.fit-content {
+    width: fit-content !important;
+  }
+
+  &--link {
+    padding: 0;
+
+    a {
+      white-space: nowrap;
+      padding: 8px 12px;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      color: inherit;
+    }
+  }
+
+  &.white {
+    border: 2px solid $white;
+  }
+
+  &.danger {
+    background: $accent;
+    color: $white;
+    border: 2px solid $accent;
+
+    &:hover {
+      background: $accent;
+      border: 2px solid $accent;
+    }
+
+    &-outline {
+      background: $white;
+      color: $accent;
+      border: 2px solid $accent;
+
+      &:hover {
+        color: $white;
+        background: $accent;
+      }
+    }
+  }
+
+  &.square {
+    min-width: 28px;
+    max-width: 48px;
+    height: 28px;
+    display: inline-flex;
+    flex: 0;
+    padding: 0;
+    min-height: 28px;
+
+    @include themify {
+      color: themed("iconColor");
+    }
+
+    &-outline {
+      color: $secondary;
+
+      @include themify {
+        border: 2px solid themed("borderColorHeader");
+      }
+    }
+  }
+
+  &.rectangle {
+    min-width: 48px;
+  }
+
+  &.outlined {
+    border: 1px solid var(--color-secondary-50);
+    color: var(--color-secondary-50);
+  }
+
+  &.contained {
+    background: var(--color-secondary-50);
+    color: var(--color-white);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.disabled--offline {
+    pointer-events: none;
+  }
+
+  &.one-line {
+    white-space: nowrap;
+  }
+
+  &.ToolGroupButton--has-margin {
+    margin-right: 4px;
+  }
+
+  &.tertiary {
+    background: $grey-3;
+    color: $secondary;
+    border: 2px solid $grey-3;
+
+    &:hover {
+      background: $grey-4;
+      border-color: $grey-4;
+    }
+
+    &:focus {
+      background: $grey-5;
+      border-color: $grey-5;
+    }
+  }
+}

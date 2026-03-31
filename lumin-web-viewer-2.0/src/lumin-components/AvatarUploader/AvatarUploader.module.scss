@@ -1,0 +1,20 @@
+.container {
+	display: flex;
+	gap: var(--kiwi-spacing-1-5);
+	align-items: center;
+}
+
+.outline {
+  border-radius: 50%;
+  outline: 2px solid var(--kiwi-colors-semantic-information);
+  outline-offset: var(--kiwi-spacing-0-75);
+}
+.uploadButtonWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: var(--kiwi-spacing-0-75);
+}
+
+.note {
+	padding-top: var(--kiwi-spacing-0-75);
+}

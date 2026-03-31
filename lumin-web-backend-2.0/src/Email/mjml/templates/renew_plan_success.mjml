@@ -1,0 +1,33 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Success! Your Professional subscription has been renewed</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Your Professional&nbsp;<b class="highlight">{{period}}&nbsp;</b>subscription has been successfully renewed.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about this plan or to view your invoices, head to <a class="link" href="{{baseUrl}}/setting/billing">
+              Settings - Billing
+            </a>
+          </mj-text>
+          <mj-raw>
+            {{#if (eq period 'Monthly') }}
+          </mj-raw>
+            <mj-spacer height="32px" />
+            <mj-app-button href="{{baseUrl}}/payment/individual/annual">Go Annual to receive less invoices</mj-app-button>
+          <mj-raw>
+            {{/if}}
+          </mj-raw>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

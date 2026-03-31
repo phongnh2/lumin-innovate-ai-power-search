@@ -1,0 +1,242 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+import "common.proto";
+
+package auth;
+
+service AuthService {
+  rpc SignUpWithCredentials (SignUpWithCredentialsRequest) returns (SignUpResponse) {}
+  rpc SignInWithCredentials (SignInWithCredentialsRequest) returns (SignInResponse) {}
+  rpc SignInWithGoogle (SignInWithGoogleRequest) returns (SignInResponse) {}
+  rpc SignInWithDropbox (SignInWithDropboxRequest) returns (SignInResponse) {}
+  rpc SignInWithApple (SignInWithAppleRequest) returns (SignInResponse) {}
+  rpc SignInUser (SignInUserRequest) returns (SignInResponse) {}
+  rpc SignInUserEmail (SignInUserEmailRequest) returns (SignInResponse) {}
+  rpc ForgotPassword (ForgotPasswordRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteAccount (DeleteAccountRequest) returns (google.protobuf.Empty) {}
+  rpc GetUserById (GetUserByIdRequest) returns (User) {}
+  rpc GetUserByIds (GetUserByIdsRequest) returns (GetUserByIdsResponse) {}
+  rpc GetUserByEmail (GetUserByEmailRequest) returns (User) {}
+  rpc GetUserByEmails (GetUserByEmailsRequest) returns (GetUserByEmailsResponse) {}
+  rpc ResetPassword (ResetPasswordRequest) returns (google.protobuf.Empty) {}
+  rpc VerifyToken (VerifyTokenRequest) returns (VerifyTokenResponse) {}
+  rpc RefreshToken (RefreshTokenRequest) returns (RefreshTokenResponse) {}
+  rpc ChangePassword (ChangePasswordRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateUserPropertiesById (UpdateUserPropertiesByIdRequest) returns (User) {}
+  rpc SignOut (SignOutRequest) returns (google.protobuf.Empty) {}
+  rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse) {}
+  rpc ResendVerifyEmail (ResendVerifyEmailRequest) returns (google.protobuf.Empty) {}
+  rpc VerifyEmail (VerifyEmailRequest) returns (VerifyEmailResponse) {}
+  rpc ResendVerifyAccountByEmail (ResendVerifyEmailRequest) returns (ResendVerifyEmailResponse) {}
+  rpc ForgotPasswordByEmail (ForgotPasswordRequest) returns (ForgotPasswordResponse) {}
+  rpc CheckResetPasswordUrl (CheckResetPasswordRequest) returns (google.protobuf.Empty) {}
+  rpc SetAttempResendVerification (AttempResendVerificationRequest) returns (AttempResendVerificationResponse) {}
+  rpc CheckAttempResendVerification (AttempResendVerificationRequest) returns (AttempResendVerificationResponse) {}
+  rpc UpdateUserPropertiesByIdentityId (UpdateUserPropertiesByIdentityIdRequest) returns (User) {}
+  rpc VerifySession (VerifySessionRequest) returns (VerifySessionResponse) {}
+  rpc CheckUserCompleteOnboardingWS (CheckUserCompleteOnboardingWSRequest) returns (CheckUserCompleteOnboardingWSResponse) {}
+}
+
+message SignUpWithCredentialsRequest {
+  string email = 1;
+  string password = 2;
+  string name = 3;
+}
+
+message SignUpResponse {
+  User user = 1;
+  string tokenVerifyAccount = 2;
+}
+
+message SignInWithCredentialsRequest {
+  string email = 1;
+  string password = 2;
+  int32 timezoneOffset = 3;
+}
+
+message SignInResponse {
+  string token = 1;
+  string refreshToken = 2;
+  User user = 3;
+  bool isSignedUp = 4;
+  string origin = 5;
+}
+
+message SignInWithGoogleRequest {
+  string idToken = 1;
+  string platform = 2;
+  int32 timezoneOffset = 3;
+}
+
+message SignInWithDropboxRequest {
+  string code = 1;
+  int32 timezoneOffset = 2;
+}
+
+message SignInWithAppleRequest {
+  string idToken = 1;
+  string nonce = 2;
+  int32 timezoneOffset = 4;
+  string name  = 3;
+}
+
+message SignInUserRequest {
+  string userId = 1;
+}
+
+message SignInUserEmailRequest {
+  string email = 1;
+}
+
+message ForgotPasswordRequest {
+  string email = 1;
+}
+
+message ForgotPasswordResponse {
+  optional string name = 1;
+  optional string token = 2;
+}
+
+message DeleteAccountRequest {
+  string userId = 1;
+}
+
+message GetUserByIdRequest {
+  string userId = 1;
+}
+
+message GetUserByIdsRequest {
+  repeated string userIds = 1;
+}
+
+message GetUserByEmailRequest {
+  string email = 1;
+}
+
+message GetUserByIdsResponse {
+  repeated User users = 1;
+}
+
+message ResetPasswordRequest {
+  string token = 1;
+  string password = 2;
+  bool stayLoggedIn = 3;
+}
+
+message GetUserByEmailsRequest {
+  repeated string emails = 1;
+}
+
+message GetUserByEmailsResponse {
+  repeated User users = 1;
+}
+
+message VerifyTokenRequest {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+message VerifyTokenResponse {
+  string _id = 1;
+  string email = 2;
+}
+
+message RefreshTokenRequest {
+  string refreshToken = 1;
+}
+
+message RefreshTokenResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+message ChangePasswordRequest {
+  string currentPassword = 1;
+  string newPassword = 2;
+  string userId = 3;
+}
+
+message UserUpdateProperties {
+  string name = 1;
+  string avatarRemoteId = 2;
+  string identityId = 3;
+  bool isVerified = 4;
+  string lastLogin = 5;
+}
+
+message UpdateUserPropertiesByIdRequest {
+  string userId = 1;
+  UserUpdateProperties properties = 2;
+}
+
+message SignOutRequest {
+  string userId = 1;
+  string accessToken = 2;
+  string refreshToken = 3;
+}
+
+message VerifyPasswordRequest {
+  string userId = 1;
+  string password = 2;
+}
+
+message VerifyPasswordResponse {
+  bool verified = 1;
+}
+
+message ResendVerifyEmailRequest {
+  string email = 1;
+}
+
+message ResendVerifyEmailResponse {
+  string tokenVerifyAccount = 1;
+}
+
+message VerifyEmailRequest {
+  string token = 1;
+}
+message VerifyEmailResponse {
+  string email = 1;
+  string name = 2;
+  string message = 3;
+}
+
+message CheckResetPasswordRequest {
+  string token = 1;
+}
+
+message AttempResendVerificationRequest {
+  string email = 1;
+}
+
+message AttempResendVerificationResponse {
+  Error error = 1;
+  bool isAccept = 2;
+}
+
+message UpdateUserPropertiesByIdentityIdRequest {
+  string identityId = 1;
+  UserUpdateProperties properties = 2;
+}
+
+message VerifySessionRequest {
+  RequestAuthHeader headers = 1;
+}
+
+message VerifySessionResponse {
+  string identityId = 1;
+  string email = 2;
+  string name = 3;
+  string loginService = 4;
+}
+
+message CheckUserCompleteOnboardingWSRequest {
+  string userId = 1;
+}
+
+message CheckUserCompleteOnboardingWSResponse {
+  bool hasJoinedOrg = 1;
+  bool isPremiumUser = 2;
+}

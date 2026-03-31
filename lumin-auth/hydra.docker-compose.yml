@@ -1,0 +1,47 @@
+version: '3.7'
+volumes:
+  hydra-postgres:
+
+services:
+  hydra-postgres:
+    image: docker.io/postgres:14.1-alpine3.15
+    environment:
+      - POSTGRES_USER=hydra
+      - POSTGRES_DB=hydra
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - hydra-postgres:/var/lib/postgresql/data
+
+  hydra:
+    build:
+      context: ./
+      dockerfile: ./hydra/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DSN: postgres://hydra@hydra-postgres:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+    command: serve -c /etc/config/hydra/hydra.yml all --dev
+    ports:
+      - 4444:4444 # Public port
+      - 4445:4445 # Admin port
+      - 5555:5555 # Port for hydra token user
+    depends_on:
+      - hydra-migrate
+  
+  hydra-migrate:
+    build:
+      context: ./
+      dockerfile: ./hydra/Dockerfile
+    restart: on-failure
+    pull_policy: build
+    env_file:
+      - .env
+    environment:
+      DSN: postgres://hydra@hydra-postgres:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+    command: migrate -c /etc/config/hydra/hydra.yml sql -e --yes
+    depends_on:
+      - hydra-postgres
+  
+networks:
+  intranet: null

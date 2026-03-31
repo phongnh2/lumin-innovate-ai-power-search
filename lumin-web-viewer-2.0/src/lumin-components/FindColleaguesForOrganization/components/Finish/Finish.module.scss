@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-3);
+  padding: 0 var(--kiwi-spacing-3);
+
+  img {
+    margin: 0 auto;
+    width: 116px;
+    height: 130px;
+  }
+}
+
+.contentWrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+}
+
+.actions {
+  margin-left: auto;
+}

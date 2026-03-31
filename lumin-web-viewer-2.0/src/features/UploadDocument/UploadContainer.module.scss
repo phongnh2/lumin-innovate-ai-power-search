@@ -1,0 +1,50 @@
+.uploadContainer {
+  display: flex;
+  padding: var(--kiwi-spacing-1);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--kiwi-spacing-1);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px dashed var(--kiwi-colors-surface-outline);
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--kiwi-colors-surface-on-surface);
+    opacity: 0;
+    transition: opacity var(--editor-transition);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--kiwi-colors-core-primary-container);
+    opacity: 0;
+    transition: opacity var(--editor-transition);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &.showHighlight::after {
+    opacity: var(--kiwi-opacity-alpha-50);
+  }
+}
+
+.uploadHeader {
+  display: flex;
+  padding: var(--kiwi-spacing-0-5) 0px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}

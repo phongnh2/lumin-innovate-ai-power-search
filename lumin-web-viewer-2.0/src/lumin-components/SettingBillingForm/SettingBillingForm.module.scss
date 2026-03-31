@@ -1,0 +1,49 @@
+@import 'reskin/screens.scss';
+
+.container {
+  height: auto;
+  width: 100%;
+
+  .title {
+    margin-bottom: var(--kiwi-spacing-1-5);
+  }
+}
+
+.billingEmailContainer {
+  margin-bottom: var(--kiwi-spacing-2);
+
+  .label {
+    margin-bottom: var(--kiwi-spacing-0-5);
+  }
+}
+
+.billingEmailInputWrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: var(--kiwi-spacing-1-5);
+
+  &[data-is-editing='true'] {
+    grid-template-columns: unset;
+    gap: var(--kiwi-spacing-2);
+  }
+
+  @include md-screen {
+    display: flex;
+    gap: var(--kiwi-spacing-1-5);
+  }
+}
+
+.actionButtonsWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+
+  &[data-is-editing='true'] {
+    display: grid;
+    gap: var(--kiwi-spacing-1);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include md-screen {
+    display: flex;
+  }
+}

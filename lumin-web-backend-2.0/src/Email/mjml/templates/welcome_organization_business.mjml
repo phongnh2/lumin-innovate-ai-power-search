@@ -1,0 +1,37 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-image padding="0" src="{{assetUrl}}/images/welcome-organization-business.png" />
+          <mj-spacer height="12px" />
+          <mj-text mj-class="text-large">Welcome to Lumin Business</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>Your Business subscription for&nbsp;<b class="highlight">{{orgName}}'s&nbsp;</b>{{orgWord}} is now active. With Lumin Business, you’ll have access to our extensive range of features including:</mj-text>
+          <mj-spacer height="4px" />
+          <mj-text>
+            <ul class="list">
+              <li style="margin-bottom: 4px">Priority support</li>
+              <li style="margin-bottom: 4px">E-sign and commenting features</li>
+              <li style="margin-bottom: 4px">Unlimited document life</li>
+              <li style="margin-bottom: 4px">Plus much more</li>
+            </ul>
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button width="100%" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard">{{orgWord}} Dashboard</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

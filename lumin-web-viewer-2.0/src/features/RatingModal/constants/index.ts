@@ -1,0 +1,10 @@
+export const RATING_MODAL_CONSTANTS = {
+  ANIMATION_DELAY_INCREMENT: 0.05,
+  HIGH_RATING_THRESHOLD: 8,
+  STEPS: {
+    RATING: 1,
+    FEEDBACK: 2,
+  },
+};
+
+export const RATING_SCORES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

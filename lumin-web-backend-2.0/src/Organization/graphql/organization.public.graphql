@@ -1,0 +1,105 @@
+input GetUsersInvitableToOrgInput {
+  orgId: ID! @MongoId
+  userEmails: [String!]! @Array(min: 1, max: 100) @IsEmail
+}
+
+type CheckOrganizationDocStackPayload {
+  isOverDocStack: Boolean
+}
+
+input GetFoldersAvailabilityInput {
+  orgId: ID! @MongoId
+}
+
+type GetFoldersAvailabilityPayload {
+  personal: Boolean!
+  organization: Boolean!
+  teams: [String!]!
+}
+
+input UploadPersonalDocumentTemplateInput {
+  orgId: ID! @MongoId
+  encodedUploadData: String!
+  fileName: String @MaxLength(max: 255)
+}
+
+input UploadDocumentTemplateToOrgInput {
+  orgId: ID! @MongoId(key: "orgId")
+  encodedUploadData: String!
+  fileName: String! @MaxLength(max: 255)
+}
+
+input UploadDocumentTemplateToTeamInput {
+  teamId: ID! @MongoId(key: "teamId")
+  encodedUploadData: String!
+  fileName: String! @MaxLength(max: 255)
+}
+
+type Query {
+  getOrganizationByUrl(url: String!): GetOrganizationPayload
+  getOrganizationById(orgId: ID! @MongoId(key: "orgId")): GetOrganizationPayload
+  getOrgTeams(orgId: ID! @MongoId(key: "orgId")): GetOrgTeamsPayload
+  getMemberOfOrganization(input: GetMemberInput!, internal: Boolean): OrganizationMemberConnection
+  getTotalMembers(orgId: ID! @MongoId(key: "orgId")): OrganizationTotalCount
+  getUserRoleInOrg(orgId: ID! @MongoId(key: "orgId")): GetUserRoleInOrgPayload
+  getOrganizationDocuments(input: GetOrganizationDocumentsInput!): GetDocumentPayload
+  checkOrganizationTransfering(orgId: ID! @MongoId(key: "orgId")): Boolean
+  getRecentNewOrgMembers(orgId: ID! @MongoId(key: "orgId"), limit: Int): [OrganizationMember]
+  getPersonalFoldersInOrg(input: GetOrganizationFoldersInput!): [Folder]
+  getOrganizationFolders(input: GetOrganizationFoldersInput!): [Folder]
+  getOrganizationTeamFolders(input: GetOrganizationTeamFoldersInput!): [Folder]
+  getOrganizationTeamDocuments(input: GetOrganizationTeamDocumentsInput!): GetDocumentPayload
+  getOrganizationTemplates(orgId: ID! @MongoId(key: "orgId"), tab: OrganizationTemplateTabs!, pagingOption: GetTemplatesInput!): GetTemplatesPayload
+  getTeamTemplates(teamId: ID! @MongoId(key: "teamId"), pagingOption: GetTemplatesInput!): GetTemplatesPayload
+  getRepresentativeMembers(input: GetRepresentativeMembersInput!): GetRepresentativeMembersPayload
+  getUsersInvitableToOrg(input: GetUsersInvitableToOrgInput!): [String]
+  checkOrganizationDocStack(orgId: ID! @MongoId(key: "orgId")): CheckOrganizationDocStackPayload
+  getOrganizationResources(input: GetOrganizationResourcesInput!): GetOrganizationResourcesPayload
+  checkOrganizationDocStack(orgId: ID! @MongoId(key: "orgId")): CheckOrganizationDocStackPayload
+  getOrganizationInviteLink(orgId: ID! @MongoId(key: "orgId")): OrganizationInviteLink
+  getOrganizationWithJoinStatus(orgId: ID! @MongoId(key: "orgId")): SuggestedPremiumOrganization
+  getOrganizationFolderTree(input: GetOrganizationFolderTreeInput!): GetOrganizationFolderTreePayload
+  getOrganizationTeamsFolderTree(input: GetOrganizationFolderTreeInput!): GetOrganizationTeamsFolderTreePayload
+  getPersonalFolderTreeInOrg(input: GetOrganizationFolderTreeInput!): GetOrganizationFolderTreePayload
+  getFoldersAvailability(input: GetFoldersAvailabilityInput!): GetFoldersAvailabilityPayload
+  getOrganizationDocumentTemplates(input: GetOrganizationDocumentTemplatesInput!): GetDocumentTemplatesPayload
+  getOrganizationTeamDocumentTemplates(input: GetOrganizationTeamDocumentTemplatesInput!): GetDocumentTemplatesPayload
+}
+
+type Mutation {
+  inviteMemberToOrganization(orgId: ID! @MongoId(key: "orgId"), members: [InviteToOrganizationInput], extraTrial: Boolean): InviteMemberToOrganizationPayload
+  inviteMemberToOrganizationAddDocStack(orgId: ID! @MongoId(key: "orgId"), members: [InviteToOrganizationInput], extraTrial: Boolean): InviteMemberToOrganizationPayload
+  confirmOrganizationAdminTransfer(token: String!): BasicResponse
+  leaveOrganization(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  uploadDocumentToOrganization(orgId: ID! @MongoId(key: "orgId"), files: [Upload]!, isNotify: Boolean, folderId: ID @MongoId(key: "folderId", isOptional: true)): Document
+  uploadDocumentToOrganizationV2(input: UploadDocumentToOrgInput!): Document
+  uploadDocumentToOrgTeam(teamId: ID! @MongoId(key: "teamId"), files: [Upload]!, folderId: ID @MongoId(key: "folderId", isOptional: true)): Document
+  uploadDocumentToOrgTeamV2(input: UploadDocumentToTeamInput! ): Document
+  leaveOrgTeam(teamId: ID! @MongoId(key: "teamId")): BasicResponse
+  createOrganizationTeam(orgId: ID! @MongoId(key: "orgId"), team: TeamInput!, members: AddMemberOrgTeamInput, file: Upload): CreateOrganizationTeamPayload
+  uploadTeamTemplate(input: UploadTeamTemplateInput!, files: [Upload]!): Template
+  uploadOrganizationTemplate(input: UploadOrganizationTemplateInput!, files: [Upload]!): Template
+  uploadDocumentToPersonal(input: UploadPersonalDocumentInput!, files: [Upload]!): Document
+  uploadDocumentToPersonalV2(input: UploadPersonalDocumentInputV2!): Document
+  uploadThirdPartyDocuments(input: UploadThirdPartyDocumentsInput!): [Document]
+  createPersonalFolderInOrg(input: CreateOrganizationFolderInput!): Folder
+  hideInformMyDocumentModal(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  uploadDocumentTemplateToPersonal(input: UploadPersonalDocumentTemplateInput!): DocumentTemplate
+  uploadDocumentTemplateToOrganization(input: UploadDocumentTemplateToOrgInput!): DocumentTemplate
+  uploadDocumentTemplateToOrgTeam(input: UploadDocumentTemplateToTeamInput! ): DocumentTemplate
+}
+
+
+type Subscription {
+  updateOrganization(orgId: ID! @MongoId(key: "orgId")) : UpdateOrganizationPayload
+  removeOrgMember(orgId: ID! @MongoId(key: "orgId")) : RemoveOrgMemberPayload
+  updateOrgMemberRole(orgId: ID! @MongoId(key: "orgId")) : UpdateOrgMemberRolePayload
+  deleteOrganizationSub(orgId: ID! @MongoId(key: "orgId")): SubscriptionDeleteOrganizationPayload
+  convertOrganization(orgId: ID! @MongoId(key: "orgId")): SubscriptionConvertOrganizationPayload
+  cancelOrganizationSubscription(orgId: ID! @MongoId(key: "orgId")): SubscriptionCancelTrialPayload
+  changedDocumentStackSubscription(orgId: ID! @MongoId(key: "orgId")): SubscriptionChangedDocStackPayload
+  updateOrganizationInviteLink(orgId: ID! @MongoId(key: "orgId")) : UpdateOrganizationInviteLinkPayload
+  updateContractStackSubscription(orgId: ID! @MongoId(key: "orgId")) : SignDocStackStorage
+  updateSignSeatSubscription(orgId: ID! @MongoId(key: "orgId")) : UpdateSignSeatSubscriptionPayload
+  timeSensitiveCouponCreated(orgId: ID! @MongoId(key: "orgId")): TimeSensitiveCouponPayload
+}

@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  width: 166px;
+  height: fit-content;
+
+}
+
+.seatRequestButton {
+  @include kiwi-typography-body-sm;
+
+  width: fit-content;
+  color: var(--kiwi-colors-core-secondary);
+  font-weight: 500;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: var(--kiwi-border-radius-md);
+  z-index: 2;
+}
+
+.menuItem {
+  @include kiwi-typography-body-md;
+
+  color: var(--kiwi-colors-surface-on-surface);
+  font-weight: 500;
+}

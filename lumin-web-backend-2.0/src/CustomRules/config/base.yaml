@@ -1,0 +1,83 @@
+# Default rules if not specified
+# Useful for some domain that require small rules enable - for example driveOnly
+defaults:
+  organization:
+    requireDomainMembership: false
+    allowOrgCreation: true
+    orgAccessScope: all
+    autoJoinDomainOrg: false
+    membershipScope: all
+  files:
+    service: all
+    scope: all
+    allowIndexing: true
+    templateManagementEnabled: true
+    uploadableServices: all
+  collaboration:
+    inviteScope: all
+    searchScope: all
+  external:
+    canSearch: true
+    canInvite: true
+    canShare: true
+    canJoinOrg: true
+    canRequestDocs: true
+  ui:
+    hidePromptDriveUsersBanner: false
+    hideAiChatbot: false
+  user:
+    allowChangeEmail: true
+
+# Reusable policy bundles
+policies:
+  # Full restrictions: banks and highly restricted domains
+  strictBank:
+    organization:
+      requireDomainMembership: true
+      allowOrgCreation: false
+      autoJoinDomainOrg: true
+      membershipScope: internalOnly
+      orgAccessScope: internalOnly
+    files:
+      service: onlyDrive
+      scope: personalOnly
+      templateManagementEnabled: false
+      uploadableServices: ['googleDrive']
+    collaboration:
+      inviteScope: internalOnly
+      searchScope: internalOnly
+    external:
+      canSearch: false
+      canInvite: false
+      canShare: false
+      canJoinOrg: false
+      canRequestDocs: false
+    ui:
+      hidePromptDriveUsersBanner: true
+  
+  # Minimal restrictions: only drive files required
+  driveOnly:
+    files:
+      service: onlyDrive
+      templateManagementEnabled: false
+  
+  # Government export agency restrictions
+  governmentExport:
+    organization:
+      requireDomainMembership: true
+      allowOrgCreation: false
+      autoJoinDomainOrg: true
+      membershipScope: internalOnly
+      orgAccessScope: internalOnly
+    collaboration:
+      inviteScope: internalOnly
+      searchScope: internalOnly
+    external:
+      canSearch: false
+      canInvite: false
+      canShare: false
+      canJoinOrg: false
+    files:
+      allowIndexing: false
+    ui:
+      hideAiChatbot: true

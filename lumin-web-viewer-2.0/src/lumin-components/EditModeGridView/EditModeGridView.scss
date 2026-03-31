@@ -1,0 +1,81 @@
+@import "../../constants/panel";
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+$top-height: calc(#{$header-height} + #{$toolbar-height});
+
+.EditModeGridView {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - #{$top-height});
+  transition: all 0.3s ease;
+  user-select: none;
+  overflow-x: hidden;
+  width: calc(100% - #{$left-panel-edit-mode-width});
+  margin-left: $left-panel-edit-mode-width;
+  @include themify() {
+    background: themed('bgDocumentContainer');
+  }
+  .thumbs {
+    display: block;
+    width: 100%;
+    max-height: 100%;
+    &--has-skeleton {
+      overflow: hidden;
+    }
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    &__background {
+      position: absolute;
+      border-radius: 4px;
+      z-index: -1;
+      margin-bottom: 25px;
+      &.thumb-rotate-left {
+        transform: rotate(-90deg);
+      }
+      &.thumb-rotate-right {
+        transform: rotate(90deg);
+      }
+      &.thumb-rotate-bottom {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  
+  .row {
+    display: flex;
+  }
+}
+.EditModeGridView__container {
+  overflow: hidden;
+  z-index: 10;
+  position: relative;
+}
+
+.EditModeGridView__skeleton-container {
+  padding: 8px;
+}
+
+.EditModeGridView__skeleton-wrapper {
+  padding: 0 15px;
+}
+
+.EditModeGridView__skeleton {
+  width: 100%;
+  height: calc(100% - 44px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--kiwi-colors-surface-surface-container);
+}
+
+.EditModeGridView--no-topbar {
+  height: calc(100vh - #{$toolbar-height});
+}

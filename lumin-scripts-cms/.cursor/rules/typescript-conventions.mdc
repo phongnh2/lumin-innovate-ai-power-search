@@ -1,0 +1,166 @@
+---
+globs: *.ts,*.tsx
+description: TypeScript coding conventions and patterns
+---
+
+# TypeScript Conventions
+
+## Code Style (from deno.json)
+
+- **Indentation**: 2 spaces (no tabs)
+- **Line Width**: 100 characters
+- **Semicolons**: Always use semicolons
+- **Quotes**: Double quotes for strings
+- **Strict Mode**: Enabled with `exactOptionalPropertyTypes: true`
+
+## Type Definitions
+
+### Interface Naming
+
+- Use `I` prefix for interfaces: `IForm`, `IStrapiForm`, `ICategory`
+- Use descriptive names: `IFormAttributes`, `IStrapiResponse`
+- Group related interfaces in the same file
+
+### Type Aliases
+
+- Use PascalCase: `FormToUpdateType`, `FieldConfigType`
+- Use `Type` suffix for complex types: `DynamicFieldType`
+- Use `Enum` suffix for enums: `JIRA_CARD_TYPE`, `ImportStatus`
+
+### Generic Types
+
+- Use single uppercase letters: `T`, `K`
+- Be specific when needed: `PromiseSettledResult<IResultDownloadPDF>`
+
+## Class Patterns
+
+### Service Classes
+
+```typescript
+class ServiceName extends BaseService {
+  private property: Type;
+
+  constructor() {
+    super();
+    this.initialize();
+  }
+
+  public async publicMethod(): Promise<ReturnType> {
+    // Implementation
+  }
+
+  private async privateMethod(): Promise<void> {
+    // Implementation
+  }
+}
+```
+
+### Singleton Pattern
+
+```typescript
+export const serviceInstance = new ServiceClass();
+```
+
+## Function Patterns
+
+### Async Functions
+
+- Always use `async/await` over Promises
+- Return `Promise<void>` for void functions
+- Use `Promise.all()` for parallel operations
+- Use `Promise.allSettled()` when some failures are acceptable
+
+### Error Handling
+
+```typescript
+try {
+  const result = await operation();
+  return result;
+} catch (error) {
+  const errorMessage = error instanceof Error ? error.message : String(error);
+  console.error(`❌ Operation failed:`, errorMessage);
+  throw error;
+}
+```
+
+## Import/Export Patterns
+
+### Import Order
+
+1. External libraries (`@std/`, npm packages)
+2. Internal modules (`@strapi/`, `@prismic/`)
+3. Relative imports (`./`, `../`)
+
+### Export Patterns
+
+- Use named exports for functions and classes
+- Use default exports sparingly
+- Export interfaces and types for reuse
+
+## Constants and Configuration
+
+### Constants
+
+- Use `UPPER_SNAKE_CASE` for constants
+- Group related constants in objects
+- Use `as const` for readonly arrays
+
+### Configuration Objects
+
+```typescript
+export const CONFIGURATION = {
+  FIELD_NAME: "value",
+  ARRAY_FIELD: ["item1", "item2"] as const,
+} as const;
+```
+
+## Type Guards and Validation
+
+### Type Guards
+
+```typescript
+function isValidForm(data: unknown): data is IForm {
+  return typeof data === "object" && data !== null && "id" in data;
+}
+```
+
+### Validation Functions
+
+```typescript
+public validateData(data: FormData): { errors: string[]; isValid: boolean } {
+  const errors: string[] = [];
+  // Validation logic
+  return { errors, isValid: errors.length === 0 };
+}
+```
+
+## Utility Types
+
+### Common Patterns
+
+- Use `Record<string, T>` for object maps
+- Use `Partial<T>` for optional updates
+- Use `Pick<T, K>` and `Omit<T, K>` for type manipulation
+- Use `keyof` for dynamic property access
+
+### Generic Constraints
+
+```typescript
+function processData<T extends IBaseData>(data: T): ProcessedData<T> {
+  // Implementation
+}
+```
+
+## File Organization
+
+### Single Responsibility
+
+- One main class/interface per file
+- Related types in the same file
+- Utility functions grouped by purpose
+
+### File Naming
+
+- Use kebab-case for files: `form.service.ts`
+- Use descriptive names: `category.interface.ts`
+- Group related files in directories

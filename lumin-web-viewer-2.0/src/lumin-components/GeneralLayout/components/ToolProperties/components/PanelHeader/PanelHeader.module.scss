@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) var(--kiwi-spacing-0-5) var(--kiwi-spacing-2);
+  border-bottom: 1px solid var(--kiwi-colors-surface-outline-variant);
+  position: sticky;
+  top: 0;
+  background-color: var(--kiwi-colors-surface-surface);
+  z-index: 1;
+  min-height: 40px;
+}
+
+.title {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.rightSection {
+  display: flex;
+}

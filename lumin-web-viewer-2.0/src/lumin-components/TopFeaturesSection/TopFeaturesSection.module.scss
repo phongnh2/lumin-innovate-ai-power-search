@@ -1,0 +1,161 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  text-align: center;
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+}
+
+.featureItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kiwi-spacing-2);
+  align-items: stretch;
+  justify-content: center;
+
+  & > div {
+    flex: 1 1 228px;
+    max-width: fit-content;
+    @media (min-width: $breakpoint-xlr) and (max-width: $breakpoint-xxl) {
+      max-width: unset;
+    }
+  }
+}
+
+.featureItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include xxxl-screen {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+.emblaContainer {
+  overflow-x: clip;
+  z-index: 300;
+  // 40px for the width and 8px for the margin of prev and next buttons
+  width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2));
+
+  // fix cutoff border issue when show 3 items
+  @include lgr-screen {
+    width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2) + 4px);
+  }
+
+  @include xl-screen {
+    width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2));
+  }
+
+  @include xxl-screen {
+    width: calc(100% + var(--kiwi-spacing-2));
+  }
+}
+
+.emblaSlides {
+  display: flex;
+  align-items: stretch;
+  // -16px for the padding-left of the emblaSlide
+  margin-left: calc(var(--kiwi-spacing-2) * -1);
+}
+
+.emblaSlide {
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  padding-left: var(--kiwi-spacing-2);
+  flex: 0 0 50%;
+
+  @include lgr-screen {
+    flex: 0 0 calc(100% / 3);
+  }
+
+  @include xl-screen {
+    flex: 0 0 calc(100% / 4);
+  }
+
+  @include xxl-screen {
+    flex: 0 0 calc(100% / 5);
+  }
+
+  & > * {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.prevButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: var(--kiwi-spacing-1);
+
+  @include xxl-screen {
+    display: none;
+  }
+}
+
+.nextButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: var(--kiwi-spacing-1);
+
+  @include xxl-screen {
+    display: none;
+  }
+}
+
+
+.chatbotOpened {
+  .emblaContainer {
+    width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2));
+
+    // fix cutoff border issue when show 3 items
+    @include xxl-screen {
+      width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2) + 2px);
+    }
+
+    @include xxxl-screen {
+      width: calc(100% - (calc(40px * 2) + var(--kiwi-spacing-1) * 2));
+    }
+
+    @include xxxxl-screen {
+      width: calc(100% + var(--kiwi-spacing-2));
+    }
+  
+    .emblaSlide {
+      flex: 0 0 100%;
+  
+      @include lgr-screen {
+        flex: 0 0 calc(100% / 2);
+      }
+    
+      @include xxl-screen {
+        flex: 0 0 calc(100% / 3);
+      }
+  
+      @include xxxl-screen {
+        flex: 0 0 calc(100% / 4);
+      }
+  
+      @include xxxxl-screen {
+        flex: 0 0 calc(100% / 5);
+      }
+    }
+  }
+
+  .prevButton,
+  .nextButton {
+    display: block;
+
+    @include xxxxl-screen {
+      display: none;
+    }
+  }
+}

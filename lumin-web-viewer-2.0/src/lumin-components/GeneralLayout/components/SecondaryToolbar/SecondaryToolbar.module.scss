@@ -1,0 +1,89 @@
+@import 'reskin/scrollbar.scss';
+
+.secondaryToolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--zindex-floating-toolbar);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    padding: var(--kiwi-spacing-1);
+    background-color: var(--kiwi-colors-surface-surface-container);
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container {
+  border-radius: var(--kiwi-spacing-1);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background: var(--kiwi-colors-surface-surface-bright);
+  padding: var(--kiwi-spacing-0-5);
+  display: flex;
+  gap: var(--kiwi-spacing-4);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: auto hidden;
+
+  &[data-has-close-button="true"] {
+    padding-right: calc(var(--kiwi-spacing-1) + var(--kiwi-spacing-4));
+  }
+
+  @include scrollbar-reskin;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.divider {
+  margin: var(--kiwi-spacing-0-5) 0;
+}
+
+.toolTitle {
+  @include kiwi-typography-label-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.toolDescription {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.closeButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 10;
+  transform: translateY(-50%);
+
+  height: 100%;
+  padding: var(--kiwi-spacing-0-5);
+  background: var(--kiwi-colors-surface-surface-bright);
+
+  border-radius: 0 var(--kiwi-spacing-1) var(--kiwi-spacing-1) 0;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-left-width: 0;
+}

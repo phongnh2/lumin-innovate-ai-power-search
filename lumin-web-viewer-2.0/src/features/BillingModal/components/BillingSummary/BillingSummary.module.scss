@@ -1,0 +1,69 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: var(--modal-content-max-height, calc(100vh - var(--modal-y-offset) * 2));
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  z-index: 1;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  padding: var(--kiwi-spacing-3) var(--kiwi-spacing-3) var(--kiwi-spacing-2);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  padding: 0 var(--kiwi-spacing-3);
+  flex: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--kiwi-spacing-2);
+  right: var(--kiwi-spacing-2);
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-low);
+  padding-top: var(--kiwi-spacing-0-5);
+}
+
+.boldText {
+  @include kiwi-typography-body-md-semibold;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2-5);
+  position: sticky;
+  bottom: 0;
+  padding: var(--kiwi-spacing-3);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+}
+
+.amountWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.amountText {
+  @include kiwi-typography-headline-sm;
+}
+
+.amountValue {
+  @include kiwi-typography-headline-lg;
+  font-weight: 700;
+}

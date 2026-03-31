@@ -1,0 +1,11 @@
+.flattenSection {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+  padding: var(--kiwi-spacing-0-5) 0;
+}
+  
+.textIconGroup {
+  display: flex;
+  gap: 4px;
+}

@@ -1,0 +1,36 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Oops! Your Lumin Professional subscription could not be renewed</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            We experienced a problem when trying to renew your&nbsp;<b class="highlight">Lumin Professional&nbsp;</b>subscription. This is most likely because your credit card has expired or your billing details are incorrect.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Please update your billing details to avoid interruption to your Lumin plan:
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/setting/billing">Update Billing Details</mj-button>
+          <mj-spacer height="32px" />
+          <mj-text>
+            Without further action, your Lumin plan will be downgraded to the Free plan in the next few days. On the Free plan, you will have the following limitations:
+          </mj-text>
+          <mj-text>
+            <ul class="list">
+              <li style="margin-bottom: 4px">Upload and manage {{orgWord}} documents</li>
+              <li style="margin-bottom: 4px">Invite and manage members </li>
+              <li style="margin-bottom: 4px">Create {{teamWord}}s inside your {{orgWord}}</li>
+            </ul>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

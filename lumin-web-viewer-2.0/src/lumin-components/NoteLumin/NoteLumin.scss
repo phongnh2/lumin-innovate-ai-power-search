@@ -1,0 +1,407 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+@import "../../constants/note";
+
+.NoteLumin {
+  position: relative;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+  transition: background-color 0.3s ease;
+
+  @include themify {
+    &.noOverlay {
+      border: 1px solid themed("borderCommentElement");
+    }
+
+    background: themed("bgColor");
+  }
+
+  margin: 0 0 8px;
+  text-align: left;
+  color: $primary;
+
+  &_header {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+
+    .resolve {
+      display: flex;
+      align-items: center;
+      margin-left: -8px;
+
+      label {
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 2px;
+
+        @include themify {
+          color: themed("commentStatus");
+        }
+      }
+    }
+  }
+
+  &__wrapper-note-content {
+    outline: 0;
+  }
+
+  .note_delete_content {
+    backdrop-filter: blur(20px);
+    background: rgb(16 45 66 / 80%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    flex-direction: column;
+    border-radius: 8px;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    padding: 36px 0;
+    font-weight: 600;
+    font-style: normal;
+
+    &_title {
+      @include themify {
+        color: themed("noteDeleteContent");
+      }
+
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.34px;
+    }
+
+    &_button_group {
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-self: center;
+
+      button {
+        height: 32px;
+        min-height: 32px;
+        padding: 2px 20px;
+        border: 0;
+        border-radius: 8px;
+        min-width: 106px;
+        font-size: 12px;
+        line-height: 16px;
+
+        &:first-child {
+          margin-right: 8px;
+
+          @include themify {
+            color: themed("commentButtonText");
+            background-color: themed("commentButtonCancelBg");
+          }
+        }
+
+        &.primary {
+          @include themify {
+            color: themed("commentRightButtonText");
+          }
+
+          background-color: var(--color-secondary-50);
+        }
+      }
+    }
+  }
+
+  &.expanded {
+    &.noOverlay {
+      border: 1px solid var(--color-primary-70);
+      @include themify {
+        box-shadow: themed("selectedNoteShadown");
+      }
+    }
+  }
+  
+  &.isParent {
+    .title {
+      margin-bottom: 8px !important;
+    }
+
+    .NoteContent {
+      flex-direction: column;
+    }
+
+    hr {
+      display: block;
+
+      @include themify {
+        background: themed("borderCommentElement");
+      }
+
+      height: 1px;
+      border: 0;
+      margin: 13px 0 13px -10px;
+      width: calc(100% + 20px);
+      outline: 0;
+    }
+  }
+  &:not(.expanded) {
+    .contents {
+      -webkit-line-clamp: 13;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  .replies {
+    position: relative;
+
+    hr {
+      @include themify {
+        background: themed("borderCommentElement");
+      }
+
+      height: 1px;
+      border: 0;
+      margin: 12px 0 12px -10px;
+      width: calc(100% + 20px);
+      outline: 0;
+    }
+    
+    &.canReply {
+      .NoteContent:nth-last-of-type(2) {
+        padding-bottom: 0;
+      }
+    }
+
+    .show-hide-replies-toggler + .NoteContent {
+      border-top: none !important;
+    }
+
+    .show-hide-replies-toggler {
+      position: relative;
+      display: flex;
+      margin-left: 15px;
+
+      .show-hide-replies-toggler__title {
+        margin: 0 auto;
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      .show-hide-replies-toggler__icon-wrapper {
+        height: 24px;
+        width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .show-hide-replies-toggler__title,
+      .show-hide-replies-toggler__icon-wrapper {
+        z-index: 1;
+        
+        @include themify {
+          background-color: themed("bgColor");
+          color: themed("replyTogglerColor");
+        }
+      }
+      &:after {
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        @include themify {
+          background-color: themed("borderCommentElement");
+        }
+      }
+
+      &--show-less {
+        height: 28px;
+        align-items: center;
+        .show-hide-replies-toggler__title {
+          margin: 0 auto 0 0;
+        }
+      }
+    }
+
+    .NoteContent {
+      @include themify {
+        border-top: 1px solid  themed("borderCommentElement");
+      }
+
+      margin-left: 15px;
+      padding: 13px 0;
+
+      &__left {
+        width: 32px;
+        display: none;
+        margin-right: 10px;
+      }
+
+      &__right {
+        width: calc(100%);
+      }
+
+      &:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      hr {
+        display: none !important;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      top: 10px;
+      left: 6px;
+      color: $cloudyblue;
+    }
+
+    .contents {
+      display: box;
+    }
+
+    &.visible {
+      display: block;
+      margin: 15px 0 0;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .reply-container {
+    justify-content: center;
+
+    textarea {
+      width: 100%;
+      resize: none;
+      box-sizing: border-box;
+      border-radius: 8px;
+      outline: none !important;
+
+      @include themify {
+        border: 1px solid themed("commentInputBorder");
+        color: themed("textColor");
+        background: themed("outlineButtonBgColor");
+      }
+
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 375;
+      font-style: normal;
+      padding: 7px 12px;
+      font-family: $font-stack-primary;
+
+      &::placeholder {
+        @include themify {
+          color: themed("commentTextAreaPlaceholder");
+        }
+      }
+
+      &:focus {
+        border: 1px solid;
+        border-color: var(--color-primary-50);
+
+        @include themify {
+          box-shadow: 0 0 0 1.2px themed("borderColorNoteInputFocus");
+        }
+      }
+    }
+
+    textarea:first-child {
+      min-height: 32px;
+      padding-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 8px;
+
+      button {
+        flex: 1;
+        height: 32px;
+        min-width: 100px;
+        min-height: 32px;
+        text-transform: capitalize;
+        transition: all 0.25s;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: 0;
+        font-size: 12px;
+        line-height: 16px;
+        font-style: normal;
+        font-weight: 600;
+
+        &:first-child {
+          margin-right: 8px;
+
+          @include themify {
+            color: themed("commentButtonText");
+            background-color: themed("commentButtonCancelBg");
+            border: 2px solid themed("commentButtonCancelBg");
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.primary {
+          @include themify {
+            color: themed("commentButtonReplyButtonText");
+            background-color: themed("commentButtonReplyButtonBg");
+          }
+        }
+      }
+
+      .disabled {
+        opacity: 0.3;
+
+        @include themify {
+          background-color: themed("commentButtonDisabledBg");
+        }
+      }
+    }
+  }
+
+  &.resolved {
+    @include themify {
+      background: themed("commentResolvedBg");
+    }
+
+    .reply-container {
+      textarea {
+        @include themify {
+          background: themed("bgColor");
+        }
+      }
+    }
+  }
+
+  &.no-margin {
+    margin: 0;
+  }
+.NoteContent {
+  &__right {
+    .user-info {
+      overflow: hidden;
+    }
+  }
+}
+}

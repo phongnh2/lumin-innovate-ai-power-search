@@ -1,0 +1,16 @@
+@import "../../constants/popup";
+
+.ContextMenuPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kiwi-border-radius-md);
+  gap: var(--kiwi-spacing-1);
+  padding: var(--kiwi-spacing-1);
+  box-shadow: var(--kiwi-shadow-2);
+  max-height: 48px;
+
+  @include mobile {
+    display: none !important;
+  }
+}

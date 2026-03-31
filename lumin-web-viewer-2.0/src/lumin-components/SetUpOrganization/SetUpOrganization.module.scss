@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--kiwi-spacing-4);
+  padding-bottom: var(--kiwi-spacing-4);
+  max-height: calc(100vh - var(--header-layout-secondary-height));
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  width: 100%;
+  padding: var(--kiwi-spacing-3) 0;
+  border-radius: var(--kiwi-border-radius-lg);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+}
+
+.stepWrapper {
+  padding: 0 var(--kiwi-spacing-3);
+  margin-bottom: calc(var(--kiwi-spacing-5-5) + var(--kiwi-spacing-0-25));
+}

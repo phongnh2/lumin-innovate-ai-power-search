@@ -1,0 +1,82 @@
+@import "../../constants/lumin-styles";
+
+.TeamNotFound {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+
+  &__image {
+    width: 328px;
+    margin: 0 auto 32px;
+
+    @include mobile {
+      width: 200px;
+    }
+  }
+
+  &__groupButton {
+    color: var(--color-secondary-50);
+    font-size: 14px;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    margin: 0 0 12px;
+
+    @include mobile {
+      font-size: 17px;
+      line-height: 24px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.TeamNotFound__button {
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-secondary-50);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+  display: inline-block;
+
+  &:hover {
+    color: var(--color-secondary-60);
+    text-decoration: underline;
+  }
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}
+
+.TeamNotFound__divider {
+  display: inline-block;
+  margin: 0 12px;
+}

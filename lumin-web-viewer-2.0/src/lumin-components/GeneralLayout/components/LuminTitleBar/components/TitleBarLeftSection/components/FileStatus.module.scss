@@ -1,0 +1,46 @@
+@import 'reskin/screens.scss';
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fileStatus {
+  display: flex;
+  align-items: center;
+  max-height: var(--kiwi-spacing-3);
+  padding: var(--kiwi-spacing-0-5);
+  gap: var(--kiwi-spacing-0-5);
+  
+  @include kiwi-typography-label-sm;
+  border-radius: var(--kiwi-border-radius-md);
+  transition: background-color var(--editor-transition);
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  flex-shrink: 0;
+  
+  &[data-allow-hover-state='true'] {
+    cursor: pointer;
+    &:hover {
+     background-color: var(--kiwi-colors-surface-surface-container-high);
+    }
+  }
+
+  @include md-down-screen {
+    display: none;
+  }
+}
+
+.restoreOriginalLink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rotateIcon {
+  transform-origin: 50% 50%;
+  animation: rotate 1.5s linear infinite;
+}
+
+.disconnectTitle {
+  margin-bottom: var(--kiwi-spacing-0-5);
+}

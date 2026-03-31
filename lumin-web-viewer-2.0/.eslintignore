@@ -1,0 +1,8 @@
+**/__tests__/*
+**/__test__/*
+**/dist/*
+**/build/*
+public/*
+lib/*
+assets/*
+src/core/core.d.ts

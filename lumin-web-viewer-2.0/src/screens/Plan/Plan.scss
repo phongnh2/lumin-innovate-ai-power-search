@@ -1,0 +1,534 @@
+@import "../../constants/lumin-styles";
+.Plan {
+  $self: &;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  background-color: $aliceblue;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 48px 16px;
+  align-items: center;
+  margin: auto;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  .title {
+    font-size: 32px;
+    margin: 24px 0px 10px;
+    padding: 0;
+    @include mobile {
+      font-size: 28px;
+    }
+  }
+  @include tablet {
+    max-width: 716px;
+  }
+
+  @include mobile {
+    padding: 0 16px;
+  }
+  .subtitle {
+    font-family: $font-stack-primary;
+    font-weight: 400;
+    @include tablet-and-mobile {
+      padding: 0;
+      font-size: 14px;
+    }
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+  &__segment {
+    display: flex;
+    width: 395px;
+    height: 40px;
+    border: 1px solid $cloudyblue;
+    border-radius: 2px;
+    margin: 16px auto 48px;
+    #{$self}__segment-item {
+      display: flex;
+      border: 1px solid $cloudyblue;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      background: $white;
+      font-family: $font-stack-primary;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: $secondary;
+      transition: all 0.25s;
+      &:hover {
+        cursor: pointer;
+      }
+      &.active {
+        background: $primary;
+        border-color: $primary;
+        color: $white;
+      }
+      @include mobile {
+        padding: 12px;
+      }
+    }
+    @include tablet-and-mobile {
+      margin: 32px auto 48px;
+    }
+    @include mobile {
+      max-width: 395px;
+      width: 100%;
+    }
+  }
+  .Content {
+    width: 100%;
+    &__see-more {
+      color: $dark-sky-blue;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 400;
+      padding-bottom: 16px;
+    }
+  }
+  .Discount {
+    .title {
+      color: $primary;
+      font-size: 32px;
+      margin-bottom: 44px;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: .6px;
+      font-family: $font-stack-montserrat;
+      @include mobile {
+        padding-top: 27px;
+        font-size: 24px;
+        margin-bottom: 0px;
+      }
+    }
+    &__item-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      max-width: 1086px;
+      margin: 0 auto;
+      @include tablet {
+        max-width: 716px;
+        grid-template-columns: auto;
+        padding: 0;
+      }
+      @include mobile {
+        grid-template-columns: auto;
+        padding: 0;
+      }
+    }
+    &__item {
+      background-color: $white;
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      padding: 32px 16px;
+      box-shadow: $container-shadow;
+      position: relative;
+      align-items: center;
+      &:first-child{
+        margin-right: 8px;
+      }
+      &:last-child{
+        margin-left: 8px;
+      }
+      &--left {
+        margin-right: 11px;
+      }
+      @include tablet {
+        padding: 32px;
+        &:first-child{
+          margin-bottom: 16px;
+          margin-right: 0px;
+        }
+        &:last-child{
+          margin-left: 0px;
+        }
+        &--left {
+          margin-right: 0px;
+        }
+        .SvgElement {
+          margin: auto;
+          margin-bottom: 24px;
+        }
+      }
+      @include mobile {
+        display: block;
+        margin-top: 100px;
+        &:first-child{
+          margin-right: 0px;
+        }
+        &:last-child{
+          margin-left: 0px;
+        }
+        &--left {
+          display: block;
+          margin-right: 0;
+          position: absolute;
+          top: -74px;
+          left: 16px;
+          width: 154px;
+          z-index: 2;
+        }
+      }
+
+    }
+    &__title {
+      font-family: $font-stack-montserrat;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+      color: $primary;
+      margin-bottom: 8px;
+      @include mobile {
+        text-align: left;
+        margin: 28px 0px 8px;
+      }
+    }
+    &__detail {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: 0.3px;
+      color: $secondary;
+      margin-bottom: 16px;
+      padding-right: 10px;
+      @include mobile {
+        font-size: 12px;
+        padding-right: 0px;
+      }
+    }
+    &__link {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.43;
+      letter-spacing: 0.3px;
+      color: $royalblue;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+      }
+      @include mobile {
+        text-align: center;
+      }
+    }
+  }
+  .FAQ {
+    margin: auto;
+    text-align: center;
+    .title {
+      color: $primary;
+      font-size: 32px;
+      font-weight: 400;
+      margin-top: 80px;
+      margin-bottom: 32px;
+      text-align: center;
+      letter-spacing: .6px;
+      font-family: $font-stack-montserrat;
+      @include mobile {
+        line-height: 28px;
+        font-size: 24px;
+      }
+    }
+    &__item-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 55px;
+      padding: 0 85px;
+      margin-bottom: 100px;
+      @include tablet {
+        padding: 0;
+      }
+      @include mobile {
+        grid-template-columns: auto;
+        padding: 0;
+        width: 90%;
+        margin: auto;
+      }
+    }
+    &__title {
+      font-size: 24px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      color: #273d57;
+      margin-bottom: 16px;
+    }
+    &__content {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 2;
+      letter-spacing: 0.3px;
+      color: #273d57;
+      text-align: justify;
+    }
+  }
+}
+
+.Plan__container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  margin-bottom: 116px;
+  position: relative;
+  box-shadow: $container-shadow;
+  border-radius: 4px;
+  padding-top: 13px;
+  background: white;
+  @include mobile {
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0px auto 62px;
+    max-width: 395px;
+  }
+}
+
+.Plan__container--team {
+  @include tablet-up {
+    max-width: 724px;
+  }
+}
+
+.Plan__container--enterprise {
+  padding-top: 0;
+  @include tablet-up {
+    max-width: 395px;
+  }
+}
+
+.Plan__item {
+  padding: 32px 56px;
+  text-align: center;
+  position: relative;
+  @media screen and (min-width: 640px) and (max-width: 767.98px) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023.98px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include mobile {
+    padding: 24px 32px;
+    width: 100%;
+    &:not(:last-child) {
+      border-bottom: 2px solid $aliceblue;
+    }
+  }
+  &:not(:last-child)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    top: 50%;
+    right: 0px;
+    z-index: 2;
+    transform: translateY(-50%);
+    background: $aliceblue;
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:last-child::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    right: -6px;
+    z-index: 2;
+    background: url('../../../assets/popular.svg') center/contain no-repeat;
+    @include mobile {
+      top: -8px;
+    }
+  }
+}
+
+.Plan__item--individual {
+  @include tablet-up {
+    width: calc(100% / 3);
+  }
+}
+
+.Plan__item--team {
+  @include tablet-up {
+    width: 50%;
+  }
+}
+
+.Plan__item--enterprise {
+  width: 100%;
+  &:after {
+    display: none!important;
+  }
+}
+
+.Plan__image {
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 150px;
+    height: auto;
+    @media screen and (min-width: 640px) {
+      height: 95px;
+      width: auto;
+    }
+    @media screen and (min-width: 1024px) {
+      height: 137px;
+    }
+  }
+}
+
+.Plan__name {
+  font-family: $font-stack-primary;
+  font-size: 16px;
+  font-weight: 600;
+  color: $primary;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  &.withQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+      color: $secondary;
+      margin-left: 8px;
+    }
+  }
+}
+
+.Plan__storage-size {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: $secondary;
+  padding-bottom: 16px;
+  max-width: 250px;
+  margin: 0 auto;
+  &.team {
+    padding-bottom: 24px;
+    @include tablet-up {
+      height: 67px;
+    }
+  }
+  & > span {
+    color: $secondary;
+    font-weight: 400;
+  }
+}
+
+.Plan__price-container {
+  padding-bottom: 16px;
+}
+
+.Plan__price-container--enterprise {
+  display: flex;
+  justify-content: center;
+}
+
+.Plan__price {
+  &.currency {
+    vertical-align: top;
+    font-size: 18px;
+    color: $accent;
+    padding-right: 4px;
+    font-weight: 600;
+  }
+  &.number {
+    font-size: 32px;
+    font-weight: 600;
+    color: $accent;
+    padding-right: 4px;
+  }
+  &.period {
+    font-size: 14px;
+    color: $royalblue;
+    font-weight: 400;
+  }
+  .SvgElement {
+    margin: auto;
+  }
+}
+
+.Plan__button {
+  max-width: 250px;
+  white-space: nowrap;
+  @include mobile {
+    width: 100%;
+    font-size: 14px;
+    a {
+      padding: 8px 30px;
+    }
+  }
+  &.disabled {
+    &.primary-outline{
+      opacity: 1 ;
+    }
+  }
+}
+
+.Plan__slider {
+  margin-top: 16px;
+  line-height: 0;
+}
+.Plan__dropdown {
+  border: 2px solid $cloudyblue ;
+  border-radius: 4px ;
+  padding: 6px 9px ;
+  width: calc(100% - 4px);
+  max-width: calc(100% - 4px);
+  margin-bottom: 6px;
+  &.active {
+    border-color: $primary ;
+  }
+  &:hover {
+    background: $white ;
+  }
+  > span {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600 ;
+    color: $royalblue ;
+    span {
+      font-weight: 400;
+      color: $primary ;
+      text-transform: lowercase;
+    }
+  }
+  i {
+    color: $primary;
+  }
+  &-list {
+    max-height: 200px;
+    overflow-y: scroll;
+    li {
+      font-weight: 600;
+      color: $royalblue ;
+      span {
+        font-weight: 400;
+        color: $primary ;
+      }
+    }
+  }
+}
+
+.Plan__question {
+  color: $secondary;
+  margin-left: 8px;
+}

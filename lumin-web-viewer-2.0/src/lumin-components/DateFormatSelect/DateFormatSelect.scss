@@ -1,0 +1,21 @@
+@import "../../constants/lumin-styles.scss";
+
+.date-format-select-list {
+    &--item {
+        font-family: Axiforma;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 375;
+        line-height: 24px;
+        padding: 6px 8px;
+        user-select: none;
+        cursor: pointer;
+
+        &:hover , &.active {
+            @include themify() {
+                background-color: themed('fontStyleTextHoverBg');
+            }
+        }
+    }
+
+}

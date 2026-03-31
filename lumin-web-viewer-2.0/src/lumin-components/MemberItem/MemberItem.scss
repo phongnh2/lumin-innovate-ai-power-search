@@ -1,0 +1,165 @@
+@import "../../constants/lumin-styles";
+
+.MemberItem {
+  display: flex;
+  border-radius: var(--border-radius-primary);
+  overflow: hidden;
+  padding: 6px 8px;
+  align-items: center;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.MemberItem--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.MemberItem--selected {
+  @include themify {
+    background: themed("sharedItemSelected");
+  }
+}
+
+.MemberItem--active {
+  background: var(--color-neutral-10);
+
+  @include themify {
+    background: themed("popperItemHover");
+  }
+}
+
+.MemberItem--hover {
+  &:hover {
+    background: var(--color-neutral-10);
+
+    @include themify {
+      background: themed("popperItemHover");
+    }
+  }
+}
+
+.MemberItem--highlight {
+  animation: fadeoutItemShare 5s;
+  @include themify {
+    animation: themed("fadeoutItem");
+  }
+}
+
+.MemberItem__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.MemberItem__rowSkeleton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.MemberItem__rowText {
+  padding-left: 12px;
+
+  @include mobile {
+    padding-left: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.MemberItem__rowTextSkeleton {
+  width: calc(100% - 52px);
+  padding-left: 12px;
+}
+
+.MemberItem__text {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-neutral-100);
+  margin-bottom: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 4px;
+
+  @include themify {
+    color: themed("textColor");
+  }
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: unset;
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+}
+
+.MemberItem__text--secondary {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-neutral-80);
+  margin-bottom: 0;
+
+  @include mobile {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  @include themify {
+    color: themed("textColorLighter");
+  }
+}
+
+.MemberItem__text-pending {
+  color: var(--color-secondary-50);
+}
+
+.MemberItem__textContainer {
+  display: flex;
+}
+
+.MemberItem__roleText {
+  font-size: 14px;
+  letter-spacing: 0.34px;
+  font-weight: 600;
+  line-height: 20px;
+  display: inline-block;
+
+  @include mobile {
+    font-size: 10px;
+    line-height: 12px;
+    margin-bottom: 2px;
+  }
+}
+
+.MemberItem__roleText--organization_admin,
+.MemberItem__roleText--team_admin,
+.MemberItem__roleText--owner {
+  color: var(--color-secondary-60);
+}
+
+.MemberItem__roleText--billing_moderator {
+  color: var(--color-primary-80);
+}
+
+.MemberItem__avatar {
+  min-width: 32px;
+}
+
+.MemberItem__right-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.MemberItem__right-container--request-access {
+  @include mobile {
+    justify-content: flex-start;
+    margin-top: 2px;
+    padding-left: 30px;
+  }
+}

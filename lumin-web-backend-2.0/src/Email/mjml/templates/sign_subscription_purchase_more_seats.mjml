@@ -1,0 +1,24 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">Success! <b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;has been upgraded</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text><b class="highlight">{{orgName}}'s {{orgWord}}</b>&nbsp;has been upgraded from the <b class="highlight">Pro {{oldPeriodLabel}} - {{oldSeats}} {{pluralize "seat" "seats" oldSeats}} Plan</b> to the <b class="highlight">Pro {{newPeriodLabel}} - {{newSeats}} {{pluralize "seat" "seats" newSeats}} Plan</b>. From now on, your {{orgWord}} can have up to <b class="highlight">{{newSeats}}</b> {{pluralize "member" "members" newSeats}} with Lumin Sign Pro seats.</mj-text>
+          <mj-spacer height="24px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

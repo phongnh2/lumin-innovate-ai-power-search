@@ -1,0 +1,34 @@
+.container {
+  padding: $kiwi-spacing-2;
+  display: flex;
+  gap: $kiwi-spacing-2;
+  max-width: 420px;
+  position: relative;
+}
+
+.contentWrapper {
+  margin-right: 24px;
+}
+
+.image {
+  width: 90px;
+  height: 90px;
+}
+
+.title {
+  @include kiwi-typography-title-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.description {
+  margin-top: $kiwi-spacing-0-5;
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.closeButton {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  color: var(--kiwi-colors-surface-on-surface)
+}

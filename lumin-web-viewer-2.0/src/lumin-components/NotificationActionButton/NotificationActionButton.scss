@@ -1,0 +1,20 @@
+@import '../../constants/lumin-styles.scss';
+
+.NotificationActionButton {
+  display: inline-block;
+  &__btn {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    i {
+      color: var(--color-neutral-40);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "./styles";
+@import "./lumin-styles";
+
+%overlay {
+  @extend %open;
+  @extend %closed;
+  position: absolute;
+  z-index: 201;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid;
+  @include themify() {
+    border-color: themed('outlineButtonBorderColor');
+  }
+  font-size: 14px;
+  color: $primary;
+  border-radius: 2px;
+  box-shadow: $popper-shadow;
+  font-family: $font-stack-primary;
+}

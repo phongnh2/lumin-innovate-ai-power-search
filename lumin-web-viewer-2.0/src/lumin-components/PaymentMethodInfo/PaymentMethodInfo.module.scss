@@ -1,0 +1,49 @@
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  align-items: flex-end;
+}
+
+.labelContainerReskin {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--kiwi-spacing-0-5);
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-neutral-80);
+  line-height: 16px;
+}
+
+.changePaymentMethodLink {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--color-secondary-50);
+  text-decoration: underline;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  padding: 0 16px;
+}
+
+.inputRightElement {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 0;
+}
+
+.link {
+  white-space: nowrap;
+}

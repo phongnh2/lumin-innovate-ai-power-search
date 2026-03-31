@@ -1,0 +1,41 @@
+.title {
+  margin-bottom: 16px;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  // @include kiwi-typography-title-medium-xl;
+
+  @include media-query-down(md) {
+    // @include typography-lg-title-medium-md;
+  }
+}
+
+.container {
+  padding: 16px;
+  background-color: var(--kiwi-colors-surface-container-low);
+  border-radius: var(--border-radius-extra);
+}
+
+.itemContainer {
+  display: flex;
+  align-items: flex-start;
+
+  a {
+    color: var(--kiwi-colors-surface-on-surface-variant);
+
+    @include kiwi-typography-body-md;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+}
+
+.itemText {
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-body-md;
+}
+
+.listItem {
+  margin-left: 12px;
+}

@@ -1,0 +1,4 @@
+# Ignore all JSON files to prevent sensitive data from being committed
+*
+!.gitkeep
+!.gitignore

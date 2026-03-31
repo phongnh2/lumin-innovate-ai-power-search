@@ -1,0 +1,116 @@
+{
+  "id": "luminpdf",
+  "short_name": "Lumin",
+  "name": "Lumin",
+  "categories": ["business", "education"],
+  "orientation": "any",
+  "dir": "auto",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/assets/images/pwa/i-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/assets/images/pwa/i-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/assets/images/pwa/i-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "purpose": "any",
+      "src": "/assets/images/pwa/i-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "purpose": "maskable",
+      "src": "/assets/images/pwa/i-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Document List",
+      "url": "/documents",
+      "icons": [
+        {
+          "src": "/assets/images/pwa/i-96.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "/assets/images/pwa/i-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "url": "/setting/profile",
+      "icons": [
+        {
+          "src": "/assets/images/pwa/i-96.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "/assets/images/pwa/i-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/pwa/screen-shot-1.png",
+      "sizes": "1965x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/pwa/screen-shot-2.png",
+      "sizes": "1997x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/pwa/screen-shot-3.png",
+      "sizes": "1999x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/pwa/screen-shot-4.png",
+      "sizes": "1965x1041",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?mode=pwa",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "description": "Search and manage your PDF documents online | Lumin",
+  "related_applications": [
+    {
+      "id": "com.luminpdfapp",
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.luminpdfapp"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/open/lumin?v=1",
+      "accept": {
+        "application/*": [".pdf"]
+      },
+      "launch_type": "multiple-clients"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+export const GuideType = {
+  ORGANIZATION_FEATURE: 'ORGANIZATION_FEATURE',
+};

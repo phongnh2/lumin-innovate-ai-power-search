@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  margin-top: 0;
+
+  @include media-query-up(lg) {
+    margin-top: 16px;
+  }
+
+  li {
+    margin-right: 8px;
+  }
+}

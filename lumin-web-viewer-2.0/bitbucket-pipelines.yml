@@ -1,0 +1,156 @@
+image: cimg/node:22.15.0
+
+clone:
+  depth: 5
+
+options:
+  max-time: 20
+
+definitions:
+  services:
+    docker:
+      memory: 6144
+    docker-build-image:
+      type: docker
+      memory: 14336
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &run-lint
+        name: Run lint on files was changed
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/run-lint.sh
+          - ./scripts/run-lint.sh
+    - step: &run-test-with-badges
+        name: Run tests with coverage badges
+        size: 4x
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/run-test.sh
+          - ./scripts/run-test.sh
+    - step: &report-test-coverage
+        name: Run tests with coverage
+        size: 4x
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/report-test-coverage.sh
+          - ./scripts/report-test-coverage.sh
+          - pipe: atlassian/bitbucket-upload-file:0.7.4
+            variables:
+              BITBUCKET_ACCESS_TOKEN: $BITBUCKET_ACCESS_TOKEN
+              FILENAME: 'badges/*.svg'
+    - step: &run-test
+        name: Run tests without badges
+        size: 2x
+        caches:
+          - node
+        script:
+          - sudo chmod 777 ./scripts/run-test.sh
+          - ./scripts/run-test.sh
+    - step: &scan-secret
+        name: Scan secrets
+        size: 2x
+        script:
+          - pipe: atlassian/git-secrets-scan:0.5.1
+    - step: &scan-sonarcloud
+        name: Scan SonarCloud
+        size: 2x
+        caches:
+          - sonar
+        script:
+          - pipe: sonarsource/sonarcloud-scan:2.0.0
+            variables:
+              EXTRA_ARGS: -Dsonar.projectDescription=\"Project with sonarcloud-scan pipe\" -Dsonar.eslint.reportPaths=\"report.json\"
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.6
+    - step: &build-and-push-image-arm
+        name: Build and push image arm
+        size: 4x
+        image: atlassian/default-image:4
+        runtime:
+          cloud:
+            arch: arm
+        services:
+          - docker-build-image
+        script:
+          - export TAG="$BITBUCKET_BRANCH-$BITBUCKET_BUILD_NUMBER"
+          - ./scripts/build.sh
+          - pipe: atlassian/aws-ecr-push-image:2.5.0
+            variables:
+              IMAGE_NAME: $PROJECT_NAME
+              TAGS: "$TAG"
+    - step: &update-k8s-manifest
+        name: Update k8s manifest
+        image: line/kubectl-kustomize:latest
+        size: 4x
+        script:
+          - apk add bash git openssh
+          - ./scripts/update-k8s-manifest.sh
+
+pipelines:
+  pull-requests:
+    "**":
+      - parallel:
+          - step: *run-lint
+          - step: *run-test
+          - step: *scan-secret
+          - step: *scan-sonarcloud
+
+  branches:
+    viewer:
+      - parallel:
+          - step: *run-test-with-badges
+          - step:
+              <<: *build-and-push-image-arm
+              deployment: viewer
+      - step: *update-k8s-manifest
+    develop:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: develop
+      - step: *update-k8s-manifest
+    workspace:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: develop
+      - step: *update-k8s-manifest
+    pnb:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: pnb
+      - step: *update-k8s-manifest
+    cnc:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: cnc
+      - step: *update-k8s-manifest
+    master:
+      - parallel:
+          - step: *report-test-coverage
+          - step:
+              <<: *build-and-push-image-arm
+              deployment: staging
+      - step: *update-k8s-manifest
+    viewer-staging:
+      - parallel:
+          - step: *run-test-with-badges
+          - step:
+              <<: *build-and-push-image-arm
+              deployment: viewer-staging
+      - step: *update-k8s-manifest
+    viewer-testing:
+      - parallel:
+          - step: *run-test-with-badges
+          - step:
+              <<: *build-and-push-image-arm
+              deployment: viewer-testing
+      - step: *update-k8s-manifest
+    production:
+      - step:
+          <<: *build-and-push-image-arm
+          deployment: production
+      - step:
+          <<: *update-k8s-manifest

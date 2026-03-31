@@ -1,0 +1,51 @@
+@import 'reskin/screens.scss';
+
+.container {
+  position: absolute;
+  z-index: 300;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(24px);
+  opacity: 0;
+  transition:
+    opacity var(--default-web-transition-duration) ease,
+    transform var(--default-web-transition-duration) ease;
+  pointer-events: none;
+
+  @include xl-screen {
+    transform: translateX(0) translateY(32px);
+    left: unset;
+    bottom: 32px;
+    right: 32px;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+
+    @include xl-screen {
+      transform: translateY(0);
+    }
+  }
+}
+
+.button {
+  border-radius: var(--kiwi-border-radius-rounded);
+  box-shadow: var(--kiwi-shadow-2);
+
+  @include xl-screen {
+    height: var(--kiwi-spacing-5);
+    width: var(--kiwi-spacing-5);
+    border-radius: var(--kiwi-border-radius-md);
+  }
+}
+
+.label {
+  color: var(--kiwi-colors-core-on-secondary);
+  @include kiwi-typography-label-lg;
+
+  @include xl-screen {
+    display: none;
+  }
+}

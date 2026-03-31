@@ -1,0 +1,21 @@
+.noteWrapper {
+  padding: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-container-low);
+  border-radius: var(--kiwi-border-radius-md);
+}
+
+.noteTitle {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.noteList {
+  list-style-type: disc;
+  padding-top: var(--kiwi-spacing-0-5);
+  padding-left: calc(var(--kiwi-spacing-2) + var(--kiwi-spacing-0-25));
+}
+
+.noteItem {
+  @include kiwi-typography-body-sm;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}

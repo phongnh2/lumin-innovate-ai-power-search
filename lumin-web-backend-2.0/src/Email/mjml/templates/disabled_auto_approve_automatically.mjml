@@ -1,0 +1,41 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column class="wrapper-child">
+          <mj-text mj-class="text-large">Your {{orgName}}'s {{orgWord}} was auto-changed to visible for anyone to request to join in Lumin</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            New users with
+            <a class="link-not-underline" href="">
+              <b class="highlight">{{listDomain}}</b>
+            </a>
+            domain have to wait for your approval to join <b class="highlight">{{orgName}}’s {{orgWord}}</b> because your {{orgWord}} reached the member limit.
+            <mj-raw>{{#if isEnterprise}}</mj-raw>Contact sales to upgrade your plan to increase member slots and enable auto-approval.
+            <mj-raw>{{else}}</mj-raw>Upgrade your plan to increase member slots and enable auto-approval.
+            <mj-raw>{{/if}}</mj-raw>
+          </mj-text>
+          <mj-raw>{{#if isEnterprise}}</mj-raw>
+            <mj-text>Contact sales to upgrade your plan to increase member slots and enable auto-approval.</mj-text>
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-text>Upgrade your plan to increase member slots and enable auto-approval.</mj-text>
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-spacer height="32px" />
+          <mj-raw>{{#if isEnterprise}}</mj-raw>
+            <mj-button align='left' href="{{staticUrl}}/contact-sales">Contact Sales</mj-button>
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-button align='left' href="{{baseUrl}}/payment/old-business/annual?{{orgUrlSegment}}_id={{orgId}}">Upgrade Now</mj-button>
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

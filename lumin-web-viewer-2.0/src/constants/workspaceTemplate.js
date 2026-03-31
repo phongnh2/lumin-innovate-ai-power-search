@@ -1,0 +1,5 @@
+export const WorkspaceTemplate = {
+  ORGANIZATION: 'ORGANIZATION',
+  PERSONAL: 'PERSONAL',
+  ORGANIZATION_TEAM: 'ORGANIZATION_TEAM',
+};

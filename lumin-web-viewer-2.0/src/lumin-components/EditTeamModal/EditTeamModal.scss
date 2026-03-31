@@ -1,0 +1,198 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.EditTeamModalWrapper > div:nth-child(2) > div {
+  overflow: unset;
+}
+
+.EditTeamModal {
+  * {
+    box-sizing: border-box;
+  }
+  @include mobile {
+    width: calc(100vw - 40px);
+  }
+  &__title {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    span {
+      font-family: $font-stack-primary;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0px;
+      color: $primary;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    min-width: 300px;
+    @include mobile {
+      padding: 0 20px;
+      min-width: unset;
+    }
+    &__error {
+      display: flex;
+      margin-top: 12px;
+      padding: 12px 16px;
+      align-items: center;
+      border-radius: 4px;
+      background: rgba(250, 111, 111, 0.2);
+      max-width: 300px;
+      span {
+        font-family: $font-stack-primary;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: $accent;
+      }
+      @include mobile {
+        max-width: unset;
+      }
+    }
+    &__label {
+      display: flex;
+      flex-direction: row;
+      margin-top: 24px;
+      span {
+        font-family: $font-stack-primary;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: $primary;
+        &.optional {
+          font-family: $font-stack-primary;
+          font-size: 14px;
+          font-weight: normal;
+          letter-spacing: 0.3px;
+          color: $secondary;
+          padding-left: 5px;
+        }
+      }
+    }
+    & > input {
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      outline: none;
+      border: 2px solid $cloudyblue;
+      padding-left: 18px;
+      margin-top: 8px;
+      font-family: $font-stack-primary;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+      color: $primary;
+      appearance: none;
+      margin-bottom: 20px;
+      &:focus {
+        border-color: $primary;
+      }
+      &::placeholder {
+        color: $cloudyblue;
+        opacity: 0.7;
+      }
+    }
+    &__row {
+      display: flex;
+      flex-direction: row;
+      margin-top: 16px;
+      &__avatar {
+        width: 72px;
+        height: 72px;
+        margin-right: 24px;
+        .image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &__btn_upload {
+          padding: 8px !important;
+          border: 2px solid $cloudyblue !important;
+          border-radius: 4px;
+          align-items: center;
+          justify-content: space-around !important;
+          text-transform: none !important;
+          span {
+            font-family: $font-stack-montserrat;
+            font-size: 12px;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: 0.2px;
+            color: $secondary;
+            @media screen and (max-width: 330px) {
+              & > span {
+                display: none;
+              }
+            }
+          }
+        }
+        & > span {
+          font-family: $font-stack-primary;
+          font-size: 12px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.3px;
+          color: $secondary;
+        }
+      }
+    }
+    &__members {
+      padding: 10px 0;
+      border-top: 1px solid $line-color;
+      border-bottom: 1px solid $line-color;
+      margin: 20px 0;
+      &__role {
+        display: flex;
+        align-content: center;
+        justify-content: flex-end;
+        cursor: pointer;
+        span {
+          text-transform: capitalize;
+          font-family: $font-stack-primary;
+          font-size: 14px;
+          font-weight: normal;
+          color: $secondary;
+          &.selected {
+            color: $primary;
+          }
+          &.admin {
+            color: $royalblue;
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px 0;
+    border-top: 1px solid $cloudyblue;
+    @include mobile {
+      flex-direction: column-reverse;
+      padding: 20px 0;
+      .cancel {
+        margin-right: 0;
+        margin-top: 12px;
+      }
+    }
+    .button {
+      min-width: auto !important;
+    }
+  }
+}

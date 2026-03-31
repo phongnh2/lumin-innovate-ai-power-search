@@ -1,0 +1,27 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">You’ve been assigned a Lumin Sign Pro seat in {{orgName}}'s {{orgWord}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            Hi <b class="highlight">{{userName}}</b>,
+          </mj-text>
+          <mj-text>
+            You've just been assigned a seat for Lumin Sign Pro in <b class="highlight">{{orgName}}'s {{orgWord}}</b>. You can now access all features available to your organization.
+          </mj-text>
+          <mj-text>
+            If you have any questions, please contact your administrator.
+          </mj-text>
+          <mj-spacer height="24px" />
+          <mj-button width="244px" line-height="24px" align="left" href="{{luminSignUrl}}workspace/{{orgUrl}}/agreements/my-agreements">Start exploring Lumin Sign</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

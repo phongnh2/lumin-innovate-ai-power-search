@@ -1,0 +1,17 @@
+.AutoSyncSwitch {
+  width: 30px;
+  height: 18px;
+
+  .MuiSwitch-switchBase {
+    padding: 3px;
+  }
+
+  .Mui-checked {
+    transform: translateX(11px);
+  }
+
+  .MuiSwitch-thumb {
+    width: 12px;
+    height: 12px;
+  }
+}

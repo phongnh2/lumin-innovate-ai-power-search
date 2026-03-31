@@ -1,0 +1,14 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  max-width: 800px;
+
+  @media (max-width: #{$breakpoint-xl}) {
+    max-width: unset;
+  }
+
+  @media (max-width: #{$breakpoint-xlr}) {
+    max-width: 640px;
+  }
+}

@@ -1,0 +1,26 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">
+            {{actorName}} was granted to Admin of {{orgName}}'s {{orgWord}} as they had
+            <mj-raw>{{#if isStartTrial}}</mj-raw>started trial
+            <mj-raw>{{else}}</mj-raw>upgraded the subscription
+            <mj-raw>{{/if}}</mj-raw>
+          </mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            As an Admin of <b class="highlight">{{orgName}}'s {{orgWord}}</b>, they will be able to access security features of your {{orgWord}}.&nbsp;</b>
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/people?email={{encodedActorEmail}}">Review Admin</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

@@ -1,0 +1,31 @@
+@import 'reskin/screens.scss';
+
+.container {
+  height: 100%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+
+  @include xl-screen {
+    background-color: var(--kiwi-colors-surface-surface-container-low);
+    border-top-left-radius: var(--kiwi-border-radius-lg);
+    border-top-right-radius: var(--kiwi-border-radius-lg);
+    padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2) 0;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+  @include xl-screen {
+    border-top-left-radius: var(--kiwi-border-radius-lg);
+    border-top-right-radius: var(--kiwi-border-radius-lg);
+  }
+}

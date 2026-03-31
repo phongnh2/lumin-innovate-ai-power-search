@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+}
+
+.titleContainer {
+  padding-bottom: var(--kiwi-spacing-2);
+}
+
+.backButton {
+  position: absolute;
+  top: calc(-1 * var(--kiwi-spacing-1));
+  left: calc(-1 * var(--kiwi-spacing-1));
+}
+
+.title {
+  @include kiwi-typography-headline-lg;
+  padding-left: var(--kiwi-spacing-5);
+}
+
+.wrapper {
+  width: 100%;
+  padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3);
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  box-shadow: var(--kiwi-shadow-1);
+}
+
+.loadingContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.currencyPickerContainer {
+  margin-top: var(--kiwi-spacing-2);
+}

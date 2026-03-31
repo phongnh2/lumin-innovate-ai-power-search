@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package notification;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+service NotificationService {
+  rpc GetNotifications(GetNotificationsRequest) returns (GetNotificationsResponse);
+  rpc ReadNotifications(ReadNotificationsRequest) returns (google.protobuf.Empty);
+  rpc ReadAllNotifications(ReadAllNotificationsRequest) returns (google.protobuf.Empty);
+  rpc PublishNewNotification(PublishNewNotificationRequest) returns (google.protobuf.Empty);
+}
+
+enum NotificationTab {
+  GENERAL = 0;
+  INVITES = 1;
+  REQUESTS = 2;
+}
+
+enum NotificationProduct {
+  LUMIN_PDF = 0;
+  LUMIN_SIGN = 1;
+}
+
+message Actor {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  optional string avatarRemoteId = 4;
+  optional google.protobuf.Struct actorData = 5;
+}
+
+message Entity {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  optional string avatarRemoteId = 4;
+  optional google.protobuf.Struct entityData = 5;
+}
+
+message Target {
+  string targetId = 1;
+  string type = 2;
+  string targetName = 3;
+  optional google.protobuf.Struct targetData = 4;
+}
+
+message Notification {
+  string _id = 1;
+  Actor actor = 2;
+  string notificationType = 3;
+  Target target = 4;
+  bool isRead = 5;
+  int32 actionType = 6;
+  int64 createdAt = 7; // Unix timestamp
+  Entity entity = 8;
+  NotificationTab tab = 9;
+  NotificationProduct product = 10;
+}
+
+message GetNotificationsRequest {
+  string userId = 1;
+  optional NotificationTab tab = 2;
+  optional string cursor = 3;
+  optional bool forSignProduct = 4;
+  int32 limit = 5;
+}
+
+message GetNotificationsResponse {
+  repeated Notification notifications = 1;
+  string cursor = 2;
+  bool hasNextPage = 3;
+}
+
+message ReadNotificationsRequest {
+  string userId = 1;
+  repeated string notificationIds = 2;
+}
+
+message ReadAllNotificationsRequest {
+  string userId = 1;
+}
+
+message PublishNewNotificationRequest {
+  Notification notification = 1;
+  repeated string receiverIds = 2;
+}

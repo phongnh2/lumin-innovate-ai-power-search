@@ -1,0 +1,140 @@
+enum CommunityTemplateState {
+  DRAFT
+  UNPUBLISH
+  LIVE
+}
+
+enum CommunityTemplateType {
+  SYSTEM
+  USER
+}
+
+type TemplateCategory {
+  _id: ID
+  name: String
+  slug: String
+  creator: BasicUserInfo
+  numberTemplateBonded: Int
+  lastEditorBy: BasicUserInfo
+  createdAt: Date
+  updatedAt: Date
+}
+
+type RateCommunityTemplate {
+  rateAvg: Float
+  rateCount: Int
+}
+
+type BasicUserInfo {
+  _id: ID
+  name: String
+  email: String
+}
+
+type DraftTemplate {
+  name: String
+  url: String
+  thumbnails: [String]
+  description: String
+  categories: [TemplateCategory]
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: [String]
+}
+
+input DraftTemplateInput {
+  name: String @NotIncludes(patterns: ["html", "url"], isOptional: true) @Length(min: 1, max: 255, isOptional: true)
+  url: String @Length(min: 1, max: 255, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true) @Regex(pattern: "^\/([a-z-0-9]+?)$", isOptional: true)
+  deleteThumbnailIds: [String!]
+  description: String @NotIncludes(patterns: ["html"], isOptional: true) @Length(min: 1, max: 1000, isOptional: true)
+  categories: [ID!] = null @MongoId(isOptional: true) @Array(min: 1, max: 3, unique: true, isOptional: true)
+  metaTitle: String @Length(min: 0, max: 100, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true)
+  metaDescription: String @Length(min: 0, max: 255, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true)
+  metaKeywords: [String!] = null @Length(min: 1, max: 255, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true) @Array(min: 0, max: 100, unique: true, isOptional: true)
+}
+
+input PublishedTemplateFilterOptions {
+  categoryId: ID @MongoId
+  categorySlug: String
+}
+
+input GetPublishedTemplatesInput {
+  searchQuery: CommunityTemplateSearchQuery
+  limit: Int! @Range(min: 0, max: 50)
+  offset: Int! @Range(min: 0)
+  sortOptions: CommunityTemplateSortOptions
+  filterOptions: PublishedTemplateFilterOptions
+}
+
+input TemplateCategorySortOptions {
+  updatedAt: SortStrategy
+  numberTemplateBonded: SortStrategy
+}
+
+input GetTemplateCategoryInput {
+  searchQuery: CommunityTemplateSearchQuery
+  limit: Int! @Range(min: 0, max: 100)
+  offset: Int! @Range(min: 0)
+  sortOptions: TemplateCategorySortOptions
+}
+
+type CommunityTemplate {
+  _id: ID
+  name: String
+  url: String
+  thumbnails: [String]
+  description: String
+  categories: [TemplateCategory]
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: [String]
+  remoteId: String
+  owner: BasicUserInfo
+  lastModifier: BasicUserInfo
+  publishDate: Date
+  status: CommunityTemplateState
+  type: CommunityTemplateType
+  counter: TemplateCounter
+  rateStar: RateCommunityTemplate
+  lastUpdate: Date
+  draftTemplate: DraftTemplate
+  hasDraft: Boolean
+  relatedTemplates: [CommunityTemplate]
+  createdAt: Date
+}
+
+type GetTemplateCategoryPayload {
+  categories: [TemplateCategory]
+  total: Int
+}
+
+type GetCommunityTemplatePayload {
+  templates: [CommunityTemplate]
+  currentCategory: TemplateCategory
+  total: Int
+}
+
+input EditCommunityTemplateInput {
+  templateId: ID! @MongoId
+  draft: DraftTemplateInput!
+}
+
+input AdminUploadTemplateInput {
+  name: String! @NotIncludes(patterns: ["html", "url"]) @Length(min: 1, max: 255)
+  url: String! @Length(min: 1, max: 255) @NotIncludes(patterns: ["html"]) @Regex(pattern: "^\/([a-z-0-9]+?)$")
+  description: String! @NotIncludes(patterns: ["html"]) @Length(min: 1, max: 1000)
+  categories: [ID!] @MongoId @Array(min: 1, max: 3, unique: true)
+  metaTitle: String @Length(min: 1, max: 100, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true)
+  metaDescription: String @Length(min: 1, max: 255, isOptional: true) @NotIncludes(patterns: ["html"], isOptional: true)
+  metaKeywords: [String!] @Length(min: 1, max: 255, isOptional: true) @NotIncludes(patterns: ["html"]) @Array(min: 1, max: 100, unique: true, isOptional: true)
+}
+
+input EditTemplateCategoryInput {
+  name: String! @Length(min: 1, max: 255) @NotIncludes(patterns: ["html", "url"])
+  categoryId: ID! @MongoId
+}
+type Query {
+  getTemplateCategories: [TemplateCategory]
+  getPublishedTemplates(input: GetPublishedTemplatesInput!): GetCommunityTemplatePayload
+  getPublishedTemplateByUrl(url: String!): CommunityTemplate
+}

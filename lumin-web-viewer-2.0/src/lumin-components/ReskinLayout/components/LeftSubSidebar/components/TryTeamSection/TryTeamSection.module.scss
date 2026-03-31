@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  padding: var(--kiwi-spacing-1-5);
+  border: var(--kiwi-spacing-0-125) solid var(--kiwi-colors-surface-surface-container-highest);
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  position: relative;
+}
+
+.disabledContainer {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-75);
+  margin-bottom: var(--kiwi-spacing-1);
+}
+
+.linkButton {
+  color: var(--kiwi-colors-surface-on-surface);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+  text-underline-position: from-font;
+}

@@ -1,0 +1,12 @@
+.radioGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(var(--kiwi-spacing-1) * -1);
+}
+
+.radioGroupContent {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-6);
+}

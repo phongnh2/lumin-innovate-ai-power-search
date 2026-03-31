@@ -1,0 +1,103 @@
+.uploadHeader {
+  display: flex;
+  padding: var(--kiwi-spacing-4);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px dashed var(--kiwi-colors-surface-outline);
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-surface-on-surface);
+    border-radius: var(--kiwi-border-radius-md);
+    opacity: 0;
+    transition: all var(--editor-transition);
+  }
+  &:hover::after {
+    opacity: var(--kiwi-opacity-state-layer-hovered);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--kiwi-colors-core-primary-container);
+    border-radius: var(--kiwi-border-radius-md);
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+  &.dragActive {
+    &::before {
+      opacity: 0.5;
+    }
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+.container {
+  padding: 0 var(--kiwi-spacing-2) var(--kiwi-spacing-2);
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--kiwi-colors-core-primary);
+  @include kiwi-typography-body-md;
+}
+
+.description {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kiwi-spacing-0-5);
+  padding: var(--kiwi-spacing-1) 0;
+  margin-top: var(--kiwi-spacing-1);
+}
+
+.dividerText {
+  @include kiwi-typography-body-sm;
+  text-overflow: ellipsis;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.dividerLine {
+  display: flex;
+  height: 1px;
+  align-items: flex-start;
+  flex: 1 0 0;
+  background-color: var(--kiwi-colors-surface-outline-variant);
+}
+
+.uploadFromButton {
+  display: flex;
+  padding: var(--kiwi-spacing-0-75) 0;
+  justify-content: center;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  align-self: stretch;
+  border-radius: var(--kiwi-border-radius-md);
+  background: var(--kiwi-colors-core-secondary-container);
+  width: 100%;
+  @include kiwi-typography-body-md;
+}
+
+.descriptionWrapper {
+  display: flex;
+}

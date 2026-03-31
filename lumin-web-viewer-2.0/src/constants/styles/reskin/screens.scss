@@ -1,0 +1,115 @@
+$breakpoint-xs: 480px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-lgr: 1024px;
+$breakpoint-xl: 1200px;
+$breakpoint-xlr: 1366px;
+$breakpoint-xxl: 1440px;
+$breakpoint-xxxl: 1600px;
+$breakpoint-xxxxl: 1920px;
+
+@mixin xs-screen {
+  @media (min-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
+@mixin sm-screen {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin lgr-screen {
+  @media (min-width: #{$breakpoint-lgr}) {
+    @content;
+  }
+}
+
+@mixin xl-screen {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+@mixin xlr-screen {
+  @media (min-width: #{$breakpoint-xlr}) {
+    @content;
+  }
+}
+
+@mixin xxl-screen {
+  @media (min-width: #{$breakpoint-xxl}) {
+    @content;
+  }
+}
+
+@mixin xxxl-screen {
+  @media (min-width: #{$breakpoint-xxxl}) {
+    @content;
+  }
+}
+
+@mixin xxxxl-screen {
+  @media (min-width: #{$breakpoint-xxxxl}) {
+    @content;
+  }
+}
+
+@mixin xxl-down-screen {
+  @media (max-width: #{$breakpoint-xxl - 1px}) {
+    @content;
+  }
+}
+
+@mixin md-down-screen {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin sm-down-screen {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+// These mixins make it easy to find and modify responsive styles for the web chatbot
+@mixin xl-to-xxxl-screen-webchatbot {
+  @media (min-width: #{$breakpoint-xl}) and (max-width: #{$breakpoint-xxxl - 1px}) {
+    @content;
+  }
+}
+@mixin xxxl-screen-webchatbot {
+  @media (min-width: #{$breakpoint-xxxxl}) {
+    @content;
+  }
+}
+@mixin xl-down-screen-webchatbot {
+  @media (max-width: #{$breakpoint-xl - 1px}) {
+    @content;
+  }
+}
+@mixin xxl-down-screen-webchatbot {
+  @media (max-width: #{$breakpoint-xxl - 1px}) {
+    @content;
+  }
+}
+@mixin xxxxl-down-screen-webchatbot {
+  @media (max-width: #{$breakpoint-xxxxl - 1px}) {
+    @content;
+  }
+}

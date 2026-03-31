@@ -1,0 +1,14 @@
+:root {
+  --font-inter-variable: inter;
+  --font-pp-agrandir: ppagrandir;
+
+  --header-height: 64px;
+  --footer-height: 56px;
+  --page-container-md: 1080px;
+}
+
+@media screen and (max-width: 767.98px) {
+  :root {
+    --footer-height: 84px;
+  }
+}

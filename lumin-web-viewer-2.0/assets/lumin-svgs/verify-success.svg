@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="446" height="435" viewBox="0 0 446 435">
+    <defs>
+        <linearGradient id="a" x1="50%" x2="50%" y1="-10.877%" y2="100%">
+            <stop offset="0%" stop-color="#FFE579"/>
+            <stop offset="100%" stop-color="#FEB755"/>
+        </linearGradient>
+        <linearGradient id="b" x1="100%" x2="0%" y1="50%" y2="50%">
+            <stop offset="0%" stop-color="#ECC052"/>
+            <stop offset="100%" stop-color="#F0AB45"/>
+        </linearGradient>
+        <linearGradient id="c" x1="30.563%" x2="203.595%" y1="112.185%" y2="-274.711%">
+            <stop offset="0%" stop-color="#F7FAFF"/>
+            <stop offset="100%" stop-color="#6B9AD9"/>
+        </linearGradient>
+        <linearGradient id="d" x1="50%" x2="55.252%" y1="0%" y2="81.647%">
+            <stop offset="0%" stop-color="#FFE579"/>
+            <stop offset="100%" stop-color="#FEC644"/>
+        </linearGradient>
+        <linearGradient id="e" x1="61.039%" x2="50%" y1="-102.973%" y2="100%">
+            <stop offset="0%" stop-color="#FFEDBF"/>
+            <stop offset="100%" stop-color="#FEC644"/>
+        </linearGradient>
+        <linearGradient id="f" x1="50%" x2="67.286%" y1="32.119%" y2="115.978%">
+            <stop offset="0%" stop-color="#84F0A8"/>
+            <stop offset="100%" stop-color="#48B676"/>
+        </linearGradient>
+        <linearGradient id="h" x1="22.571%" x2="91.212%" y1="18.017%" y2="91.909%">
+            <stop offset="0%" stop-color="#EF1A1B"/>
+            <stop offset="42.132%" stop-color="#D13043"/>
+            <stop offset="100%" stop-color="#9F041B"/>
+        </linearGradient>
+        <rect id="g" width="90" height="90" rx="25.2"/>
+        <linearGradient id="i" x1="38.248%" x2="79.987%" y1="32.129%" y2="79.486%">
+            <stop offset="0%" stop-color="#FD8378"/>
+            <stop offset="100%" stop-color="#DB324B"/>
+        </linearGradient>
+        <linearGradient id="k" x1="12.246%" x2="30.832%" y1="12.352%" y2="50%">
+            <stop offset="0%" stop-color="#F7B8C4"/>
+            <stop offset="100%" stop-color="#F0022D"/>
+        </linearGradient>
+        <filter id="l" width="163%" height="171.2%" x="-31.4%" y="-34.8%" filterUnits="objectBoundingBox">
+            <feOffset dx="3" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.676046981 0 0 0 0 0.0115368655 0 0 0 0 0.0993023525 0 0 0 0.24793365 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <ellipse cx="135.887" cy="6.5" fill="#E2EBFC" opacity=".34" rx="135.766" ry="6.5" transform="translate(73 336)"/>
+        <g fill-rule="nonzero" transform="rotate(-39 277.69 88.808)">
+            <path fill="url(#a)" d="M103.844 25.048l177.864 142.535a2.523 2.523 0 0 1 .38 3.574 2.576 2.576 0 0 1-1.74.93l-154.495 15.356c-4.191.416-7.944-2.577-8.423-6.719L99.677 27.312c-.162-1.395.85-2.654 2.259-2.814a2.587 2.587 0 0 1 1.908.55z" transform="rotate(180 191.16 105.981)"/>
+            <path fill="url(#b)" d="M27.829 96.422h232v151h-232z" transform="rotate(39 143.829 171.922)"/>
+            <rect width="199" height="150" x="84.43" y="46.423" fill="url(#c)" rx="8" transform="rotate(-141 183.93 121.423)"/>
+            <path fill="url(#d)" d="M144.24 158.837l12.87 10.422c3.209 2.575 127.62 13.988 125.02 17.168l-97.578 119.4c-2.6 3.18-7.308 3.67-10.518 1.095L3.57 170.142a7.364 7.364 0 0 1-1.106-10.421l97.579-119.4c2.599-3.18 40.989 115.941 44.198 118.516z"/>
+            <path fill="url(#e)" d="M4.963 170.283a2.452 2.452 0 0 1-.914-1.76 2.465 2.465 0 0 1 2.322-2.604l143.14-8.658c3.82-.23 7.194 2.455 7.794 6.205l22.708 141.937c.11.689-.079 1.391-.521 1.933a2.491 2.491 0 0 1-3.485.363L4.963 170.283z"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(302 266)">
+            <circle cx="41.5" cy="41.5" r="41.5" fill="url(#f)"/>
+            <path fill="#F6F9FF" d="M36.313 57.063c-.934 0-1.557-.312-2.18-.934l-12.45-12.45c-1.244-1.245-1.244-3.113 0-4.358 1.246-1.245 3.113-1.245 4.358 0l10.271 10.272L59.035 26.87c1.245-1.245 3.112-1.245 4.357 0s1.245 3.113 0 4.358l-24.9 24.9c-.622.622-1.245.934-2.178.934"/>
+        </g>
+        <g transform="translate(179 114)">
+            <mask id="j" fill="#fff">
+                <use xlink:href="#g"/>
+            </mask>
+            <use fill="url(#h)" xlink:href="#g"/>
+            <circle cx="21.291" cy="24.082" r="29.663" fill="url(#i)" mask="url(#j)" opacity=".563"/>
+            <path fill="url(#k)" d="M66.37 101.841c38.939-4.496 36.53-14.32 40.56-40.56 4.03-26.24-35.133-45.167-54.144-37.059-19.011 8.109-10.06 22.655-26.976 37.059-16.916 14.403 1.622 45.056 40.56 40.56z" mask="url(#j)" opacity=".551"/>
+        </g>
+        <g fill="#FFF" filter="url(#l)" transform="translate(196.442 134.233)">
+            <path d="M28.884 0L14.651 24.8l7.168 12.874L43.256 0zM21.628 37.674l7.522 12.559h26.664l-7.2-12.559zM8.534 35.581L0 50.233h17.442L8.668 35.58z"/>
+        </g>
+        <circle cx="440" cy="180" r="6" fill="#FF959B"/>
+        <circle cx="54" cy="139" r="6" fill="#C2DAFF"/>
+        <circle cx="40.5" cy="208.5" r="7.5" stroke="#B1CDF9" stroke-width="3"/>
+        <circle cx="408.5" cy="211.5" r="6.5" stroke="#B1CDF9" stroke-width="3"/>
+        <g transform="translate(408 125)">
+            <rect width="4" height="24" x="9" fill="#FAAFB1" rx="2"/>
+            <path fill="#D8D8D8" d="M24 12a2 2 0 0 1-2 2H2a2 2 0 1 1 0-4h20a2 2 0 0 1 2 2z"/>
+            <path fill="#FAAFB1" d="M24 12a2 2 0 0 1-2 2H2a2 2 0 1 1 0-4h20a2 2 0 0 1 2 2z"/>
+        </g>
+        <g>
+            <path fill="#FAAFB1" d="M12.5 157a2.5 2.5 0 0 1 2.5 2.5v19a2.5 2.5 0 1 1-5 0v-19a2.5 2.5 0 0 1 2.5-2.5z"/>
+            <path fill="#D8D8D8" d="M24.5 169a2.5 2.5 0 0 1-2.5 2.5H3a2.5 2.5 0 1 1 0-5h19a2.5 2.5 0 0 1 2.5 2.5z"/>
+            <path fill="#FAAFB1" d="M24.5 169a2.5 2.5 0 0 1-2.5 2.5H3a2.5 2.5 0 1 1 0-5h19a2.5 2.5 0 0 1 2.5 2.5z"/>
+        </g>
+    </g>
+</svg>

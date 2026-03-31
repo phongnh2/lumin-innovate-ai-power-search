@@ -1,0 +1,16 @@
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.menuItemWrapper {
+  padding: var(--kiwi-spacing-1);
+}
+
+
+.selectDropdown {
+  padding-left: var(--kiwi-spacing-1);
+  padding-top: var(--kiwi-spacing-1);
+  padding-bottom: var(--kiwi-spacing-1);
+}

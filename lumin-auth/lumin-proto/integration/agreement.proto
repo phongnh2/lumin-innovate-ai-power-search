@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package lumin.agreement.v1;
+
+import "integration/common.proto";
+
+service AgreementTemplateServiceV1 {
+  rpc GetTemplateList (GetTemplatesMessage) returns (GetTemplatesResponse) {}
+  rpc GetTemplateById (GetTemplateByIdMessage) returns (GetTemplateByIdResponse) {}
+  rpc ExportPdf (ExportPdfMessage) returns (ExportPdfResponse) {}
+}
+
+service AgreementServiceV1 {
+  rpc CreateAgreementFromTemplate (CreateAgreementFromTemplateMessage) returns (CreateAgreementFromTemplateResponse) {}
+  rpc CreateAgreementFromPrompt (CreateAgreementFromPromptMessage) returns (CreateAgreementFromPromptResponse) {}
+  rpc ExportPdf (ExportPdfForAgreementMessage) returns (ExportPdfForAgreementResponse) {}
+}
+
+message LinkedObject {
+  string integration = 1;
+  string entity_type = 2;
+  string record_id = 3;
+  string reference_url = 4;
+  string client_id = 5;
+}
+
+message RoleMapping {
+  string key = 1;
+  string value = 2;
+}
+
+message GetTemplatesMessage {
+  string user_id = 1;
+  string workspace_id = 2;
+}
+
+message GetTemplateByIdMessage {
+  string id = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+}
+
+message GetTemplatesResponse {
+  repeated lumin.integration.TemplateInfo data = 1;
+  int32 total = 2;
+}
+
+message GetTemplateByIdResponse {
+  lumin.integration.Template data = 1;
+}
+
+message ExportPdfMessage {
+  string template_id = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+  map<string, string> variables = 4;
+  map<string, string> fields = 5;
+  string file_name = 6;
+  repeated RoleMapping roles = 7;
+}
+
+message ExportPdfResponse {
+  string download_url = 1;
+  string file_name = 2;
+  int64 expires_at = 3;
+  string file_path = 4;
+  repeated string roles = 5;
+}
+
+message CreateAgreementFromTemplateMessage {
+  string template_id = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+  string file_name = 4;
+  map<string, string> variables = 5;
+  map<string, string> fields = 6;
+  repeated LinkedObject linked_objects = 7;
+}
+
+message CreateAgreementFromTemplateResponse {
+  string agreement_id = 1;
+  string agreement_name = 2;
+  string preview_url = 3;
+  int64 created_at = 4;
+  repeated LinkedObject linked_objects = 5;
+}
+
+message ExportPdfForAgreementMessage {
+  string agreement_id = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+}
+
+message ExportPdfForAgreementResponse {
+  string download_url = 1;
+  string file_name = 2;
+  int64 expires_at = 3;
+}
+
+message CreateAgreementFromPromptMessage {
+  string prompt = 1;
+  string user_id = 2;
+  string workspace_id = 3;
+}
+
+message CreateAgreementFromPromptResponse {
+  string agreement_id = 1;
+  string agreement_name = 2;
+  string preview_url = 3;
+  int64 created_at = 4;
+}

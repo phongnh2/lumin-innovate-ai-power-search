@@ -1,0 +1,282 @@
+@import "../../../constants/lumin-styles";
+
+.LuminInput__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: var(--border-primary);
+  border-radius: var(--border-radius-primary);
+  overflow: hidden;
+
+  transition-property: background-color, border-color;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+
+  @include themify {
+    color: themed("inputText");
+    background-color: themed("inputBg");
+    border: 1px solid themed("inputBorder");
+
+  }
+
+  &:focus-within {
+    border-color: var(--color-primary-50);
+    box-shadow: var(--shadow-input);
+
+    @include themify {
+      box-shadow: themed("inputBoxShadow");
+    }
+  }
+}
+
+.LuminInput__wrapper--readonly {
+  background-color: var(--color-neutral-10);
+  border: var(--border-secondary);
+}
+
+.LuminInput__wrapper--disabled {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend .LuminInput__wrapper--readonly;
+
+  pointer-events: none;
+}
+
+.LuminInput__input {
+  font-family: var(--font-primary);
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  outline: none;
+  background: none;
+  height: calc(var(--input-height-medium) - 1px * 2);
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.34px;
+  color: var(--color-neutral-100);
+  box-shadow: none;
+  appearance: none;
+  transition: 0.25s ease-in-out;
+  transition-property: color, background;
+  flex-grow: 1;
+  border: none;
+  opacity: 1;
+
+  &::placeholder {
+    color: var(--color-neutral-40);
+    -webkit-text-fill-color: var(--color-neutral-40); /* required on iOS, safari */
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    appearance: textfield;
+  }
+
+  &:read-only {
+    color: var(--color-neutral-80);
+    -webkit-text-fill-color: var(--color-neutral-80); /* required on iOS, safari */
+  }
+
+  &:disabled {
+    color: var(--color-neutral-60);
+    -webkit-text-fill-color: var(--color-neutral-60); /* required on iOS, safari */
+    pointer-events: none;
+  }
+
+  @include themify {
+    color: themed("inputText");
+  }
+}
+
+.LuminInput__input--hasPreIcon {
+  padding-left: 12px;
+}
+
+.LuminInput__input:-webkit-autofill {
+  -webkit-text-fill-color: $primary;
+  box-shadow: 0 0 0 1000px $white inset;
+  transition: background-color 5000s ease-in-out 0s;
+
+  &:disabled {
+    -webkit-text-fill-color: $secondary;
+    box-shadow: 0 0 0 1000px rgb(192 208 223 / 20%) inset;
+    transition: all 0s ease 0s;
+  }
+}
+
+.LuminInput__input--tiny {
+  height: calc(var(--input-height-tiny) - 1px * 2);
+  font-size: 12px;
+  padding: 0 12px;
+}
+
+.LuminInput__input--small {
+  height: calc(var(--input-height-small) - 1px * 2);
+}
+
+.LuminInput__input--medium {
+  height: calc(var(--input-height-medium) - 1px * 2);
+}
+
+.LuminInput__input--large {
+  height: calc(var(--input-height-large) - 1px * 2);
+}
+
+.LuminInput__input--hasLeftIcon {
+  padding-left: 36px;
+}
+
+.LuminInput__icon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+}
+
+.LuminInput__icon--clickable {
+  cursor: pointer;
+}
+
+.LuminInput__label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-neutral-80);
+  margin-bottom: 4px;
+  display: block;
+
+  @include themify {
+    color: themed("inputText");
+  }
+}
+
+.LuminInput__wrapper--error {
+  border-color: var(--color-secondary-50);
+
+  @include themify {
+    border-color: themed("inputBorderError");
+  }
+
+  &:focus-within {
+    @include themify {
+      box-shadow: none;
+    }
+  }
+}
+
+.LuminInput__input--hasIcon {
+  padding-right: 48px;
+}
+
+.LuminInput__input--pointer {
+  cursor: pointer;
+}
+
+.LuminInput__error-message {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-secondary-50);
+  font-weight: 400;
+  margin-top: 4px;
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+}
+
+.LuminInput--fullWidth {
+  width: 100%;
+}
+
+.LuminInput__leftIcon {
+  padding-left: 18px;
+  flex-shrink: 0;
+  color: var(--color-neutral-60);
+  pointer-events: none;
+}
+
+.LuminInput__leftIcon--focused {
+  color: var(--color-neutral-100);
+
+  @include themify {
+    color: themed("inputBorderFocusing");
+  }
+}
+
+.LuminInput__leftIcon--error {
+  color: var(--color-neutral-100);
+
+  @include themify {
+    color: themed("inputText");
+  }
+}
+
+.LuminInput__icon-postfix {
+  flex-shrink: 0;
+  padding-left: 12px;
+}
+
+.LuminInput__rightIconContainer {
+  margin-right: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-radius: 4px;
+  flex-shrink: 0;
+
+  @include themify {
+    background-color: themed("inputBg");
+  }
+
+  &:hover {
+    background-color: var(--color-neutral-10);
+
+    @include themify {
+      background-color: themed("buttonSwitchBgColorHover");
+    }
+
+    cursor: pointer;
+  }
+}
+
+.LuminInput__wrapper--showTagList {
+  border: unset;
+  &:focus-within {
+    box-shadow: none;
+  }
+}
+
+.LuminInput--showTagList {
+  border: var(--border-primary);
+  border-radius: var(--border-radius-primary);
+
+  &:focus-within {
+    border-color: var(--color-primary-50);
+    box-shadow: var(--shadow-input);
+  }
+}
+
+.LuminTagList {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  max-height: 96px;
+  overflow: auto;
+  padding: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-neutral-20);
+  gap: 4px;
+}

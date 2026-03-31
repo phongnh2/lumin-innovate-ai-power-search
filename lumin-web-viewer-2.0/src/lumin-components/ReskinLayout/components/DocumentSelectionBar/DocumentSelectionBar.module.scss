@@ -1,0 +1,93 @@
+@import 'reskin/screens.scss';
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  align-items: center;
+  z-index: 101;
+  left: 0;
+  padding: var(--kiwi-spacing-1) 0;
+
+  // temporary visible on mobile
+  justify-content: flex-start;
+  bottom: auto;
+  height: auto;
+  transform: translate3d(0, 0, 0);
+  transition: none;
+  display: none;
+  position: static;
+
+  @include md-screen {
+    justify-content: flex-start;
+    bottom: auto;
+    height: auto;
+    transform: translate3d(0, 0, 0);
+    transition: none;
+    display: none;
+    position: static;
+  }
+
+}
+
+.display {
+  transform: translate3d(0, 0, 0);
+
+  // temporary visible on mobile
+  display: flex;
+
+  @include md-screen {
+    display: flex;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+
+  gap: var(--kiwi-spacing-1);
+
+  // temporary visible on mobile
+  margin-left: 0;
+
+  @include md-screen {
+    margin-left: 0;
+  }
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  margin-right: var(--kiwi-spacing-1);
+  padding: 0;
+
+  @include xl-screen {
+    position: absolute;
+    left: -22px;
+    z-index: 2;
+    margin-left: calc(var(--kiwi-spacing-1) * -1);
+  }
+}
+
+.divider {
+  height: 24px;
+  align-self: center;
+}
+
+.cancelBtn {
+  margin-left: auto;
+  user-select: none;
+  cursor: pointer;
+  color: var(--kiwi-colors-semantic-error);
+
+  // temporary visible on mobile
+  display: inline-block;
+
+  @include md-screen {
+    display: inline-block;
+  }
+
+  @include xl-screen {
+    display: none;
+  }
+}

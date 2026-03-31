@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  padding: 0 var(--kiwi-spacing-3);
+  text-align: left;
+}
+
+.title {
+  @include kiwi-typography-headline-xl;
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-bottom: var(--kiwi-spacing-1);
+}
+
+.inputWrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-5);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.switchWrapper {
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.label {
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.switchLabel {
+  @include kiwi-typography-body-md;
+  padding-left: var(--kiwi-spacing-1);
+  color: var(--kiwi-colors-surface-on-surface);
+}
+
+.chipWrapper {
+  display: grid;
+  row-gap: var(--kiwi-spacing-0-75);
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-25);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: var(--kiwi-spacing-2);
+
+  button {
+    width: fit-content;
+  }
+}
+
+.boldText {
+  font-weight: 700;
+  color: var(--kiwi-colors-surface-on-surface);
+}

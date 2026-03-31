@@ -1,0 +1,83 @@
+@import 'reskin/screens.scss';
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.detailMessage {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  text-align: center;
+  @include kiwi-typography-body-md;
+}
+
+.detailContainer {
+  display: grid;
+  grid-row-gap: var(--kiwi-spacing-1-5);
+
+  @include md-screen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-row-gap: var(--kiwi-spacing-1-5);
+  }
+}
+
+.subTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-title-sm;
+}
+
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-lg;
+}
+
+.wrapTitle {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+}
+
+.checkboxWrapper {
+  display: flex;
+  justify-content: left;
+}
+
+.checkboxLabel {
+  color: var(--kiwi-colors-surface-on-surface);
+  margin-left: var(--kiwi-spacing-1);
+  @include kiwi-typography-body-md;
+}
+
+.checkBox {
+  margin-left: 0;
+}
+
+.container {
+  width: 100%;
+  display: block;
+
+  @include md-screen {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.button {
+  margin: var(--kiwi-spacing-1) 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+}

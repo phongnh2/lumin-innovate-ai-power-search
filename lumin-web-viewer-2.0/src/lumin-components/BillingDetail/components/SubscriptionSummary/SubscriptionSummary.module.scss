@@ -1,0 +1,47 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1-25);
+  align-items: center;
+  white-space: nowrap;
+  height: 30px;
+
+  @include md-screen {
+    grid-template-columns: min-content minmax(0px, 1fr);
+    column-gap: var(--kiwi-spacing-10);
+    row-gap: unset;
+  }
+}
+
+.title {
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-lg;
+}
+
+.orgInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+  overflow: hidden;
+
+  & > div:first-child {
+    margin: var(--kiwi-spacing-0-125);
+  }
+
+  @include md-screen {
+    justify-content: flex-end;
+  }
+}
+
+.orgName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--kiwi-colors-surface-on-surface);
+  @include kiwi-typography-headline-sm;
+
+  @include md-screen {
+    @include kiwi-typography-headline-md;
+  }
+}

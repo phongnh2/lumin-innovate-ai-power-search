@@ -1,0 +1,116 @@
+@mixin woff2font($font-family, $font-weight, $font-file, $is-variable-font: false, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    @if $is-variable-font {
+      src: url($font-file + ".woff2") format('woff2 supports variations'), url($font-file + ".woff2") format('woff2-variations');
+    } @else {
+      src: url($font-file + ".woff2") format("woff2");
+    };
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+
+@include woff2font("Axiforma", 300, "../assets/fonts/Axiforma/Axiforma-Light");
+@include woff2font("Axiforma", 375, "../assets/fonts/Axiforma/Axiforma-Book");
+@include woff2font("Axiforma", 400, "../assets/fonts/Axiforma/Axiforma-Regular");
+@include woff2font("Axiforma", 500, "../assets/fonts/Axiforma/Axiforma-Medium");
+@include woff2font("Axiforma", 600, "../assets/fonts/Axiforma/Axiforma-SemiBold");
+@include woff2font("Axiforma", 700, "../assets/fonts/Axiforma/Axiforma-Bold");
+@include woff2font("Axiforma", 800, "../assets/fonts/Axiforma/Axiforma-Black");
+@include woff2font("Montserrat", 200, "../assets/fonts/Montserrat/Montserrat-Thin");
+@include woff2font("Montserrat", 400, "../assets/fonts/Montserrat/Montserrat-Regular");
+@include woff2font("Montserrat", 500, "../assets/fonts/Montserrat/Montserrat-Medium");
+@include woff2font("Montserrat", 500, "../assets/fonts/Montserrat/Montserrat-SemiBold");
+@include woff2font("Montserrat", 700, "../assets/fonts/Montserrat/Montserrat-Bold");
+@include woff2font("Montserrat", 400, "../assets/fonts/Montserrat/Montserrat-Italic", false, italic);
+@include woff2font("Montserrat", 700, "../assets/fonts/Montserrat/Montserrat-BoldItalic", false, italic);
+
+@include woff2font("Roboto", 300, "../assets/fonts/Roboto/Roboto-Light");
+@include woff2font("Roboto", 400, "../assets/fonts/Roboto/Roboto-Regular");
+@include woff2font("Roboto", 500, "../assets/fonts/Roboto/Roboto-Medium");
+@include woff2font("Roboto", 400, "../assets/fonts/Roboto/Roboto-Italic", false, italic);
+@include woff2font("Roboto", 700, "../assets/fonts/Roboto/Roboto-BoldItalic", false, italic);
+@include woff2font("Roboto", 700, "../assets/fonts/Roboto/Roboto-Bold");
+@include woff2font("Lora", 400 700, "../assets/fonts/Lora/Lora-VariableFont");
+@include woff2font("Lora", 400 700, "../assets/fonts/Lora/Lora-Italic-VariableFont", false, italic);
+@include woff2font("DancingScript", 400, "../assets/fonts/DancingScript/DancingScript-Regular");
+@include woff2font("MarkPro", "normal", "../assets/fonts/MarkPro/MarkPro");
+@include woff2font("MarkPro-Regular", 300, "../assets/fonts/MarkPro/MarkPro-Regular");
+@include woff2font("MarkPro-Bold", 600, "../assets/fonts/MarkPro/MarkPro-Bold");
+@include woff2font("Cookie", 400, "../assets/fonts/Cookie/Cookie-Regular");
+@include woff2font("Aladin", 400, "../assets/fonts/Aladin/Aladin-Regular");
+@include woff2font("Allura", 400, "../assets/fonts/Allura/Allura-Regular");
+@include woff2font("Courgette", 400, "../assets/fonts/Courgette/Courgette-Regular");
+@include woff2font("Italianno", 400, "../assets/fonts/Italianno/Italianno-Regular");
+@include woff2font("MonsieurLaDoulaise", 300, "../assets/fonts/MonsieurLaDoulaise/MonsieurLaDoulaise-Regular");
+@include woff2font("Merriweather", 400, "../assets/fonts/Merriweather/Merriweather-Regular");
+@include woff2font("Merriweather", 400, "../assets/fonts/Merriweather/Merriweather-Italic",false, italic);
+@include woff2font("Merriweather", 700, "../assets/fonts/Merriweather/Merriweather-Bold",false, italic);
+@include woff2font("Merriweather", 700, "../assets/fonts/Merriweather/Merriweather-BoldItalic",false, italic);
+@include woff2font("GillSans", 550, "../assets/fonts/GillSans/GillSans-Regular");
+@include woff2font("HomemadeApple", 300, "../assets/fonts/HomemadeApple/HomemadeApple-Regular");
+@include woff2font("AlexBrush", 300, "../assets/fonts/AlexBrush/AlexBrush-Regular");
+@include woff2font("ArchitectsDaughter", 300, "../assets/fonts/ArchitectsDaughter/ArchitectsDaughter-Regular");
+@include woff2font("DrSugiyama", 300, "../assets/fonts/DrSugiyama/DrSugiyama-Regular");
+@include woff2font("RockSalt", 300, "../assets/fonts/RockSalt/RockSalt-Regular");
+@include woff2font("PPAgrandir", 500, "../assets/fonts/PPAgrandir/PPAgrandir-Medium");
+@include woff2font("PPAgrandir", 700, "../assets/fonts/PPAgrandir/PPAgrandir-Bold");
+@include woff2font("SourceSerif", 400, "../assets/fonts/SourceSerif4/SourceSerif4-Regular");
+@include woff2font("Vollkorn", 400, "../assets/fonts/Vollkorn/Vollkorn-Regular");
+@include woff2font("Vollkorn", 400, "../assets/fonts/Vollkorn/Vollkorn-Italic", false, italic);
+@include woff2font("Vollkorn", 700, "../assets/fonts/Vollkorn/Vollkorn-Bold");
+@include woff2font("Vollkorn", 700, "../assets/fonts/Vollkorn/Vollkorn-BoldItalic", false, italic);
+@include woff2font("Spectral", 400, "../assets/fonts/Spectral/Spectral-Regular");
+@include woff2font("Spectral", 400, "../assets/fonts/Spectral/Spectral-Italic", false, italic);
+@include woff2font("Spectral", 700, "../assets/fonts/Spectral/Spectral-Bold");
+@include woff2font("Spectral", 700, "../assets/fonts/Spectral/Spectral-BoldItalic", false, italic);
+@include woff2font("SourceSans", 400, "../assets/fonts/SourceSans3/SourceSans3-Regular");
+@include woff2font("SourceSans", 400, "../assets/fonts/SourceSans3/SourceSans3-Italic", false, italic);
+@include woff2font("SourceSans", 700, "../assets/fonts/SourceSans3/SourceSans3-Bold");
+@include woff2font("SourceSans", 700, "../assets/fonts/SourceSans3/SourceSans3-BoldItalic", false, italic);
+@include woff2font("OpenSans", 400, "../assets/fonts/OpenSans/OpenSans-Regular");
+@include woff2font("OpenSans", 400, "../assets/fonts/OpenSans/OpenSans-Italic", false, italic);
+@include woff2font("OpenSans", 700, "../assets/fonts/OpenSans/OpenSans-Bold");
+@include woff2font("OpenSans", 700, "../assets/fonts/OpenSans/OpenSans-BoldItalic", false, italic);
+@include woff2font("Nunito", 400, "../assets/fonts/Nunito/Nunito-Regular");
+@include woff2font("Nunito", 400, "../assets/fonts/Nunito/Nunito-Italic", false, italic);
+@include woff2font("Nunito", 700, "../assets/fonts/Nunito/Nunito-Bold");
+@include woff2font("Nunito", 700, "../assets/fonts/Nunito/Nunito-BoldItalic", false, italic);
+@include woff2font("NotoSans", 400, "../assets/fonts/NotoSans/NotoSans-Regular");
+@include woff2font("NotoSans", 400, "../assets/fonts/NotoSans/NotoSans-Italic", false, italic);
+@include woff2font("NotoSans", 700, "../assets/fonts/NotoSans/NotoSans-Bold");
+@include woff2font("NotoSans", 700, "../assets/fonts/NotoSans/NotoSans-BoldItalic", false, italic);
+@include woff2font("NotoSansJP", 400, "../assets/fonts/NotoSansJP/NotoSansJP-Regular");
+@include woff2font("NotoSansJP", 700, "../assets/fonts/NotoSansJP/NotoSansJP-Bold");
+@include woff2font("NotoSansKR", 400, "../assets/fonts/NotoSansKR/NotoSansKR-Regular");
+@include woff2font("NotoSansKR", 700, "../assets/fonts/NotoSansKR/NotoSansKR-Bold");
+@include woff2font("NotoSansSC", 400, "../assets/fonts/NotoSansSC/NotoSansSC-Regular");
+@include woff2font("NotoSansSC", 700, "../assets/fonts/NotoSansSC/NotoSansSC-Bold");
+@include woff2font("NotoSansTC", 400, "../assets/fonts/NotoSansTC/NotoSansTC-Regular");
+@include woff2font("NotoSansTC", 700, "../assets/fonts/NotoSansTC/NotoSansTC-Bold");
+@include woff2font("EBGaramond", 400, "../assets/fonts/EBGaramond/EBGaramond-Regular");
+@include woff2font("EBGaramond", 400, "../assets/fonts/EBGaramond/EBGaramond-Italic", false, italic);
+@include woff2font("EBGaramond", 700, "../assets/fonts/EBGaramond/EBGaramond-Bold");
+@include woff2font("EBGaramond", 700, "../assets/fonts/EBGaramond/EBGaramond-BoldItalic", false, italic);
+@include woff2font("Arimo", 400, "../assets/fonts/Arimo/Arimo-Regular");
+@include woff2font("Arimo", 400, "../assets/fonts/Arimo/Arimo-Italic", false, italic);
+@include woff2font("Arimo", 700, "../assets/fonts/Arimo/Arimo-Bold");
+@include woff2font("Arimo", 700, "../assets/fonts/Arimo/Arimo-BoldItalic", false, italic);
+
+/* Set up Inter for old browsers, only 400 500 600 */
+@supports not (font-variation-settings: normal) {
+  @include woff2font("Inter", 400, "../assets/fonts/Inter/Inter-Regular");
+  @include woff2font("Inter", 500, "../assets/fonts/Inter/Inter-Medium");
+  @include woff2font("Inter", 400, "../assets/fonts/Inter/Inter-Italic", false, italic);
+  @include woff2font("Inter", 600, "../assets/fonts/Inter/Inter-SemiBold");
+  @include woff2font("Inter", 700, "../assets/fonts/Inter/Inter-Bold");
+  @include woff2font("Inter", 700, "../assets/fonts/Inter/Inter-BoldItalic", false, italic);
+}
+
+/* Set up Inter for modern browsers, all weights */
+@supports (font-variation-settings: normal) {
+  @include woff2font("Inter", 400 700, "../assets/fonts/Inter/Inter-VariableFont", true);
+}
+

@@ -1,0 +1,14 @@
+# Ignore all data files to prevent sensitive information and large files from being committed
+# Only track directory structure via .gitkeep files
+
+# Ignore all files in subdirectories (handled by individual .gitignore files)
+csv/*
+json/*
+pdf/*
+thumbnails/*
+mapping-template/*
+logs/*
+
+# Keep .gitkeep and .gitignore files
+!**/.gitkeep
+!**/.gitignore

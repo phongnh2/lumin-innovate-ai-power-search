@@ -1,0 +1,199 @@
+scalar Upload
+
+input GetGoogleUsersNotInCircleInput {
+  orgId: ID! @MongoId(key: "orgId")
+  googleAuthorizationEmail: String! @Length(min: 1, max: 255) @IsEmail
+  shareEmails: [String!]! @IsEmail @Array(min: 1, max: 100)
+}
+
+enum ExtraTrialDaysOrganizationAction {
+  INVITE_MEMBER
+}
+
+enum RetrieveOrganizationSetupIntentType {
+  SUTTON_BANK_REROUTING
+}
+
+input ExtraTrialDaysOrganizationInput {
+  orgId: ID! @MongoId
+  days: Int! @Range(min: 1, max: 30)
+  action: ExtraTrialDaysOrganizationAction!
+}
+
+input GetPromptInviteUsersBannerInput {
+  orgId: ID! @MongoId(key: "orgId")
+  accessToken: String
+  forceUpdate: Boolean
+  googleAuthorizationEmail: String @Length(min: 0, max: 255)
+}
+
+input GetSuggestedUserToInviteInput {
+  orgId: ID! @MongoId(key: "orgId")
+  accessToken: String
+  forceUpdate: Boolean
+  googleAuthorizationEmail: String @Length(min: 0, max: 255)
+}
+
+input AssignSignSeatsInput {
+  orgId: ID! @MongoId
+  userIds: [ID!]! @MongoId @Array(min: 1, max: 50)
+  isPublishUpdateSignWorkspacePayment: Boolean
+}
+
+input UnassignSignSeatsInput {
+  orgId: ID! @MongoId
+  userIds: [ID!]! @MongoId @Array(min: 1, max: 50)
+}
+
+input RejectSignSeatRequestsInput {
+  orgId: ID! @MongoId
+  userIds: [ID!]! @MongoId @Array(min: 1, max: 50)
+}
+
+enum PromptInviteBannerType {
+  PENDING_REQUEST
+  GOOGLE_CONTACT
+  INVITE_MEMBER
+}
+type PromptInviteBannerPayload {
+  bannerType: PromptInviteBannerType
+  inviteUsers: [FindUserPayload]
+}
+
+type GetSuggestedUserToInvitePayload {
+  suggestedUsers: [FindUserPayload]
+}
+
+input OrganizationInviteLinkInput {
+  orgId: ID! @MongoId
+  role: OrganizationRoleInvite
+}
+
+type OrganizationInviteLink {
+  _id: String!
+  inviteId: String!
+  orgId: String!
+  role: String!
+  actorId: String!
+  expiresAt: Date!
+  createdAt: Date!
+  isExpiringSoon: Boolean
+  isExpired: Boolean
+}
+
+input SamlSsoConfigurationInput {
+  orgId: ID! @MongoId
+  domains: [String!]!
+  rawIdpMetadataXml: String!
+}
+
+type SamlSsoConfiguration {
+  id: String!
+  createdAt: Date!
+  domains: [String!]!
+  label: String!
+  ascUrl: String!
+  spEntityId: String!
+  rawIdpMetadataXml: String!
+}
+
+type ScimSsoConfiguration {
+  id: String!
+  label: String!
+  authorizationHeaderSecret: String!
+  mapperUrl: String!
+  scimServerUrl: String!
+}
+
+input ReactivateUnifySubscriptionSubItems {
+  productName: UnifySubscriptionProduct!
+}
+
+input ReactivateUnifySubscriptionInput {
+  orgId: ID! @MongoId
+  subscriptionItems: [ReactivateUnifySubscriptionSubItems!]!
+}
+
+type UpdateSignSeatsResponse {
+  message: String!
+  statusCode: Int!
+  data: UpdateSignSeatsData!
+}
+
+type UpdateSignSeatsData {
+  availableSignSeats: Int!
+}
+
+type Query {
+  getOrganizationInsight(orgId: ID! @MongoId(key: "orgId")): GetOrganizationInsightPayload
+  getOrganizationPrice(orgId: ID! @MongoId(key: "orgId")): GetOrganizationPricePayload
+  previewUpcomingDocStackInvoice(input: PreviewUpcomingDocStackInvoiceInput!): PreviewDocStackInvoicePayload
+  previewUpcomingSubscriptionInvoice(input: PreviewUpcomingSubscriptionInvoiceInput!): PreviewUpcomingSubscriptionInvoicePayload
+  getGoogleUsersNotInCircle(input: GetGoogleUsersNotInCircleInput!): [FindUserPayload]
+  getPromptInviteUsersBanner(input: GetPromptInviteUsersBannerInput!): PromptInviteBannerPayload
+  getListRequestJoinOrganization(input: GetRequesterInput!): OrganizationRequesterConnection
+  getListPendingUserOrganization(input: PendingUserOrganizationInput!): OrganizationPendingConnection
+  getSuggestedUsersToInvite(input: GetSuggestedUserToInviteInput!): GetSuggestedUserToInvitePayload
+  getSamlSsoConfiguration(orgId: ID! @MongoId(key: "orgId")): SamlSsoConfiguration
+  getScimSsoConfiguration(orgId: ID! @MongoId(key: "orgId")): ScimSsoConfiguration
+}
+
+type Mutation {
+  deleteMemberInOrganization(orgId: ID! @MongoId(key: "orgId"), userId: ID! @MongoId(key: "userId")): BasicResponse
+  deletePendingInvite(orgId: ID! @MongoId(key: "orgId"), email: String! @Length(key: "email", min: 1, max: 255) @IsEmail(key: "email")): BasicResponse
+  changeAvatarOrganization(orgId: ID! @MongoId(key: "orgId"), file: Upload!): ChangeOrganizationAvatarPayload
+  setAvatarOrganizationSuggestion(orgId: ID! @MongoId(key: "orgId")): ChangeOrganizationAvatarPayload
+  setAvatarFromSuggestion(orgId: ID! @MongoId(key: "orgId")): ChangeOrganizationAvatarPayload
+  changeProfileOrganization(orgId: ID! @MongoId(key: "orgId"), profile: OrganizationProfileInput!): OrganizationProfilePayload
+  removeAvatarOrganization(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  setOrganizationMembersRole(input: SetOrganizationMembersRoleInput!): BasicResponse
+  rejectRequestingAccessOrganization(orgId: ID! @MongoId(key: "orgId"), userId: ID! @MongoId(key: "userId")): BasicResponse
+  acceptRequestingAccessOrganization(orgId: ID! @MongoId(key: "orgId"), userId: ID! @MongoId(key: "userId")): BasicResponseData
+  inviteOrgTeamMember(teamId: ID! @MongoId(key: "teamId"), members: AddMemberOrgTeamInput!): BasicResponse
+  editOrgTeamInfo(teamId: ID! @MongoId(key: "teamId"), team: TeamInput!, file: Upload): Team
+  transferTeamOwnership(teamId: ID! @MongoId(key: "teamId"), userId: ID! @MongoId(key: "userId")) : Team
+  removeOrgTeamMember(teamId: ID! @MongoId(key: "teamId"), userId: ID! @MongoId(key: "userId")): BasicResponse
+  deleteOrgTeam(teamId: ID! @MongoId(key: "teamId")): DeleteTeamPayload
+  exportDomainData(orgId: ID! @MongoId(key: "orgId")): ExportDomainPayload
+  updateGoogleSignInSecurity(orgId: ID! @MongoId(key: "orgId"), isActive: Boolean!): Organization
+  scheduleDeleteOrganization(orgId: ID! @MongoId(key: "orgId")): DeleteOrganizationPayload
+  createSubscriptionInOrganization(orgId: ID! @MongoId(key: "orgId"), subcriptionInput: CreateOrganizationSubscriptionInput!): ChargeResponse
+  createUnifySubscriptionInOrganization(orgId: ID! @MongoId(key: "orgId"), subscriptionInput: CreateUnifySubscriptionInput!): ChargeResponse
+  upgradeOrganizationSubcription(orgId: ID! @MongoId(key: "orgId"), upgradeSubcriptionInput: UpgradeOrganizationSubscriptionInput!): ChargeResponse
+  upgradeUnifySubscriptionInOrganization(orgId: ID!, subscriptionInput: UpgradeUnifySubscriptionInput!): ChargeResponse
+  reactiveOrganization(orgId: ID! @MongoId(key: "orgId")): ReactiveOrganizationPayload
+  reactiveOrganizationSubscription(orgId: ID! @MongoId(key: "orgId")): PaymentResponse
+  reactivateUnifyOrganizationSubscription(input: ReactivateUnifySubscriptionInput!): PaymentResponse
+  forceResetOrgMemberPassword(orgId: ID! @MongoId(key: "orgId")): ForceResetPasswordPayload @deprecated(reason: "This feature is removed")
+  createOrganizationFolder(input: CreateOrganizationFolderInput!): Folder
+  createOrganizationTeamFolder(input: CreateOrganizationTeamFolderInput!): Folder
+  updateOrgTemplateWorkspace(input: UpdateOrgTemplateWorkspaceInput): Organization
+  updateTeamSettings(teamId: ID! @MongoId(key: "teamId"), settings: UpdateTeamSettingsInput!): Team
+  addAssociateDomain(input: AddAssociateDomainInput!): Organization
+  editAssociateDomain(input: EditAssociateDomainInput!): Organization
+  removeAssociateDomain(input: RemoveAssociateDomainInput!): Organization
+  createOrgStartedDocument(orgId: ID! @MongoId(key: "orgId"),isMobile: Boolean): Document
+  updateDomainVisibilitySetting(orgId: ID! @MongoId(key: "orgId"), visibilitySetting: DomainVisibilitySetting!): OrganizationSettings
+  resendOrganizationInvitation(orgId: ID! @MongoId(key: "orgId") invitationId: ID! @MongoId(key: "invitationId")): BasicResponse
+  removeOrganizationInvitation(orgId: ID! @MongoId(key: "orgId") invitationId: ID! @MongoId(key: "invitationId")): BasicResponse
+  createFreeTrialSubscription(input: SubscriptionTrialInput!): PaymentResponse
+  createFreeTrialUnifySubscription(input: CreateFreeTrialUnifySubscriptionInput!): PaymentResponse
+  cancelOrganizationFreeTrial(orgId: ID! @MongoId(key: "orgId")): PaymentResponse
+  changeAutoUpgradeSetting(orgId: ID! @MongoId(key: "orgId"), enabled: Boolean!): OrganizationSettings
+  removeOrganizationPaymentMethod(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  retrieveOrganizationSetupIntent(orgId: ID! @MongoId(key: "orgId"), reCaptchaTokenV3: String!, type: RetrieveOrganizationSetupIntentType): RetrieveOrganizationSetupIntentResponse
+  deactivateOrganizationSetupIntent(orgId: ID! @MongoId(key: "orgId"), stripeAccountId: String!): BasicResponse
+  extraTrialDaysOrganization(input: ExtraTrialDaysOrganizationInput!): BasicResponse
+  updateInviteUsersSetting(orgId: ID! @MongoId(key: "orgId"), inviteUsersSetting: InviteUsersSetting!): OrganizationSettings
+  createOrganizationInviteLink(input: OrganizationInviteLinkInput): OrganizationInviteLink
+  regenerateOrganizationInviteLink(input: OrganizationInviteLinkInput): OrganizationInviteLink
+  deleteOrganizationInviteLink(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  upsertSamlSsoConfiguration(input: SamlSsoConfigurationInput): SamlSsoConfiguration
+  deleteSamlSsoConfiguration(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  enableScimSsoProvision(orgId: ID! @MongoId(key: "orgId")): ScimSsoConfiguration
+  disableScimSsoProvision(orgId: ID! @MongoId(key: "orgId")): BasicResponse
+  assignSignSeats(input: AssignSignSeatsInput): UpdateSignSeatsResponse
+  unassignSignSeats(input: UnassignSignSeatsInput): UpdateSignSeatsResponse
+  rejectSignSeatRequests(input: RejectSignSeatRequestsInput!): BasicResponse
+  retrieveOrganizationSetupIntentV2(input: RetrieveOrganizationSetupIntentV2Input!): RetrieveOrganizationSetupIntentResponse
+}

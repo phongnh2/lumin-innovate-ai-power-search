@@ -1,0 +1,37 @@
+@import "../../constants/styles";
+@import "../../constants/lumin-styles";
+
+.SearchResult {
+  margin-top: 12px;
+  padding: 16px 12px 16px 16px;
+  font-family: $font-stack-primary;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  border-radius: var(--border-radius-primary);
+  border: 1px solid transparent;
+  line-height: 16px;
+  transition: background 0.2s;
+  word-break: break-word;
+
+  @include themify() {
+    background: themed('bgSearchValue');
+    color: themed('textSearchValue');
+  }
+  @include mobile {
+    width: 95%;
+  }
+  &.selected {
+    @include themify() {
+      border: 1px solid themed('bgResultSelected');
+    }
+  }
+
+  .search-value {
+    @include themify() {
+      color: themed('bgSearchSelectedValue');
+      font-weight: bold;
+    }
+  }
+}

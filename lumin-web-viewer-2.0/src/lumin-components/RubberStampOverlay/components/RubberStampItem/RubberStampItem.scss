@@ -1,0 +1,40 @@
+@import '../../../../constants/lumin-styles.scss';
+
+.rubber-stamp-item {
+  display: flex !important;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  padding: 8px;
+  border-radius: var(--border-radius-primary);
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  @include themify {
+    background-color: themed("openRubberStampModalBtnColor");
+  }
+
+  &--img {
+    height: 48px;
+  }
+
+  &[disabled="true"] {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &[data-dragging="true"] {
+    background-color: transparent;
+  }
+  
+}
+
+.rubber-stamp-item__delete-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 28px;
+}

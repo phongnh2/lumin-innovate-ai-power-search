@@ -1,0 +1,15 @@
+.saveDestinationItem {
+  @include kiwi-typography-label-md;
+  position: relative;
+  width: 100%;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  color: var(--kiwi-colors-core-secondary);
+  border: none;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+}

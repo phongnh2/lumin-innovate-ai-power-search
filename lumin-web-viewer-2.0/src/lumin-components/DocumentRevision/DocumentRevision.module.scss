@@ -1,0 +1,15 @@
+.versionHistoryWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.versionHistoryHeader {
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1);
+  @include kiwi-typography-title-sm;
+  color: var(--kiwi-color-on-surface);
+}
+
+.versionHistoryList {
+  padding-top: var(--kiwi-spacing-1);
+}

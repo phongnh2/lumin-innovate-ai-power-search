@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  column-gap: 4px;
+  align-items: center;
+  height: var(--lumin-tool-bar-height);
+
+  :global(>hr.MuiDivider-vertical) {
+    height: 18px;
+  }
+}

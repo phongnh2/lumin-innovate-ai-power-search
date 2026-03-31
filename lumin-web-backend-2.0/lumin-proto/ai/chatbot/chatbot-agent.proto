@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+package chatbot.agent;
+
+service ChatBotAgentService {
+    rpc StreamText(StreamTextRequest) returns (stream StreamTextResponse) {};
+}
+
+
+message StreamTextRequest {
+  google.protobuf.Struct data = 1;
+}
+
+message StreamTextResponse {
+  string event = 1;
+}

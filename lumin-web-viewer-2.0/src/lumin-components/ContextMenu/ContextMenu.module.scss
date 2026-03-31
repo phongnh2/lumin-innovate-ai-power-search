@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+}
+
+.menu {
+  width: 280px;
+  border: none;
+  padding: var(--kiwi-spacing-1);
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  border-radius: var(--kiwi-border-radius-md);
+  box-shadow: var(--kiwi-shadow-2);
+}

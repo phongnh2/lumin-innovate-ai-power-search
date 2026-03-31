@@ -1,0 +1,1 @@
+export { getPrimaryText } from './getPrimaryText';

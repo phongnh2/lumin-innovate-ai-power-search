@@ -1,0 +1,48 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-raw>{{#if updateEnterprise}}</mj-raw>
+            <mj-image padding="0" src="{{assetUrl}}/images/enterprise-upgrade.png" />
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-image padding="0" src="{{assetUrl}}/images/business-upgrade.png" />
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-spacer height="12px" />
+          <mj-raw>{{#if updateEnterprise}}</mj-raw>
+          <mj-text mj-class="text-large">Success! Your subscription for {{orgName}}'s {{orgWord}} has been changed</mj-text>
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-text mj-class="text-large">Success! Your subscription for {{orgName}}'s {{orgWord}} has been upgraded</mj-text>
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-spacer height="12px" />
+
+          <mj-raw>{{#if updateEnterprise}}</mj-raw>
+            <mj-text>Your subscription for&nbsp;<b class="highlight">{{orgName}}'s</b> {{orgWord}} has been changed from the&nbsp;<b class="highlight">Enterprise {{oldPeriod}} - {{oldSize}}&nbsp;</b>Members Plan to the&nbsp;<b class="highlight">Enterprise {{newPeriod}} - {{newSize}}&nbsp;</b>Members Plan.&nbsp;</mj-text>
+            <mj-spacer height="24px" />
+            <mj-text>From now on, your {{orgWord}} can add up to&nbsp;<b class="highlight">{{newSize}}&nbsp;</b>{{pluralize "member" "members" newSize}} and from the&nbsp;<b class="highlight">{{newSize}} + 1&nbsp;</b>member, just contact sales to upgrade.&nbsp;</mj-text>
+          <mj-raw>
+            {{else}}
+          </mj-raw>
+            <mj-text>Your subscription for&nbsp;<b class="highlight">{{orgName}}'s&nbsp;</b>{{orgWord}} has been upgraded from the&nbsp;<b class="highlight">Business {{oldPeriod}} - {{oldSize}}&nbsp;</b>Members Plan to the&nbsp;<b class="highlight">Business {{newPeriod}} - {{newSize}}&nbsp;</b>Members Plan. From now on, your {{orgWord}} can add up to&nbsp;<b class="highlight">{{newSize}}&nbsp;</b>{{pluralize "member" "members" newSize}} and will only incur an additional charge from the&nbsp;<b class="highlight">{{newSize}} + 1&nbsp;</b>member.
+            </mj-text>
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-spacer height="32px" />
+          <mj-text>
+            For more information about your plan or to view your invoices, head to&nbsp;
+            <a class="link" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/dashboard/billing">
+              Dashboard - Billing
+            </a>
+          </mj-text>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+    </mj-main-layout>
+  </mj-body>
+</mjml>

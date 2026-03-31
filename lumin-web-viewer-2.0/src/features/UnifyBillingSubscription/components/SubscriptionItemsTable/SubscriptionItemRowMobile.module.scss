@@ -1,0 +1,62 @@
+.container {
+  width: 100%;
+  height: auto;
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-surface-container-high);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-1-5);
+
+  &[data-expanded='true'] {
+    border-bottom: 1px solid var(--kiwi-colors-surface-surface-container-high);
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1);
+}
+
+.content {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1-5);
+  padding: var(--kiwi-spacing-1-5);
+}
+
+.contentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-low);
+}
+
+.nextPriceContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.textInfo {
+  @include kiwi-typography-body-md;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  hr {
+    margin: 0 var(--kiwi-spacing-1-25) 0 var(--kiwi-spacing-0-5);
+    align-self: center;
+  }
+}

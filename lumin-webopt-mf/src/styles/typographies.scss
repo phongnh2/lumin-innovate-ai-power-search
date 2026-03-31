@@ -1,0 +1,176 @@
+/* Kiwi typography mixins — aligned with @lumin-ui design tokens (typo.css) */
+
+@mixin kiwi-typography-display-lg {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 56px;
+}
+
+@mixin kiwi-typography-display-md {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+@mixin kiwi-typography-display-sm {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+@mixin kiwi-typography-headline-xl {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@mixin kiwi-typography-headline-lg {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+@mixin kiwi-typography-headline-md {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-headline-sm {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-headline-xs {
+  font-family: var(--font-pp-agrandir), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin kiwi-typography-title-xl {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@mixin kiwi-typography-title-lg {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-title-md {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-title-sm {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin kiwi-typography-title-xs {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@mixin kiwi-typography-label-xl {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-label-lg {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-label-md {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin kiwi-typography-label-sm {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@mixin kiwi-typography-label-xs {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+@mixin kiwi-typography-label-2-xs {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+@mixin kiwi-typography-body-lg {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 16px;
+  font-weight: 420;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-body-md {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 14px;
+  font-weight: 420;
+  line-height: 20px;
+}
+
+@mixin kiwi-typography-body-sm {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 12px;
+  font-weight: 420;
+  line-height: 16px;
+}
+
+@mixin kiwi-typography-body-lg-semibold {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 16px;
+  font-weight: 580;
+  line-height: 24px;
+}
+
+@mixin kiwi-typography-body-md-semibold {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 14px;
+  font-weight: 580;
+  line-height: 20px;
+}
+
+@mixin kiwi-typography-body-sm-semibold {
+  font-family: var(--font-inter-variable), sans-serif;
+  font-size: 12px;
+  font-weight: 580;
+  line-height: 16px;
+}

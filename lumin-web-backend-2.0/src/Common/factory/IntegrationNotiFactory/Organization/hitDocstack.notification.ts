@@ -1,0 +1,15 @@
+import { OrganizationAction } from 'Common/constants/NotificationIntegrationConstant';
+import { IntegrationNotiOrganization } from './notification.organization';
+import { OrganizationNotificationInput } from '../notification.interface';
+
+export class HitDocstackNotification extends IntegrationNotiOrganization {
+  constructor(input: OrganizationNotificationInput) {
+    super({
+      sendTo: input.sendTo,
+      actor: input.actor,
+      data: input.data,
+      target: input.target,
+      type: OrganizationAction.ORG_HIT_DOC_STACK,
+    });
+  }
+}

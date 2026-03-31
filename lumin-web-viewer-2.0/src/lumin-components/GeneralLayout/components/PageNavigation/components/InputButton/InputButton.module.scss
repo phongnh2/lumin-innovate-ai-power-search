@@ -1,0 +1,23 @@
+.input {
+  max-width: 80px;
+  text-overflow: ellipsis;
+  input {
+    background-color: var(--kiwi-colors-surface-surface-container-low);
+    color: var(--kiwi-colors-surface-on-surface);
+    outline: none;
+    border: none;
+    padding: var(--kiwi-spacing-0-5);
+    text-align: center;
+    min-width: 40px;
+    height: 24px;
+    border-radius: var(--kiwi-border-radius-md);
+
+    &:hover {
+      outline: 1px solid var(--kiwi-colors-surface-on-surface);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--kiwi-colors-core-secondary-container);
+    }
+  }
+}

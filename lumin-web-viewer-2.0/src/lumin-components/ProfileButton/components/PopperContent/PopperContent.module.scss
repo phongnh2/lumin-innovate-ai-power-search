@@ -1,0 +1,141 @@
+.container {
+  background-color: var(--kiwi-colors-surface-surface-container);
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1);
+}
+
+.section {
+  background-color: var(--kiwi-colors-surface-surface-bright);
+  color: var(--kiwi-colors-surface-on-surface);
+  border-radius: inherit;
+  padding: var(--kiwi-spacing-2);
+}
+
+.menuSection {
+  padding: var(--kiwi-spacing-1);
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orgInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.textWrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.userNameWrapper {
+  padding: var(--kiwi-spacing-1-5) 0 var(--kiwi-spacing-0-25);
+}
+
+.orgNameWrapper {
+  display: flex;
+}
+
+.quota {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  .quotaText {
+    min-width: max-content;
+  }
+  .quotaTextRight {
+    min-width: max-content;
+    margin-left: var(--kiwi-spacing-0-5);
+  }
+  .quotaTextLeft {
+    min-width: max-content;
+    margin-right: var(--kiwi-spacing-0-5);
+  }
+}
+
+.orgStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-0-5);
+  justify-content: space-between;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  padding-bottom: var(--kiwi-spacing-1);
+}
+
+.customLink {
+  color: var(--kiwi-colors-semantic-information);
+}
+
+.logout {
+  color: var(--kiwi-colors-semantic-error);
+}
+
+.personalPlanChipWrapper {
+  padding-top: var(--kiwi-spacing-0-75);
+  line-height: 1;
+}
+
+.sponsoredToolsWrapper {
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+  display: flex;
+  gap: var(--kiwi-spacing-1);
+  align-items: center;
+}
+
+.downLoadAppLink {
+  color: inherit;
+}
+
+.subscriptionItemContainer {
+  display: flex;
+  gap: var(--kiwi-spacing-1-25);
+  padding: var(--kiwi-spacing-0-75) 0;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--kiwi-spacing-0-75);
+  background-color: var(--kiwi-colors-custom-brand-lumin-inverse-on-lumin-surface);
+  border-radius: var(--kiwi-border-radius-sm);
+  height: 24px;
+  width: 24px;
+  margin-top: var(--kiwi-spacing-0-5);
+  img {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.pdfLogoWrapper {
+  background-color: var(--kiwi-colors-custom-brand-lumin-inverse-on-lumin-surface);
+}
+
+.signLogoWrapper {
+  background-color: var(--kiwi-colors-custom-brand-sign-sign-container-fixed);
+}
+
+.planInfoWrapper {
+  display: flex;
+  gap: var(--kiwi-spacing-0-5);
+  flex-direction: column;
+
+  .planLabel {
+    @include kiwi-typography-title-md;
+    padding-right: var(--kiwi-spacing-1);
+  }
+
+  .description {
+    @include kiwi-typography-body-sm;
+    color: var(--kiwi-colors-surface-on-surface-low);
+  }
+}

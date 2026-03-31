@@ -1,0 +1,44 @@
+{
+"tasks": {
+    "dev": "deno run --allow-all --watch main.ts",
+    "run": "deno run --allow-read --allow-env --allow-ffi --allow-run run.ts",
+    "strapi": "deno task run strapi",
+    "prismic": "deno task run prismic",
+    "check": "deno check **/*.ts"
+  },
+  "imports": {
+    "@prismicio/client": "npm:@prismicio/client@^7.20.1",
+    "@std/path": "jsr:@std/path@^1.0.6",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@razr/http": "jsr:@razr/http@^0.0.0",
+    "@shared/": "./shared/",
+    "@std/csv": "jsr:@std/csv@^1.0.6",
+    "@strapi/": "./strapi/",
+    "@prismic/": "./prismic/",
+    "@sudeepgumaste/slugify": "jsr:@sudeepgumaste/slugify@^0.0.2",
+    "csv-writer": "npm:csv-writer@^1.6.0",
+    "latinize": "npm:latinize@^2.0.0",
+    "moment": "npm:moment@^2.30.1",
+    "node-pdftocairo": "npm:node-pdftocairo@^1.2.0",
+    "querystringify": "npm:querystringify@^2.2.0",
+    "lodash": "https://deno.land/x/lodash@4.17.15-es/lodash.js"
+  },
+  "compilerOptions": {
+    "lib": ["deno.window", "dom"],
+    "strict": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  }
+}

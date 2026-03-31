@@ -1,0 +1,18 @@
+.content {
+  display: grid;
+  row-gap: var(--kiwi-spacing-1);
+  margin-bottom: var(--kiwi-spacing-3);
+  padding: 0 var(--kiwi-spacing-3);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: var(--kiwi-spacing-2);
+  padding: 0 var(--kiwi-spacing-3);
+
+  button {
+    width: fit-content;
+  }
+}

@@ -1,0 +1,15 @@
+.content {
+  word-break: break-word;
+}
+
+.inner {
+  padding: 0 var(--kiwi-spacing-2);
+}
+
+.innerButton {
+  padding: var(--kiwi-spacing-1) var(--kiwi-spacing-4);
+}
+
+.button {
+  min-width: calc(var(--kiwi-spacing-5) * 2.5);
+}

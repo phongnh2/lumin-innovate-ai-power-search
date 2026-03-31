@@ -1,0 +1,21 @@
+{
+  "extends": ["stylelint-config-styled-components"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null
+  },
+  "customSyntax": "postcss-syntax",
+  "overrides": [
+    {
+      "files": ["components/**/*.styled.{js,ts,jsx,tsx}", "ui/**/*.styled.{js,ts,jsx,tsx}"],
+      "customSyntax": "postcss-styled-syntax"
+    },
+    {
+      "files": ["components/**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
+}

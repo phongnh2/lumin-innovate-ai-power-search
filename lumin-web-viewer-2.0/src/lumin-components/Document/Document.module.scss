@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  &[data-display='false'] {
+    display: none;
+  }
+}
+
+.contentWrapper {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: visible;
+}

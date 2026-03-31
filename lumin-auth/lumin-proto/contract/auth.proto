@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package contract.auth;
+
+service AuthService {
+  rpc SignOut (SignOutRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteAccount (DeleteAccountRequest) returns (google.protobuf.Empty) {}
+  rpc ForceLogout (ForceLogoutRequest) returns (google.protobuf.Empty) {}
+  rpc ReactivateAccount (ReactivateAccountRequest) returns (google.protobuf.Empty) {}
+  rpc SyncUpAccountSetting (SyncUpAccountSettingRequest) returns (google.protobuf.Empty) {}
+  rpc ChangeUserEmail (ChangeUserEmailRequest) returns (google.protobuf.Empty) {}
+}
+
+message SignOutRequest {
+  string id = 1;
+}
+
+message DeleteAccountRequest {
+  string id = 1;
+  string userId = 2;
+}
+
+message ReactivateAccountRequest {
+  string identityId = 1;
+}
+
+message ForceLogoutRequest {
+  string identityId = 1;
+  string type = 2;
+}
+
+message SyncUpAccountSettingRequest {
+  string identityId = 1;
+  string type = 2;
+  optional ExtraData extraData = 3;
+}
+
+message ExtraData {
+  string loginService = 1;
+}
+
+enum MergeAccountOptions {
+  REPLACE_EXISTING_EMAIL = 0;
+  REPLACE_NOT_EXISTING_EMAIL = 1;
+  MERGE_INTO_CURRENT_EMAIL = 2;
+  MERGE_INTO_NEW_EMAIL = 3;
+}
+
+message ChangeUserEmailRequest {
+  string currentEmail = 1;
+  string newEmail = 2;
+  MergeAccountOptions mergeOption = 3;
+  optional string mergeDestination = 4;
+}

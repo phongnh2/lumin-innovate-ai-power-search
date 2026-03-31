@@ -1,0 +1,11 @@
+// adjust max height for FailedToAccessDocument component
+.wrapper {
+  min-height: 800px;
+  height: 65vh;
+
+  & > div {
+    max-height: 100%;
+    min-height: 100%;
+  }
+}
+

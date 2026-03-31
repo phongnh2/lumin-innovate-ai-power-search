@@ -1,0 +1,21 @@
+.overrideStyle {
+  color: var(--kiwi-colors-core-on-secondary);
+
+  @include kiwi-typography-label-lg;
+
+  // TODO: remove this once the Lumin UI is updated to use the correct font size.
+  font-size: 16px !important;
+}
+
+// TODO: update to fullWidth prop from Lumin UI. Currently, fullWidth is not available in the Lumin UI.
+.isFullWidth {
+  width: 100%;
+}
+
+.overrideHeightXL {
+  min-height: 32px;
+}
+
+.overrideHeightLG {
+  min-height: 40px;
+}

@@ -1,0 +1,65 @@
+@import 'reskin/screens.scss';
+
+.header {
+  height: var(--header-layout-secondary-height);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-shrink: 0;
+  padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-1);
+  border-bottom: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background: var(--kiwi-colors-surface-surface-container-lowest);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--zindex-popover) + 1);
+  box-sizing: border-box;
+
+  &.noBackground {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .headerContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &.staticPage {
+      position: static;
+      transform: none;
+    }
+  }
+
+  @include md-screen {
+    padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-3);
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  & > img {
+    height: 24px;
+    width: auto;
+    object-fit: cover;
+  }
+}
+
+.centerFrame {
+  width: 100%;
+  height: auto;
+  padding: var(--kiwi-spacing-3) var(--kiwi-spacing-2);
+  background-color: transparent;
+
+  @include md-screen {
+    max-width: 640px;
+    padding: var(--kiwi-spacing-4);
+    border-radius: var(--kiwi-border-radius-xl);
+    background-color: var(--kiwi-colors-surface-surface-container-lowest);
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Btn/16/Radio-16-NotSelected</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dark-Mode-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search/Expand-Search" transform="translate(-165.000000, -64.000000)">
+            <g id="Btn/16/Radio-16-NotSelected">
+                <g transform="translate(165.000000, 64.000000)">
+                    <rect id="Rectangle-6" stroke="#3C80EF" stroke-width="2" fill="#3C80EF" fill-rule="nonzero" x="1" y="1" width="14" height="14" rx="2"></rect>
+                    <path d="M6,12 C5.76,12 5.6,11.92 5.44,11.76 L2.24,8.56 C1.92,8.24 1.92,7.76 2.24,7.44 C2.56,7.12 3.04,7.12 3.36,7.44 L6,10.08 L11.84,4.24 C12.16,3.92 12.64,3.92 12.96,4.24 C13.28,4.56 13.28,5.04 12.96,5.36 L6.56,11.76 C6.4,11.92 6.24,12 6,12" id="Fill-105" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

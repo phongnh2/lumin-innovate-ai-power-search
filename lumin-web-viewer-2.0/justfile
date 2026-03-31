@@ -1,0 +1,20 @@
+set shell := ["zsh", "-cu"]
+
+default:
+    @just --list
+
+# Install dependencies (pnpm — see package.json packageManager)
+[group('setup')]
+install:
+    pnpm install
+
+# Rspack dev server (NODE_ENV=development)
+[group('development')]
+run:
+    pnpm run dev
+
+# Init, sync, and fetch all git submodules
+[group('git')]
+submodule:
+    git submodule sync --recursive
+    git submodule update --init --recursive

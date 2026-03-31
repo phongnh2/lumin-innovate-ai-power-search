@@ -1,0 +1,89 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+  @include md-screen {
+    gap: var(--kiwi-spacing-3);
+  }
+  @include xl-screen {
+    gap: var(--kiwi-spacing-2);
+  }
+}
+
+.billingContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-2);
+    align-items: center;
+    background-color: var(--kiwi-colors-core-primary-container);
+    @include md-screen {
+      padding: var(--kiwi-spacing-1-5) var(--kiwi-spacing-3);
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kiwi-spacing-2);
+    padding: var(--kiwi-spacing-2) var(--kiwi-spacing-2) var(--kiwi-spacing-2-5);
+    background-color: var(--kiwi-colors-surface-surface-container-lowest);
+
+    @include md-screen {
+      padding: var(--kiwi-spacing-2) var(--kiwi-spacing-3) var(--kiwi-spacing-3);
+    }
+
+    .planInfo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--kiwi-spacing-1);
+
+      b {
+        font-weight: 700;
+        color: var(--kiwi-colors-surface-on-surface);
+      }
+    }
+
+    .billing {
+      display: flex;
+      flex-direction: column;
+      gap: var(--kiwi-spacing-2);
+
+      .ammount {
+        display: flex;
+        flex-direction: column;
+        gap: var(--kiwi-spacing-1);
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: var(--kiwi-colors-surface-on-surface);
+
+          .bold {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .migrationTeamPayment {
+        display: flex;
+        align-items: center;
+        padding: var(--kiwi-spacing-1);
+        gap: var(--kiwi-spacing-1);
+        border-radius: var(--kiwi-border-radius-md);
+        background: var(--kiwi-colors-semantic-error-container);
+      }
+    }
+  }
+}
+
+.boldText {
+  color: var(--kiwi-colors-surface-on-surface);
+  font-weight: 700;
+}

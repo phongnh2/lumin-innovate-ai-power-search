@@ -1,0 +1,33 @@
+@import 'reskin/screens.scss';
+
+.container {
+  display: grid;
+  column-gap: var(--kiwi-spacing-0-5);
+  grid-template-columns: minmax(220px, 1fr) 204px 164px;
+  padding: var(--kiwi-spacing-1-5) 0;
+  height: 48px;
+  border-bottom: 1px solid var(--kiwi-colors-surface-surface-container-high);
+  z-index: 1;
+  position: relative;
+
+  &[data-personal-route="true"] {
+    grid-template-columns: minmax(220px, 1fr) 164px;
+  }
+
+  @include xl-screen {
+    column-gap: var(--kiwi-spacing-2);
+
+    grid-template-columns: minmax(220px, 1fr) 236px 184px;
+    &[data-personal-route="true"] {
+      grid-template-columns: minmax(220px, 1fr) 184px;
+    }
+  }
+}
+
+.column {
+  @include kiwi-typography-body-md;
+  min-height: 24px;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  display: flex;
+  align-items: center;
+}

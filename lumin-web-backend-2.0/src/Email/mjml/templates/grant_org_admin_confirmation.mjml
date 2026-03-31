@@ -1,0 +1,24 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{ownerOrgName}} wants to transfer the ownership of {{orgName}}'s {{orgWord}} to you</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            By confirming this request, you will become the Owner of&nbsp;
+            <b class="highlight">{{orgName}}'s {{orgWord}}&nbsp;</b>
+            and will be able to use extra features in Lumin.
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button width="160px" align="left" href="{{baseUrl}}/redirection?url=/{{orgUrlSegment}}/{{orgId}}/transfer-ownership?token={{token}}">Confirm</mj-button align="left">
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+      
+    </mj-main-layout>
+  </mj-body>
+</mjml>

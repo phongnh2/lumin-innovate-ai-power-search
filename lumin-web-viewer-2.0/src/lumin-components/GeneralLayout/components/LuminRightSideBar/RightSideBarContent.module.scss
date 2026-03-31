@@ -1,0 +1,54 @@
+.aiIcon {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rightSideBarWrapper {
+  right: 0;
+  transition: all var(--focus-mode-transition);
+  flex-shrink: 0;
+  z-index: var(--z-index-lumin-base-side-bar, 10);
+  background-color: transparent;
+
+  &.focusMode,
+  &.presenterMode {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:not(.focusMode, .presenterMode) {
+    opacity: 1;
+    visibility: visible;
+    width: var(--lumin-right-side-bar-width);
+  }
+}
+
+.rightSideBarContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--kiwi-spacing-0-5) var(--kiwi-spacing-1) var(--kiwi-spacing-0-5) var(--kiwi-spacing-1);
+
+  >:not(:last-child) {
+    margin-bottom: var(--kiwi-spacing-0-5);
+  }
+
+  .summarize-btn-active {
+    color: var(--le-main-primary);
+  }
+}
+
+.dividerWrapper {
+  width: 16px;
+}

@@ -1,0 +1,32 @@
+.title {
+  margin-top: 24px;
+  margin-bottom: 4px;
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-headline-sm;
+}
+
+.subTitle {
+  // @include kiwi-typography-caption-regular-lg;
+
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  margin-bottom: 16px;
+
+  @include media-query-down(md) {
+    // @include typography-lg-caption-regular-md;
+  }
+}
+
+.description {
+  color: var(--kiwi-colors-surface-on-surface);
+
+  @include kiwi-typography-body-md;
+}
+
+.descriptionContainer {
+  margin-bottom: 24px;
+}
+
+.ctaMobileButtonContainer {
+  margin-bottom: 8px;
+}

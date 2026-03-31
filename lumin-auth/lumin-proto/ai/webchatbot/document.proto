@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package webchatbot;
+
+service DocumentService {
+  rpc GetDocuments(GetDocumentsRequest) returns (GetDocumentPayload) {};
+}
+
+message GetDocumentsRequest {
+  string targetId = 1;
+  string target = 2;
+  string tab = 3;
+  string userId = 4;
+  int32 limit = 5;
+  string folderId = 6;
+}
+
+message Document {
+  string _id = 1;
+  string name = 2;
+  double size = 3;
+  string service = 4;
+  string lastAccess = 5;
+}
+
+message GetDocumentPayload {
+  repeated Document documents = 1;
+  bool hasMore = 2;
+  int32 total = 3;
+}

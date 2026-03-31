@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  padding-top: var(--kiwi-spacing-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > img {
+    max-height: 360px;
+    width: auto;
+    object-fit: cover;
+  }
+}

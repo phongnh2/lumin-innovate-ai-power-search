@@ -1,0 +1,22 @@
+<mjml>
+  <mj-head>
+    <mj-include path="./src/Email/mjml/includes/header.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-main-layout>
+      <mj-section>
+        <mj-column css-class="wrapper-child">
+          <mj-text mj-class="text-large">{{orgName}} {{orgWord}} has been upgraded to {{plan}}</mj-text>
+          <mj-spacer height="12px" />
+          <mj-text>
+            <b class="highlight">{{orgName}}&nbsp;</b>{{orgWord}} paid successfully and the new plan is applied.&nbsp;
+          </mj-text>
+          <mj-spacer height="32px" />
+          <mj-button align="left" href="{{saleUrl}}/{{saleOrgUrlSegment}}/detail/{{orgId}}/plans">View detail</mj-button>
+          <mj-include path="./src/Email/mjml/includes/cheers.mjml" />
+        </mj-column>
+      </mj-section>
+      
+    </mj-main-layout>
+  </mj-body>
+</mjml>

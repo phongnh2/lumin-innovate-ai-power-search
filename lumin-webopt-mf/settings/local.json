@@ -1,0 +1,9 @@
+{
+  "LUMIN_BASE_URL": "http://localhost:3600",
+  "LUMIN_PDF_BACKEND_URL": "http://localhost:4200",
+  "LUMIN_PDF_APP_URL": "http://localhost:3000",
+  "LUMIN_KRATOS_URL": "http://localhost:4433",
+  "LUMIN_AUTH_SERVICE_URL": "http://localhost:3300",
+  "LUMIN_STATIC_PAGE_URL": "http://localhost:3005",
+  "LUMIN_INNOVATE_URL": "http://localhost:8765"
+}

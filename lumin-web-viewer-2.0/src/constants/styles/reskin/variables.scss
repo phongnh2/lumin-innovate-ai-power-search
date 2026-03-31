@@ -1,0 +1,18 @@
+:root {
+  --main-sidebar-width: 80px;
+  --workspace-switcher-width: 320px;
+  --default-web-transition-duration: 300ms;
+  --default-web-transition: all 300ms ease;
+  --scrollbar-thumb-color: rgba(140, 140, 140, var(--kiwi-opacity-state-layer-dragged));
+  --zindex-kiwi-modal-low: 199;
+  --zindex-kiwi-modal-medium: 200;
+  --zindex-kiwi-modal-high: 201;
+  --zindex-kiwi-modal-highest: 202;
+  --header-layout-secondary-height: 64px;
+  --kiwi-dropdown-popper-max-height: 240px;
+  --sub-sidebar-width: 208px;
+}
+
+.kiwi-button--elevated-without-shadow {
+  box-shadow: none;
+}

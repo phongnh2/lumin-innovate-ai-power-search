@@ -1,0 +1,4 @@
+# Local toolchain (merge with mise.toml if present). Matches package.json engines + packageManager.
+[tools]
+node = "22.15.0"
+"npm:yarn" = "1.22.22"

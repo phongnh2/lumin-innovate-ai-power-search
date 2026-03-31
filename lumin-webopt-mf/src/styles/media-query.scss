@@ -1,0 +1,31 @@
+$breakpoints: (
+  xss: 360px,
+  xs: 414px,
+  sm: 430px,
+  md: 768px,
+  lg: 880px,
+  lgr: 1024px,
+  xl: 1280px,
+  xxl: 1366px,
+  xxxl: 1920px,
+);
+
+@mixin media-query-up($canvas) {
+  @each $breakpoint, $size in $breakpoints {
+    @if $canvas == $breakpoint {
+      @media only screen and (min-width: $size) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-query-down($canvas) {
+  @each $breakpoint, $size in $breakpoints {
+    @if $canvas == $breakpoint {
+      @media only screen and (width <= calc($size - 0.02px)) {
+        @content;
+      }
+    }
+  }
+}

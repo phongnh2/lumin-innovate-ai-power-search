@@ -1,0 +1,110 @@
+@import "../../constants/lumin-styles.scss";
+
+.LuminButton {
+  $self: &;
+  display: inline-flex;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  padding: 0 12px;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: none;
+  min-height: 32px;
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid;
+  &__label {
+    margin-left: 8px;
+  }
+  &--font-secondary {
+    #{$self}__label {
+      font-family: $font-stack-montserrat;
+    }
+  }
+
+  &--small {
+    height: 32px;
+  }
+  &--large {
+    height: 48px;
+  }
+
+  &--square {
+    min-width: 32px;
+    max-width: 48px;
+    height: 32px;
+    padding: 0;
+  }
+
+  &--disabled {
+    @include themify() {
+      opacity: .5;
+      color: $white;
+    }
+  }
+
+  &--icon-button {
+    padding: 0;
+    min-width: 0;
+    max-width: unset;
+    height: auto;
+    min-height: 0;
+    @include themify() {
+      background-color: transparent;
+      border: none;
+    }
+    &:hover {
+      @include themify() {
+        background-color: transparent;
+      }
+    }
+  }
+  &--full {
+    width: 100%;
+    display: flex;
+  }
+
+  &--secondary {
+    @include themify() {
+      background-color: themed('secondaryButtonBgColor');
+    }
+    color: $secondary;
+    border: 2px solid $smoke;
+    &:hover {
+      @include themify() {
+        background-color: themed('secondaryButtonBgColor');
+      }
+    }
+    #{$self}--outline {
+      color: $secondary;
+      border-color: $cloudyblue;
+      &:hover {
+        background: $white;
+      }
+      background: $white;
+    }
+  }
+  &--danger {
+    background: $accent;
+    border-color: $accent;
+    color: $white;
+  }
+
+  &--outline {
+    color: $secondary;
+    @include themify() {
+      color: themed('squareButtonColor');
+      background: themed('outlineButtonBgColor');
+      border-color: themed('borderColorHeader');
+    }
+    &:hover {
+      @include themify() {
+        background: themed('popperItemHover');
+      }
+    }
+  }
+
+  &--one-line {
+    white-space: nowrap;
+  }
+}
