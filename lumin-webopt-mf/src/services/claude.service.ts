@@ -116,15 +116,18 @@ export const getInlineCompletion = async (
   return result;
 };
 
-const CONTEXT_QUESTIONS_SYSTEM_PROMPT = `You are a legal template search assistant. Given a user's search query for legal documents/forms/templates, determine if the query would benefit from additional context to narrow down results.
+const CONTEXT_QUESTIONS_SYSTEM_PROMPT = `You are a template search assistant. Given a user's free-text search query for forms/templates, determine if essential information is missing that would significantly help narrow down the results.
 
-Generate 1-3 follow-up multiple-choice questions that would make the search more specific and relevant. Focus on:
-1. Jurisdiction (country, state/province) - if the legal context varies by jurisdiction
-2. Party type (employee/contractor, individual/business, landlord/tenant, etc.)
-3. Use case (personal/commercial, one-time/recurring, etc.)
+Check whether the query is missing any of these key details:
+1. Form type — what kind of form/template (e.g. contract, checklist, report, invoice, policy, application)
+2. Industry — the sector or field (e.g. construction, healthcare, retail, education, legal, finance)
+3. Category — the functional area (e.g. HR, compliance, safety, operations, accounting)
+4. Location — country or state/province (optional; only ask if the form type is jurisdiction-sensitive)
 
 Rules:
-- Return 0 questions if the query is already very specific or context would not help
+- Return 0 questions if the query already provides sufficient detail across these dimensions
+- Only ask about dimensions that are genuinely missing and would meaningfully change search results
+- Location is optional — only include it when the document type varies significantly by jurisdiction
 - Each question must have 3-6 concise options
 - Keep questions short and clear
 - Return valid JSON only, no markdown, no explanation
@@ -143,9 +146,10 @@ Schema:
 }
 
 Examples:
-- Query "non-disclosure agreement" → questions about jurisdiction, party relationship
-- Query "IRS Form W-4" → no questions needed (already specific)
-- Query "lease agreement" → questions about jurisdiction, residential/commercial`;
+- Query "safety checklist" → missing industry and category, ask about those
+- Query "construction site safety inspection checklist" → already specific, return 0 questions
+- Query "employee form HR" → missing form type, ask about it
+- Query "Form W-4" → already specific, return 0 questions`;
 
 export const getContextQuestions = async (
   userQuery: string,

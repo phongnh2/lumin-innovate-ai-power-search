@@ -95,6 +95,14 @@ export const useSmartFindingStore = create<SmartFindingStore>()(
           set({ followUpData }, false, "setFollowUpData"),
 
         submitSearch: async (finalText) => {
+          const { mode } = get();
+
+          if (mode === InputMode.GUIDED) {
+            await performSearch(finalText, "submitSearch");
+            return;
+          }
+
+          // Freedom mode: check if query has enough info before showing context
           set(
             produce((state: SmartFindingStore) => {
               state.searchQuery = finalText;
@@ -110,6 +118,11 @@ export const useSmartFindingStore = create<SmartFindingStore>()(
           try {
             const { questions } = await getContextQuestions(finalText);
 
+            if (questions.length === 0) {
+              await performSearch(finalText, "submitSearch");
+              return;
+            }
+
             set(
               produce((state: SmartFindingStore) => {
                 state.contextQuestions = questions;
@@ -123,13 +136,7 @@ export const useSmartFindingStore = create<SmartFindingStore>()(
               "[SmartFinding] Failed to fetch context questions:",
               error,
             );
-            set(
-              produce((state: SmartFindingStore) => {
-                state.isLoadingContext = false;
-              }),
-              false,
-              "submitSearch/contextError",
-            );
+            await performSearch(finalText, "submitSearch");
           }
         },
 

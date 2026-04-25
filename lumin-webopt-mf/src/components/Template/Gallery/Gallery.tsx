@@ -7,6 +7,9 @@ import NewInLumin from "@/components/TemplateLibraryDiscover/components/NewInLum
 import TabNavigation from "@/components/TemplateLibraryDiscover/components/TabNavigation";
 import { TemplateLibraryDiscoverTabs } from "@/components/TemplateLibraryDiscover/constants";
 
+import LifeContent from "./components/LifeContent/LifeContent";
+import WorkContent from "./components/WorkContent/WorkContent";
+
 import styles from "./Gallery.module.scss";
 
 const Gallery = () => {
@@ -31,9 +34,9 @@ const Gallery = () => {
       case TemplateLibraryDiscoverTabs.DISCOVER:
         return commonContent;
       case TemplateLibraryDiscoverTabs.WORK:
-        return commonContent;
+        return <WorkContent />;
       case TemplateLibraryDiscoverTabs.LIFE:
-        return commonContent;
+        return <LifeContent />;
       default:
         return commonContent;
     }

@@ -1,0 +1,202 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-2);
+}
+
+.section {
+  background-color: var(--kiwi-colors-surface-surface);
+  border-radius: var(--kiwi-border-radius-md);
+  padding: var(--kiwi-spacing-3);
+  animation: workSlideIn 0.35s ease-out both;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes workSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sectionHeader {
+  margin-bottom: var(--kiwi-spacing-2);
+}
+
+.sectionTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+  margin: 0 0 var(--kiwi-spacing-0-5);
+
+  @include kiwi-typography-headline-sm;
+}
+
+.sectionSubtitle {
+  color: var(--kiwi-colors-surface-on-surface-low);
+  margin: 0;
+
+  @include kiwi-typography-body-sm;
+}
+
+/* Section 1: Spotlight strip */
+.spotlightRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--kiwi-spacing-2-5);
+}
+
+.spotlightCard {
+  position: relative;
+  padding-left: var(--kiwi-spacing-1-5);
+}
+
+.spotlightAccent {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: var(--kiwi-border-radius-full);
+  background-color: var(--kiwi-colors-core-primary);
+}
+
+/* Section 2: Category chips */
+.categoryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kiwi-spacing-1);
+}
+
+.categoryChip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--kiwi-spacing-0-75) var(--kiwi-spacing-2);
+  border-radius: var(--kiwi-border-radius-sm);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background-color: var(--kiwi-colors-surface-background);
+  color: var(--kiwi-colors-surface-on-surface);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  @include kiwi-typography-label-sm;
+
+  &:hover {
+    background-color: var(--kiwi-colors-core-secondary-container);
+    border-color: var(--kiwi-colors-core-primary);
+    color: var(--kiwi-colors-core-secondary);
+  }
+}
+
+/* Section 3: Compact list */
+.compactList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--kiwi-spacing-1-5);
+}
+
+.compactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--kiwi-spacing-1-5);
+  padding: var(--kiwi-spacing-1-5);
+  border-radius: var(--kiwi-border-radius-md);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  background-color: var(--kiwi-colors-surface-background);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--kiwi-shadow-2);
+    border-color: var(--kiwi-colors-surface-outline);
+    transform: translateY(-1px);
+  }
+}
+
+.compactItemSkeleton {
+  height: 72px;
+  border-radius: var(--kiwi-border-radius-md);
+  background-color: var(--kiwi-colors-surface-container-low);
+  animation: shimmerPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmerPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.compactThumb {
+  flex-shrink: 0;
+  width: 40px;
+  height: 56px;
+  border-radius: var(--kiwi-border-radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+}
+
+.compactThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.compactInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kiwi-spacing-0-5);
+}
+
+.compactCategory {
+  color: var(--kiwi-colors-core-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  @include kiwi-typography-label-xs;
+}
+
+.compactTitle {
+  color: var(--kiwi-colors-surface-on-surface);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include kiwi-typography-title-sm;
+}
+
+.compactUsage {
+  color: var(--kiwi-colors-surface-on-surface-variant);
+
+  @include kiwi-typography-label-xs;
+}
+
+/* Section 4: Dense grid */
+.denseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--kiwi-spacing-2);
+}
+
+.loadTrigger {
+  height: 20px;
+  width: 100%;
+}
