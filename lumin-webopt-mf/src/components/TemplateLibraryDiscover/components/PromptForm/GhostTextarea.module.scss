@@ -7,15 +7,16 @@
 .mirror {
   position: absolute;
   inset: 0;
-  padding: 12px;
+  padding: 12px 14px;
   border: 1px solid transparent;
   font-family: "Inter", sans-serif;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow: hidden;
   pointer-events: none;
+  border-radius: 10px;
 
   @include kiwi-typography-label-md;
 }
@@ -27,54 +28,66 @@
 }
 
 .ghostText {
-  color: #b0b0b0;
+  color: var(--kiwi-colors-surface-on-surface-variant);
+  opacity: 0.45;
   pointer-events: none;
 }
 
 .textarea {
   position: relative;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  min-height: 116px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 10px;
   font-family: "Inter", sans-serif;
   font-size: 15px;
-  color: #000;
+  line-height: 1.6;
+  color: var(--kiwi-colors-surface-on-surface);
   resize: none;
-  height: 100px;
   background: transparent;
-  transition: border-color 0.2s;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   @include kiwi-typography-label-md;
 
   &::placeholder {
-    color: #999;
+    color: var(--kiwi-colors-surface-on-surface-variant);
+    opacity: 0.55;
   }
 
   &:focus {
     outline: none;
     border-color: var(--kiwi-colors-support-purple-background-low);
+    box-shadow: 0 0 0 3px rgb(124 58 237 / 12%);
   }
 }
 
 .tabHint {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: 10px;
+  bottom: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 2px 8px;
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 11px;
-  color: #888;
+  gap: 4px;
+  padding: 3px 7px;
+  background: var(--kiwi-colors-surface-surface, #fff);
+  border: 1px solid var(--kiwi-colors-surface-outline-variant);
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
   pointer-events: none;
   user-select: none;
 }
 
+.tabHintKey {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--kiwi-colors-surface-on-surface);
+  letter-spacing: 0.02em;
+}
+
 .tabHintText {
   font-size: 11px;
-  color: #aaa;
+  color: var(--kiwi-colors-surface-on-surface-variant);
 }

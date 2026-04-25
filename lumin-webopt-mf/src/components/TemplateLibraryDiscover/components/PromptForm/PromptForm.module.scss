@@ -1,21 +1,57 @@
-.content {
-  display: flex;
-  gap: var(--kiwi-spacing-3);
-  align-items: flex-start;
-  margin-bottom: var(--kiwi-spacing-3);
-  min-height: 100px;
-}
-
 .illustration {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  max-width: 0;
+  margin-right: 0;
+  opacity: 0;
+  padding: 0;
+  transition:
+    max-width 0.28s ease,
+    margin-right 0.28s ease,
+    opacity 0.22s ease,
+    padding 0.28s ease;
+}
+
+.illustrationVisible {
+  max-width: 108px;
+  margin-right: var(--kiwi-spacing-3);
+  opacity: 1;
   padding: var(--kiwi-spacing-0-5);
+
+  img {
+    width: 108px;
+    height: 80px;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--kiwi-spacing-3);
+  min-height: 100px;
+}
+
+.contentPanel {
+  flex: 1;
+  animation: panelEnter 0.24s ease-out both;
+}
+
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .promptParagraph {
-  flex: 1;
   line-height: 2.2;
   color: #000;
 

@@ -53,7 +53,8 @@ export const GhostTextarea = ({
       />
       {ghostText && (
         <span className={styles.tabHint}>
-          Tab<span className={styles.tabHintText}> to accept</span>
+          <span className={styles.tabHintKey}>Tab</span>
+          <span className={styles.tabHintText}>to accept</span>
         </span>
       )}
     </div>

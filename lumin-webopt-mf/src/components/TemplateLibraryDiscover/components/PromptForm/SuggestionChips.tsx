@@ -8,6 +8,8 @@ interface SuggestionChipsProps {
   onSelect: (suggestion: AiSuggestion) => void;
 }
 
+const SHIMMER_WIDTHS = [88, 112, 68];
+
 export const SuggestionChips = ({
   suggestions,
   isLoading,
@@ -19,30 +21,25 @@ export const SuggestionChips = ({
 
   return (
     <div className={styles.container}>
-      {isLoading ? (
-        <div className={styles.loadingRow}>
-          <span className={styles.shimmerChip} />
-          <span className={styles.shimmerChip} />
-          <span className={styles.shimmerChip} />
-        </div>
-      ) : (
-        <>
-          <span className={styles.label}>Did you mean:</span>
-          <div className={styles.chipList}>
-            {suggestions.map((suggestion) => (
+      <span className={styles.label}>Did you mean:</span>
+      <div className={styles.chipList}>
+        {isLoading
+          ? SHIMMER_WIDTHS.map((width, i) => (
+              <span key={i} className={styles.shimmerChip} style={{ width }} />
+            ))
+          : suggestions.map((suggestion, i) => (
               <button
                 key={suggestion.corrected}
                 type="button"
                 className={styles.chip}
+                style={{ animationDelay: `${i * 60}ms` }}
                 onClick={() => onSelect(suggestion)}
                 title={`Replace "${suggestion.original}" with "${suggestion.corrected}"`}
               >
                 {suggestion.corrected}
               </button>
             ))}
-          </div>
-        </>
-      )}
+      </div>
     </div>
   );
 };

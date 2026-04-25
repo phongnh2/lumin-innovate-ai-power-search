@@ -160,52 +160,59 @@ export const PromptForm = ({
 
   return (
     <>
-      <h2 className="text-[var(--kiwi-colors-surface-on-surface)] mb-[var(--kiwi-spacing-3)] kiwi-headline-lg mb-2">
+      <h2 className="text-[var(--kiwi-colors-surface-on-surface)] kiwi-headline-lg mb-4">
         Tell us what you&apos;re trying to do?
       </h2>
       <div className={styles.content}>
-        <div className={styles.illustration}>
-          <img src={Hourglass} alt="Hourglass" />
+        <div
+          className={cn(
+            styles.illustration,
+            mode === InputMode.GUIDED && styles.illustrationVisible,
+          )}
+          aria-hidden="true"
+        >
+          <img src={Hourglass} alt="" />
         </div>
-
-        {mode === InputMode.GUIDED ? (
-          <div className={styles.promptParagraph}>
-            <span
-              ref={measureRef}
-              className={styles.measureSpan}
-              aria-hidden="true"
+        <div key={mode} className={styles.contentPanel}>
+          {mode === InputMode.GUIDED ? (
+            <div className={styles.promptParagraph}>
+              <span
+                ref={measureRef}
+                className={styles.measureSpan}
+                aria-hidden="true"
+              />
+              {parts.map((part, index) => (
+                <Fragment key={index}>
+                  <span className={styles.promptText}>{part}</span>
+                  {index < inputCount && (
+                    <input
+                      ref={(el) => (inputRefs.current[index] = el)}
+                      type="text"
+                      className={styles.inlineInput}
+                      placeholder={placeholders[index] || PLACEHOLDER_TEXT}
+                      value={answers[index] || ""}
+                      onChange={(e) => handleInputChange(index, e.target.value)}
+                    />
+                  )}
+                </Fragment>
+              ))}
+              <span className={styles.promptText}></span>
+            </div>
+          ) : acceptedSuggestion ? (
+            <div className={styles.suggestionPreview}>
+              <p className={styles.previewText}>{freeText}</p>
+            </div>
+          ) : (
+            <GhostTextarea
+              value={freeText}
+              ghostText={ghostText}
+              placeholder={animatedPlaceholder}
+              rows={4}
+              onChange={(e) => setFreeText(e.target.value)}
+              onAcceptGhost={handleAcceptGhost}
             />
-            {parts.map((part, index) => (
-              <Fragment key={index}>
-                <span className={styles.promptText}>{part}</span>
-                {index < inputCount && (
-                  <input
-                    ref={(el) => (inputRefs.current[index] = el)}
-                    type="text"
-                    className={styles.inlineInput}
-                    placeholder={placeholders[index] || PLACEHOLDER_TEXT}
-                    value={answers[index] || ""}
-                    onChange={(e) => handleInputChange(index, e.target.value)}
-                  />
-                )}
-              </Fragment>
-            ))}
-            <span className={styles.promptText}></span>
-          </div>
-        ) : acceptedSuggestion ? (
-          <div className={styles.suggestionPreview}>
-            <p className={styles.previewText}>{freeText}</p>
-          </div>
-        ) : (
-          <GhostTextarea
-            value={freeText}
-            ghostText={ghostText}
-            placeholder={animatedPlaceholder}
-            rows={4}
-            onChange={(e) => setFreeText(e.target.value)}
-            onAcceptGhost={handleAcceptGhost}
-          />
-        )}
+          )}
+        </div>
       </div>
 
       {mode === InputMode.FREEDOM && !acceptedSuggestion && (
