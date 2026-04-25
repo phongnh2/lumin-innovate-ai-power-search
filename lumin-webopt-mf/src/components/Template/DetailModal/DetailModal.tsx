@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useRef } from "react";
 
 import InformationBlock from "@/components/Shared/InformationBlock";
 import TemplateDetailBadge from "@/components/Shared/TemplateDetailBadge";
@@ -23,14 +24,17 @@ interface DetailModalProps {
 const DetailModal = ({ isOpen, templateId, onClose }: DetailModalProps) => {
   const { shouldRender, animState } = useAnimatedVisibility(isOpen, 280);
 
+  const stableId = useRef(templateId);
+  if (isOpen && templateId) stableId.current = templateId;
+
   const {
     data: template,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["template", templateId],
-    queryFn: () => templatesApi.getTemplateById(templateId),
-    enabled: !!templateId,
+    queryKey: ["template", stableId.current],
+    queryFn: () => templatesApi.getTemplateById(stableId.current),
+    enabled: !!stableId.current,
     select: ({ template }) => transformTemplate(template),
   });
 

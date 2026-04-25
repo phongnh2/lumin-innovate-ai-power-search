@@ -74,16 +74,4 @@ export const mockLegalTemplates: Template[] = [
     accessible: false,
     fileUrl: "/legal/employment-pack.pdf",
   },
-  {
-    id: "16833",
-    title: "Anti-Discrimination Policy Template",
-    usage: formatUsageCount(1089 + USAGE_OFFSET),
-    thumbnail:
-      "https://imagedelivery.net/Qd8b2GDHhuvG49jL2LdYLQ/5e86708f-6fe8-4953-d94a-bf06629d1200/5x",
-    categories: ["Legal", "Compliance"],
-    eSignCompatible: false,
-    legalReview: true,
-    accessible: false,
-    fileUrl: "/legal/anti-discrimination-policy.pdf",
-  },
 ];

@@ -1,5 +1,6 @@
 .overrideStyle {
   color: var(--kiwi-colors-core-on-secondary);
+  background-color: #000 !important;
 
   @include kiwi-typography-label-lg;
 

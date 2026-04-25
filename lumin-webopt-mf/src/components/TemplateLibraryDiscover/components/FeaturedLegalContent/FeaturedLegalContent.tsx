@@ -8,7 +8,7 @@ import type { ITemplate } from "@/interfaces/template.interface";
 
 import styles from "./FeaturedLegalContent.module.scss";
 
-const TEMPLATE_LIMIT = 7;
+const TEMPLATE_LIMIT = 6;
 
 const FeaturedLegalContent = () => {
   const { data, isLoading, error } = useFeaturedLegalContent(TEMPLATE_LIMIT);

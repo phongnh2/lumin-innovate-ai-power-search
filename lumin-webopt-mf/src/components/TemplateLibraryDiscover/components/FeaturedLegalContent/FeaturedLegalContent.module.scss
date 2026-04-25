@@ -64,10 +64,15 @@
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: var(--kiwi-spacing-2-5);
   width: 100%;
+
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
 }
 
 .ctaSection {
